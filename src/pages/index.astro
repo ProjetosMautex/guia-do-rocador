@@ -1,0 +1,30 @@
+---
+import { Header } from '../components/Header';
+import Home from '../components/Home';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Guia do Roçador | As Melhores Roçadeiras e Ferramentas</title>
+    <meta name="description" content="O guia definitivo para profissionais e entusiastas da jardinagem. Descubra as melhores roçadeiras, lâminas e dicas de manutenção." />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    <main class="flex-grow">
+      <Home client:load />
+    </main>
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

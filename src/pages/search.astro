@@ -1,0 +1,105 @@
+---
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+import { articles } from '../data/articles';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Resultados da Busca | Guia do Roçador</title>
+    <meta name="description" content="Encontre as melhores análises e guias de ferramentas." />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+
+    <main class="bg-white flex-grow">
+      <section class="bg-[#1a1a1a] py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 class="text-3xl md:text-5xl font-black text-white mb-4">
+            Resultados para: <span id="search-query" class="text-[#16A34A]">...</span>
+          </h1>
+          <p class="text-gray-400">Encontramos <span id="results-count" class="font-bold text-white">0</span> resultados</p>
+        </div>
+      </section>
+
+      <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div id="search-results" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          </div>
+
+          <div id="no-results" class="hidden text-center py-20 flex-col items-center justify-center">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Ops! Não encontramos nada.</h2>
+            <p class="text-gray-600 mb-8">Tente pesquisar por termos como "Roçadeira", "Stihl" ou "Nylon".</p>
+            <a href="/" class="bg-[#16A34A] text-white px-8 py-3 rounded-lg font-bold hover:bg-[#15803d] transition-colors inline-block">
+              Voltar para a Home
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+
+    <script define:vars={{ articles }}>
+      // 1. Pega o termo da URL (ex: ?q=rocadeira)
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get('q')?.toLowerCase() || '';
+
+      // 2. Elementos da página
+      const queryDisplay = document.getElementById('search-query');
+      const resultsCount = document.getElementById('results-count');
+      const resultsContainer = document.getElementById('search-results');
+      const noResults = document.getElementById('no-results');
+
+      if (queryDisplay) queryDisplay.textContent = query;
+
+      // 3. Filtra os artigos baseando-se no título ou no resumo (excerpt)
+      const filtered = articles.filter(article => 
+        article.title.toLowerCase().includes(query) || 
+        article.excerpt.toLowerCase().includes(query)
+      );
+
+      // 4. Atualiza o contador
+      if (resultsCount) resultsCount.textContent = filtered.length.toString();
+
+      // 5. Renderiza os cards na tela
+      if (filtered.length > 0) {
+        resultsContainer.innerHTML = filtered.map(item => `
+          <article class="bg-[#F9F9F9] rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all border border-gray-100 flex flex-col h-full group">
+            <div class="relative h-56 overflow-hidden bg-gray-200">
+              <img 
+                src="${item.image}" 
+                alt="${item.title}"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3 class="text-xl font-bold text-[#1a1a1a] mb-3 line-clamp-2">
+                <a href="${item.url}">${item.title}</a>
+              </h3>
+              <p class="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                ${item.excerpt}
+              </p>
+              <a href="${item.url}" class="inline-flex items-center text-[#1a1a1a] font-bold hover:underline decoration-[#16A34A] decoration-2 underline-offset-4">
+                Ler análise completa →
+              </a>
+            </div>
+          </article>
+        `).join('');
+      } else {
+        // Se não tiver nada, mostra a mensagem de "Ops"
+        resultsContainer.classList.add('hidden');
+        noResults.classList.remove('hidden');
+        noResults.classList.add('flex');
+      }
+    </script>
+    <ExitIntentPopup client:load />
+  </body>
+</html>

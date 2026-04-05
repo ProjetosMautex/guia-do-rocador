@@ -1,0 +1,33 @@
+---
+import { Header } from '../../components/Header';
+import { AuthorJoseAilton } from '../../components/AuthorJoseAilton';
+import { Footer } from '../../components/Footer';
+import { CookieConsent } from '../../components/CookieConsent';
+import { ExitIntentPopup } from '../../components/ExitIntentPopup';
+import '../../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>José Ailton da Silva | Especialista de Campo | Guia do Roçador</title>
+    <meta name="description" content="Conheça José Ailton da Silva, especialista em jardinagem e manutenção de áreas externas com mais de 10 anos de vivência prática em ferramentas motorizadas." />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      {/* client:load is important here for interactive elements and scroll intent to function */}
+      <AuthorJoseAilton client:load />
+    </main>
+    
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

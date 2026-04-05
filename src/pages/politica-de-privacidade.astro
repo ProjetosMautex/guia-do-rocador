@@ -1,0 +1,30 @@
+---
+import { Header } from '../components/Header';
+import { PrivacyPolicy } from '../components/PrivacyPolicy';
+import { Footer } from '../components/Footer';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Política de Privacidade | Guia do Roçador</title>
+    <meta name="description" content="Saiba como o Guia do Roçador lida com seus dados, garantindo privacidade e segurança." />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      <PrivacyPolicy />
+    </main>
+    
+    <Footer />
+    
+    <ExitIntentPopup client:load />
+  </body>
+</html>
