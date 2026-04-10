@@ -1,0 +1,37 @@
+---
+import { Header } from '../components/Header';
+import { MelhorRocadeira } from '../components/MelhorRocadeira';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Melhor Roçadeira 2026: Guia Completo e Testes Reais | Guia do Roçador</title>
+    <meta name="description" content="Cansado de mato alto? Descubra a roçadeira perfeita para seu jardim e transforme seu espaço com potência e praticidade!" />
+    <meta property="og:title" content="Melhor Roçadeira 2026: Guia Completo e Testes Reais" />
+    <meta property="og:description" content="Comparativo das melhores roçadeiras de 2026. Testes reais de potência, durabilidade e custo-benefício." />
+    <meta property="og:image" content="/images/blog/melhor roçadeira.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://guiadorocador.com.br/melhor-rocadeira" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      <MelhorRocadeira client:load />
+    </main>
+    
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

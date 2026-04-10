@@ -4,25 +4,41 @@ export interface Product {
 }
 
 export const products: Record<string, Product> = {
-  "rocadeira-stihl-fs-120": {
-    name: "Roçadeira a Gasolina Stihl FS 120",
-    link: "https://amzn.to/3example"
+  "husqvarna-143rs": {
+    name: "Husqvarna 143rs",
+    link: "https://meli.la/2XM9of6"
   },
-  "rocadeira-husqvarna-226r": {
-    name: "Roçadeira Husqvarna 226r",
-    link: "https://amzn.to/4example"
+  "vulcan-vr520h": {
+    name: "Vulcan VR520H",
+    link: "https://amzn.to/3NTJALP"
   },
-  "rocadeira-eletrica-tramontina-1000w": {
-    name: "Roçadeira Elétrica Tramontina 1000W",
-    link: "https://meli.la/1example"
+  "trapp-master-1000": {
+    name: "Trapp Master 1000",
+    link: "https://meli.la/24phx6d"
   },
-  "rocadeira-bateria-makita-dur181z": {
-    name: "Roçadeira a Bateria Makita DUR181Z",
-    link: "https://amzn.to/5example"
+  "tramontina-ap1500t": {
+    name: "Tramontina AP1500T",
+    link: "https://amzn.to/3Q107y3"
   },
-  "fio-de-nylon-stihl": {
-    name: "Fio de Nylon Stihl 2,4mm",
-    link: "https://meli.la/2example"
+  "tekna-bc-1250ss": {
+    name: "Tekna BC 1250SS",
+    link: "https://amzn.to/41kt2j4"
+  },
+  "intech-machine-skim4300": {
+    name: "SKIM4300 Intech Machine",
+    link: "https://meli.la/1eL1tRT"
+  },
+  "vulcan-trent-vr430p": {
+    name: "Vr430P Vulcan Trent",
+    link: "https://amzn.to/4vqTIwu"
+  },
+  "branco-52cc-profissional": {
+    name: "Roçadeira 52cc Profissional Branco A Combustão",
+    link: "https://meli.la/1mXcVZD"
+  },
+  "carbon-fak-52cc-2.5hp": {
+    name: "Roçadeira 52cc 2,5hp Carbon Fak",
+    link: "https://meli.la/2E3nRQj"
   }
 };
 

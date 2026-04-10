@@ -1,49 +1,58 @@
 import React from 'react';
-import { ShoppingCart } from 'lucide-react';
 import { products, type ProductId } from '../data/products';
+import { ShoppingCart } from 'lucide-react';
 
-interface AffiliateCardProps {
-  productId: ProductId;
-  price?: string;
-  image?: string;
+interface Props {
+  id?: ProductId;
+  productId?: ProductId;
+  compact?: boolean;
 }
 
-export const AffiliateCard: React.FC<AffiliateCardProps> = ({ productId, price, image }) => {
-  const product = products[productId];
-  
-  if (!product) {
-    return <div className="p-4 bg-red-100 text-red-700 rounded border border-red-300">Produto {productId} não encontrado.</div>;
+export const AffiliateCard: React.FC<Props> = ({ id, productId, compact = false }) => {
+  const targetId = id || productId;
+  const product = targetId ? products[targetId] : undefined;
+
+  if (!product) return null;
+
+  // Versão Compacta (usada em grids ou barras laterais)
+  if (compact) {
+    return (
+      <div className="flex flex-col items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all h-full">
+        <h3 className="text-sm font-bold text-[#1a1a1a] text-center mb-3 line-clamp-2 min-h-[2.5rem]">
+          {product.name}
+        </h3>
+        <a
+          href={product.link}
+          target="_blank"
+          rel="noopener noreferrer sponsored nofollow"
+          className="w-full bg-[#16A34A] text-white text-xs font-bold py-2 px-3 rounded hover:bg-[#15803d] transition-colors text-center flex items-center justify-center gap-2 no-underline uppercase"
+        >
+          VER PREÇO
+        </a>
+      </div>
+    );
   }
 
+  // Versão Principal (usada no meio do artigo)
   return (
-    <div className="border border-gray-200 rounded-xl p-4 flex flex-col sm:flex-row items-center gap-6 bg-white shadow-sm hover:shadow-md transition-shadow my-8">
-      {image && (
-        <div className="w-32 h-32 flex-shrink-0 bg-gray-50 rounded-lg overflow-hidden p-2 flex items-center justify-center">
-          <img 
-            src={image} 
-            alt={product.name} 
-            className="w-full h-auto object-contain" 
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = 'https://placehold.co/300x300?text=Produto';
-            }}
-          />
-        </div>
-      )}
-      <div className="flex-grow text-center sm:text-left flex flex-col justify-center">
-        <h3 className="text-xl font-bold text-[#1a1a1a] mb-2">{product.name}</h3>
-        {price && <p className="text-2xl font-bold text-[#1a1a1a] mb-4">A partir de <span className="text-[#16A34A]">{price}</span></p>}
-        <div className="mt-auto pt-2">
-          <a 
-            href={product.link}
-            target="_blank"
-            rel="noopener noreferrer nofollow"
-            className="inline-flex items-center justify-center gap-2 bg-[#16A34A] text-white px-6 py-3 rounded-lg font-bold w-full sm:w-auto hover:bg-[#15803d] transition-colors shadow-md"
-          >
-            <ShoppingCart size={20} />
-            Ver Oferta
-          </a>
-        </div>
+    <div className="my-10 flex flex-col items-center text-center p-8 bg-white rounded-2xl border-2 border-[#16A34A] shadow-xl">
+      <div className="text-2xl font-bold text-[#1a1a1a] mb-8 max-w-2xl leading-tight">
+        {product.name}
       </div>
+      
+      <a
+        href={product.link}
+        target="_blank"
+        rel="noopener noreferrer sponsored nofollow"
+        className="flex items-center justify-center gap-3 bg-[#16A34A] text-white px-10 py-5 rounded-xl font-black text-xl hover:scale-105 transition-all w-full sm:w-auto shadow-lg no-underline uppercase tracking-tight"
+      >
+        <ShoppingCart size={28} strokeWidth={3} />
+        CLIQUE AQUI PARA VER O PREÇO
+      </a>
+      
+      <p className="mt-4 text-xs text-gray-500 italic">
+        * Você será redirecionado para a loja oficial
+      </p>
     </div>
   );
 };
