@@ -7,7 +7,7 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    title: "Melhor Roçadeira 2026: Guia Completo e Testes Reais",
+    title: "Melhor Roçadeira 2026 As 9 Melhores (Gasolina e Elétrica)",
     url: "/melhor-rocadeira",
     image: "/images/blog/melhor roçadeira.webp",
     excerpt: "Cansado de mato alto? Descubra a roçadeira perfeita para seu jardim e transforme seu espaço com potência e praticidade!"

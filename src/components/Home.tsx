@@ -40,10 +40,10 @@ export default function Home() {
 
   const highlights = [
     {
-      title: "Melhor Roçadeira 2026: Testamos as 11 Melhores (Guia Definitivo)",
+      title: "Melhor Roçadeira 2026 As 9 Melhores (Gasolina e Elétrica)",
       url: "/melhor-rocadeira",
-      image: "https://placehold.co/600x400?text=Rocadeira",
-      excerpt: "Mato alto e capim denso? Nosso guia revela qual é a roçadeira ideal para limpar o seu terreno com facilidade!"
+      image: "/images/blog/melhor roçadeira.webp",
+      excerpt: "Cansado de mato alto? Descubra a roçadeira perfeita para seu jardim e transforme seu espaço com potência e praticidade!"
     },
     {
       title: "Roçadeiras a Gasolina vs Elétricas: Qual a Melhor Escolha para o seu Jardim?",
