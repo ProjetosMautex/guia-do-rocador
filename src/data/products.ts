@@ -18,7 +18,7 @@ export const products: Record<string, Product> = {
   },
   "tramontina-ap1500t": {
     name: "Tramontina AP1500T",
-    link: "https://amzn.to/3Q107y3"
+    link: "https://meli.la/1MqTgPc"
   },
   "tekna-bc-1250ss": {
     name: "Tekna BC 1250SS",
@@ -39,6 +39,26 @@ export const products: Record<string, Product> = {
   "carbon-fak-52cc-2.5hp": {
     name: "Roçadeira 52cc 2,5hp Carbon Fak",
     link: "https://meli.la/2E3nRQj"
+  },
+  "rocadeira-eletrica-br-1300c": {
+    name: "Roçadeira Elétrica BR 1300C",
+    link: "https://meli.la/2tqH2VP"
+  },
+  "trapp-master-at-1500": {
+    name: "Trapp Master AT-1500",
+    link: "https://meli.la/1Moamyo"
+  },
+  "tekna-bc1250e1ss": {
+    name: "Tekna BC1250E1SS",
+    link: "https://meli.la/1ge8BXJ"
+  },
+  "tramontina-master-1000": {
+    name: "Tramontina Master 1000",
+    link: "https://meli.la/1wHbKiR"
+  },
+  "garthen-gre-2000": {
+    name: "GARTHEN GRE-2000",
+    link: "https://meli.la/1UbEruS"
   }
 };
 

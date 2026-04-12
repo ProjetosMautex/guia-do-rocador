@@ -1,0 +1,37 @@
+---
+import { Header } from '../components/Header';
+import { MelhorRocadeiraEletrica } from '../components/MelhorRocadeiraEletrica';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>7 Melhores Roçadeiras Elétricas (2026) Trapp, Vulcan e Mais</title>
+    <meta name="description" content="Cansado de mato alto? Descubra a roçadeira elétrica perfeita para seu jardim e diga adeus ao trabalho duro! Clique e transforme seu espaço!" />
+    <meta property="og:title" content="7 Melhores Roçadeiras Elétricas (2026) Trapp, Vulcan e Mais" />
+    <meta property="og:description" content="Descubra a roçadeira elétrica perfeita para seu jardim com nosso guia completo." />
+    <meta property="og:image" content="/images/blog/Serviços de jardinagens em geral.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://guiadorocador.com.br/melhor-rocadeira-eletrica" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      <MelhorRocadeiraEletrica client:load />
+    </main>
+    
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

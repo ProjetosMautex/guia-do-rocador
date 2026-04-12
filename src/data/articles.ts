@@ -13,10 +13,10 @@ export const articles: Article[] = [
     excerpt: "Cansado de mato alto? Descubra a roçadeira perfeita para seu jardim e transforme seu espaço com potência e praticidade!"
   },
   {
-    title: "Roçadeiras a Gasolina vs Elétricas: Qual a Melhor Escolha para o seu Jardim?",
-    url: "/rocadeira-gasolina-vs-eletrica",
-    image: "https://placehold.co/600x400?text=Rocadeira",
-    excerpt: "Na dúvida entre potência bruta e praticidade? Descubra qual tipo de motor atende melhor à sua necessidade."
+    title: "7 Melhores Roçadeiras Elétricas (2026) Trapp, Vulcan e Mais",
+    url: "/melhor-rocadeira-eletrica",
+    image: "/images/blog/Serviços de jardinagens em geral.webp",
+    excerpt: "Cansado de mato alto? Descubra a roçadeira elétrica perfeita para seu jardim e diga adeus ao trabalho duro! Clique e transforme seu espaço!"
   },
   {
     title: "Stihl ou Husqvarna? O Comparativo Definitivo das Gigantes",
