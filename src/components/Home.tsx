@@ -46,16 +46,16 @@ export default function Home() {
       excerpt: "Cansado de mato alto? Descubra a roçadeira perfeita para seu jardim e transforme seu espaço com potência e praticidade!"
     },
     {
+      title: "Stihl ou Husqvarna Qual a Melhor Roçadeira a Gasolina em 2026?",
+      url: "/qual-a-melhor-rocadeira-a-gasolina-stihl-ou-husqvarna",
+      image: "/images/blog/qual a melhor roçadeira a gasolina stihl ou husqvarna.webp",
+      excerpt: "Stihl ou Husqvarna em 2026: Qual a melhor roçadeira a gasolina para você? Descubra a campeã para o seu jardim e economize!"
+    },
+    {
       title: "7 Melhores Roçadeiras Elétricas (2026) Trapp, Vulcan e Mais",
       url: "/melhor-rocadeira-eletrica",
       image: "/images/blog/Serviços de jardinagens em geral.webp",
       excerpt: "Cansado de mato alto? Descubra a roçadeira elétrica perfeita para seu jardim e diga adeus ao trabalho duro! Clique e transforme seu espaço!"
-    },
-    {
-      title: "Stihl ou Husqvarna? O Comparativo Definitivo das Gigantes",
-      url: "/stihl-vs-husqvarna",
-      image: "https://placehold.co/600x400?text=Rocadeira",
-      excerpt: "Colocamos as duas marcas líderes frente a frente para você decidir qual merece o seu investimento."
     },
     {
       title: "Guia de Manutenção: Como Manter Sua Roçadeira Sempre Nova",

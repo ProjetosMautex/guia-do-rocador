@@ -59,6 +59,22 @@ export const products: Record<string, Product> = {
   "garthen-gre-2000": {
     name: "GARTHEN GRE-2000",
     link: "https://meli.la/1UbEruS"
+  },
+  "husqvarna-321r": {
+    name: "Husqvarna 321r",
+    link: "https://meli.la/26KGDzN"
+  },
+  "husqvarna-236rs": {
+    name: "Husqvarna 236rs",
+    link: "https://meli.la/2jk2x7V"
+  },
+  "stihl-rl430acn-tk-com-oleo": {
+    name: "Stihl Rl430acn-tk com Óleo",
+    link: "https://meli.la/2dLC1fL"
+  },
+  "stihl-fs-221": {
+    name: "Stihl FS 221",
+    link: "https://meli.la/1QFHtYg"
   }
 };
 

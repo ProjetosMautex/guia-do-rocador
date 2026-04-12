@@ -1,0 +1,37 @@
+---
+import { Header } from '../components/Header';
+import { StihlVsHusqvarna } from '../components/StihlVsHusqvarna';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Stihl ou Husqvarna Qual a Melhor Roçadeira a Gasolina em 2026?</title>
+    <meta name="description" content="Stihl ou Husqvarna em 2026: Qual a melhor roçadeira a gasolina para você? Descubra a campeã para o seu jardim e economize!" />
+    <meta property="og:title" content="Stihl ou Husqvarna Qual a Melhor Roçadeira a Gasolina em 2026?" />
+    <meta property="og:description" content="Stihl ou Husqvarna em 2026: Qual a melhor roçadeira a gasolina para você? Descubra a campeã para o seu jardim e economize!" />
+    <meta property="og:image" content="/images/blog/qual a melhor roçadeira a gasolina stihl ou husqvarna.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://guiadorocador.com.br/qual-a-melhor-rocadeira-a-gasolina-stihl-ou-husqvarna" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      <StihlVsHusqvarna client:load />
+    </main>
+    
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>
