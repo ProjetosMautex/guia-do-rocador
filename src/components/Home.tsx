@@ -64,10 +64,10 @@ export default function Home() {
       excerpt: "Aprenda dicas essenciais de lubrificação, limpeza de filtro e mistura de óleo para prolongar a vida da sua máquina."
     },
     {
-      title: "As 5 Melhores Lâminas e Fios de Nylon do Mercado",
-      url: "/melhores-acessorios",
-      image: "https://placehold.co/600x400?text=Rocadeira",
-      excerpt: "De capim fino a pequenos arbustos: veja as análises dos melhores acessórios de corte."
+      title: "6 Melhores Fios de Nylon para Roçadeira de 2026 Guia de Compra",
+      url: "/qual-o-melhor-fio-de-nylon-para-rocadeira",
+      image: "/images/blog/qual o melhor fio de nylon para rocadeira.webp",
+      excerpt: "A escolha do fio de nylon ideal para sua roçadeira influencia diretamente na eficiência e durabilidade do trabalho. Descubra os 6 melhores..."
     },
     {
       title: "Segurança em Primeiro Lugar: EPIs Essenciais para Operar Roçadeiras",

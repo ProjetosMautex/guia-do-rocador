@@ -75,6 +75,42 @@ export const products: Record<string, Product> = {
   "stihl-fs-221": {
     name: "Stihl FS 221",
     link: "https://meli.la/1QFHtYg"
+  },
+  "rocadeira-a-gasolina-multifuncional-bi-partido-bascco": {
+    name: "Roçadeira A Gasolina Multifuncional Bi-partido Bascco",
+    link: "https://meli.la/1PS1et8"
+  },
+  "fio-de-nylon-duraline-3mm-quadrado-255m": {
+    name: "Fio de Nylon Duraline 3mm Quadrado 255m",
+    link: "https://meli.la/2PExUfX"
+  },
+  "kit-misturador-oleo-2t": {
+    name: "KIT MISTURADOR + ÓLEO 2T",
+    link: "https://meli.la/1GP142t"
+  },
+  "kit-seguranca-completo-epis": {
+    name: "KIT SEGURANÇA COMPLETO (EPIs)",
+    link: "https://meli.la/1hqH1JJ"
+  },
+  "fio-de-nylon-quadrado-30mm-laranja-itece": {
+    name: "Fio De Nylon Quadrado 3,0mm Laranja Itecê",
+    link: "https://meli.la/2wmCUHQ"
+  },
+  "fio-de-nylon-24-mm-e-12-m-tramontina": {
+    name: "Fio De Nylon 2,4 Mm e 12 M Tramontina",
+    link: "https://meli.la/2hTvvXf"
+  },
+  "fio-nylon-2kg-bitola-2-4mm-rocast": {
+    name: "Fio Nylon 2kg Bitola 2.4mm Rocast",
+    link: "https://meli.la/154yS2a"
+  },
+  "fio-de-nylon-quadrado-2-70mm-15-m-vulcan": {
+    name: "Fio de Nylon Quadrado 2,70mm 15 M VULCAN",
+    link: "https://meli.la/2UEReeT"
+  },
+  "fio-nylon-3mm-quadrado-2kg-200m-nakasaki": {
+    name: "Fio Nylon 3mm Quadrado 2kg 200m NAKASAKI",
+    link: "https://meli.la/1GdsKX7"
   }
 };
 

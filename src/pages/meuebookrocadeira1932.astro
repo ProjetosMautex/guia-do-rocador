@@ -1,0 +1,35 @@
+---
+import { MelhorEbook } from '../components/MelhorEbook';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Mestre das Ferramentas - Guia Gratuito" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>Ebook: 5 Projetos Práticos</title>
+
+		<!-- Google Analytics GA4 -->
+		<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-DV27LFW49F"></script>
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-DV27LFW49F');
+		</script>
+	</head>
+	<body class="min-h-screen flex flex-col bg-[#1a1a1a]">
+		<main class="flex-grow w-full">
+			<MelhorEbook client:load />
+		</main>
+	</body>
+</html>
+
+<style is:global>
+	html {
+		scroll-behavior: smooth;
+	}
+</style>
