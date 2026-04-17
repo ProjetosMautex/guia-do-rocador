@@ -111,6 +111,10 @@ export const products: Record<string, Product> = {
   "fio-nylon-3mm-quadrado-2kg-200m-nakasaki": {
     name: "Fio Nylon 3mm Quadrado 2kg 200m NAKASAKI",
     link: "https://meli.la/1GdsKX7"
+  },
+  "rocadeira-husqvarna-331r": {
+    name: "Roçadeira Husqvarna 331R",
+    link: "https://meli.la/2FeTyDL"
   }
 };
 

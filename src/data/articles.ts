@@ -31,12 +31,11 @@ export const articles: Article[] = [
     excerpt: "A escolha do fio de nylon ideal para sua roçadeira influencia diretamente na eficiência e durabilidade do trabalho. Descubra os 6 melhores..."
   },
   {
-    title: "Guia de Manutenção: Como Manter Sua Roçadeira Sempre Nova",
-    url: "/manutencao-rocadeira",
-    image: "https://placehold.co/600x400?text=Rocadeira",
-    excerpt: "Aprenda dicas essenciais de lubrificação, limpeza de filtro e mistura de óleo para prolongar a vida da sua máquina."
+    title: "Roçadeira Husqvarna 131R é Boa? Vale o Investimento em 2026?",
+    url: "/rocadeira-husqvarna-131r-e-boa",
+    image: "/images/blog/roçadeira husqvarna 131r é boa.webp",
+    excerpt: "Roçadeira 131R ainda vale a pena? Descubra se a versatilidade e robustez compensam a idade. Análise completa para não errar na escolha!"
   },
-
   {
     title: "Segurança em Primeiro Lugar: EPIs Essenciais para Operar Roçadeiras",
     url: "/epis-essenciais",

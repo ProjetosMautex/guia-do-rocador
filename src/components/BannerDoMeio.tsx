@@ -18,7 +18,9 @@ export const BannerDoMeio: React.FC = () => {
         body: JSON.stringify({ email }),
       });
       if (res.ok) {
+        sessionStorage.setItem('emailSubmitted', 'true');
         setStatus('success');
+        window.location.href = 'https://guiadorocador.com.br/meuebookrocadeira1932';
       } else {
         setStatus('idle');
         alert('Erro ao registrar. Tente novamente.');
@@ -54,36 +56,42 @@ export const BannerDoMeio: React.FC = () => {
 
   return (
     <div className="my-12">
-      <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 text-center tracking-tight leading-tight">
-        <span role="img" aria-label="folha">🌿</span> Dica de Mestre
+      <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 text-center tracking-tight leading-tight uppercase">
+        🛠️ Mão na Massa
       </h2>
       
-      <div className="w-full bg-gray-50 rounded-xl border border-dotted border-gray-400 p-6 md:p-8 text-gray-800 shadow-sm">
-        <div className="flex flex-col items-center text-center gap-4">
+      <div className="w-full bg-gray-50 rounded-2xl border border-dashed border-gray-300 p-6 md:p-10 text-gray-800 shadow-sm border-2">
+        <div className="flex flex-col items-center text-center gap-6">
           
-          <div className="w-full">
-            <p className="text-base md:text-lg text-gray-700 font-medium max-w-2xl mx-auto mb-2 leading-relaxed">
-              🎁 <strong className="text-gray-900">Guia Grátis:</strong> Aprenda a escolher roçadeiras profissionais pagando preço de hobby e não jogue seu dinheiro fora.
+          <div className="w-full space-y-4">
+            <h3 className="text-xl md:text-2xl font-black text-gray-900 leading-tight">
+              🛠️ Cansado de gastar com diárias de roçadores?
+            </h3>
+            <p className="text-base md:text-lg text-gray-600 font-medium max-w-2xl mx-auto leading-relaxed">
+              Descubra como limpar seu terreno na metade do tempo e economize até <span className="text-[#16A34A] font-bold">R$ 2.000 por ano</span> cuidando você mesmo da sua propriedade.
             </p>
+            <div className="pt-2 text-[#16A34A] font-black text-sm tracking-widest uppercase italic">
+              Baixe agora o Guia Grátis:
+            </div>
           </div>
 
-          <div className="w-full max-w-md mt-2">
+          <div className="w-full max-w-md">
             <form onSubmit={handleSubmit} className="flex flex-col gap-3">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Deixe aqui seu melhor email"
-                className="w-full px-4 py-3 bg-white text-gray-900 border border-gray-300 placeholder-gray-500 rounded focus:outline-none focus:ring-2 focus:ring-[#16A34A] text-base shadow-sm"
+                placeholder="Digite seu melhor e-mail aqui..."
+                className="w-full px-4 py-3 bg-white text-gray-900 border-2 border-gray-200 placeholder-gray-400 rounded-xl focus:outline-none focus:ring-4 focus:ring-[#16A34A]/20 focus:border-[#16A34A] text-base transition-all"
                 required
               />
               
               <button
                 type="submit"
                 disabled={status === 'submitting' || !isValidEmail}
-                className="w-full bg-[#16A34A] hover:bg-[#15803d] text-white font-bold py-3 px-4 rounded text-base transition-colors disabled:opacity-50 shadow-sm"
+                className="w-full bg-[#16A34A] hover:bg-[#15803d] text-white font-black py-4 px-4 rounded-xl text-base transition-all shadow-lg shadow-green-900/20 active:scale-95 disabled:opacity-50"
               >
-                {status === 'submitting' ? '...' : 'Me mostre os modelos profissionais'}
+                {status === 'submitting' ? 'Aguarde...' : 'BAIXAR GUIA GRATUITO'}
               </button>
             </form>
           </div>
