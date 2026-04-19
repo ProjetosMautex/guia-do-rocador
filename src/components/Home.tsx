@@ -70,10 +70,10 @@ export default function Home() {
       excerpt: "A escolha do fio de nylon ideal para sua roçadeira influencia diretamente na eficiência e durabilidade do trabalho. Descubra os 6 melhores..."
     },
     {
-      title: "Segurança em Primeiro Lugar: EPIs Essenciais para Operar Roçadeiras",
-      url: "/epis-essenciais",
-      image: "https://placehold.co/600x400?text=Rocadeira",
-      excerpt: "Conheça os equipamentos de proteção que não podem faltar para operar com segurança e tranquilidade."
+      title: "Roçadeira Nakasaki é Boa? [Review de 3 Modelos em 2026]",
+      url: "/rocadeira-nakasaki-e-boa",
+      image: "/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp",
+      excerpt: "Se você está considerando a compra de uma roçadeira Nakasaki, provavelmente se deparou com essa dúvida. Para auxiliar nessa decisão, vamos analisar alguns modelos disponíveis no mercado."
     }
   ];
 
@@ -144,7 +144,7 @@ export default function Home() {
               </div>
               <div className="relative h-full min-h-[300px] bg-gray-900 rounded-2xl overflow-hidden flex items-center justify-center border border-gray-800">
                 {/* Imagem de fundo simulada ou padrão, com opacidade */}
-                <div className="absolute inset-0 opacity-10 bg-cover bg-center" style={{ backgroundImage: "url('https://placehold.co/800x600/16A34A/000000?text=Jardim')" }}></div>
+                <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/home/imparcial-background.png')" }}></div>
                 <div className="relative z-10 text-center p-8">
                   <ShieldCheck className="w-24 h-24 text-[#16A34A] mx-auto mb-4" strokeWidth={2} />
                   <h3 className="text-2xl font-bold text-white">100% Imparcial</h3>

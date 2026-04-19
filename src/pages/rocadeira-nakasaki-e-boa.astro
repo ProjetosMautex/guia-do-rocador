@@ -1,0 +1,37 @@
+---
+import { Header } from '../components/Header';
+import { RocadeiraNakasakiEBoa } from '../components/RocadeiraNakasakiEBoa';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Roçadeira Nakasaki é Boa? [Review de 3 Modelos em 2026] | Guia do Roçador</title>
+    <meta name="description" content="Nakasaki te frustrando? Descubra a lâmina ideal e turbine sua roçadeira! Guia definitivo para cortes perfeitos e sem dor de cabeça!" />
+    <meta property="og:title" content="Roçadeira Nakasaki é Boa? [Review de 3 Modelos em 2026]" />
+    <meta property="og:description" content="Nakasaki te frustrando? Descubra a lâmina ideal e turbine sua roçadeira! Guia definitivo para cortes perfeitos e sem dor de cabeça!" />
+    <meta property="og:image" content="/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://guiadorocador.com.br/rocadeira-nakasaki-e-boa" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      <RocadeiraNakasakiEBoa client:load />
+    </main>
+    
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

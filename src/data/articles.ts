@@ -37,9 +37,9 @@ export const articles: Article[] = [
     excerpt: "Roçadeira 131R ainda vale a pena? Descubra se a versatilidade e robustez compensam a idade. Análise completa para não errar na escolha!"
   },
   {
-    title: "Segurança em Primeiro Lugar: EPIs Essenciais para Operar Roçadeiras",
-    url: "/epis-essenciais",
-    image: "https://placehold.co/600x400?text=Rocadeira",
-    excerpt: "Conheça os equipamentos de proteção que não podem faltar para operar com segurança e tranquilidade."
+    title: "Roçadeira Nakasaki é Boa? [Review de 3 Modelos em 2026]",
+    url: "/rocadeira-nakasaki-e-boa",
+    image: "/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp",
+    excerpt: "Se você está considerando a compra de uma roçadeira Nakasaki, provavelmente se deparou com essa dúvida. Para auxiliar nessa decisão, vamos analisar alguns modelos disponíveis no mercado."
   }
 ];

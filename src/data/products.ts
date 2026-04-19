@@ -115,6 +115,22 @@ export const products: Record<string, Product> = {
   "rocadeira-husqvarna-331r": {
     name: "Roçadeira Husqvarna 331R",
     link: "https://meli.la/2FeTyDL"
+  },
+  "rocadeira-a-gasolina-costal-2-tempos-65cc-nakasaki": {
+    name: "Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki",
+    link: "https://meli.la/17Wz3qW"
+  },
+  "rocadeira-gasolina-profissional-nakasaki-2t-75cc-com-trimmer": {
+    name: "Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer",
+    link: "https://meli.la/1npHEar"
+  },
+  "carretel-para-rocadeira-autocut-26-2-stihl-original": {
+    name: "Carretel Para Roçadeira Autocut 26-2 Stihl Original",
+    link: "https://meli.la/2KbAHoR"
+  },
+  "rocadeira-gasolina-65cc-nakasaki-nk-650at-3hp-2-tempos-eixo-bipartido": {
+    name: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido",
+    link: "https://meli.la/2Ljzyao"
   }
 };
 
