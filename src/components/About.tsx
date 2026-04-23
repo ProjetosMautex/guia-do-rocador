@@ -4,17 +4,6 @@ import { CheckCircle2, Clock, Smartphone, Mail, MapPin, Wrench, ShieldCheck, Zap
 export const About: React.FC = () => {
   const team = [
     {
-      name: "Murilo",
-      slug: "murilo",
-      role: "Fundador e Especialista em SEO",
-      image: "/images/autores/murilo.webp",
-      description: [
-        "Sou o Murilo, fundador do Guia do Roçador e especialista em SEO aplicado a projetos de jardinagem e equipamentos de micronicho.",
-        "Meu trabalho é estruturar conteúdos que realmente ajudem o consumidor, ao mesmo tempo em que constroem autoridade temática nos mecanismos de busca. Atuo com planejamento editorial, organização de silos de conteúdo e interligação estratégica entre páginas, sempre focado na intenção real de quem está planejando comprar uma ferramenta ou cuidar bem dela.",
-        "No Guia do Roçador, sou responsável por definir a arquitetura do site, revisar a consistência dos textos e garantir que cada conteúdo entregue respostas práticas e diretas, sem superficialidade."
-      ]
-    },
-    {
       name: "José Ailton da Silva",
       slug: "jose-ailton",
       role: "Especialista em Jardinagem e Áreas Externas",
