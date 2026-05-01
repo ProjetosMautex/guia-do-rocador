@@ -41,5 +41,17 @@ export const articles: Article[] = [
     url: "/rocadeira-nakasaki-e-boa",
     image: "/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp",
     excerpt: "Se você está considerando a compra de uma roçadeira Nakasaki, provavelmente se deparou com essa dúvida. Para auxiliar nessa decisão, vamos analisar alguns modelos disponíveis no mercado."
+  },
+  {
+    title: "Como Ligar Roçadeira a Gasolina (Motor Frio): Passo a Passo",
+    url: "/como-ligar-rocadeira",
+    image: "/images/blog/como-ligar-rocadeira-principal.webp",
+    excerpt: "Evite falhas e desgaste na partida da roçadeira: descubra como garantir eficiência, proteger o motor e trabalhar sem esforços desnecessários."
+  },
+  {
+    title: "Como Desafogar Roçadeira em 2 Minutos [Passo a Passo]",
+    url: "/como-desafogar-rocadeira",
+    image: "/images/blog/como desafogar roçadeira.webp",
+    excerpt: "Roçadeira engasgada? 😩 Pare de perder tempo! ⏳ Desvende o segredo para destravar sua máquina em minutos e turbine seu jardim! ✨"
   }
 ];

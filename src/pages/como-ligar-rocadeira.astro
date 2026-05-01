@@ -1,0 +1,37 @@
+---
+import { Header } from '../components/Header';
+import { ComoLigarRocadeira } from '../components/ComoLigarRocadeira';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Como Ligar Roçadeira a Gasolina (Motor Frio): Passo a Passo | Guia do Roçador</title>
+    <meta name="description" content="Evite falhas e desgaste na partida da roçadeira: descubra como garantir eficiência, proteger o motor e trabalhar sem esforços desnecessários." />
+    <meta property="og:title" content="Como Ligar Roçadeira a Gasolina (Motor Frio): Passo a Passo" />
+    <meta property="og:description" content="Evite falhas e desgaste na partida da roçadeira: descubra como garantir eficiência, proteger o motor e trabalhar sem esforços desnecessários." />
+    <meta property="og:image" content="/images/blog/como ligar roçadeira.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://guiadorocador.com.br/como-ligar-rocadeira" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      <ComoLigarRocadeira client:load />
+    </main>
+    
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

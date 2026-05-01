@@ -1,0 +1,37 @@
+---
+import { Header } from '../components/Header';
+import { ComoDesafogarRocadeira } from '../components/ComoDesafogarRocadeira';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Como Desafogar Roçadeira em 2 Minutos [Passo a Passo] | Guia do Roçador</title>
+    <meta name="description" content="Roçadeira engasgada? 😩 Pare de perder tempo! ⏳ Desvende o segredo para destravar sua máquina em minutos e turbine seu jardim! ✨" />
+    <meta property="og:title" content="Como Desafogar Roçadeira em 2 Minutos [Passo a Passo]" />
+    <meta property="og:description" content="Roçadeira engasgada? 😩 Pare de perder tempo! ⏳ Desvende o segredo para destravar sua máquina em minutos e turbine seu jardim! ✨" />
+    <meta property="og:image" content="/images/blog/como desafogar roçadeira.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://guiadorocador.com.br/como-desafogar-rocadeira" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      <ComoDesafogarRocadeira client:load />
+    </main>
+    
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>
