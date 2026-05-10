@@ -1,0 +1,37 @@
+---
+import { Header } from '../components/Header';
+import { ComoColocarFioRocadeira } from '../components/ComoColocarFioRocadeira';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopup } from '../components/ExitIntentPopup';
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Como Colocar Fio na Roçadeira sem Embolar: Guia Prático | Guia do Roçador</title>
+    <meta name="description" content="Cansado de fios de roçadeira que travam? Aprenda o método definitivo para recarregar seu carretel sem erros e mantenha seu jardim impecável com agilidade." />
+    <meta property="og:title" content="Como Colocar Fio na Roçadeira sem Embolar: Guia Prático" />
+    <meta property="og:description" content="Cansado de fios de roçadeira que travam? Aprenda o método definitivo para recarregar seu carretel sem erros e mantenha seu jardim impecável com agilidade." />
+    <meta property="og:image" content="/images/blog/1/como colocar fio na roçadeira.webp" />
+    <meta property="og:type" content="article" />
+    <link rel="canonical" href="https://guiadorocador.com.br/como-colocar-fio-na-rocadeira" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+    
+    <main class="flex-grow">
+      <ComoColocarFioRocadeira client:load />
+    </main>
+    
+    <Footer />
+    
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

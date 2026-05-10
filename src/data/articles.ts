@@ -53,5 +53,23 @@ export const articles: Article[] = [
     url: "/como-desafogar-rocadeira",
     image: "/images/blog/como desafogar roçadeira.webp",
     excerpt: "Roçadeira engasgada? 😩 Pare de perder tempo! ⏳ Desvende o segredo para destravar sua máquina em minutos e turbine seu jardim! ✨"
+  },
+  {
+    title: "Como Montar Roçadeira Nakasaki [Passo a Passo Completo]",
+    url: "/como-montar-rocadeira-nakasaki",
+    image: "/images/blog/como-montar-rocadeira-nakasaki.webp",
+    excerpt: "Montar um equipamento novo pode ser desafiador. Para quem busca praticidade, preparamos um guia completo para você realizar a montagem da roçadeira sem dificuldades."
+  },
+  {
+    title: "Roçadeira Falhando? Veja Como Regular o Carburador",
+    url: "/como-regular-rocadeira",
+    image: "/images/blog/1/como regular roçadeira.webp",
+    excerpt: "Roçadeira falhando? Aprenda o método definitivo para regular o carburador com segurança, restaurar a potência do motor e evitar gastos com manutenção."
+  },
+  {
+    title: "Como Colocar Fio na Roçadeira sem Embolar Guia Prático",
+    url: "/como-colocar-fio-na-rocadeira",
+    image: "/images/blog/1/como colocar fio na roçadeira​.webp",
+    excerpt: "Cansado de fios de roçadeira que travam? Aprenda o método definitivo para recarregar seu carretel sem erros e mantenha seu jardim impecável com agilidade."
   }
 ];
