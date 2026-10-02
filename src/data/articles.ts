@@ -7,10 +7,10 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    title: "Melhor Roçadeira 2026 As 9 Melhores (Gasolina e Elétrica)",
+    title: "Melhor Roçadeira As 7 Melhores de 2026 (Gasolina e Elétrica)",
     url: "/melhor-rocadeira",
-    image: "/images/blog/melhor roçadeira.webp",
-    excerpt: "Cansado de mato alto? Descubra a roçadeira perfeita para seu jardim e transforme seu espaço com potência e praticidade!"
+    image: "/images/blog/1/melhor-rocadeira.webp",
+    excerpt: "Na dúvida sobre qual roçadeira comprar em 2026? Descubra o segredo mecânico por trás das 7 melhores e acerte na escolha para o seu lote sem rasgar dinheiro!"
   },
   {
     title: "Stihl ou Husqvarna Qual a Melhor Roçadeira a Gasolina em 2026?",

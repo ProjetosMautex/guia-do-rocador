@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
   const handleSearchSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      window.location.href = `/search?q=${encodeURIComponent(searchQuery.trim())}`;
+      window.location.href = `/search/?q=${encodeURIComponent(searchQuery.trim())}`;
       setIsSearchOpen(false);
       setIsMobileMenuOpen(false);
     }

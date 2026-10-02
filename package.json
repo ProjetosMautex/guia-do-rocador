@@ -10,11 +10,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "optimize-images": "node optimize-images.mjs"
   },
   "dependencies": {
     "@astrojs/react": "5.0.4",
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/sitemap": "3.7.2",
     "@astrojs/vercel": "10.0.6",
     "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",

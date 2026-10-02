@@ -1,28 +1,33 @@
 export interface Product {
   name: string;
   link: string;
+  image?: string;
 }
 
 export const products: Record<string, Product> = {
-  "husqvarna-143rs": {
+  "rocadeira-husqvarna-143rs": {
     name: "Husqvarna 143rs",
-    link: "https://meli.la/2XM9of6"
+    link: "https://meli.la/2DnBDze",
+    image: "Husqvarna 143rs.webp"
   },
-  "vulcan-vr520h": {
+  "rocadeira-vulcan-vr520h": {
     name: "Vulcan VR520H",
-    link: "https://amzn.to/3NTJALP"
+    link: "https://meli.la/1TeqVYU",
+    image: "Vulcan VR520H.webp"
   },
-  "trapp-master-1000": {
+  "rocadeira-trapp-master-1000": {
     name: "Trapp Master 1000",
-    link: "https://meli.la/24phx6d"
+    link: "https://meli.la/1LgxyHu",
+    image: "Trapp Master 1000.webp"
   },
   "tramontina-ap1500t": {
     name: "Tramontina AP1500T",
     link: "https://meli.la/1MqTgPc"
   },
-  "tekna-bc-1250ss": {
+  "rocadeira-tekna-bc-1250ss": {
     name: "Tekna BC 1250SS",
-    link: "https://amzn.to/41kt2j4"
+    link: "https://meli.la/29yooPy",
+    image: "Tekna BC 1250SS.webp"
   },
   "intech-machine-skim4300": {
     name: "SKIM4300 Intech Machine",
@@ -131,6 +136,21 @@ export const products: Record<string, Product> = {
   "rocadeira-gasolina-65cc-nakasaki-nk-650at-3hp-2-tempos-eixo-bipartido": {
     name: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido",
     link: "https://meli.la/2Ljzyao"
+  },
+  "rocadeira-toyama-tbc43h": {
+    name: "Toyama TBC43H",
+    link: "https://meli.la/2svLF82",
+    image: "Toyama TBC43H.webp"
+  },
+  "rocadeira-makita-dur187uz": {
+    name: "Makita DUR187UZ",
+    link: "https://meli.la/2zc33xr",
+    image: "Makita DUR187UZ.webp"
+  },
+  "rocadeira-intech-machine-skim5100": {
+    name: "Intech Machine Skim5100",
+    link: "https://meli.la/2FsSgnU",
+    image: "Intech Machine Skim5100.webp"
   }
 };
 

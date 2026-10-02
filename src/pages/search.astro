@@ -61,10 +61,12 @@ import '../styles/global.css';
       if (queryDisplay) queryDisplay.textContent = query;
 
       // 3. Filtra os artigos baseando-se no título ou no resumo (excerpt)
-      const filtered = articles.filter(article => 
-        article.title.toLowerCase().includes(query) || 
-        article.excerpt.toLowerCase().includes(query)
-      );
+      const searchWords = query.split(/\s+/).filter(w => w.length > 0);
+      const filtered = articles.filter(article => {
+        const textToSearch = (article.title + ' ' + article.excerpt).toLowerCase();
+        // Retorna verdadeiro apenas se TODAS as palavras buscadas estiverem no texto
+        return searchWords.every(word => textToSearch.includes(word));
+      });
 
       // 4. Atualiza o contador
       if (resultsCount) resultsCount.textContent = filtered.length.toString();
