@@ -1,24 +1,24 @@
 import React from 'react';
 import { Leaf, ShieldCheck, Clock, PenTool, Search, Star, ArrowRight } from 'lucide-react';
 
-import { articles } from '../data/articles';
+import { articles } from '../data/articlesrocadeiras';
 
 export default function Home() {
   const benefits = [
     {
       icon: <Leaf className="w-8 h-8 text-[#16A34A]" />,
       title: "Desempenho",
-      description: "Limpe seu terreno e corte a grama em segundos, o que levaria horas manualmente."
+      description: "Agilize a poda, o corte de grama e a limpeza com ferramentas de alta eficiência que poupam horas de trabalho."
     },
     {
       icon: <ShieldCheck className="w-8 h-8 text-[#16A34A]" />,
       title: "Durabilidade",
-      description: "A roçadeira certa é um investimento que garante anos de serviço pesado sem dor de cabeça."
+      description: "O equipamento certo é um investimento que garante anos de cuidado contínuo com seu jardim sem dor de cabeça."
     },
     {
       icon: <Clock className="w-8 h-8 text-[#16A34A]" />,
       title: "Praticidade",
-      description: "Tenha a ferramenta sempre pronta para o uso e mantenha seu jardim ou propriedade impecáveis."
+      description: "Tenha as ferramentas sempre prontas para o uso e mantenha seu jardim ou áreas verdes impecáveis o ano todo."
     }
   ];
 
@@ -26,17 +26,17 @@ export default function Home() {
     {
       icon: <Search className="w-6 h-6 text-white" />,
       title: "Pesquisa",
-      description: "Analisamos o mercado e selecionamos as roçadeiras mais promissoras de cada categoria."
+      description: "Mapeamos o mercado e selecionamos as ferramentas de jardinagem mais eficientes e bem avaliadas."
     },
     {
       icon: <PenTool className="w-6 h-6 text-white" />,
       title: "Testes Práticos",
-      description: "Colocamos as máquinas à prova em mato alto, capim e pequenos arbustos."
+      description: "Avaliamos o desempenho real em podas, cortes de grama, acabamento de canteiros e terrenos desafiadores."
     },
     {
       icon: <Star className="w-6 h-6 text-white" />,
       title: "Veredito",
-      description: "Classificamos com base em potência, consumo do motor e ergonomia."
+      description: "Classificamos com base em ergonomia, durabilidade, facilidade de manutenção e custo-benefício."
     }
   ];
 
@@ -49,10 +49,10 @@ export default function Home() {
         <section className="bg-[#1a1a1a] py-20 bg-opacity-95 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              Domine o Seu <span className="text-[#16A34A]">Terreno</span>
+              Domine o Cuidado das Suas <span className="text-[#16A34A]">Áreas Verdes</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-              O guia definitivo para manter seu jardim e propriedade impecáveis. Descubra as melhores roçadeiras, acessórios e dicas de manutenção.
+              O guia definitivo para manter seu jardim e propriedade impecáveis. Descubra as melhores ferramentas de jardinagem, equipamentos para áreas verdes e dicas práticas de manutenção.
             </p>
             <a href="#destaques" className="inline-block bg-[#16A34A] text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-[#15803d] transition-colors shadow-lg shadow-green-900/50 transform hover:-translate-y-1 transition-all">
               Ver Melhores Avaliações
@@ -65,7 +65,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-[#1a1a1a]">Por que investir no equipamento certo?</h2>
-              <p className="text-gray-600 mt-2">A ferramenta correta corta o trabalho pela metade.</p>
+              <p className="text-gray-600 mt-2">A ferramenta correta para jardinagem corta o trabalho pela metade.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
@@ -88,7 +88,7 @@ export default function Home() {
               <div>
                 <h2 className="text-3xl font-bold mb-6">Como avaliamos cada equipamento</h2>
                 <p className="text-gray-400 mb-8 text-lg">
-                  Nosso processo de avaliação é rigoroso e 100% focado no uso real em áreas verdes. Não recebemos patrocínio de marcas para maquiar resultados. O Guia do Roçador se mantém ativo por meio de pequenas comissões geradas quando você realiza sua compra usando nossos links – o que não custa nada a mais para você.
+                  Nosso processo de avaliação é rigoroso e 100% focado no uso real em jardins e áreas verdes. Analisamos ferramentas de jardinagem elétricas, a bateria, manuais e a combustão sem patrocínio de marcas para maquiar resultados. O Guia do Roçador se mantém ativo por meio de pequenas comissões geradas quando você realiza sua compra usando nossos links – o que não custa nada a mais para você.
                 </p>
                 <div className="space-y-6">
                   {reviewProcess.map((step, index) => (

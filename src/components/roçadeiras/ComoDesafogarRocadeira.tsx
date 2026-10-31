@@ -1,5 +1,5 @@
 import React from 'react';
-import { BannerDoMeio } from './BannerDoMeio';
+import { BunnerDoMeiorocadeira as BannerDoMeio } from './BunnerDoMeiorocadeira';
 
 export const ComoDesafogarRocadeira: React.FC = () => {
   return (

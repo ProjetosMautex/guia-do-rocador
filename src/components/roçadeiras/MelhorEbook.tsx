@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, CheckCircle, Target, Zap, ShieldCheck, Mail, ShoppingCart, Wrench, Trophy, Cpu, Star, Clock } from 'lucide-react';
-import { products } from '../data/products';
+import { products } from '../../data/productsrocadeira';
 
 export const MelhorEbook: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);

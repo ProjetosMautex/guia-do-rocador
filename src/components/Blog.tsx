@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, ChevronLeft } from 'lucide-react';
-import { articles } from '../data/articles';
+import { articles } from '../data/articlesrocadeiras';
 
 export const Blog: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);

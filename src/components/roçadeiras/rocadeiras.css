@@ -1,0 +1,228 @@
+.imp-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: impPopupFadeIn 0.25s ease-out;
+}
+
+.imp-popup-modal {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  background: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #2e2e2e;
+  border-top: 4px solid #16A34A;
+  border-radius: 1rem;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+  animation: impPopupSlideUp 0.3s ease-out;
+}
+
+.imp-popup__close-btn {
+  position: absolute;
+  top: 0.875rem;
+  right: 0.875rem;
+  background: #2a2a2a;
+  color: #9ca3af;
+  border: none;
+  border-radius: 9999px;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.imp-popup__close-btn:hover {
+  background: #374151;
+  color: #ffffff;
+}
+
+.imp-popup__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.imp-popup__badge {
+  display: inline-block;
+  background: rgba(22, 163, 74, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.35);
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.imp-popup__title {
+  font-size: 1.5rem;
+  line-height: 1.25;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0 0 0.75rem 0;
+}
+
+.imp-popup__desc {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #d1d5db;
+  margin: 0 0 1.5rem 0;
+}
+
+.imp-popup__desc strong {
+  color: #4ade80;
+  font-weight: 700;
+}
+
+.imp-popup__form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.imp-popup__input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 0.625rem;
+  border: 1.5px solid #374151;
+  background: #ffffff;
+  color: #111827;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.imp-popup__input:focus {
+  border-color: #16A34A;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25);
+}
+
+.imp-popup__submit {
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  border-radius: 0.625rem;
+  border: none;
+  background: #16A34A;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.15s;
+  box-shadow: 0 10px 15px -3px rgba(22, 163, 74, 0.3);
+}
+
+.imp-popup__submit:hover:not(:disabled) {
+  background: #15803d;
+}
+
+.imp-popup__submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.imp-popup__submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.imp-popup__dismiss-wrap {
+  margin-top: 1rem;
+  transition: opacity 0.3s ease;
+}
+
+.imp-popup__dismiss-wrap--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.imp-popup__dismiss-wrap--hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.imp-popup__dismiss-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.imp-popup__dismiss-btn:hover {
+  color: #e5e7eb;
+}
+
+.imp-popup__success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+}
+
+.imp-popup__success-icon {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 9999px;
+  background: rgba(22, 163, 74, 0.2);
+  color: #4ade80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  border: 2px solid #16A34A;
+}
+
+.imp-popup__success-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.imp-popup__success-text {
+  font-size: 0.95rem;
+  color: #d1d5db;
+  margin: 0;
+}
+
+@keyframes impPopupFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes impPopupSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { products, type ProductId } from '../data/products';
+import { products, type ProductId } from '../data/productsrocadeira';
 import { ShoppingCart } from 'lucide-react';
 
 interface Props {

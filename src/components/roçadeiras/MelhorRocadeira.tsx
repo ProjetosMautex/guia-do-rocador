@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { AffiliateCard } from './AffiliateCard';
-import { BannerDoMeio } from './BannerDoMeio';
-import { products, type ProductId } from '../data/products';
+import { AffiliateCard } from '../AffiliateCard';
+import { BunnerDoMeiorocadeira as BannerDoMeio } from './BunnerDoMeiorocadeira';
+import { products, type ProductId } from '../../data/productsrocadeira';
 import { Check, X, ArrowRight } from 'lucide-react';
 
 export const MelhorRocadeira: React.FC = () => {

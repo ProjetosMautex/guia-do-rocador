@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check, Info, AlertTriangle } from 'lucide-react';
-import { BannerDoMeio } from './BannerDoMeio';
+import { BunnerDoMeiorocadeira as BannerDoMeio } from './BunnerDoMeiorocadeira';
 
 export const ComoRegularRocadeira: React.FC = () => {
   return (

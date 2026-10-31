@@ -73,3 +73,5 @@ export const articles: Article[] = [
     excerpt: "Cansado de fios de roçadeira que travam? Aprenda o método definitivo para recarregar seu carretel sem erros e mantenha seu jardim impecável com agilidade."
   }
 ];
+
+export const articlesrocadeiras = articles;

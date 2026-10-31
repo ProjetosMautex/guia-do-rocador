@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 
-export const BannerDoMeio: React.FC = () => {
+/**
+ * Controle de ativação do Banner do Meio (Roçadeira).
+ * Altere para `true` para voltar a exibir o banner automaticamente nos artigos.
+ */
+const IS_ACTIVE = false;
+
+export const BunnerDoMeiorocadeira: React.FC = () => {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  if (!IS_ACTIVE) return null;
 
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const isValidEmail = emailRegex.test(email);
@@ -15,7 +23,7 @@ export const BannerDoMeio: React.FC = () => {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ email, segment: 'rocadeiras' }),
       });
       if (res.ok) {
         sessionStorage.setItem('emailSubmitted', 'true');
@@ -100,3 +108,6 @@ export const BannerDoMeio: React.FC = () => {
     </div>
   );
 };
+
+export { BunnerDoMeiorocadeira as BannerDoMeio };
+export default BunnerDoMeiorocadeira;

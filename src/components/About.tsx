@@ -47,13 +47,13 @@ export const About: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p className="text-xl leading-relaxed font-medium">
-              Aqui, nosso objetivo é ajudar jardineiros, profissionais de manutenção de áreas verdes, donos de chácaras e apaixonados por um terreno bem cuidado a escolherem os equipamentos certos para cada necessidade.
+              Aqui, nosso objetivo é ajudar jardineiros, profissionais de manutenção de áreas verdes, donos de chácaras e apaixonados por um jardim bem cuidado a escolherem as ferramentas e equipamentos certos para cada necessidade.
             </p>
             <p>
-              Se você procura uma roçadeira elétrica leve para o quintal de casa, uma máquina a gasolina potente para capim denso, ou até mesmo os melhores acessórios para o seu equipamento, este é o lugar certo. Estamos aqui para orientar você de forma prática, honesta e técnica — sem enrolação.
+              Se você procura cortadores de grama, aparadores, roçadeiras, tesouras de poda, podadores de cerca-viva, sopradores de folhas ou até mesmo os melhores acessórios e peças de reposição, este é o lugar certo. Nosso foco é orientar você de forma prática, honesta e técnica sobre ferramentas de jardinagem e cuidados essenciais com áreas verdes — sem enrolação.
             </p>
             <div className="bg-gray-50 border-l-8 border-[#16A34A] p-8 rounded-r-xl italic shadow-sm text-gray-800">
-              "Cada artigo do site é escrito com base em vivência real: especialistas que testam e utilizam ferramentas diariamente na manutenção de jardins, controle de mato e limpeza de grandes terrenos."
+              "Cada artigo do site é escrito com base em vivência real: especialistas que testam e utilizam ferramentas diariamente na manutenção de jardins, controle de vegetação e cuidados de áreas verdes."
             </div>
           </div>
         </div>
@@ -69,9 +69,9 @@ export const About: React.FC = () => {
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {[
-              { title: "Reviews Técnicos", desc: "Análises baseadas em testes práticos no mato, desempenho em uso contínuo e comparações reais.", icon: <Zap size={32} /> },
-              { title: "Dicas de Manutenção", desc: "Orientações sobre lubrificação, limpeza de filtro e misturas para aumentar a durabilidade do motor.", icon: <Wrench size={32} /> },
-              { title: "Guias Objetivos", desc: "Conteúdo claro para ajudar você a escolher a roçadeira certa para o seu tipo de terreno e rotina.", icon: <ShieldCheck size={32} /> }
+              { title: "Reviews Técnicos", desc: "Análises detalhadas de ferramentas de jardinagem baseadas em testes práticos de corte, poda e autonomia.", icon: <Zap size={32} /> },
+              { title: "Dicas de Manutenção", desc: "Orientações sobre afiação de lâminas, cuidados com motores, baterias e regulagens para alta durabilidade.", icon: <Wrench size={32} /> },
+              { title: "Guias Objetivos", desc: "Conteúdo claro para ajudar você a escolher as ferramentas ideais para o tamanho do seu jardim e sua rotina de cuidados.", icon: <ShieldCheck size={32} /> }
             ].map((item, i) => (
               <div key={i} className="bg-white p-8 rounded-2xl shadow-md border-t-4 border-[#16A34A] hover:shadow-lg transition-all">
                 <span className="text-[#16A34A] mb-4 block">{item.icon}</span>
@@ -128,9 +128,9 @@ export const About: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Por que confiar no Guia do Roçador?</h2>
           <div className="grid gap-10">
             {[
-              { title: "Especialização Prática", desc: "Nossa equipe é formada por especialistas com sólida experiência prática em manutenção de máquinas e áreas verdes." },
-              { title: "Testes no Terreno Real", desc: "Não nos baseamos apenas em catálogos. Ligamos as máquinas e avaliamos o desempenho em mato alto, capim e horas de uso contínuo." },
-              { title: "Independência Editorial", desc: "Não aceitamos patrocínios para favorecer marcas. Nossas recomendações são imparciais e focadas no custo-benefício." }
+              { title: "Especialização Prática", desc: "Nossa equipe é formada por especialistas com sólida experiência no manejo de ferramentas de jardinagem e manutenção de áreas verdes." },
+              { title: "Testes no Terreno Real", desc: "Não nos baseamos apenas em catálogos. Testamos as ferramentas na prática: podas, corte de grama, acabamento de bordas e uso contínuo." },
+              { title: "Independência Editorial", desc: "Não aceitamos patrocínios para favorecer marcas. Nossas recomendações são imparciais e focadas no melhor custo-benefício." }
             ].map((item, index) => (
               <div key={index} className="flex gap-6">
                 <div className="flex-shrink-0">
@@ -157,15 +157,15 @@ export const About: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <span className="text-[#16A34A] font-bold">✔</span>
-                <span className="text-gray-700">Vai comprar sua primeira roçadeira para a limpeza do sítio ou jardim.</span>
+                <span className="text-gray-700">Deseja montar ou renovar seu conjunto de ferramentas de jardinagem para cuidar do quintal, gramado ou chácara.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#16A34A] font-bold">✔</span>
-                <span className="text-gray-700">Procura guias de manutenção sem jargões complicados.</span>
+                <span className="text-gray-700">Procura guias de manutenção e cuidados com equipamentos sem jargões complicados.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#16A34A] font-bold">✔</span>
-                <span className="text-gray-700">Trabalha na área e busca comparações técnicas sobre motosserras e roçadeiras.</span>
+                <span className="text-gray-700">Trabalha com paisagismo ou manutenção de áreas verdes e busca comparações técnicas confiáveis.</span>
               </li>
             </ul>
           </div>
@@ -187,7 +187,7 @@ export const About: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">Visão para o Futuro</h2>
           <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-            Queremos ser a principal referência quando o assunto for limpeza de terrenos e manutenção de áreas verdes.
+            Queremos ser a principal referência em ferramentas de jardinagem e equipamentos para o cuidado e manutenção de áreas verdes.
           </p>
           <p className="text-2xl font-bold text-[#1a1a1a]">
             🙌 Obrigado por fazer parte do Guia do Roçador!
@@ -201,7 +201,7 @@ export const About: React.FC = () => {
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
             <div className="bg-[#16A34A] p-12 md:w-1/3 flex flex-col justify-center text-white">
               <h2 className="text-3xl font-black mb-6 uppercase">Contato</h2>
-              <p className="font-medium opacity-90">Prontos para tirar suas dúvidas sobre roçadeiras e equipamentos.</p>
+              <p className="font-medium opacity-90">Prontos para tirar suas dúvidas sobre ferramentas de jardinagem e equipamentos para áreas verdes.</p>
             </div>
             <div className="p-12 md:w-2/3 grid gap-8 md:grid-cols-2">
               <div className="space-y-6">

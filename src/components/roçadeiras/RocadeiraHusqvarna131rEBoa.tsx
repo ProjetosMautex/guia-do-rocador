@@ -1,7 +1,7 @@
 import React from 'react';
-import { AffiliateCard } from './AffiliateCard';
-import { BannerDoMeio } from './BannerDoMeio';
-import { products, type ProductId } from '../data/products';
+import { AffiliateCard } from '../AffiliateCard';
+import { BunnerDoMeiorocadeira as BannerDoMeio } from './BunnerDoMeiorocadeira';
+import { products, type ProductId } from '../../data/productsrocadeira';
 import { Check, X, ArrowRight, ShoppingCart, Star } from 'lucide-react';
 
 export const RocadeiraHusqvarna131rEBoa: React.FC = () => {
