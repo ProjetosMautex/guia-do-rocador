@@ -18,11 +18,11 @@ export const AuthorJoseAilton: React.FC = () => {
             </div>
             <div className="text-center md:text-left">
               <span className="bg-[#16A34A] text-white text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
-                Especialista de Campo
+                Operação & Campo
               </span>
               <h1 className="text-4xl md:text-6xl font-black mb-4">José Ailton da Silva</h1>
               <p className="text-xl md:text-2xl text-gray-300 font-medium">
-                Especialista em Jardinagem e Áreas Externas
+                Especialista Operacional em Roçadeiras
               </p>
             </div>
           </div>
@@ -34,17 +34,17 @@ export const AuthorJoseAilton: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4">
           <div className="prose prose-xl max-w-none text-gray-700 leading-relaxed space-y-8">
             <p className="text-2xl font-medium text-[#1a1a1a]">
-              "Trabalhar no mato exige a ferramenta certa. Minha missão é passar adiante essa vivência prática para que você não erre na escolha."
+              "Trabalhar no mato pesado exige a roçadeira certa e a lâmina adequada. Minha missão é passar adiante essa vivência prática para que você não erre na escolha da sua máquina."
             </p>
             <div className="space-y-6">
               <p>
-                Sou o José Ailton da Silva, especialista em jardinagem e manutenção de áreas externas, com mais de <strong className="text-[#16A34A]">10 anos de experiência</strong> no uso de ferramentas como roçadeiras, aparadores e cortadores de grama.
+                Sou o José Ailton da Silva, especialista e operador de roçadeiras com mais de <strong className="text-[#16A34A]">10 anos de experiência prática</strong> no corte de vegetação fechada, capim alto, pastos e limpeza de terrenos urbanos e rurais.
               </p>
               <p>
-                Ao longo da minha trajetória, já trabalhei tanto em ambientes residenciais quanto em propriedades maiores, lidando com limpeza de terrenos, manutenção de jardins e controle de mato em áreas urbanas e rurais.
+                Ao longo da minha trajetória diária no campo, trabalhei com roçadeiras a combustão de diferentes cilindradas (de 26cc a mais de 50cc), além de equipamentos elétricos e a bateria, dominando o comportamento de cada tipo de máquina sob sol forte e vegetações desafiadoras.
               </p>
               <p>
-                Minha especialidade é avaliar o desempenho das roçadeiras no uso real do dia a dia, considerando fatores como facilidade de uso, conforto, autonomia, eficiência no corte e custo-benefício. Com isso, consigo orientar desde iniciantes até usuários mais frequentes a escolherem a ferramenta ideal para manter seus espaços sempre limpos, de forma prática e segura.
+                Minha especialidade no Guia do Roçador é testar o rendimento real: conforto do cinto de sustentação, autonomia por tanque, facilidade de recarga do carretel de nylon sem embolar e a segurança no manuseio de lâminas de corte. Com essa vivência, oriento você a escolher a roçadeira que aguenta o tranco do seu lote com o melhor custo-benefício.
               </p>
             </div>
           </div>
@@ -94,8 +94,8 @@ export const AuthorJoseAilton: React.FC = () => {
       {/* Footer CTA */}
       <section className="py-20 bg-white border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-6">Precisa de assessoria profissional?</h2>
-          <p className="text-gray-600 mb-8">Entre em contato pelo e-mail oficial para dúvidas específicas de jardinagem.</p>
+          <h2 className="text-2xl font-bold mb-6">Dúvidas sobre qual roçadeira escolher?</h2>
+          <p className="text-gray-600 mb-8">Entre em contato pelo e-mail oficial para tirar dúvidas práticas sobre o modelo ideal para o seu terreno.</p>
           <a 
             href="mailto:contato@guiadorocador.com.br" 
             className="inline-flex items-center gap-2 bg-[#16A34A] text-white px-10 py-5 rounded-lg font-black hover:bg-[#15803d] transition-all transform hover:scale-105"

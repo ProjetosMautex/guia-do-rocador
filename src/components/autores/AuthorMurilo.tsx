@@ -34,17 +34,17 @@ export const AuthorMurilo: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4">
           <div className="prose prose-xl max-w-none text-gray-700 leading-relaxed space-y-8">
             <p className="text-2xl font-medium text-[#1a1a1a]">
-              "Meu objetivo é garantir que cada pessoa encontre exatamente o que precisa para cuidar de seu terreno, com clareza e autoridade técnica."
+              "Nosso propósito é ser a fonte mais confiável e completa sobre roçadeiras no Brasil, entregando respostas diretas e testes reais para quem precisa trabalhar no terreno sem travar."
             </p>
             <div className="space-y-6">
               <p>
-                Sou o Murilo, fundador do Guia do Roçador e especialista em SEO aplicado a projetos de jardinagem e equipamentos de micronicho.
+                Sou o Murilo, fundador do Guia do Roçador e especialista em SEO e arquitetura de conteúdo para portais técnicos de alta precisão.
               </p>
               <p>
-                Meu trabalho é estruturar conteúdos que realmente ajudem o consumidor, ao mesmo tempo em que constroem autoridade temática nos mecanismos de busca. Atuo com planejamento editorial, organização de silos de conteúdo e interligação estratégica entre páginas, sempre focado na intenção real de quem está planejando comprar uma ferramenta ou cuidar bem dela.
+                Idealizei o Guia do Roçador ao perceber que as informações na internet sobre roçadeiras eram dispersas, superficiais ou mascaradas por catálogos publicitários. Meu trabalho é reunir especialistas de campo e mecânicos experientes para estruturar guias que realmente resolvam o problema do operador no lote e na bancada.
               </p>
               <p>
-                No Guia do Roçador, sou responsável por definir a arquitetura do site, revisar a consistência dos textos e garantir que cada conteúdo entregue respostas práticas e diretas, sem superficialidade.
+                No Guia do Roçador, sou responsável por definir a arquitetura temática do portal, organizar silos de conteúdo (motores, fios de nylon, cabeçotes e manutenção) e garantir que cada artigo entregue valor prático imediato para quem vai operar ou consertar uma máquina.
               </p>
             </div>
           </div>
@@ -66,12 +66,12 @@ export const AuthorMurilo: React.FC = () => {
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <BookOpen className="text-[#16A34A] mb-4" size={40} />
               <h3 className="text-xl font-bold mb-3">Planejamento Editorial</h3>
-              <p className="text-gray-600">Definição dos temas mais relevantes e úteis para a comunidade de jardinagem.</p>
+              <p className="text-gray-600">Definição dos temas e comparativos mais úteis para quem opera ou compra roçadeiras.</p>
             </div>
             <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
               <Award className="text-[#16A34A] mb-4" size={40} />
               <h3 className="text-xl font-bold mb-3">Autoridade de Nicho</h3>
-              <p className="text-gray-600">Construção de um ecossistema de informações confiáveis e interligadas.</p>
+              <p className="text-gray-600">Construção da maior base de conhecimento especializada exclusivamente em roçadeiras.</p>
             </div>
           </div>
         </div>

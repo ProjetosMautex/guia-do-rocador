@@ -6,23 +6,23 @@ export const About: React.FC = () => {
     {
       name: "José Ailton da Silva",
       slug: "jose-ailton",
-      role: "Especialista em Jardinagem e Áreas Externas",
+      role: "Especialista em Roçadeiras e Operação de Campo",
       image: "/images/autores/José Ailton da Silva.webp",
       description: [
-        "Sou o José Ailton da Silva, especialista em jardinagem e manutenção de áreas externas, com mais de 10 anos de experiência no uso de ferramentas como roçadeiras, aparadores e cortadores de grama.",
-        "Ao longo da minha trajetória, já trabalhei tanto em ambientes residenciais quanto em propriedades maiores, lidando com limpeza de terrenos, manutenção de jardins e controle de mato em áreas urbanas e rurais.",
-        "Minha especialidade é avaliar o desempenho das roçadeiras no uso real do dia a dia, considerando fatores como facilidade de uso, conforto, autonomia, eficiência no corte e custo-benefício. Com isso, consigo orientar desde iniciantes até usuários mais frequentes a escolherem a ferramenta ideal para manter seus espaços sempre limpos, de forma prática e segura."
+        "Sou o José Ailton da Silva, especialista e operador de roçadeiras com mais de 10 anos de experiência prática diária no corte de vegetação pesada, pastos, capim alto e limpeza de terrenos residenciais e rurais.",
+        "Ao longo da minha trajetória, operei dezenas de modelos de roçadeiras a combustão (2 tempos e 4 tempos), elétricas e a bateria, testando na pele a resistência dos materiais em condições climáticas severas e terrenos acidentados.",
+        "Minha missão no Guia do Roçador é avaliar o desempenho real das roçadeiras no campo: ergonomia do cinto de sustentação, autonomia do tanque de combustível, nível de vibração e eficiência do corte com fio de nylon ou lâmina metálica, para que você escolha a máquina certa sem surpresas desagradáveis."
       ]
     },
     {
       name: "Carlos Henrique Menezes",
       slug: "carlos-henrique",
-      role: "Técnico em Mecânica de Equipamentos",
+      role: "Técnico Especialista em Mecânica de Roçadeiras",
       image: "/images/autores/Carlos Henrique Menezes.webp",
       description: [
-        "Sou o Carlos Henrique Menezes, técnico em mecânica de equipamentos com mais de 15 anos de experiência em manutenção e análise de ferramentas motorizadas, incluindo roçadeiras a gasolina, elétricas e a bateria.",
-        "Durante minha carreira, atuei diretamente com profissionalismo em diagnóstico, manutenção e testes de desempenho, o que me permitiu desenvolver um olhar técnico apurado sobre durabilidade, potência, eficiência mecânica e qualidade de construção.",
-        "Minha especialidade é analisar as roçadeiras de forma técnica, avaliando aspectos como tipo de motor (2 tempos, 4 tempos ou brushless), torque, sistema de transmissão, consumo, vibração e vida útil dos componentes. Com esse conhecimento, consigo recomendar os melhores modelos com base em desempenho real e confiabilidade a longo prazo."
+        "Sou o Carlos Henrique Menezes, técnico em mecânica com mais de 15 anos de atuação direta em oficina na manutenção, retífica e diagnóstico de motores de roçadeiras a gasolina, elétricas e a bateria.",
+        "Durante minha carreira, consertei e preparei centenas de máquinas, atuando no ajuste fino de carburação, sistemas de ignição, embreagens centrífugas, eixos cardã e caixas de transmissão angular.",
+        "Minha especialidade no Guia do Roçador é dissecar a engenharia interna de cada roçadeira: qualidade dos rolamentos, dissipação de calor do cilindro, consumo de combustível e facilidade de encontrar peças de reposição, garantindo recomendações baseadas em durabilidade real a longo prazo."
       ]
     }
   ];
@@ -47,13 +47,16 @@ export const About: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p className="text-xl leading-relaxed font-medium">
-              Aqui, nosso objetivo é ajudar jardineiros, profissionais de manutenção de áreas verdes, donos de chácaras e apaixonados por um jardim bem cuidado a escolherem as ferramentas e equipamentos certos para cada necessidade.
+              O <span className="text-[#1a1a1a] font-bold">Guia do Roçador</span> é o primeiro e maior portal brasileiro dedicado exclusivamente ao universo das <span className="text-[#16A34A] font-bold">roçadeiras</span>.
             </p>
             <p>
-              Se você procura cortadores de grama, aparadores, roçadeiras, tesouras de poda, podadores de cerca-viva, sopradores de folhas ou até mesmo os melhores acessórios e peças de reposição, este é o lugar certo. Nosso foco é orientar você de forma prática, honesta e técnica sobre ferramentas de jardinagem e cuidados essenciais com áreas verdes — sem enrolação.
+              Nosso compromisso é direto: eliminar suas dores de cabeça no trabalho de corte e roçada. Aqui você não encontra conteúdo genérico ou ferramentas dispersas. Focamos 100% no que você realmente precisa saber sobre roçadeiras a combustão (2 tempos e 4 tempos), elétricas e a bateria, além de carretéis, fios de nylon, lâminas de aço e equipamentos de proteção individual (EPIs).
+            </p>
+            <p>
+              Entregamos comparativos imparciais entre as principais marcas do mercado (como Stihl, Husqvarna, Nakasaki, Toyama, Trapp e Vulcan), guias mecânicos para você mesmo regular carburadores, desafogar motores e fazer manutenção preventiva, além das técnicas certas para recarregar carretéis sem embolar e render muito mais no terreno.
             </p>
             <div className="bg-gray-50 border-l-8 border-[#16A34A] p-8 rounded-r-xl italic shadow-sm text-gray-800">
-              "Cada artigo do site é escrito com base em vivência real: especialistas que testam e utilizam ferramentas diariamente na manutenção de jardins, controle de vegetação e cuidados de áreas verdes."
+              "Cada artigo do Guia do Roçador nasce da união entre a vivência prática no mato pesado e o conhecimento técnico minucioso da bancada mecânica de motores."
             </div>
           </div>
         </div>
@@ -69,9 +72,9 @@ export const About: React.FC = () => {
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {[
-              { title: "Reviews Técnicos", desc: "Análises detalhadas de ferramentas de jardinagem baseadas em testes práticos de corte, poda e autonomia.", icon: <Zap size={32} /> },
-              { title: "Dicas de Manutenção", desc: "Orientações sobre afiação de lâminas, cuidados com motores, baterias e regulagens para alta durabilidade.", icon: <Wrench size={32} /> },
-              { title: "Guias Objetivos", desc: "Conteúdo claro para ajudar você a escolher as ferramentas ideais para o tamanho do seu jardim e sua rotina de cuidados.", icon: <ShieldCheck size={32} /> }
+              { title: "Reviews de Roçadeiras", desc: "Comparações técnicas detalhadas de roçadeiras a gasolina, elétricas e a bateria testadas na vegetação real.", icon: <Zap size={32} /> },
+              { title: "Mecânica & Regulagem", desc: "Passo a passo para ligar a frio, desafogar em minutos, regular o carburador e resolver panes mecânicas.", icon: <Wrench size={32} /> },
+              { title: "Fios, Carretéis & Lâminas", desc: "Aprenda a escolher o nylon ideal, recarregar carretéis sem travar e usar lâminas de corte com segurança.", icon: <ShieldCheck size={32} /> }
             ].map((item, i) => (
               <div key={i} className="bg-white p-8 rounded-2xl shadow-md border-t-4 border-[#16A34A] hover:shadow-lg transition-all">
                 <span className="text-[#16A34A] mb-4 block">{item.icon}</span>
@@ -128,9 +131,9 @@ export const About: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-center">Por que confiar no Guia do Roçador?</h2>
           <div className="grid gap-10">
             {[
-              { title: "Especialização Prática", desc: "Nossa equipe é formada por especialistas com sólida experiência no manejo de ferramentas de jardinagem e manutenção de áreas verdes." },
-              { title: "Testes no Terreno Real", desc: "Não nos baseamos apenas em catálogos. Testamos as ferramentas na prática: podas, corte de grama, acabamento de bordas e uso contínuo." },
-              { title: "Independência Editorial", desc: "Não aceitamos patrocínios para favorecer marcas. Nossas recomendações são imparciais e focadas no melhor custo-benefício." }
+              { title: "Foco 100% Especializado em Roçadeiras", desc: "Não dispersamos nossa atenção. Somos obcecados pelo funcionamento, mecânica e rendimento de corte das roçadeiras." },
+              { title: "Testes no Mato e Terreno Bruto", desc: "Não nos baseamos em fichas de marketing de fabricantes. Nossos testes acontecem no pasto, capim navalha e mato alto." },
+              { title: "Independência Editorial Completa", desc: "Não aceitamos pagamentos para favorecer marcas. Apontamos os prós, os contras e as limitações de cada modelo." }
             ].map((item, index) => (
               <div key={index} className="flex gap-6">
                 <div className="flex-shrink-0">
@@ -153,19 +156,19 @@ export const About: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-16">
           <div className="bg-gray-50 p-10 rounded-3xl border border-gray-100 shadow-sm">
             <h2 className="text-2xl font-bold text-[#1a1a1a] mb-6">Para quem é este site</h2>
-            <p className="text-gray-600 mb-6">Este site é feito para você que:</p>
+            <p className="text-gray-600 mb-6">Este portal foi feito sob medida para você que:</p>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <span className="text-[#16A34A] font-bold">✔</span>
-                <span className="text-gray-700">Deseja montar ou renovar seu conjunto de ferramentas de jardinagem para cuidar do quintal, gramado ou chácara.</span>
+                <span className="text-gray-700">Deseja comprar sua primeira roçadeira ou trocar de máquina sem errar na potência, cilindrada ou tipo de motor.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#16A34A] font-bold">✔</span>
-                <span className="text-gray-700">Procura guias de manutenção e cuidados com equipamentos sem jargões complicados.</span>
+                <span className="text-gray-700">Quer resolver travamentos de carretel, motor que afoga, máquina que morre em alta rotação ou partida dura.</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-[#16A34A] font-bold">✔</span>
-                <span className="text-gray-700">Trabalha com paisagismo ou manutenção de áreas verdes e busca comparações técnicas confiáveis.</span>
+                <span className="text-gray-700">Cuida de chácara, sítio, lote ou trabalha profissionalmente com roçadas e busca rendimento máximo com segurança.</span>
               </li>
             </ul>
           </div>
@@ -173,10 +176,10 @@ export const About: React.FC = () => {
           <div className="flex flex-col justify-center">
             <h2 className="text-2xl font-bold text-[#1a1a1a] mb-6">Como o site se sustenta</h2>
             <p className="text-gray-700 mb-4 leading-relaxed">
-              Para manter a independência e a qualidade do conteúdo, utilizamos <strong>links de afiliado</strong>. Quando você faz uma compra através desses links, recebemos uma pequena comissão — sem nenhum custo extra para você.
+              Para manter nossa equipe independente e cobrir os custos operacionais, utilizamos <strong>links de afiliados</strong>. Quando você adquire uma roçadeira ou peça através de nossos links recomendados, recebemos uma pequena comissão dos varejistas — sem que você pague nenhum centavo a mais por isso.
             </p>
             <p className="text-gray-700 leading-relaxed">
-              Esse modelo nos permitir cobrir os custos de testes reais e continuar oferecendo informação confiável para a nossa comunidade.
+              Esse modelo garante que continuemos produzindo tutoriais mecânicos gratuitos e comparativos sinceros para toda a comunidade.
             </p>
           </div>
         </div>
@@ -185,9 +188,9 @@ export const About: React.FC = () => {
       {/* Vision Section */}
       <section className="py-16 bg-white text-center border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">Visão para o Futuro</h2>
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">Nossa Visão</h2>
           <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-            Queremos ser a principal referência em ferramentas de jardinagem e equipamentos para o cuidado e manutenção de áreas verdes.
+            Ser a maior e mais respeitada autoridade em roçadeiras do Brasil, ajudando você a economizar tempo, dinheiro e esforço na manutenção do seu terreno.
           </p>
           <p className="text-2xl font-bold text-[#1a1a1a]">
             🙌 Obrigado por fazer parte do Guia do Roçador!
@@ -201,7 +204,7 @@ export const About: React.FC = () => {
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-100">
             <div className="bg-[#16A34A] p-12 md:w-1/3 flex flex-col justify-center text-white">
               <h2 className="text-3xl font-black mb-6 uppercase">Contato</h2>
-              <p className="font-medium opacity-90">Prontos para tirar suas dúvidas sobre ferramentas de jardinagem e equipamentos para áreas verdes.</p>
+              <p className="font-medium opacity-90">Prontos para tirar suas dúvidas técnicas sobre roçadeiras, motores, regulagens e ferramentas de corte.</p>
             </div>
             <div className="p-12 md:w-2/3 grid gap-8 md:grid-cols-2">
               <div className="space-y-6">

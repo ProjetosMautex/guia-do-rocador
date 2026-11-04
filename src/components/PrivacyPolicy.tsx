@@ -36,7 +36,7 @@ export const PrivacyPolicy: React.FC = () => {
             <p className="mb-4">As informações coletadas podem ser usadas para:</p>
             <ul className="list-disc pl-6 space-y-3 mb-8">
               <li>Melhorar a experiência do usuário em nosso site.</li>
-              <li>Produzir conteúdos mais relevantes de acordo com seus interesses no ramo de roçadeiras e jardinagem.</li>
+              <li>Produzir conteúdos mais relevantes de acordo com seus interesses no segmento de roçadeiras, acessórios de corte e manutenção.</li>
               <li>Enviar e-mails com novidades, promoções e dicas (apenas se você se inscreveu voluntariamente).</li>
               <li>Analisar estatísticas de acesso e desempenho do site.</li>
               <li>Cumprir obrigações legais e regulatórias.</li>

@@ -7,36 +7,36 @@ export default function Home() {
   const benefits = [
     {
       icon: <Leaf className="w-8 h-8 text-[#16A34A]" />,
-      title: "Desempenho",
-      description: "Agilize a poda, o corte de grama e a limpeza com ferramentas de alta eficiência que poupam horas de trabalho."
+      title: "Potência & Corte Certo",
+      description: "Descubra a máquina e a cilindrada ideais (2T, 4T ou elétrica) para cortar grama fina ou vencer capim alto e pasto fechado."
     },
     {
       icon: <ShieldCheck className="w-8 h-8 text-[#16A34A]" />,
-      title: "Durabilidade",
-      description: "O equipamento certo é um investimento que garante anos de cuidado contínuo com seu jardim sem dor de cabeça."
+      title: "Mecânica Sem Segredos",
+      description: "Aprenda a regular o carburador, desafogar sem estresse, preparar a mistura correta de combustível e fazer o motor durar anos."
     },
     {
       icon: <Clock className="w-8 h-8 text-[#16A34A]" />,
-      title: "Praticidade",
-      description: "Tenha as ferramentas sempre prontas para o uso e mantenha seu jardim ou áreas verdes impecáveis o ano todo."
+      title: "Acessórios & Rendimento",
+      description: "Domine a recarga de carretéis sem embolar, a escolha do fio de nylon por diâmetro e perfil, e o uso seguro de lâminas de corte."
     }
   ];
 
   const reviewProcess = [
     {
       icon: <Search className="w-6 h-6 text-white" />,
-      title: "Pesquisa",
-      description: "Mapeamos o mercado e selecionamos as ferramentas de jardinagem mais eficientes e bem avaliadas."
+      title: "Pesquisa Técnica",
+      description: "Mapeamos o mercado nacional de roçadeiras e selecionamos os modelos mais robustos, confiáveis e bem avaliados."
     },
     {
       icon: <PenTool className="w-6 h-6 text-white" />,
-      title: "Testes Práticos",
-      description: "Avaliamos o desempenho real em podas, cortes de grama, acabamento de canteiros e terrenos desafiadores."
+      title: "Testes Práticos no Mato",
+      description: "Avaliamos na prática: torque em vegetação densa, facilidade de partida a frio, ergonomia do guidão e consumo de combustível."
     },
     {
       icon: <Star className="w-6 h-6 text-white" />,
-      title: "Veredito",
-      description: "Classificamos com base em ergonomia, durabilidade, facilidade de manutenção e custo-benefício."
+      title: "Veredito Imparcial",
+      description: "Classificamos com base em durabilidade mecânica, vibração, facilidade de reposição de peças e custo-benefício real."
     }
   ];
 
@@ -49,13 +49,13 @@ export default function Home() {
         <section className="bg-[#1a1a1a] py-20 bg-opacity-95 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-              Domine o Cuidado das Suas <span className="text-[#16A34A]">Áreas Verdes</span>
+              O Guia Definitivo Especializado em <span className="text-[#16A34A]">Roçadeiras</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-              O guia definitivo para manter seu jardim e propriedade impecáveis. Descubra as melhores ferramentas de jardinagem, equipamentos para áreas verdes e dicas práticas de manutenção.
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+              Tudo o que você precisa para dominar sua roçadeira: análises técnicas completas, comparativos entre as melhores marcas, guias mecânicos de regulagem e as melhores técnicas de corte para o seu terreno.
             </p>
             <a href="#destaques" className="inline-block bg-[#16A34A] text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-[#15803d] transition-colors shadow-lg shadow-green-900/50 transform hover:-translate-y-1 transition-all">
-              Ver Melhores Avaliações
+              Ver Guias e Avaliações
             </a>
           </div>
         </section>
@@ -64,8 +64,8 @@ export default function Home() {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-[#1a1a1a]">Por que investir no equipamento certo?</h2>
-              <p className="text-gray-600 mt-2">A ferramenta correta para jardinagem corta o trabalho pela metade.</p>
+              <h2 className="text-3xl font-bold text-[#1a1a1a]">Por que escolher a roçadeira certa para o seu terreno?</h2>
+              <p className="text-gray-600 mt-2">A combinação correta de motor, lâmina e fio de nylon corta o trabalho pela metade e evita prejuízos na oficina.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {benefits.map((benefit, index) => (
@@ -86,9 +86,9 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Como avaliamos cada equipamento</h2>
+                <h2 className="text-3xl font-bold mb-6">Como avaliamos cada roçadeira e acessório</h2>
                 <p className="text-gray-400 mb-8 text-lg">
-                  Nosso processo de avaliação é rigoroso e 100% focado no uso real em jardins e áreas verdes. Analisamos ferramentas de jardinagem elétricas, a bateria, manuais e a combustão sem patrocínio de marcas para maquiar resultados. O Guia do Roçador se mantém ativo por meio de pequenas comissões geradas quando você realiza sua compra usando nossos links – o que não custa nada a mais para você.
+                  Nosso processo de avaliação é rigoroso e 100% focado no uso prático no mato e no pasto. Analisamos roçadeiras a combustão (2 tempos e 4 tempos), elétricas e a bateria, além de carretéis, lâminas e fios de nylon, sem favorecimento de marcas. O Guia do Roçador se mantém ativo por meio de pequenas comissões geradas quando você realiza sua compra usando nossos links – o que não custa nada a mais para você.
                 </p>
                 <div className="space-y-6">
                   {reviewProcess.map((step, index) => (

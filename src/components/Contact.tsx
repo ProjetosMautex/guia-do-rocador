@@ -19,10 +19,10 @@ export const Contact: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none text-gray-700">
             <p className="mb-6">
-              Aqui no <span className="font-bold text-[#1a1a1a]">Guia do Roçador</span>, levamos a sério a qualidade das informações que oferecemos. Nosso objetivo é ajudar você a escolher e utilizar os melhores equipamentos de jardinagem — como roçadeiras a gasolina e elétricas, além de lâminas, fios de nylon e EPIs.
+              Aqui no <span className="font-bold text-[#1a1a1a]">Guia do Roçador</span>, levamos a sério a qualidade técnica das informações que oferecemos. Nosso portal é 100% especializado em <span className="text-[#16A34A] font-bold">roçadeiras</span>: a combustão (motores 2 tempos e 4 tempos), elétricas e a bateria, além de carretéis, fios de nylon, lâminas de corte e EPIs.
             </p>
             <p>
-              Todos os conteúdos publicados no site são produzidos com base em testes práticos no mato, análises técnicas e anos de experiência real no uso de ferramentas em áreas verdes: desde a limpeza do quintal de casa até o controle contínuo em chácaras e propriedades maiores.
+              Todos os nossos conteúdos e tutoriais são desenvolvidos a partir de testes práticos no mato pesado e bancada mecânica, trazendo respostas claras para quem precisa comprar a máquina certa ou solucionar problemas de funcionamento no dia a dia.
             </p>
           </div>
         </div>
@@ -41,28 +41,28 @@ export const Contact: React.FC = () => {
               <div className="bg-green-50 p-3 rounded-full text-[#15803d]">
                 <MessageSquare size={24} />
               </div>
-              <p className="text-gray-700 font-medium">Tirar dúvidas sobre modelos de roçadeiras, motores 2t ou 4t e equipamentos</p>
+              <p className="text-gray-700 font-medium">Tirar dúvidas sobre escolha de roçadeiras, cilindrada ideal, motores 2T vs 4T ou modelos a bateria</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#16A34A] flex items-start gap-4">
               <div className="bg-green-50 p-3 rounded-full text-[#15803d]">
                 <AlertCircle size={24} />
               </div>
-              <p className="text-gray-700 font-medium">Relatar algum erro ou sugerir atualização em nossos guias e reviews</p>
+              <p className="text-gray-700 font-medium">Sugerir correções técnicas ou atualizações em nossos comparativos e tutoriais</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#16A34A] flex items-start gap-4">
               <div className="bg-green-50 p-3 rounded-full text-[#15803d]">
                 <FileText size={24} />
               </div>
-              <p className="text-gray-700 font-medium">Sugerir novos testes de uso contínuo, tutoriais de manutenção e comparativos</p>
+              <p className="text-gray-700 font-medium">Sugerir novos testes de modelos de roçadeiras, tipos de fio de nylon e ferramentas de corte</p>
             </div>
             
             <div className="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#16A34A] flex items-start gap-4">
               <div className="bg-green-50 p-3 rounded-full text-[#15803d]">
                 <Handshake size={24} />
               </div>
-              <p className="text-gray-700 font-medium">Propor parcerias comerciais ou colaborações focadas em jardinagem e manutenção</p>
+              <p className="text-gray-700 font-medium">Propor parcerias comerciais, testes técnicos de equipamentos e colaborações no setor de roçadeiras</p>
             </div>
           </div>
         </div>
@@ -123,10 +123,10 @@ export const Contact: React.FC = () => {
                 <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4">Transparência e Compromisso</h3>
                 <div className="prose text-gray-700 space-y-4">
                   <p>
-                    O <span className="font-semibold">Guia do Roçador</span> é totalmente independente e não é patrocinado por nenhuma marca.
+                    O <span className="font-semibold">Guia do Roçador</span> é totalmente independente e não aceita pagamentos para favorecer marcas.
                   </p>
                   <p>
-                    Nossas recomendações são feitas com base em testes reais no mato e uso rotineiro, pensando sempre na potência da máquina contra a necessidade do terreno do leitor, não importando se é algo pequeno no jardim de casa ou para uso profissional e intensivo.
+                    Nossas recomendações são feitas com base em testes práticos na vegetação pesada e na rotina do campo, avaliando o torque, a durabilidade mecânica e a relação custo-benefício de cada roçadeira para a necessidade real do seu lote, chácara ou trabalho profissional.
                   </p>
                   <p className="font-medium text-[#1a1a1a] border-l-4 border-[#16A34A] pl-4 py-2 bg-gray-50">
                     Nosso compromisso é com você, leitor, em não te vender ilusão. Você terá indicações sólidas de equipamentos que aguentam o tranco.

@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
               <Logo lightMode={true} />
             </div>
             <p className="text-gray-300 leading-relaxed max-w-md text-lg">
-              No <span className="text-[#16A34A] font-semibold">Guia do Roçador</span> você encontra análises completas, dicas práticas de manutenção e os melhores guias de compra de ferramentas de jardinagem e equipamentos para cuidado de áreas verdes. Conteúdo independente, prático e 100% focado no seu terreno e jardim.
+              No <span className="text-[#16A34A] font-semibold">Guia do Roçador</span> você encontra análises completas, comparativos imparciais e guias práticos focados 100% em roçadeiras a combustão, elétricas e a bateria, além de dicas mecânicas de manutenção, escolha do fio de nylon e carretéis.
             </p>
           </div>
 

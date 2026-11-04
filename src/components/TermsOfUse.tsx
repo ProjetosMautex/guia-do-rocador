@@ -60,7 +60,7 @@ export const TermsOfUse: React.FC = () => {
               5. Isenção de responsabilidade
             </h3>
             <ul className="list-disc pl-6 space-y-3 mb-8">
-              <li>As informações fornecidas no site têm caráter informativo e educativo, focadas no mercado de ferramentas e jardinagem.</li>
+              <li>As informações fornecidas no site têm caráter informativo e educativo, focadas exclusivamente no mercado de roçadeiras, técnicas de corte, acessórios e manutenção mecânica.</li>
               <li>O Guia do Roçador não se responsabiliza por acidentes, danos diretos ou indiretos resultantes do uso incorreto dos equipamentos abordados, ou da interpretação do conteúdo e dos produtos indicados.</li>
               <li>Os preços, características e disponibilidade de produtos indicados podem variar sem aviso prévio.</li>
             </ul>

@@ -110,7 +110,7 @@ export const Header: React.FC = () => {
              <input 
                type="text"
                className="w-full bg-[#2a2a2a] text-white p-4 pr-12 rounded-lg border border-gray-700 focus:border-[#16A34A] outline-none transition-all"
-               placeholder="Pesquisar ferramentas..."
+               placeholder="Pesquisar roçadeiras, fios, manutenção..."
                value={searchQuery}
                onChange={(e) => setSearchQuery(e.target.value)}
                aria-label="Campo de pesquisa mobile"

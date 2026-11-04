@@ -18,11 +18,11 @@ export const AuthorCarlosHenrique: React.FC = () => {
             </div>
             <div className="text-center md:text-left">
               <span className="bg-[#16A34A] text-white text-sm font-bold px-4 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">
-                Técnico de Máquinas
+                Mecânica de Roçadeiras
               </span>
               <h1 className="text-4xl md:text-6xl font-black mb-4">Carlos Henrique Menezes</h1>
               <p className="text-xl md:text-2xl text-gray-300 font-medium">
-                Técnico em Mecânica de Equipamentos
+                Técnico Especialista em Mecânica de Roçadeiras
               </p>
             </div>
           </div>
@@ -38,13 +38,13 @@ export const AuthorCarlosHenrique: React.FC = () => {
             </p>
             <div className="space-y-6">
               <p>
-                Sou o Carlos Henrique Menezes, técnico em mecânica de equipamentos com mais de <strong className="text-[#16A34A]">15 anos de experiência</strong> em manutenção e análise de ferramentas motorizadas, incluindo roçadeiras a gasolina, elétricas e a bateria.
+                Sou o Carlos Henrique Menezes, técnico em mecânica com mais de <strong className="text-[#16A34A]">15 anos de experiência</strong> dedicados à manutenção, preparação e análise de motores de roçadeiras a gasolina (2T e 4T), elétricas e a bateria.
               </p>
               <p>
-                Durante minha carreira, atuei diretamente com profissionalismo em diagnóstico, manutenção e testes de desempenho, o que me permitiu desenvolver um olhar técnico apurado sobre durabilidade, potência, eficiência mecânica e qualidade de construção.
+                Durante minha carreira em oficina, atuei diretamente no diagnóstico de falhas mecânicas, regulagem de carburadores, reparo de embreagens e caixas de transmissão, desenvolvendo um olhar clínico sobre a real resistência dos componentes sob uso pesado.
               </p>
               <p>
-                Minha especialidade é analisar as roçadeiras de forma técnica, avaliando aspectos como tipo de motor (2 tempos, 4 tempos ou brushless), torque, sistema de transmissão, consumo, vibração e vida útil dos componentes. Com esse conhecimento, consigo recomendar os melhores modelos com base em desempenho real e confiabilidade a longo prazo.
+                Minha missão no Guia do Roçador é analisar cada roçadeira tecnicamente: tipo de motorização, entrega de torque, sistema antivibração, consumo de combustível e disponibilidade de peças de reposição no Brasil. Com isso, garanto recomendações baseadas na engenharia real e confiabilidade mecânica a longo prazo.
               </p>
             </div>
           </div>
@@ -98,7 +98,7 @@ export const AuthorCarlosHenrique: React.FC = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="p-12 bg-[#F3F4F6] rounded-3xl border-2 border-dashed border-gray-300">
             <h2 className="text-3xl font-bold mb-6 text-gray-900">Dúvidas Técnicas?</h2>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Precisa entender se um motor específico aguenta a sua rotina? Estou à disposição para consultorias técnicas.</p>
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">Precisa entender se o motor de uma roçadeira aguenta o seu tipo de vegetação? Tem dúvidas sobre regulagem ou manutenção mecânica? Estou à disposição para tirar dúvidas técnicas.</p>
             <a 
               href="mailto:contato@guiadorocador.com.br" 
               className="inline-flex items-center gap-3 bg-[#1a1a1a] text-white px-10 py-5 rounded-2xl font-black hover:bg-gray-800 transition-all shadow-xl"
