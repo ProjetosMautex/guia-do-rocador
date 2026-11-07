@@ -1,728 +1,1625 @@
 import React, { useState } from 'react';
 import { AffiliateCard } from '../AffiliateCard';
-import { BunnerDoMeiorocadeira as BannerDoMeio } from './BunnerDoMeiorocadeira';
 import { products, type ProductId } from '../../data/productsrocadeira';
-import { Check, X, ArrowRight } from 'lucide-react';
+import { BunnerDoMeiorocadeira as BunnerDoMeio } from './BunnerDoMeiorocadeira';
+
+// Ícones SVG Inline Leves (Zero peso extra no bundle JS, PageSpeed 100)
+const Check = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>
+);
+
+const X = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+);
+
+const ArrowRight = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
+);
+
+const ChevronDown = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+);
+
+const ChevronUp = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+);
+
+const Sparkles = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+    <path d="M20 3v4"></path>
+    <path d="M22 5h-4"></path>
+    <path d="M4 17v2"></path>
+    <path d="M5 18H3"></path>
+  </svg>
+);
+
+const HelpCircle = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+  </svg>
+);
+
+const ShoppingBag = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <path d="M16 10a4 4 0 0 1-8 0"></path>
+  </svg>
+);
+
+interface ShowcaseItem {
+  id: ProductId;
+  anchorId: string;
+  shortName: string;
+  category: string;
+  score: string;
+  thumbSrc: string;
+}
+
+interface ProductReviewData {
+  id: ProductId;
+  anchorId: string;
+  badge?: string;
+  heading: string;
+  imageSrc: string;
+  imageAlt: string;
+  paragraphs: string[];
+  specs: { label: string; value: string; highlight?: boolean }[];
+  pros: string[];
+  cons: string[];
+  criteria: { name: string; score: string; note: string }[];
+}
+
+const crossSellProducts = {
+  fioNylon: {
+    link: products["fio-de-nylon-duraline-3mm-quadrado-255m"]?.link || "#",
+    image: "/images/blog/thumbs/fio-duraline-cross.webp"
+  },
+  oleo2t: {
+    link: products["kit-misturador-oleo-2t"]?.link || "#",
+    image: "/images/blog/thumbs/kit-oleo-2t-cross.webp"
+  },
+  kitEpi: {
+    link: products["kit-seguranca-completo-epis"]?.link || "#",
+    image: "/images/blog/thumbs/kit-epis-cross.webp"
+  }
+};
+
+const showcaseItems: ShowcaseItem[] = [
+  {
+    id: "stihl-fs-221",
+    anchorId: "item-stihl-fs-221",
+    shortName: "Stihl FS 221 (Melhor Profissional Pesada)",
+    category: "Desbaste Pesado / Uso Diário",
+    score: "9.9 / 10",
+    thumbSrc: "/images/blog/thumbs/stihl-fs-221-thumb.webp"
+  },
+  {
+    id: "rocadeira-toyama-tbc43",
+    anchorId: "item-toyama-tbc43",
+    shortName: "Toyama TBC43 (Melhor Custo-Benefício)",
+    category: "Chácara / Sítio (Bipartida)",
+    score: "9.5 / 10",
+    thumbSrc: "/images/blog/thumbs/Roçadeira Toyama Tbc43-thumb.webp"
+  },
+  {
+    id: "rocadeira-toyama-tbc52x",
+    anchorId: "item-toyama-tbc52x",
+    shortName: "Toyama TBC52X (Melhor Força Bruta)",
+    category: "Capoeira Grossa / 52 cc",
+    score: "9.6 / 10",
+    thumbSrc: "/images/blog/thumbs/rocadeira toyama Tbc52x-thumb.webp"
+  },
+  {
+    id: "rocadeira-honda-umk435t",
+    anchorId: "item-honda-umk435t",
+    shortName: "Honda UMK435T (Melhor 4 Tempos)",
+    category: "Gasolina Pura / Econômica",
+    score: "9.8 / 10",
+    thumbSrc: "/images/blog/thumbs/Roçadeira Honda UMK435T-thumb.webp"
+  },
+  {
+    id: "rocadeira-stihl-fsa-45",
+    anchorId: "item-stihl-fsa-45",
+    shortName: "Stihl FSA 45 (Melhor a Bateria)",
+    category: "Jardins / Baixo Ruído",
+    score: "9.3 / 10",
+    thumbSrc: "/images/blog/thumbs/Roçadeira Stihl FSA 45-thumb.webp"
+  },
+  {
+    id: "rocadeira-trapp-master-1800-bipartido",
+    anchorId: "item-trapp-master-1800",
+    shortName: "Trapp Master AT 1800 (Aparador Ágil)",
+    category: "Bordas e Gramados até 100 m²",
+    score: "9.1 / 10",
+    thumbSrc: "/images/blog/thumbs/roçadeira Trapp Master 1800 Bipartido-thumb.webp"
+  },
+  {
+    id: "rocadeira-tekna-bc-1250ss",
+    anchorId: "item-tekna-bc1250ss",
+    shortName: "Tekna BC1250SS (Elétrica Bipartida)",
+    category: "Quintal Denso / Aceita Lâmina",
+    score: "9.4 / 10",
+    thumbSrc: "/images/blog/thumbs/Tekna BC 1250SS-thumb.webp"
+  },
+  {
+    id: "garthen-gre-2000",
+    anchorId: "item-garthen-gre-2000",
+    shortName: "Garthen GRE-2000 (Elétrica 2000 W)",
+    category: "Alta Potência Monofásica",
+    score: "9.4 / 10",
+    thumbSrc: "/images/blog/thumbs/Roçadeira Garthen Gre-2000-thumb.webp"
+  },
+  {
+    id: "rocadeira-husqvarna-143rs",
+    anchorId: "item-husqvarna-143rs",
+    shortName: "Husqvarna 143RS (Trator Profissional)",
+    category: "Fazendas / Serviço Pesado",
+    score: "9.8 / 10",
+    thumbSrc: "/images/blog/thumbs/Husqvarna 143rs-thumb.webp"
+  }
+];
+
+const mainHighlightProducts: ProductReviewData[] = [
+  {
+    id: "stihl-fs-221",
+    anchorId: "item-stihl-fs-221",
+    badge: "Melhor Profissional Pesada / Alto Desempenho",
+    heading: "Melhor Profissional Pesada / Alto Desempenho Stihl FS 221 antiga fs 220",
+    imageSrc: "/images/blog/stihl-fs-221.webp",
+    imageAlt: "Roçadeira profissional a gasolina Stihl FS 221 sucessora da FS 220 para mato pesado",
+    paragraphs: [
+      "Sucessora direta da consagrada FS 220 nas oficinas, a Stihl FS 221 é referência mecânica para desbaste pesado em terrenos acidentados.",
+      "Seu motor 2-MIX de 38,9 cc entrega 2,31 hp com excelente torque em média e alta rotação, impedindo que a lâmina perca giro ao atingir caules lenhosos e braquiária fechada, além de consumir até 20% menos combustível que os motores 2 tempos antigos.",
+      "Conta com tubo rígido reforçado, caixa de transmissão de alta durabilidade e sistema antivibração de quatro pontos que protege as articulações do operador em jornadas diárias, além de ampla oferta de peças no Brasil.",
+      "O ponto de atenção é que ela sai de fábrica com lâmina, exigindo compra separada do carretel de nylon."
+    ],
+    specs: [
+      { label: "Motorização / Potência", value: "Motor 2-MIX a gasolina — 38,9 cc / 2,31 hp" },
+      { label: "Transmissão e Amortecimento", value: "Tubo rígido reforçado + Sistema antivibração de 4 pontos" },
+      { label: "Eficiência Energética", value: "Até 20% mais econômica que motores 2T convencionais", highlight: true },
+      { label: "Acessório de Série", value: "Lâmina metálica de corte (carretel vendido à parte)" }
+    ],
+    pros: [
+      "Motor 2-MIX de alto torque e baixo consumo.",
+      "Sistema antivibração profissional.",
+      "Altíssima durabilidade mecânica e fácil reposição de peças."
+    ],
+    cons: [
+      "Carretel de nylon não incluso na caixa original.",
+      "Investimento inicial elevado."
+    ],
+    criteria: [
+      { name: "Entrega de Torque em Mato Pesado", score: "10 / 10", note: "Mantém rotação firme em braquiária densa e arbustos lenhosos." },
+      { name: "Ergonomia e Antivibração", score: "9.8 / 10", note: "Quatro pontos de amortecimento reduzem drasticamente a fadiga diária." },
+      { name: "Durabilidade e Pós-Venda", score: "9.9 / 10", note: "Peças originais e assistência técnica em todo o território nacional." }
+    ]
+  },
+  {
+    id: "rocadeira-toyama-tbc43",
+    anchorId: "item-toyama-tbc43",
+    badge: "Melhor Custo-Benefício",
+    heading: "Melhor Custo-Benefício para Uso Doméstico / Semiprofissional: Toyama TBC43",
+    imageSrc: "/images/blog/Roçadeira Toyama Tbc43.webp",
+    imageAlt: "Roçadeira a gasolina Toyama TBC43 bipartida para chácaras e sítios",
+    paragraphs: [
+      "Para proprietários de chácaras, sítios e terrenos urbanos que precisam de força sem pagar o preço de uma máquina florestal, a Toyama TBC43SH entrega o melhor equilíbrio mecânico da categoria.",
+      "Seu motor 2 tempos de 42,7 cc (1,7 hp) tem fôlego suficiente para derrubar capim alto e pequenos arbustos sem superaquecer a embreagem.",
+      "O destaque prático é o tubo de transmissão bipartido com engate rápido, que permite dividir a haste para transportar no porta-malas do carro.",
+      "Acompanha colete ergonômico, lâmina de 3 pontas e carretel de nylon.",
+      "Na operação, seus 9 kg exigem bom ajuste do cinto e atenção preventiva à lubrificação da luva de junção do eixo."
+    ],
+    specs: [
+      { label: "Cilindrada / Potência", value: "42,7 cc / 1,7 hp (Motor 2 tempos)" },
+      { label: "Eixo de Transmissão", value: "Tubo bipartido com acoplamento de engate rápido" },
+      { label: "Peso Aproximado", value: "9,0 kg" },
+      { label: "Kit Incluso na Caixa", value: "Lâmina de 3 pontas, carretel de nylon e colete ergonômico", highlight: true }
+    ],
+    pros: [
+      "Excelente relação entre preço e torque.",
+      "Haste bipartida que facilita o transporte.",
+      "Kit completo com lâmina e nylon.",
+      "Ampla rede de peças."
+    ],
+    cons: [
+      "Peso elevado (9 kg) em jornadas longas.",
+      "Exige limpeza constante na conexão do eixo bipartido."
+    ],
+    criteria: [
+      { name: "Custo-Benefício Geral", score: "9.8 / 10", note: "Entrega pacote completo pronto para uso por valor muito competitivo." },
+      { name: "Praticidade de Transporte", score: "9.6 / 10", note: "Cabe facilmente no porta-malas de carros de passeio." },
+      { name: "Conforto em Longas Jornadas", score: "9.0 / 10", note: "Os 9 kg pedem regulagem cuidadosa do colete antes de iniciar." }
+    ]
+  },
+  {
+    id: "rocadeira-toyama-tbc52x",
+    anchorId: "item-toyama-tbc52x",
+    badge: "Melhor Força Bruta Alternativa",
+    heading: "Melhor Força Bruta / Trabalho Pesado Alternativo Toyama Gasolina TBC52X",
+    imageSrc: "/images/blog/rocadeira toyama Tbc52x.webp",
+    imageAlt: "Roçadeira a gasolina Toyama TBC52X GII 52cc de eixo rígido para capoeira grossa",
+    paragraphs: [
+      "Quando o desafio envolve capoeira grossa e mato pesado em propriedades rurais, a Toyama TBC52X GII entra em campo com um motor de 52 cc e 1,9 hp.",
+      "Diferente da linha básica, a série \"X\" traz tubo inteiriço de 28 mm e eixo cardã rígido que transfere toda a energia da embreagem para a ponteira sem perdas mecânicas, suportando o impacto de lâminas em vegetação fibrosa.",
+      "O guidão bipartido estilo bicicleta e os coxins amortecedores isolam parte da vibração do bloco de alta cilindrada.",
+      "Por ter maior volume de câmara de combustão, apresenta consumo de combustível superior, sendo indicada para corte bruto e não para pequenos retoques."
+    ],
+    specs: [
+      { label: "Cilindrada / Potência", value: "51,6 cc (52 cc) / 1,9 hp (Linha X GII)" },
+      { label: "Tubo e Transmissão", value: "Tubo inteiriço reforçado de 28 mm com eixo cardã rígido" },
+      { label: "Ergonomia", value: "Guidão tipo bicicleta com coxins amortecedores" },
+      { label: "Acessórios Inclusos", value: "Lâmina metálica, carretel de nylon e colete duplo", highlight: true }
+    ],
+    pros: [
+      "Motor de 52 cc com alto poder de arranque.",
+      "Transmissão rígida reforçada de 28 mm.",
+      "Amortecimento eficiente.",
+      "Acompanha lâmina e carretel."
+    ],
+    cons: [
+      "Consumo de combustível mais alto.",
+      "Pouco prática para acabamentos delicados."
+    ],
+    criteria: [
+      { name: "Força Bruta em Capoeira", score: "9.7 / 10", note: "Alto deslocamento volumétrico vence mato fibroso sem travar." },
+      { name: "Rigidez Estrutural", score: "9.6 / 10", note: "Tubo inteiriço de 28 mm suporta esforço intenso com lâmina." },
+      { name: "Economia de Combustível", score: "8.9 / 10", note: "Câmara de 52 cc consome mais que modelos de 35 a 40 cc." }
+    ]
+  },
+  {
+    id: "rocadeira-honda-umk435t",
+    anchorId: "item-honda-umk435t",
+    badge: "Melhor Motor 4 Tempos",
+    heading: "Melhor Opção 4 Tempos (Econômica e Menos Poluente): Honda UMK435T",
+    imageSrc: "/images/blog/Roçadeira Honda UMK435T.webp",
+    imageAlt: "Roçadeira Honda UMK435T com motor 4 tempos GX35 a gasolina pura",
+    paragraphs: [
+      "A Honda UMK435T resolve a maior causa de quebras em oficinas: o erro na mistura de óleo 2 tempos na gasolina.",
+      "Equipada com o motor 4 tempos GX35 de 35,8 cc (1,6 hp), ela funciona com gasolina pura no tanque e óleo lubrificante separado no cárter, permitindo operação em 360° sem engasgar ou soltar fumaça azulada.",
+      "Na bancada, destaca-se pela partida macia, ruído reduzido, baixíssimo consumo de combustível e entrega de torque linear desde as baixas rotações.",
+      "Em contrapartida, o cabeçote com válvulas e comando exige trocas periódicas de óleo do cárter e mão de obra qualificada nas revisões, além de ter custo de compra mais elevado."
+    ],
+    specs: [
+      { label: "Motorização", value: "Honda GX35 — 4 Tempos OHC (35,8 cc / 1,6 hp)" },
+      { label: "Combustível", value: "Gasolina comum pura (dispensa mistura de óleo 2T)", highlight: true },
+      { label: "Sistema de Lubrificação", value: "Cárter separado com operação livre em 360°" },
+      { label: "Nível de Ruído e Emissões", value: "Baixo ruído operacional e zero fumaça de óleo queimado" }
+    ],
+    pros: [
+      "Abastecimento com gasolina pura (dispensa mistura).",
+      "Operação silenciosa e sem fumaça.",
+      "Altíssima economia de combustível.",
+      "Lubrificação em 360°."
+    ],
+    cons: [
+      "Preço de aquisição elevado.",
+      "Manutenção interna requer cuidado com o nível de óleo do cárter."
+    ],
+    criteria: [
+      { name: "Economia e Praticidade", score: "10 / 10", note: "Elimina erros de proporção 2T e consome pouquíssima gasolina." },
+      { name: "Conforto Acústico e Partida", score: "9.8 / 10", note: "Arranque extremamente leve e som muito mais suave." },
+      { name: "Confiabilidade Mecânica", score: "9.7 / 10", note: "Bloco GX35 é referência mundial quando o óleo é trocado em dia." }
+    ]
+  },
+  {
+    id: "rocadeira-stihl-fsa-45",
+    anchorId: "item-stihl-fsa-45",
+    badge: "Melhor a Bateria / Zero Ruído",
+    heading: "Melhor Opção a Bateria (Áreas Sensíveis a Ruído): Stihl FSA 45",
+    imageSrc: "/images/blog/Roçadeira Stihl FSA 45.webp",
+    imageAlt: "Roçadeira a bateria Stihl FSA 45 ultraleve e silenciosa com cabeçote PolyCut",
+    paragraphs: [
+      "Projetada para manutenção silenciosa de jardins residenciais, condomínios e áreas próximas a hospitais ou escolas, a Stihl FSA 45 elimina cabos elétricos e combustíveis.",
+      "Pesando apenas 2,3 kg (já com a bateria de íons de lítio de 18V integrada na carcaça), ela oferece ajuste telescópico do tubo e inclinação da empunhadura sem uso de ferramentas.",
+      "Opera com o cabeçote PolyCut 22 de duas lâminas plásticas articuladas (que podem ser substituídas por fio de nylon de 1,6 mm) e cabeça de corte inclinável para bordas verticais.",
+      "Sua limitação técnica é a autonomia de cerca de 20 minutos por carga, sendo exclusiva para grama macia e acabamentos pontuais."
+    ],
+    specs: [
+      { label: "Alimentação", value: "Bateria de íons de lítio 18V integrada (carregador bivolt)" },
+      { label: "Peso Total", value: "2,3 kg (com bateria integrada)", highlight: true },
+      { label: "Sistema de Corte", value: "Cabeçote PolyCut 2-2 (lâminas poliméricas ou fio 1,6 mm)" },
+      { label: "Autonomia Média", value: "Até 20 minutos por carga para acabamentos residenciais" }
+    ],
+    pros: [
+      "Peso pluma de 2,3 kg.",
+      "Zero emissão de fumaça e baixíssimo ruído.",
+      "Tubo telescópico ajustável.",
+      "Bateria bivolt integrada com indicador de LED."
+    ],
+    cons: [
+      "Autonomia restrita a cerca de 20 minutos.",
+      "Não suporta mato grosso ou lâminas metálicas."
+    ],
+    criteria: [
+      { name: "Leveza e Ergonomia Urbana", score: "10 / 10", note: "Qualquer pessoa opera sem esforço físico e ajusta a haste sem chaves." },
+      { name: "Silêncio Operacional", score: "9.9 / 10", note: "Perfeita para condomínios e locais com restrição severa de barulho." },
+      { name: "Autonomia por Carga", score: "8.4 / 10", note: "Dimensionada estritamente para jardins compactos e retoques." }
+    ]
+  }
+];
+
+const alternativeProducts: ProductReviewData[] = [
+  {
+    id: "rocadeira-trapp-master-1800-bipartido",
+    anchorId: "item-trapp-master-1800",
+    heading: "Trapp ｜ Aparador de Grama ｜ Master AT 1800",
+    imageSrc: "/images/blog/roçadeira Trapp Master 1800 Bipartido.webp",
+    imageAlt: "Aparador de grama elétrico Trapp Master AT 1800 bipartido de 1800W",
+    paragraphs: [
+      "O Trapp Master AT 1800 é um aparador elétrico de alta rotação (11.200 RPM) e 1.800 W de potência nominal, dimensionado para o acabamento ágil de bordas de canteiros, calçadas e gramados residenciais de até 100 m².",
+      "Com apenas 2,7 kg e haste bipartida, pode ser manuseado sem esforço físico e guardado em pequenos armários.",
+      "Trabalha exclusivamente com carretel de fio de nylon de 1,8 mm (com avanço automático e faixa de corte de 29 cm), não devendo ser forçado em capoeira ou caules lenhosos devido ao motor posicionado na base inferior."
+    ],
+    specs: [
+      { label: "Potência / Rotação", value: "1.800 W / 11.200 RPM" },
+      { label: "Faixa de Corte e Fio", value: "29 cm — Carretel automático com nylon 1,8 mm" },
+      { label: "Peso e Estrutura", value: "2,7 kg — Haste bipartida compacta", highlight: true },
+      { label: "Área Recomendada", value: "Gramados residenciais e bordas de até 100 m²" }
+    ],
+    pros: [
+      "Motor veloz de 1.800 W e 11.200 RPM.",
+      "Ultraleve (2,7 kg) e bipartido.",
+      "Avanço automático do fio de nylon."
+    ],
+    cons: [
+      "Opera apenas com fio de nylon (não aceita lâmina).",
+      "Limitado a áreas de até 100 m² próximas à tomada."
+    ],
+    criteria: [
+      { name: "Agilidade em Bordas e Calçadas", score: "9.5 / 10", note: "Altíssima rotação entrega acabamento limpo em grama macia." },
+      { name: "Facilidade de Armazenamento", score: "9.7 / 10", note: "Desmonta ao meio e pesa menos de 3 kg." },
+      { name: "Versatilidade em Mato Alto", score: "8.2 / 10", note: "Exclusivo para acabamento leve residencial." }
+    ]
+  },
+  {
+    id: "rocadeira-tekna-bc-1250ss",
+    anchorId: "item-tekna-bc1250ss",
+    heading: "Tekna ｜ Roçadeira Elétrica ｜ BC1250SS",
+    imageSrc: "/images/blog/Tekna BC 1250SS.webp",
+    imageAlt: "Roçadeira elétrica lateral Tekna BC1250SS de 1200W com haste bipartida",
+    paragraphs: [
+      "A Tekna BC1250SS possui arquitetura de roçadeira lateral de verdade: seu motor traseiro de 1.200 W equilibra os 4,8 kg da máquina e aciona um eixo cardã a 7.500 RPM, permitindo usar tanto o carretel de nylon (35 cm de corte) quanto a lâmina metálica de 4 pontas inclusa (23 cm) para cortar capins densos e raízes resistentes.",
+      "Conta com haste bipartida que facilita o armazenamento, empunhadura tipo D regulável e cinto de sustentação, exigindo apenas atenção ao dimensionamento da extensão elétrica e à escolha correta da tensão (110V ou 220V)."
+    ],
+    specs: [
+      { label: "Especificação de Potência", value: "1.200 W (Motor traseiro equilibrado)" },
+      { label: "Giro do Motor", value: "7.500 RPM" },
+      { label: "Diâmetro de Corte", value: "23 cm (lâmina 4 pontas) / 35 cm (carretel de nylon)" },
+      { label: "Peso Total e Kit", value: "4,8 kg — Inclui lâmina 4 pontas, carretel e cinto", highlight: true },
+      { label: "Compatibilidade Bivolt", value: "Não (escolher 110V ou 220V na compra)" }
+    ],
+    pros: [
+      "Aceita lâmina metálica de 4 pontas e carretel de nylon.",
+      "Motor traseiro bem equilibrado de 1.200 W.",
+      "Haste bipartida e peso reduzido (4,8 kg)."
+    ],
+    cons: [
+      "Mobilidade limitada pelo cabo elétrico.",
+      "Não é bivolt."
+    ],
+    criteria: [
+      { name: "Desempenho em Quintais Densos", score: "9.4 / 10", note: "A lâmina de 4 pontas corta touceiras que aparadores comuns não vencem." },
+      { name: "Equilíbrio de Peso", score: "9.5 / 10", note: "Motor superior traseiro não cansa os punhos durante a roçada." },
+      { name: "Praticidade Doméstica", score: "9.3 / 10", note: "Zero manutenção de carburador e guarda fácil no armário." }
+    ]
+  },
+  {
+    id: "garthen-gre-2000",
+    anchorId: "item-garthen-gre-2000",
+    heading: "Garthen ｜ Roçadeira Elétrica ｜ GRE-2000",
+    imageSrc: "/images/blog/Roçadeira Garthen Gre-2000.webp",
+    imageAlt: "Roçadeira elétrica Garthen GRE-2000 potente de 2000W com lâmina de 3 pontas",
+    paragraphs: [
+      "Para quem busca o teto de força em motores elétricos monofásicos, a Garthen GRE-2000 entrega 2.000 W de potência a 7.500 RPM, superando os modelos tradicionais de 1.200 W em gramados fechados.",
+      "Seu grande diferencial produtivo é o diâmetro de corte de 43 cm com a lâmina de 3 pontas (e 25,5 cm no nylon), cobrindo faixas largas em menos passadas.",
+      "Pesa 5,5 kg e vem acompanhada de lâmina, carretel automático, cinto de apoio e kit de chaves allen e combinada para troca rápida na ponteira."
+    ],
+    specs: [
+      { label: "Capacidade Energética", value: "2.000 W (Alta potência monofásica)" },
+      { label: "Rotação Máxima", value: "7.500 RPM" },
+      { label: "Alcance de Corte", value: "43 cm (lâmina de 3 pontas) / 25,5 cm (nylon)", highlight: true },
+      { label: "Massa e Itens Inclusos", value: "5,5 kg — Lâmina, carretel automático, chaves e cinto" },
+      { label: "Compatibilidade de Voltagem", value: "Não é bivolt (verificar tensão da rede)" }
+    ],
+    pros: [
+      "Potência superior de 2.000 W.",
+      "Ampla faixa de corte com lâmina (43 cm).",
+      "Kit completo de acessórios e ferramentas."
+    ],
+    cons: [
+      "Exige rede elétrica e extensão de bitola adequada para 2.000 W.",
+      "Não é bivolt."
+    ],
+    criteria: [
+      { name: "Força em Gramados Fechados", score: "9.6 / 10", note: "Os 2.000 W mantêm giro constante mesmo sob vegetação pesada." },
+      { name: "Produtividade por Passada", score: "9.6 / 10", note: "Ampla abertura de corte reduz o tempo total de serviço." },
+      { name: "Exigência de Instalação", score: "8.9 / 10", note: "Requer extensão com cabo grosso para evitar queda de tensão." }
+    ]
+  },
+  {
+    id: "rocadeira-husqvarna-143rs",
+    anchorId: "item-husqvarna-143rs",
+    heading: "Roçadeira a Gasolina 2 Tempos 41,5cc 2,1 HP Husqvarna 143RS",
+    imageSrc: "/images/blog/Husqvarna 143rs.webp",
+    imageAlt: "Roçadeira profissional a gasolina Husqvarna 143RS de 41,5cc e 2,1 HP",
+    paragraphs: [
+      "A Husqvarna 143RS é um verdadeiro trator mecânico para prestadores de serviço e fazendas.",
+      "Seu motor 2 tempos de 41,5 cc gera 2,1 hp com carburação estável e filtro de ar de duplo estágio, mantendo o giro firme sob carga severa.",
+      "O conjunto de transmissão rígida e caixa de engrenagens blindada foi projetado para suportar pancadas em pastagens e mato fechado.",
+      "Além disso, acompanha de série o cinturão duplo ergonômico Balance 55, que distribui os 7,3 kg entre ombros e quadril para proteger a coluna do operador."
+    ],
+    specs: [
+      { label: "Cilindrada / Potência", value: "41,5 cc / 2,1 hp (Motor 2 tempos)" },
+      { label: "Filtragem e Transmissão", value: "Filtro de duplo estágio + Eixo rígido e engrenagem blindada" },
+      { label: "Peso sem Combustível", value: "7,3 kg" },
+      { label: "Ergonomia de Série", value: "Cinturão profissional duplo Balance 55 incluso", highlight: true }
+    ],
+    pros: [
+      "Motor de 2,1 hp extremamente confiável.",
+      "Transmissão rígida de padrão industrial.",
+      "Acompanha cinturão profissional Balance 55."
+    ],
+    cons: [
+      "Nível de vibração mais perceptível que na linha antivibração extrema.",
+      "Exige entrega técnica autorizada para garantia."
+    ],
+    criteria: [
+      { name: "Resistência em Uso Severo", score: "9.9 / 10", note: "Construção mecânica consagrada entre roçadores profissionais." },
+      { name: "Distribuição de Peso no Corpo", score: "9.8 / 10", note: "O colete Balance 55 alivia a lombar de forma exemplar." },
+      { name: "Estabilidade de Carburação", score: "9.7 / 10", note: "Filtro duplo protege o cilindro mesmo em terrenos secos com poeira." }
+    ]
+  }
+];
 
 export const MelhorRocadeira: React.FC = () => {
-  const featuredIds: ProductId[] = [
-    "rocadeira-vulcan-vr520h",
-    "rocadeira-husqvarna-143rs",
-    "rocadeira-trapp-master-1000",
-    "rocadeira-toyama-tbc43h",
-    "rocadeira-makita-dur187uz",
-    "rocadeira-intech-machine-skim5100",
-    "rocadeira-tekna-bc-1250ss"
+  const [quizProfile, setQuizProfile] = useState<'pesado' | 'chacara' | 'quintal' | 'silencio' | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqData: { question: string; answer: React.ReactNode[] }[] = [
+    {
+      question: "Qual a proporção correta de óleo na gasolina para roçadeiras 2 tempos?",
+      answer: [
+        "Depende da especificação do fabricante e da marca do óleo: máquinas como Toyama costumam exigir a proporção 25:1 (40 ml de óleo 2T para 1 litro de gasolina), enquanto Stihl e Husqvarna utilizam 50:1 (20 ml por litro) quando operadas com o óleo original da própria marca.",
+        "Sempre consulte o manual para não fundir o pistão.",
+        <>
+          Se a máquina afogar na primeira partida do dia, veja nosso guia prático de <a href="/como-desafogar-rocadeira" className="text-[#166534] hover:underline font-semibold">como desafogar roçadeira em 2 minutos</a>.
+        </>
+      ]
+    },
+    {
+      question: "Roçadeiras bipartidas perdem potência na conexão?",
+      answer: [
+        "Não há perda perceptível de potência se a luva de acoplamento estiver limpa, bem apertada e com o eixo cardã devidamente engraxado.",
+        "Contudo, para desbaste profissional severo de sol a sol, o tubo inteiriço oferece maior rigidez estrutural."
+      ]
+    },
+    {
+      question: "Posso usar lâmina metálica em qualquer roçadeira ou aparador?",
+      answer: [
+        "Não.",
+        "Lâminas de aço só podem ser instaladas em roçadeiras projetadas para isso, que possuem eixo rígido, caixa de transmissão metálica e porca de fixação com rosca esquerda.",
+        "Adaptar lâminas em aparadores de grama comuns causa quebra do eixo e grave risco de acidentes."
+      ]
+    },
+    {
+      question: "De quanto em quanto tempo devo lubrificar a caixa de transmissão e afiar a lâmina?",
+      answer: [
+        "Na oficina, recomendamos verificar e completar a caixa de engrenagens (ponteira) com graxa específica para roçadeiras a cada 20 horas de uso, além de limpar o filtro de ar a cada jornada e afiar a lâmina a cada 8 a 10 horas de trabalho para não forçar a embreagem nem elevar o consumo."
+      ]
+    }
   ];
 
-  const [terrainSize, setTerrainSize] = useState<string | null>(null);
+  const renderProductSection = (product: ProductReviewData, showTopBorder: boolean) => (
+    <section
+      key={product.id}
+      id={product.anchorId}
+      className={`scroll-mt-24 ${showTopBorder ? 'pt-10 border-t border-gray-200' : 'pt-2'}`}
+    >
+      {product.badge && (
+        <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+          {product.badge}
+        </span>
+      )}
+
+      <h3 className="text-2xl font-bold text-[#1a1a1a] mb-6 border-l-4 border-[#16A34A] pl-4 leading-snug">
+        {product.heading}
+      </h3>
+
+      <div className="w-full flex justify-center mb-8 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+        <img
+          src={product.imageSrc}
+          alt={product.imageAlt}
+          title={products[product.id]?.name || product.heading}
+          width={800}
+          height={533}
+          className="max-h-80 w-auto object-contain mix-blend-multiply"
+          loading="lazy"
+        />
+      </div>
+
+      <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+        {product.paragraphs.map((paragraph, idx) => (
+          <p key={idx}>{paragraph}</p>
+        ))}
+      </div>
+
+      {/* Ficha Técnica Rápida */}
+      <div className="overflow-x-auto mt-6">
+        <table className="min-w-full border-collapse bg-white rounded-lg shadow-sm border border-gray-200">
+          <tbody className="divide-y divide-gray-200">
+            {product.specs.map((spec, idx) => (
+              <tr key={idx}>
+                <th className="px-4 py-3 bg-gray-50 text-left text-sm font-semibold text-gray-700 w-2/5">
+                  {spec.label}
+                </th>
+                <td className="px-4 py-3 text-sm text-gray-600">
+                  {spec.highlight && <Check className="text-[#16A34A] inline mr-1.5" size={18} />}
+                  {spec.value}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Card Principal de Afiliado */}
+      <AffiliateCard id={product.id} />
+
+      {/* Prós e Contras */}
+      <div className="grid md:grid-cols-2 gap-6 mt-8">
+        <div className="bg-green-50 p-6 rounded-xl border border-green-200">
+          <h4 className="font-bold text-green-900 mb-4 flex items-center gap-2">
+            <Check size={20} className="text-[#16A34A]" /> Prós
+          </h4>
+          <ul className="space-y-2 text-green-800 text-sm list-disc list-inside">
+            {product.pros.map((pro, idx) => (
+              <li key={idx}>{pro}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="bg-red-50 p-6 rounded-xl border border-red-200">
+          <h4 className="font-bold text-red-900 mb-4 flex items-center gap-2">
+            <X size={20} className="text-red-600" /> Contras
+          </h4>
+          <ul className="space-y-2 text-red-800 text-sm list-disc list-inside">
+            {product.cons.map((con, idx) => (
+              <li key={idx}>{con}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Tabela de Notas por Critério */}
+      <div className="mt-8 overflow-x-auto rounded-xl border border-gray-200 bg-white">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
+                Critério Avaliado
+              </th>
+              <th className="px-4 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-wider w-[110px]">
+                Nota
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider hidden sm:table-cell">
+                Avaliação Técnica
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200 text-sm text-gray-700">
+            {product.criteria.map((c, idx) => (
+              <tr key={idx}>
+                <td className="px-4 py-3 font-semibold">{c.name}</td>
+                <td className="px-4 py-3 text-center font-bold text-[#166534] whitespace-nowrap">{c.score}</td>
+                <td className="px-4 py-3 text-gray-600 hidden sm:table-cell">{c.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
 
   return (
-    <div className="bg-white">
-        {/* Hero Section */}
-        <div className="relative bg-[#1a1a1a] text-white py-20 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img 
-              src="/images/blog/1/melhor-rocadeira.webp" 
-              alt="Melhor Roçadeira As 7 Melhores de 2026 (Gasolina e Elétrica)" 
-              className="w-full h-full object-cover opacity-30 blur-sm"
+    <div className="font-sans bg-gray-50 text-[#1a1a1a]">
+      {/* =====================================================================
+          1. HERO SECTION (LCP Otimizado + Único H1 + Assinatura do Autor)
+          ===================================================================== */}
+      <div className="relative bg-[#1a1a1a] text-white py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            fetchPriority="high"
+            src="/images/blog/1/melhor-rocadeira.webp"
+            alt="Operador profissional utilizando a melhor roçadeira em corte de vegetação"
+            title="Melhor Roçadeira: As 9 Melhores de 2026 (Gasolina e Elétrica)"
+            width={800}
+            height={533}
+            className="w-full h-full object-cover opacity-20 blur-sm"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/80 via-[#1a1a1a]/95 to-[#1a1a1a]"></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white tracking-tight">
+            Melhor Roçadeira <br />
+            <span className="text-[#16A34A]">As 9 Melhores de 2026 (Gasolina e Elétrica)</span>
+          </h1>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-gray-300 text-sm md:text-base">
+            <div className="flex items-center gap-2">
+              <span>Por</span>
+              <a
+                href="/author/carlos-henrique/"
+                className="flex items-center gap-2 hover:text-[#16A34A] transition-colors font-semibold group"
+              >
+                <img
+                  src="/images/autores/Carlos Henrique Menezes-thumb.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-full border-2 border-[#16A34A] group-hover:scale-110 transition-transform object-cover"
+                />
+                Carlos Henrique Menezes
+              </a>
+              <span className="text-gray-500">•</span>
+              <span className="text-gray-400 text-xs sm:text-sm">Técnico em Mecânica</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Container Central de Leitura */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* ===================================================================
+            2. INTRODUÇÃO CURTA (1 ponto final = 1 parágrafo limpo)
+            =================================================================== */}
+        <div className="space-y-4 prose prose-lg max-w-none text-gray-700 mb-10">
+          <p>
+            Escolher a melhor roçadeira exige analisar a engenharia real por trás da carenagem: entrega de torque na ponteira, resistência da caixa de transmissão, eficiência do sistema antivibração e disponibilidade de peças de reposição no Brasil.
+          </p>
+          <p>
+            Para evitar que você compre um motor subdimensionado que trava no mato alto ou sofra com falhas prematuras de carburação e embreagem, avaliamos tecnicamente os 9 melhores modelos de 2026 — a gasolina, elétricos e a bateria — para diferentes demandas de terreno.
+          </p>
+        </div>
+
+        {/* ===================================================================
+            3. SIMULADOR RÁPIDO DE ENGAJAMENTO / ESCOLHA (1 Clique)
+            =================================================================== */}
+        <div className="my-8 p-6 bg-gradient-to-br from-[#1a1a1a] to-gray-900 text-white rounded-2xl shadow-xl border border-gray-800">
+          <div className="flex items-center gap-3 mb-4">
+            <HelpCircle className="text-[#16A34A] w-6 h-6 animate-pulse shrink-0" />
+            <h2 className="text-xl font-bold">Simulador Rápido: Qual roçadeira é ideal para o seu terreno?</h2>
+          </div>
+          <p className="text-gray-300 text-sm mb-4">
+            Selecione o perfil da sua área para ir direto ao modelo dimensionado para o seu serviço:
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-3">
+            <button
+              type="button"
+              onClick={() => setQuizProfile('pesado')}
+              className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
+                quizProfile === 'pesado'
+                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
+              }`}
+            >
+              <span>Serviço Profissional / Fazendas</span>
+              <ArrowRight size={18} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setQuizProfile('chacara')}
+              className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
+                quizProfile === 'chacara'
+                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
+              }`}
+            >
+              <span>Chácara, Sítio e Mato Alto</span>
+              <ArrowRight size={18} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setQuizProfile('quintal')}
+              className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
+                quizProfile === 'quintal'
+                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
+              }`}
+            >
+              <span>Quintal Residencial com Tomada</span>
+              <ArrowRight size={18} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setQuizProfile('silencio')}
+              className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
+                quizProfile === 'silencio'
+                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
+              }`}
+            >
+              <span>Jardim Pequeno / Zero Barulho</span>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+
+          {quizProfile && (
+            <div className="mt-6 p-4 bg-gray-800/80 border border-gray-700 rounded-xl">
+              {quizProfile === 'pesado' && (
+                <p className="text-sm leading-relaxed text-gray-200">
+                  Recomendação de Oficina: Invista na durabilidade extrema da{' '}
+                  <a href="#item-stihl-fs-221" className="text-[#4ade80] underline font-bold">
+                    Stihl FS 221
+                  </a>
+                  , do trator{' '}
+                  <a href="#item-husqvarna-143rs" className="text-[#4ade80] underline font-bold">
+                    Husqvarna 143RS
+                  </a>{' '}
+                  ou na economia 4 tempos da{' '}
+                  <a href="#item-honda-umk435t" className="text-[#4ade80] underline font-bold">
+                    Honda UMK435T
+                  </a>
+                  .
+                </p>
+              )}
+              {quizProfile === 'chacara' && (
+                <p className="text-sm leading-relaxed text-gray-200">
+                  Recomendação de Oficina: Aposte no excelente custo-benefício da{' '}
+                  <a href="#item-toyama-tbc43" className="text-[#4ade80] underline font-bold">
+                    Toyama TBC43 (Bipartida)
+                  </a>{' '}
+                  ou na força bruta de 52 cc da{' '}
+                  <a href="#item-toyama-tbc52x" className="text-[#4ade80] underline font-bold">
+                    Toyama TBC52X
+                  </a>
+                  .
+                </p>
+              )}
+              {quizProfile === 'quintal' && (
+                <p className="text-sm leading-relaxed text-gray-200">
+                  Recomendação de Oficina: Para grama densa sem mexer com gasolina, vá de{' '}
+                  <a href="#item-tekna-bc1250ss" className="text-[#4ade80] underline font-bold">
+                    Tekna BC1250SS (1.200 W)
+                  </a>{' '}
+                  ou na potência superior da{' '}
+                  <a href="#item-garthen-gre-2000" className="text-[#4ade80] underline font-bold">
+                    Garthen GRE-2000 (2.000 W)
+                  </a>
+                  .
+                </p>
+              )}
+              {quizProfile === 'silencio' && (
+                <p className="text-sm leading-relaxed text-gray-200">
+                  Recomendação de Oficina: Para áreas de até 100 m² ou condomínios, escolha a leveza sem fios da{' '}
+                  <a href="#item-stihl-fsa-45" className="text-[#4ade80] underline font-bold">
+                    Stihl FSA 45 (Bateria)
+                  </a>{' '}
+                  ou a agilidade do{' '}
+                  <a href="#item-trapp-master-1800" className="text-[#4ade80] underline font-bold">
+                    Trapp Master AT 1800
+                  </a>
+                  .
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* ===================================================================
+            4. VITRINE RESUMO DOS 9 PRODUTOS (Miniaturas Otimizadas 60x60)
+            =================================================================== */}
+        <div className="mb-16 max-w-[850px] mx-auto bg-white p-3 rounded-2xl sm:p-6 border border-gray-200 shadow-sm">
+          <h2 className="text-2xl font-extrabold text-[#1a1a1a] mb-6 text-center">
+            Resumo Rápido: As 9 Melhores Roçadeiras de 2026
+          </h2>
+
+          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+            <table className="w-full border-collapse">
+              <thead className="bg-gray-50 text-gray-700 text-xs uppercase font-bold border-b border-gray-200">
+                <tr>
+                  <th className="p-3 text-center w-[70px] sm:w-[90px]">Foto</th>
+                  <th className="p-3 text-left">Modelo / Destaque</th>
+                  <th className="p-3 text-left hidden md:table-cell">Perfil Indicado</th>
+                  <th className="p-3 text-center hidden sm:table-cell">Nota</th>
+                  <th className="p-3 text-center w-[105px] sm:w-[140px]">Oferta</th>
+                </tr>
+              </thead>
+              <tbody>
+                {showcaseItems.map((item) => {
+                  const registeredProduct = products[item.id];
+                  const displayName = registeredProduct?.name || item.shortName;
+                  const affiliateUrl = registeredProduct?.link || '#';
+
+                  return (
+                    <tr key={item.id} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50/80 transition-colors">
+                      <td className="p-2 align-middle text-center">
+                        <div className="w-[48px] h-[48px] sm:w-[60px] sm:h-[60px] border border-gray-200 rounded flex items-center justify-center p-0.5 bg-white mx-auto">
+                          <img
+                            src={item.thumbSrc}
+                            alt={displayName}
+                            title={displayName}
+                            width={60}
+                            height={60}
+                            className="max-w-full max-h-full block object-contain mix-blend-multiply"
+                            loading="lazy"
+                          />
+                        </div>
+                      </td>
+                      <td className="p-2 align-middle">
+                        <a
+                          href={`#${item.anchorId}`}
+                          className="text-sm sm:text-base font-bold text-[#1a1a1a] hover:text-[#166534] hover:underline leading-tight block"
+                        >
+                          {item.shortName}
+                        </a>
+                        <div className="text-[11px] text-gray-600 mt-1 md:hidden">
+                          {item.category}
+                        </div>
+                        <div className="text-[11px] font-bold text-[#166534] mt-0.5 sm:hidden">
+                          Nota: {item.score}
+                        </div>
+                      </td>
+                      <td className="p-2 align-middle text-gray-600 text-xs sm:text-sm hidden md:table-cell">
+                        {item.category}
+                      </td>
+                      <td className="p-2 align-middle text-center hidden sm:table-cell">
+                        <span className="bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                          {item.score}
+                        </span>
+                      </td>
+                      <td className="p-2 align-middle text-center">
+                        <a
+                          href={affiliateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored nofollow"
+                          className="bg-[#16A34A] hover:bg-[#15803d] text-white font-bold no-underline text-xs py-2 px-3 rounded-lg whitespace-nowrap inline-block transition-all sm:py-2.5 sm:px-4 shadow-sm active:scale-95"
+                        >
+                          Ver Preço
+                        </a>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* ===================================================================
+            5. SEÇÕES FUNDAMENTAIS ANTES DO RANKING
+            =================================================================== */}
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-5">
+            O que é roçadeira?
+          </h2>
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+            <p>
+              A roçadeira é uma máquina portátil motorizada — acionada por motor a combustão (2 ou 4 tempos), elétrico com fio ou a bateria — projetada para cortar vegetações onde o cortador de grama de carrinho não consegue operar.
+            </p>
+            <p>
+              Através de um eixo de transmissão que gira em alta rotação, ela tritura desde gramados residenciais até capins fibrosos, braquiária e arbustos lenhosos utilizando carretel de fio de nylon ou lâminas metálicas.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-5">
+            Para que serve a roçadeira?
+          </h2>
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+            <p>
+              Na prática, a roçadeira serve tanto para o acabamento fino em bordas de canteiros, calçadas e árvores quanto para a limpeza pesada de terrenos baldios, chácaras, pastagens e encostas íngremes ou pedregosas.
+            </p>
+            <p>
+              Enquanto um aparador comum atua apenas em grama macia, a roçadeira entrega torque estrutural para derrubar mato alto e caules grossos, reduzindo drasticamente o tempo de trabalho braçal em áreas rurais e urbanas.
+            </p>
+          </div>
+        </section>
+
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-5">
+            Qual a Melhor, a Roçadeira Elétrica ou a Movida a Gasolina?
+          </h2>
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+            <p>
+              No mercado atual, encontramos três motorizações principais: a gasolina, elétrica com cabo e a bateria.
+            </p>
+            <p>
+              As roçadeiras a gasolina são as mais potentes e autônomas, sendo insubstituíveis para vegetação densa, mato fechado e grandes extensões sem tomadas por perto.
+            </p>
+            <p>
+              Na outra ponta, os modelos a bateria priorizam o silêncio e a leveza para acabamentos rápidos em gramados tenros.
+            </p>
+            <p>
+              A roçadeira elétrica posiciona-se exatamente no meio-termo: entrega mais potência contínua que a maioria dos modelos a bateria de entrada e dispensa o preparo de combustível ou regulagem de carburador dos motores a gasolina, bastando conectá-la à rede elétrica para manter quintais e jardins médios em dia.
+            </p>
+          </div>
+
+          <div className="w-full flex justify-center my-8">
+            <img
+              src="/images/blog/rocadeira-eletrica-ou-gasolina-comparativo.webp"
+              alt="Comparativo entre roçadeira a gasolina profissional com guidão duplo e modelo elétrico leve para jardim"
+              title="Diferenças práticas entre roçadeira a gasolina, elétrica e a bateria"
+              width={800}
+              height={533}
+              className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/80 to-[#1a1a1a]"></div>
           </div>
-          
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight uppercase tracking-tighter">
-              Melhor Roçadeira <br/>
-              <span className="text-[#16A34A]">As 7 Melhores de 2026 (Gasolina e Elétrica)</span>
-            </h1>
-            
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-gray-300">
-              <div className="flex items-center gap-3">
-                <span>Por</span>
-                <a href="/author/carlos-henrique" className="flex items-center gap-3 hover:text-[#16A34A] transition-colors font-bold group bg-white/5 pr-4 rounded-full border border-white/10">
-                  <img 
-                    src="/images/autores/Carlos Henrique Menezes.webp" 
-                    alt="Carlos Henrique Menezes" 
-                    className="w-10 h-10 rounded-full border-2 border-[#16A34A] group-hover:scale-110 transition-transform"
-                  />
-                  Carlos Henrique Menezes
-                </a>
-              </div>
-            </div>
-          </div>
+        </section>
+
+        {/* ===================================================================
+            6. PRINCIPAIS DESTAQUES POR CATEGORIA (TOP 5)
+            =================================================================== */}
+        <div className="space-y-14">
+          <h2 className="text-3xl font-extrabold text-[#1a1a1a] border-b-4 border-[#16A34A] pb-3">
+            Principais Destaques por Categoria
+          </h2>
+
+          {mainHighlightProducts.map((product, index) => (
+            <React.Fragment key={product.id}>
+              {renderProductSection(product, index > 0)}
+              {index === 2 && <BunnerDoMeio />}
+            </React.Fragment>
+          ))}
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* ===================================================================
+            7. MAIS OPÇÕES QUE SÃO TÃO BOAS QUANTO (MODELOS 6 A 9)
+            =================================================================== */}
+        <div className="space-y-14 mt-20">
+          <h2 className="text-3xl font-extrabold text-[#1a1a1a] border-b-4 border-[#16A34A] pb-3">
+            Mais opções que são tão boas quanto
+          </h2>
 
-          {/* Introduction */}
-          <div className="space-y-6 prose prose-lg max-w-none text-gray-700 mb-12">
-            <div className="lead text-xl md:text-2xl font-medium text-gray-800 border-l-4 border-[#16A34A] pl-6 py-2">
-                <p>Manter um quintal ou terreno limpo exige ferramentas que aguentem o tranco de verdade.</p>
-            </div>
-            <p>Sempre bate aquela dúvida na hora de escolher qual equipamento vai dar conta do mato grosso sem destruir suas costas no fim do dia.</p>
-                <p>Achar a roçadeira ideal é encontrar aquele equilíbrio perfeito entre a força do motor, a durabilidade das peças e o quanto você vai judiar dela na rotina.</p>
-                <p>Entender o que cada modelo esconde por baixo da carenagem é o primeiro passo para não rasgar dinheiro.</p>
-                <p>Vamos alinhar a máquina certa para o tamanho exato do seu desafio no campo.</p>
-          </div>
+          {alternativeProducts.map((product, index) =>
+            renderProductSection(product, index > 0)
+          )}
+        </div>
 
-          {/* Simulador Rápido */}
-          <div className="bg-[#1a1a1a] p-8 md:p-10 rounded-3xl border border-[#333333] mb-16 shadow-2xl text-center relative overflow-hidden">
-            <div className="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-[#16A34A] opacity-20 blur-3xl rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-[#16A34A] opacity-20 blur-3xl rounded-full pointer-events-none"></div>
-            <div className="relative z-10">
-              <h3 className="text-2xl md:text-3xl font-black text-white mb-8 tracking-tight">Qual o tamanho do terreno que você precisa limpar?</h3>
-              <div className="flex flex-col sm:flex-row justify-center gap-4 mb-6">
-                <button 
-                  onClick={() => setTerrainSize('residencial')}
-                  className={`px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-1 ${terrainSize === 'residencial' ? 'bg-[#16A34A] text-white shadow-[0_0_20px_rgba(22,163,74,0.4)]' : 'bg-[#2a2a2a] border border-[#444] text-gray-300 hover:bg-[#333] hover:text-white'}`}
-                >
-                  🏡 Quintal residencial
-                </button>
-                <button 
-                  onClick={() => setTerrainSize('amplo')}
-                  className={`px-8 py-4 rounded-xl font-bold transition-all duration-300 transform hover:-translate-y-1 ${terrainSize === 'amplo' ? 'bg-[#16A34A] text-white shadow-[0_0_20px_rgba(22,163,74,0.4)]' : 'bg-[#2a2a2a] border border-[#444] text-gray-300 hover:bg-[#333] hover:text-white'}`}
-                >
-                  🚜 Terreno amplo / Chácara
-                </button>
-              </div>
-              <div className="min-h-[60px] flex items-center justify-center">
-                {terrainSize === 'residencial' && (
-                  <p className="text-[#16A34A] font-bold text-lg animate-fadeIn bg-[#16A34A]/10 py-3 px-6 rounded-lg inline-block border border-[#16A34A]/30">Ótimo! Modelos elétricos ou a bateria como a Makita DUR187UZ e Trapp Master 1000 são perfeitos para você.</p>
-                )}
-                {terrainSize === 'amplo' && (
-                  <p className="text-[#16A34A] font-bold text-lg animate-fadeIn bg-[#16A34A]/10 py-3 px-6 rounded-lg inline-block border border-[#16A34A]/30">Entendido! Você vai precisar da força bruta de modelos a gasolina como a Vulcan VR520H ou Husqvarna 143rs.</p>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Vitrine / Showcase Table */}
-          <div className="my-16 bg-gray-50 p-4 md:p-8 rounded-2xl border border-gray-100 shadow-sm">
-            <h2 className="text-2xl md:text-3xl font-black text-[#1a1a1a] mb-8 text-center uppercase tracking-tight">
-              Quais são as melhores roçadeiras em 2026?
+        {/* ===================================================================
+            8. BANNER DE CROSS-SELL (ACESSÓRIOS COMPLEMENTARES)
+            =================================================================== */}
+        <div className="my-16 p-6 sm:p-8 bg-white border border-gray-200 rounded-2xl shadow-sm">
+          <div className="flex items-center gap-3 mb-4">
+            <ShoppingBag className="text-[#16A34A] w-7 h-7 shrink-0" />
+            <h2 className="text-2xl font-bold text-[#1a1a1a]">
+              Acessórios Recomendados para Completar Sua Roçadeira
             </h2>
-            
-            <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
-              <table className="w-full border-collapse">
-                <tbody>
-                  {featuredIds.map((id) => {
-                    const product = products[id];
-                    return (
-                      <tr key={id} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
-                        <td className="w-20 p-4 align-middle text-center sm:w-24">
-                          <div className="w-16 h-16 bg-white border border-gray-100 rounded-lg flex items-center justify-center p-1 mx-auto">
-                            <img 
-                              src={`/images/blog/${product.image || product.name + '.webp'}`}
-                              alt={product.name} 
-                              className="max-w-full max-h-full object-contain"
-                              loading="lazy"
-                            />
-                          </div>
-                        </td>
-                        <td className="p-4 align-middle">
-                          <div className="text-sm md:text-base font-bold text-gray-800 line-clamp-2">
-                            {product.name}
-                          </div>
-                        </td>
-                        <td className="w-32 p-4 align-middle text-right sm:w-40">
-                          <a 
-                            href={product.link}
-                            target="_blank"
-                            rel="noopener noreferrer sponsored"
-                            className="inline-block bg-[#16A34A] text-white font-black text-xs md:text-sm py-2 px-4 rounded-lg hover:bg-[#15803d] transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap"
-                          >
-                            Ver Preço
-                          </a>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+          </div>
+          <p className="text-gray-600 mb-6 text-base">
+            Para proteger o motor, aumentar o rendimento de corte e trabalhar com total segurança, confira os itens essenciais de oficina:
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+                  Corte Rápido
+                </span>
+                <div className="h-40 w-full flex items-center justify-center p-3 mb-4 bg-white rounded-lg border border-gray-100 overflow-hidden">
+                  <img
+                    src={crossSellProducts.fioNylon.image}
+                    alt="Fio de Nylon Duraline 3mm Quadrado para Roçadeira"
+                    width={320}
+                    height={213}
+                    className="max-h-full max-w-full object-contain mix-blend-multiply"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-lg font-bold text-[#1a1a1a] mb-2">
+                  Fio de Nylon Quadrado 3mm
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  Quatro quinas vivas que fatiam capim denso sem desfiar na ponteira e rendem muito mais que fios redondos comuns.
+                </p>
+              </div>
+              <a
+                href={crossSellProducts.fioNylon.link}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+              >
+                VER PREÇO
+              </a>
+            </div>
+
+            <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+                  Vida Útil 2T
+                </span>
+                <div className="h-40 w-full flex items-center justify-center p-3 mb-4 bg-white rounded-lg border border-gray-100 overflow-hidden">
+                  <img
+                    src={crossSellProducts.oleo2t.image}
+                    alt="Kit Misturador Dosador e Óleo 2 Tempos para Roçadeira"
+                    width={320}
+                    height={213}
+                    className="max-h-full max-w-full object-contain mix-blend-multiply"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-lg font-bold text-[#1a1a1a] mb-2">
+                  Kit Misturador + Óleo 2T
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  Garante a dosagem exata de combustível (25:1 ou 50:1) e evita carbonização na vela ou travamento do pistão.
+                </p>
+              </div>
+              <a
+                href={crossSellProducts.oleo2t.link}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+              >
+                VER PREÇO
+              </a>
+            </div>
+
+            <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+                  Segurança Obrigatória
+                </span>
+                <div className="h-40 w-full flex items-center justify-center p-3 mb-4 bg-white rounded-lg border border-gray-100 overflow-hidden">
+                  <img
+                    src={crossSellProducts.kitEpi.image}
+                    alt="Kit de Segurança Completo com Viseira, Protetor Auricular e Perneira"
+                    width={320}
+                    height={213}
+                    className="max-h-full max-w-full object-contain mix-blend-multiply"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-lg font-bold text-[#1a1a1a] mb-2">
+                  Kit Completo de EPIs
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  Proteção indispensável para rosto, ouvidos e canelas contra pedras e detritos lançados em alta velocidade.
+                </p>
+              </div>
+              <a
+                href={crossSellProducts.kitEpi.link}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+              >
+                VER PREÇO
+              </a>
             </div>
           </div>
-
-          {/* Detailed Reviews */}
-          <div className="space-y-24">
-            
-            {/* 2. Vulcan VR520H */}
-            <section id="rocadeira-vulcan-vr520h" className="scroll-mt-24">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">1</span>
-                Vulcan VR520H
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Vulcan VR520H.webp" alt="Roçadeira a gasolina Vulcan VR520H potente para vegetação densa" title="Roçadeira a gasolina Vulcan VR520H potente para vegetação densa" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>A Vulcan VR520H é aquele trator de duas rodas para quem tem chácara grande e enfrenta mato pesado que exige força bruta.</p>
-                <p>Com um motor de 52 cc e 2,5 HP, ela entrega a cavalaria exata para triturar mato alto sem o giro do eixo cair.</p>
-                <p>Isso transforma um serviço que levaria o dia inteiro numa manhã produtiva.</p>
-                <p>O detalhe de ouro é o sistema "Easy Start".</p>
-                <p>Ele acaba de vez com aquela raiva de puxar a corda mil vezes no frio.</p>
-                <p>A ergonomia não foi esquecida no projeto.</p>
-                <p>O guidão bipartido deixa seus braços numa posição super natural, aliviando muito o peso nas costas quando o serviço acaba.</p>
-                <p>Mas seja realista com seu corpo: é uma máquina parruda de 7,6 kg.</p>
-                <p>Se você for trabalhar o dia todo, vai exigir condicionamento físico.</p>
-                <p>Outro alerta vermelho de oficina: você não pode errar a mistura de óleo e gasolina (25:1).</p>
-                <p>Negligenciar esse copinho de óleo é assinar a sentença de morte do motor.</p>
-                <p>No fim das contas, é a melhor balança entre preço justo e trabalho pesado que o mercado oferece hoje.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-vulcan-vr520h" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Motor forte que não chora no capim denso.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Partida Easy Start elimina o tranco no braço.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Guidão ajustável que salva a sua coluna.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Custo-benefício imbatível para uso rural.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Errar o óleo funde o motor rápido.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Peso cansa em diárias longas.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <BannerDoMeio />
-
-            {/* 1. Husqvarna 143rs */}
-            <section id="rocadeira-husqvarna-143rs" className="scroll-mt-24 pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">2</span>
-                Husqvarna 143rs
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Husqvarna 143rs.webp" alt="Roçadeira profissional Husqvarna 143RS com cinturão ergonômico" title="Roçadeira profissional Husqvarna 143RS com cinturão ergonômico" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>A Husqvarna 143RS joga na liga profissional para quem precisa limpar grandes extensões de terra sem piedade.</p>
-                <p>O motor de 41,5 cc entrega um torque monstruoso, derrubando vegetação lenhosa com uma velocidade absurda.</p>
-                <p>O detalhe que muda o jogo é o cinturão Balance 55.</p>
-                <p>Ele veste no seu corpo e distribui os 7,3 kg com tanta perfeição que poupa a sua lombar o dia inteiro.</p>
-                <p>O eixo rígido é um tanque de guerra em durabilidade.</p>
-                <p>O segredo?</p>
-                <p>Usar o óleo na proporção 50:1 à risca.</p>
-                <p>Vai exigir a entrega técnica na loja para carimbar a garantia, mas a eficiência dessa máquina paga cada centavo, transformando o sufoco numa roçada macia.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-husqvarna-143rs" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Cinturão Balance 55 é um abraço nas costas.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Eixo rígido que suporta tranco forte.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Força absurda contra mato muito grosso.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Economiza muito óleo na mistura.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Exige entrega técnica presencial obrigatória.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Barulho forte exige abafador no ouvido.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* Trapp Master 1000 */}
-            <section id="rocadeira-trapp-master-1000" className="scroll-mt-24 pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">3</span>
-                Trapp Master 1000
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Trapp Master 1000.webp" alt="Roçadeira elétrica Trapp Master 1000 versátil para jardins residenciais" title="Roçadeira elétrica Trapp Master 1000 versátil para jardins residenciais" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>Se você quer apenas manter o quintal parecendo um tapete sem respirar fumaça de gasolina, a Trapp Master 1000 é a sua saída inteligente.</p>
-                <p>O motor elétrico joga 1.200 W na ponta girando a 9.000 rpm, fatiando a grama com uma precisão cirúrgica.</p>
-                <p>A sacada de mestre dela é aceitar tanto o nylon para cantinhos difíceis quanto a lâmina de três pontas para matinhos duros.</p>
-                <p>Se você forçar demais, a proteção térmica desarma o motor antes que ele queime, salvando seu bolso.</p>
-                <p>Ela é super leve e fácil de guiar.</p>
-                <p>Só não esqueça: o cabo elétrico é sua âncora.</p>
-                <p>Planeje onde estão as tomadas antes de começar.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-trapp-master-1000" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Aceita lâmina e fio de nylon fácil.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Disjuntor térmico salva o motor dos apressados.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Silêncio absoluto, vizinho nenhum reclama.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Guidão ajusta certinho na sua altura.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> O tamanho da extensão dita onde você vai.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Ligar na tomada errada queima na hora.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* 4. Toyama TBC43H */}
-            <section id="rocadeira-toyama-tbc43h" className="scroll-mt-24 pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">4</span>
-                Toyama TBC43H
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Toyama TBC43H.webp" alt="Roçadeira a gasolina Toyama TBC43H para chácaras e terrenos médios" title="Roçadeira a gasolina Toyama TBC43H para chácaras e terrenos médios" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>A Toyama TBC43H é a famosa ferramenta "pau para toda obra" para donos de chácaras médias.</p>
-                <p>Com 42,7 cc e 1,7 hp, ela tem o fôlego ideal para você limpar aquele terreno esquecido sem o motor engasgar de dez em dez minutos.</p>
-                <p>O grande benefício é que a caixa já traz o nylon e a lâmina de aço, deixando você pronto para grama rala ou mato alto de imediato.</p>
-                <p>O sistema de puxada retrátil manual é macio, poupando a articulação do seu ombro logo no frio da manhã.</p>
-                <p>Graças ao guidão de bicicleta e ao colete de apoio, aqueles 9 kg são espalhados pelo seu tronco e não massacram seus pulsos.</p>
-                <p>Mas como é uma máquina pesada, preste muita atenção na mecânica de garagem: você tem que ser cirúrgico na mistura de combustível (geralmente 25:1).</p>
-                <p>Se você quer uma roçadeira valente que não afina na hora que o mato engrossa, esse é o investimento certo para suar a camisa.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-toyama-tbc43h" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Caixa completa: vem lâmina e carretel juntos.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Colete robusto ajuda muito a suportar o peso.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Torque de sobra para ervas daninhas duras.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Ferramentas e copo medidor já vêm no kit.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Passou de três horas, os 9 kg pesam.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Tem que acertar o óleo em cheio.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <BannerDoMeio />
-
-            {/* 8. Makita DUR187UZ */}
-            <section id="rocadeira-makita-dur187uz" className="scroll-mt-24 pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">5</span>
-                Makita DUR187UZ
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Makita DUR187UZ.webp" alt="Roçadeira a bateria Makita DUR187UZ silenciosa e leve" title="Roçadeira a bateria Makita DUR187UZ silenciosa e leve" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>Quer fugir da graxa suja, do cheiro de gasolina e não quer acordar o bairro inteiro?</p>
-                <p>A Makita DUR192LZ com tecnologia a bateria Brushless é o gosto do futuro.</p>
-                <p>Ela opera num silêncio absurdo, permitindo que você corte o gramado em paz.</p>
-                <p>Acabou a dependência de cabos e cheiro de fumaça.</p>
-                <p>Ela é levíssima.</p>
-                <p>Com 2,3 kg, a dor nas costas some e o trabalho pesado vira um passeio no parque.</p>
-                <p>Você tem liberdade total de movimento pelo quintal.</p>
-                <p>As duas baterias de 18V dão uma autonomia excelente para cuidar do jardim de casa.</p>
-                <p>Tem até controle no dedo para acelerar menos na grama fina e economizar carga.</p>
-                <p>Mas não tente usar ela para desmatar um terreno rural cheio de arbustos grossos, porque essa não é a praia dela.</p>
-                <p>O foco aqui é o extremo conforto, a tecnologia de ponta e um acabamento premium para áreas residenciais bem cuidadas.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-makita-dur187uz" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Motor sem escovas quase não dá manutenção.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Peso ridículo de leve, zera a fadiga.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Baterias rendem bem para quintais residenciais.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Zero barulho, vibração e fumaça na sua cara.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Esquece para mato duro e talos lenhosos.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Duração da bateria perde para um tanque de gasolina.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* 9. Intech Machine Skim5100 */}
-            <section id="rocadeira-intech-machine-skim5100" className="scroll-mt-24 pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">6</span>
-                Intech Machine Skim5100
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Intech Machine Skim5100.webp" alt="Roçadeira Intech Machine Skim5100 com eixo bipartido para transporte" title="Roçadeira Intech Machine Skim5100 com eixo bipartido para transporte" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>A Intech Machine SKIM5100 é a sua carta na manga para enfrentar sítios e lotes vagos.</p>
-                <p>O motor girando a absurdos 13.000 rpm (52 cc e 1,9 HP) fatiam a braquiária com uma velocidade enorme, garantindo que o capim deite na primeira passada sem o equipamento "engasgar".</p>
-                <p>O verdadeiro pulo do gato?</p>
-                <p>O cano é bipartido.</p>
-                <p>Você solta uma borboleta e divide ela ao meio, cabendo fácil no porta-malas de qualquer carro hatch.</p>
-                <p>O sistema que absorve as vibrações alivia o formigamento nas mãos, suportando bem os 7,5 kg.</p>
-                <p>Mas tem um aviso de oficina aqui: máquina que gira tão rápido exige filtro de ar limpo sempre e graxa na ponteira.</p>
-                <p>Se descuidar dessa manutenção, as engrenagens vão moer. É potência pura aliada à facilidade tremenda de jogar no carro e ir embora.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-intech-machine-skim5100" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Cano que divide facilita demais guardar.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Gira altíssimo para um corte muito limpo.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Amortecedor interno poupa as juntas da mão.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Pacote inclui a lâmina e o nylon de fábrica.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Exige graxa sempre na caixa de engrenagem.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Ronco do motor é bem forte no alto giro.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* 6. Tekna BC 1250SS */}
-            <section id="rocadeira-tekna-bc-1250ss" className="scroll-mt-24 pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">7</span>
-                Tekna BC 1250SS
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Tekna BC 1250SS.webp" alt="Roçadeira elétrica Tekna BC 1250SS com eixo desmontável" title="Roçadeira elétrica Tekna BC 1250SS com eixo desmontável" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>Se você procura uma solução de jardim sem sofrer com manutenção de motor a combustão, a Tekna BC 1250SS é ouro.</p>
-                <p>O motor com 1.200 W entrega giro firme, deixando a entrada de casa um brinco com facilidade de manuseio.</p>
-                <p>Ela tem o tubo desmontável, o que é um alívio se a sua lavanderia for apertada.</p>
-                <p>A alça no formato "D" permite que você deslize a empunhadura e encontre o ponto de equilíbrio exato do seu braço, melhorando muito a postura.</p>
-                <p>Como ela usa cabo na tomada, você tem que mapear os pontos de energia do quintal.</p>
-                <p>Extensões curtas viram dor de cabeça. É uma ferramenta focada em manter o capricho da casa, não para aventuras no meio do mato fechado.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-tekna-bc-1250ss" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Desmontável, some no canto do armário.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Motor forte de 1.200 W não decepciona.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Alça em "D" deixa você alinhar a postura.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Corta tanto na lâmina de aço quanto no nylon.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> O cordão umbilical da extensão te limita.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Não aguenta roçar mato resistente.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <BannerDoMeio />
-
-          {/* Types Section */}
-          <section className="mt-24 pt-16 border-t border-gray-200">
-            <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Quais são os tipos de roçadeira?</h2>
-            <div className="prose prose-lg text-gray-700 max-w-none mb-10">
-              <p>Compreender a diferença entre cada tipo de máquina é o que te salva de comprar uma roçadeira fraca demais ou gastar fortunas num trator exagerado para o seu quintal.</p>
-                <p>A engenharia pensou cada formato para apanhar de um mato diferente.</p>
-                <p>Conhecer a fundo onde cada motor brilha é o segredo para o seu dinheiro valer a pena.</p>
-                <p>Vamos abrir o motor dessas categorias para você não errar no alvo.</p>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-4">Roçadeira Elétrica</h3>
-                <div className="text-gray-600 text-sm leading-relaxed space-y-2">
-                    <p>A roçadeira elétrica é a sua parceira para manter o silêncio e a paz no domingo de manhã.</p>
-                <p>Sem galão de gasolina perigoso e sem puxão na cordinha.</p>
-                <p>Você pluga na parede e a lâmina gira na hora.</p>
-                <p>O motor não vibra e não solta cheiro de óleo queimado no seu rosto, deixando a jardinagem muito mais saudável.</p>
-                <p>O ponto de alerta aqui é prático: onde está a tomada?</p>
-                <p>Você precisa dominar o uso da extensão elétrica para não cortar o próprio cabo por acidente. É a máquina imbatível para deixar a borda do gramado desenhada sem qualquer estresse mecânico.</p>
-                </div>
-              </div>
-              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-4">Roçadeira Multifuncional</h3>
-                <div className="text-gray-600 text-sm leading-relaxed space-y-2">
-                    <p>Quer ter o quartinho de ferramentas completo sem gastar uma fortuna?</p>
-                <p>A multifuncional é o maior truque financeiro da área.</p>
-                <p>Você compra um único motor parrudo a combustão e vai trocando as pontas: de roçadeira de chão vira um aparador de cerca-viva ou uma serra para galhos altos.</p>
-                <p>Você não entulha a casa com várias máquinas caríssimas.</p>
-                <p>O segredo de mecânico para ela durar: o encaixe do cano precisa estar sempre livre de terra e muito bem lubrificado.</p>
-                <p>Cuidando da junção das peças, essa versatilidade te devolve um ganho absurdo de tempo e dinheiro na manutenção do seu sítio inteiro.</p>
-                </div>
-              </div>
-              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-4">Roçadeira de Lâmina</h3>
-                <div className="text-gray-600 text-sm leading-relaxed space-y-2">
-                    <p>Quando o fio de nylon estoura nos primeiros caules grossos, é a lâmina de aço que entra em campo.</p>
-                <p>O metal foi desenhado para agir com violência controlada, partindo pequenos arbustos, capim entrelaçado e até pequenos troncos ao meio. É a solução bruta para terrenos que ficaram abandonados acumulando mato duro.</p>
-                <p>O aviso crítico aqui é o tal do contragolpe: bater a lâmina de aço num toco escondido ou numa pedra joga a máquina com força contra você.</p>
-                <p>Use com duas mãos muito firmes no guidão. É o acessório perfeito para o trabalho profissional drástico.</p>
-                </div>
-              </div>
-              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-4">Roçadeira de Nylon</h3>
-                <div className="text-gray-600 text-sm leading-relaxed space-y-2">
-                    <p>O fio de nylon é o pincel do acabamento fino.</p>
-                <p>Ao contrário do aço que destrói tudo, o nylon trabalha chicoteando a grama.</p>
-                <p>Isso significa que você pode limpar perfeitamente ao redor do muro de concreto ou rente a um vaso sem destruir a estrutura.</p>
-                <p>Se encostar na calçada, o fio desgasta, mas você não sofre impacto nenhum na mão. É a peça mestre para grama rala e estética.</p>
-                <p>O erro clássico?</p>
-                <p>Tentar roçar galho lenhoso com nylon.</p>
-                <p>O motor berra, o fio derrete e você não sai do lugar.</p>
-                <p>Use apenas para o macio.</p>
-                </div>
-              </div>
-              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm lg:col-span-2">
-                <h3 className="text-xl font-bold text-[#1a1a1a] mb-4">Roçadeira a Gasolina</h3>
-                <div className="text-gray-600 text-sm leading-relaxed space-y-2">
-                    <p>Essa é para quem entra no mato sem olhar para trás.</p>
-                <p>Livrar-se do cabo elétrico te dá asas para percorrer terrenos gigantescos, beiras de cerca e morros com facilidade.</p>
-                <p>A gasolina entrega aquele soco de torque que não deixa o giro despencar quando a lâmina bate num capim fibroso e grosso.</p>
-                <p>A produção diária aqui é incomparável.</p>
-                <p>Mas a liberdade cobra seu preço em suor na oficina: você vira o responsável por preparar a proporção do óleo, lavar o filtro e trocar vela.</p>
-                <p>Se você precisa de força incansável para derrubar mato grosso e não tem medo de graxa, é a sua ferramenta.</p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Vantagens da roçadeira a gasolina */}
-          <section className="mt-20">
-            <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Vantagens da Roçadeira a gasolina</h2>
-            <div className="w-full flex justify-center mb-10">
-                 <img src="/images/blog/1/rocadeira_gasolina_terreno.webp" alt="Roçadeira a gasolina operando em terreno amplo com alta performance" title="Roçadeira a gasolina operando em terreno amplo com alta performance" className="max-h-96 object-contain rounded-xl shadow-lg" loading="lazy" />
-            </div>
-            <div className="prose prose-lg text-gray-700 max-w-none mb-10">
-              <p>O maior presente da máquina a combustão é a autonomia absoluta.</p>
-                <p>Sem cabos prendendo o seu calcanhar ou dependência de tomadas, você é livre para andar encostas inteiras, entrar no meio do laranjal ou rasgar terrenos isolados sem se preocupar com logística de energia.</p>
-                <p>O segundo pilar é a cavalaria na ponta do eixo.</p>
-                <p>O torque despejado pelo combustível não deixa a máquina engasgar num capim embolado.</p>
-                <p>Para quem trabalha de verdade e vê tempo como dinheiro, a rapidez de só reabastecer o tanque e voltar a cortar lenhosos faz da gasolina a rainha incontestável.</p>
-                <p>Ela assume o batente pesado entregando uma resposta técnica que nenhum motor de tomada consegue igualar no campo.</p>
-            </div>
-          </section>
-
-          {/* Como Escolher */}
-          <section className="mt-24 pt-16 border-t border-gray-200">
-            <h2 className="text-3xl font-black text-[#1a1a1a] mb-12 uppercase tracking-tighter text-center">Como escolher a melhor roçadeira?</h2>
-            <div className="prose prose-lg text-gray-700 max-w-none mb-12 text-center">
-                <p>Comprar só olhando os cilindros do motor no adesivo é a fórmula exata da dor de cabeça.</p>
-                <p>Para a sua compra não virar lixo na garagem, é preciso cruzar as peças da roçadeira com a realidade cruel do seu quintal.</p>
-                <p>O segredo é casar a força da máquina com a grossura da raiz que você vai encarar, evitando gastar rios de dinheiro numa tecnologia inútil para o seu dia a dia.</p>
-                <p>Confere aqui os gatilhos definitivos.</p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-10">
-              <div className="flex flex-col gap-3">
-                  <h4 className="text-xl font-bold text-[#1a1a1a] flex items-center gap-2">
-                    <Check className="text-[#16A34A]" /> Tipo de Terreno
-                  </h4>
-                  <div className="text-gray-600 leading-relaxed space-y-2">
-                    <p>A geografia do seu pedaço de terra é quem manda na compra.</p>
-                <p>Quintais planos, sem buracos e perto da varanda são o cenário perfeito para a leveza e a agilidade das máquinas elétricas.</p>
-                <p>Mas tente colocar um cabo de energia num morro acidentado ou numa ribanceira do sítio.</p>
-                <p>A mobilidade vira um pesadelo perigoso.</p>
-                <p>No terreno bruto e longe de casa, a gasolina é inegociável, pois garante o giro 360 graus sem amarras.</p>
-                <p>Tentar improvisar roçadeira de gramado liso num pasto cheio de buracos vai moer o equipamento e acabar com o seu dia.</p>
-                <p>Escolha o motor de acordo com a inclinação do chão e garanta que o seu esforço não seja desperdiçado por uma escolha ruim.</p>
-                  </div>
-              </div>
-              <div className="flex flex-col gap-3">
-                  <h4 className="text-xl font-bold text-[#1a1a1a] flex items-center gap-2">
-                    <Check className="text-[#16A34A]" /> Tipo de Vegetação
-                  </h4>
-                  <div className="text-gray-600 leading-relaxed space-y-2">
-                    <p>O que você quer fatiar muda todo o jogo.</p>
-                <p>Menosprezar a grossura da seiva é o erro que derrete o motor da sua máquina e esfarela o carretel de nylon.</p>
-                <p>Para um gramadinho residencial e pontas de capim fino, um motor menor te entrega aquele corte visualmente macio e bem desenhado.</p>
-                <p>Agora, o desafio é matagal alto, arbusto de caule lenhoso ou mato fechado da altura do joelho?</p>
-                <p>Aí não tem negociação: você precisa do peso da lâmina de aço e do torque do motor profissional para vencer pela força da inércia.</p>
-                <p>Avalie muito bem a grossura da planta.</p>
-                <p>A lâmina correta remove o obstáculo logo no primeiro golpe, poupando a vida útil do carburador e o seu suor.</p>
-                  </div>
-              </div>
-              <div className="flex flex-col gap-3">
-                  <h4 className="text-xl font-bold text-[#1a1a1a] flex items-center gap-2">
-                    <Check className="text-[#16A34A]" /> Frequência de Uso
-                  </h4>
-                  <div className="text-gray-600 leading-relaxed space-y-2">
-                    <p>Seja muito honesto com o seu calendário: você vai acelerar essa máquina todo sábado ou só vai tirar da caixa na primavera?</p>
-                <p>Uma diária pesada de oito horas frita plásticos de baixa qualidade e exige embreagens forjadas para não desmontar de calor.</p>
-                <p>Se a rotina for intensa, você precisa de ergonomia premium.</p>
-                <p>Mas se for para dar um tapa no jardim três vezes ao ano, comprar a linha profissional é rasgar e enterrar o seu dinheiro em peças sobredimensionadas.</p>
-                <p>Desconsiderar a carga horária de uso faz o hobbista jogar dinheiro fora e o profissional ficar na mão com a ponteira derretida.</p>
-                <p>Ajuste a compra ao ritmo da sua enxada e a máquina sobreviverá na oficina por longos anos.</p>
-                  </div>
-              </div>
-              <div className="flex flex-col gap-3">
-                  <h4 className="text-xl font-bold text-[#1a1a1a] flex items-center gap-2">
-                    <Check className="text-[#16A34A]" /> Peso e Ergonomia
-                  </h4>
-                  <div className="text-gray-600 leading-relaxed space-y-2">
-                    <p>O conforto não é frescura, é o que salva o seu corpo de uma visita ao ortopedista.</p>
-                <p>Uma máquina pesada pendurada por uma faixinha barata no ombro te destrói em meia hora.</p>
-                <p>Procure exaustivamente modelos com coletes duplos acolchoados.</p>
-                <p>Eles jogam os nove quilos do motor para o quadril e para o peito, liberando totalmente o peso que amassa as suas mãos.</p>
-                <p>Um guidão largo tipo bicicleta, que você regula soltando só um parafuso, mantém a sua coluna perfeitamente ereta.</p>
-                <p>Ignorar o balanço do peso no seu biotipo não apenas gera dores enormes, mas rouba todo o seu foco operacional, te obrigando a parar no meio do serviço.</p>
-                  </div>
-              </div>
-              <div className="flex flex-col gap-3">
-                  <h4 className="text-xl font-bold text-[#1a1a1a] flex items-center gap-2">
-                    <Check className="text-[#16A34A]" /> Manutenção e Assistência Técnica
-                  </h4>
-                  <div className="text-gray-600 leading-relaxed space-y-2">
-                    <p>A vida útil do seu dinheiro está na facilidade de achar peças na sua cidade.</p>
-                <p>Não caia no canto da sereia de importar máquinas desconhecidas baratíssimas.</p>
-                <p>Na hora que a engrenagem ou o carburador entupirem, você descobre que o mecânico da sua rua nunca viu aquela marca.</p>
-                <p>Roçadeiras das marcas consagradas no Brasil garantem que um filtro de ar estragado seja resolvido com dez reais na padaria da esquina.</p>
-                <p>Equipamento "órfão" de assistência vira peso de porta no primeiro defeito simples.</p>
-                <p>Antes de passar o cartão, cheque se a oficina do seu bairro mexe nessa marca.</p>
-                <p>Esse cuidado bobo de oficina previne que um belo investimento se torne um pesadelo de meses sem solução.</p>
-                  </div>
-              </div>
-            </div>
-
-            <div className="mt-16">
-              <h3 className="text-2xl font-black text-[#1a1a1a] mb-6 flex items-center gap-3"><Check className="text-[#16A34A]" size={32} /> Custo-Benefício</h3>
-              <div className="w-full flex justify-center mb-8">
-                 <img src="/images/blog/Serviços de jardinagens em geral.webp" alt="Análise de custo-benefício para escolha da melhor roçadeira" title="Análise de custo-benefício para escolha da melhor roçadeira" className="max-h-96 object-contain rounded-xl shadow-lg" loading="lazy" />
-              </div>
-              <div className="prose prose-lg text-gray-700 max-w-none">
-                <p>Fechar a conta exige ir muito além daquele preço colado na vitrine.</p>
-                <p>A máquina barata sai caríssima se queimar a junta e ir para a oficina mecânica três vezes em seis meses.</p>
-                <p>O verdadeiro benefício mora no consumo inteligente de gasolina, no plástico que aguenta sol sem trincar e num carburador que mantém a marcha lenta afinada sem você ficar regulando o parafuso todo dia.</p>
-                <p>Priorize aquele equipamento um pouquinho mais caro, mas que não deprecia absurdamente.</p>
-                <p>Aquela ferramenta firme, que trabalha as quatro horas seguidas sem superaquecer e te entregar na mão, é a única conta de matemática que não te tolera o desperício dentro da propriedade.</p>
-              </div>
-            </div>
-            
-            <div className="mt-16 space-y-6">
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-4">
-                <div className="bg-blue-100 text-blue-800 p-3 rounded-xl"><ArrowRight /></div>
-                <div>
-                  <h4 className="font-black text-lg mb-2">Roçadas para uso ocasional – Linha H</h4>
-                  <div className="text-gray-600 space-y-2">
-                    <p>A chamada Linha Home foi desenhada milimetricamente para resolver a vida do dono de casa de forma barata.</p>
-                <p>Eles arrancaram fora os reforços pesados de magnésio e entregaram um motor bem simples, leve e focado no usuário de final de semana que só quer abaixar o gramado perto da varanda.</p>
-                <p>Elas jamais dariam conta de um desmatamento rústico, mas se o objetivo é guardar no armário sem complicações, o equilíbrio financeiro delas é imbatível. É o atalho mecânico sensato e direto para o cidadão que gosta das bordas organizadas sem ter que despejar um salário numa roçadeira que passaria noventa por cento da vida útil desligada pegando pó.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-4">
-                <div className="bg-orange-100 text-orange-800 p-3 rounded-xl"><ArrowRight /></div>
-                <div>
-                  <h4 className="font-black text-lg mb-2">Roçadas para uso frequentes – Linha X</h4>
-                  <div className="text-gray-600 space-y-2">
-                    <p>Se você presta serviços semanais ou mantém uma chácara imensa com pasto, a Linha X é o seu ponto ideal de compra.</p>
-                <p>Aqui, os engenheiros reforçam os rolamentos da ponteira e aumentam a entrada do filtro de ar.</p>
-                <p>Isso segura o torque do motor firme por cinco horas diretas de corte sem a máquina pedir arrego pelo calor. É o balanço sagrado entre não pagar o preço de um equipamento industrial, mas fugir totalmente da fragilidade das máquinas de supermercado.</p>
-                <p>O ganho em investir nessa resistência é eliminar aquelas paradas forçadas e quebras precoces na embreagem, aumentando bastante a velocidade com que você finaliza a manutenção das suas grandes áreas.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm flex items-start gap-4">
-                <div className="bg-red-100 text-red-800 p-3 rounded-xl"><ArrowRight /></div>
-                <div>
-                  <h4 className="font-black text-lg mb-2">Roçadas para uso intenso – Linha XP</h4>
-                  <div className="text-gray-600 space-y-2">
-                    <p>Aqui a brincadeira acaba.</p>
-                <p>A Linha Extreme Professional foi forjada para o peão que limpa beira de asfalto ou faz roçada florestal todo santo dia.</p>
-                <p>Estamos lidando com cilindros banhados a cromo e filtros que limpam o ar na poeira bruta.</p>
-                <p>O preço é lá em cima, mas o eixo de transmissão suporta pancadas constantes na madeira sem empenar a haste.</p>
-                <p>Quem tira dinheiro operando o gatilho não pode ver a máquina esquentar e parar de manhã. É a escolha radical baseada puramente na durabilidade absurda, focada no máximo rendimento financeiro sem medo de colocar o equipamento em sofrimento diário.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section className="mt-24 pt-16 border-t border-gray-200">
-            <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Acessórios para Roçadeiras</h2>
-            <div className="w-full flex justify-center mb-8">
-                 <img src="/images/blog/Carretel Para Roçadeira Autocut 26-2 Stihl Original.webp" alt="Acessórios e periféricos como lâminas e carretéis para roçadeiras multifuncionais" title="Acessórios e periféricos como lâminas e carretéis para roçadeiras multifuncionais" className="max-h-96 object-contain rounded-xl shadow-lg" loading="lazy" />
-            </div>
-            <div className="prose prose-lg text-gray-700 max-w-none">
-              <p>Fazer a sua roçadeira trabalhar dobrado com outras funções é a sacada mestre da manutenção.</p>
-                <p>Além do bom e velho fio de nylon e das lâminas afiadas, o mercado explodiu em acessórios brilhantes.</p>
-                <p>Você engata escovas giratórias de aço bruto para arrancar limo de pedras da garagem, ou pluga enxadas rotativas compactas que afofam a terra da sua horta com extrema facilidade para o corpo.</p>
-                <p>Mas ouça bem o conselho de oficina: use apenas peças com a quantidade de estrias exata do seu eixo (quadrado, nove dentes, etc.).</p>
-                <p>Tentar adaptar acessórios universais frouxos vai espanar o cabo da sua máquina rapidinho e quebrar a garantia.</p>
-                <p>Centralizando essas boas ferramentas originais num único motor a combustão, você liberta muito espaço na prateleira.</p>
-            </div>
-          </section>
-
-          <section className="mt-24 pt-16 border-t border-gray-200">
-            <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Dicas para Manutenção da Sua Roçadeira</h2>
-            <div className="w-full flex justify-center mb-8">
-                 <img src="/images/blog/Passo a Passo para Regular o Carburador.webp" alt="Manutenção preventiva de roçadeira limpeza de filtro e lubrificação" title="Manutenção preventiva de roçadeira limpeza de filtro e lubrificação" className="max-h-96 object-contain rounded-xl shadow-lg" loading="lazy" />
-            </div>
-            <div className="prose prose-lg text-gray-700 max-w-none">
-              <p>O segredo de mecânico para a roçadeira ligar no primeiro puxão daqui a cinco anos é a disciplina básica no final do dia.</p>
-                <p>O erro campeão nas oficinas é o filtro de ar podre.</p>
-                <p>Espuma suja sufoca a oxigenação do carburador, triplica o gasto da sua gasolina e ferve o cilindro à toa.</p>
-                <p>Lave isso sempre.</p>
-                <p>O segundo pecado capital é o combustível estragado no galão.</p>
-                <p>Nunca encoste a máquina com sobra de mistura velha dentro do tanque.</p>
-                <p>O óleo vai separar e virar uma gosma verde que entope todos os furos microscópicos da agulha de admissão.</p>
-                <p>Acabou o serviço do mês?</p>
-                <p>Drene tudo, dê a partida e deixe o motor "morrer" chupando o restinho da mangueira.</p>
-                <p>Um pouco de graxa azul na ponteira inferior e o controle da tensão nos cabos salvam seu bolso de ter que visitar a revenda especializada por defeitos bobos gerados puramente por descuido com sujeira.</p>
-            </div>
-          </section>
-
-          {/* Conclusion */}
-          <section className="mt-24 text-center">
-            <div className="max-w-3xl mx-auto py-12 px-6 bg-[#16A34A]/5 rounded-[40px] border-2 border-dashed border-[#16A34A]/20">
-              <h2 className="text-3xl font-black text-[#1a1a1a] mb-6 uppercase tracking-tight">Conclusão</h2>
-              <div className="prose prose-lg text-gray-700 max-w-none mb-10 text-left">
-                <p>Bater o olho e escolher a máquina correta para o ano de 2026 virou um jogo claro para o seu bolso.</p>
-                <p>Você já tem a experiência de balcão para saber a hora exata de invocar a força brutal de uma queima de gasolina, ou quando o silêncio de um motor elétrico é o suficiente para aparar a borda da piscina.</p>
-                <p>Não se engane: a roçadeira suprema nunca será a mais cara com o adesivo mais invocado, mas sim aquela que encaixa milimetricamente no mato da sua chácara, abraça sua coluna com ergonomia fina e aguenta a sua jornada diária.</p>
-                <p>Aplicando essa visão técnica da bancada, as tardes cansativas vão se tornar um trabalho rentável e cirúrgico.</p>
-              </div>
-            </div>
-          </section>
-
         </div>
+
+        {/* ===================================================================
+            9. VANTAGENS DA ROÇADEIRA A GASOLINA
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
+            Vantagens da Roçadeira a gasolina
+          </h2>
+
+          <div className="w-full flex justify-center mb-8">
+            <img
+              src="/images/blog/vantagens-da-rocadeira-a-gasolina.webp"
+              alt="Operador com EPIs completos roçando pastagem densa em terreno inclinado com roçadeira a gasolina"
+              title="Autonomia e força bruta da roçadeira a gasolina em mato pesado"
+              width={800}
+              height={533}
+              className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-6">
+            <p>
+              As roçadeiras a combustão dominam o serviço pesado por quatro pilares mecânicos:
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-bold text-[#166534] mb-2">
+                Potência e Torque Superior
+              </h3>
+              <p className="text-gray-700 text-base leading-relaxed">
+                Motores a gasolina entregam força centrífuga muito maior na ponteira para fatiar mato alto, capim grosso e arbustos lenhosos sem travar.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-bold text-[#166534] mb-2">
+                Autonomia Contínua
+              </h3>
+              <p className="text-gray-700 text-base leading-relaxed">
+                Sem depender de tomadas ou recargas lentas de bateria, basta reabastecer o tanque para manter a máquina operando o dia inteiro.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-bold text-[#166534] mb-2">
+                Liberdade de Movimento
+              </h3>
+              <p className="text-gray-700 text-base leading-relaxed">
+                A ausência de fios evita acidentes com extensões cortadas e permite trabalhar em barrancos, pastos distantes e terrenos com obstáculos.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-bold text-[#166534] mb-2">
+                Versatilidade de Corte
+              </h3>
+              <p className="text-gray-700 text-base leading-relaxed">
+                Suportam diferentes lâminas de aço (2, 3 ou mais pontas, serras circulares) e carretéis pesados em qualquer topografia.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================================================================
+            10. COMO ESCOLHER A MELHOR ROÇADEIRA
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-8">
+            Como escolher a melhor roçadeira
+          </h2>
+
+          <div className="space-y-10">
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Potência
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Na oficina, dividimos a capacidade do motor a combustão por faixas de trabalho: motores de 25 cc a 30 cc atendem o uso doméstico e gramados pequenos; de 31 cc a 43 cc (1,5 a 2,3 hp) são ideais para terrenos médios, chácaras e serviço profissional contínuo com ótimo equilíbrio de peso; já os de 44 cc a 63 cc entregam força bruta para desbaste pesado e pastagens.
+                </p>
+                <p>
+                  Avalie sempre a relação entre cilindrada e qualidade da transmissão, pois um motor grande com embreagem fraca perde rendimento rapidamente sob carga.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Eficácia em mato alto
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Para vencer mato fechado sem enrolar capim na ponteira, a roçadeira precisa de um tubo de alumínio rígido (preferencialmente de 26 mm ou 28 mm de diâmetro), eixo cardã de aço temperado e uma caixa de transmissão (engrenagem angular) bem vedada.
+                </p>
+                <p>
+                  Modelos bipartidos facilitam o transporte no carro, mas para trabalho rústico diário em capoeira, o eixo inteiriço rígido apresenta menor índice de folga mecânica e transfere 100% do torque do motor para a lâmina.
+                </p>
+              </div>
+
+              <div className="w-full flex justify-center my-8">
+                <img
+                  src="/images/blog/como-escolher-melhor-rocadeira-transmissao.webp"
+                  alt="Detalhe mecânico da caixa de transmissão angular metálica, tubo rígido e lâmina de aço de 3 pontas"
+                  title="Conjunto de transmissão rígida e ponteira angular para mato alto"
+                  width={800}
+                  height={533}
+                  className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Confiabilidade
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Uma máquina barata sem peças no mercado vira sucata no primeiro reparo de carburador ou troca de bobina.
+                </p>
+                <p>
+                  Priorize marcas com rede de assistência técnica e distribuição consolidada de peças no Brasil — como Stihl, Husqvarna, Honda e Toyama.
+                </p>
+                <p>
+                  Verifique também se você prefere a simplicidade mecânica e o giro explosivo do motor 2 tempos (que exige mistura rigorosa de gasolina e óleo) ou a praticidade e economia do motor 4 tempos (abastecido com gasolina pura).
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Ergonomia
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Operar uma máquina de 7 kg a 9 kg exige equilíbrio estrutural.
+                </p>
+                <p>
+                  Para serviços acima de uma hora, prefira modelos com guidão bipartido (tipo bicicleta), que favorece o movimento de pêndulo lateral sem torcer os punhos, e exija cinto de sustentação duplo almofadado (tipo colete), que transfere o peso das mãos para os ombros e o quadril.
+                </p>
+                <p>
+                  Verifique também a presença de coxins antivibração de borracha ou mola entre o motor e o tubo para evitar formigamento nos braços.
+                </p>
+              </div>
+
+              <div className="w-full flex justify-center my-8">
+                <img
+                  src="/images/blog/ergonomia-cinto-duplo-rocadeira.webp"
+                  alt="Operador vestindo cinto duplo ergonômico tipo colete com distribuição equilibrada de peso e guidão tipo bicicleta"
+                  title="Ergonomia correta com colete duplo almofadado e guidão bicicleta"
+                  width={800}
+                  height={533}
+                  className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Reforço de Autoridade E-E-A-T + Dica Prática do Especialista */}
+          <div className="w-full flex justify-center mt-10 mb-6">
+            <a href="/author/carlos-henrique/" aria-label="Ver perfil técnico de Carlos Henrique Menezes">
+              <img
+                src="/images/autores/Carlos Henrique Menezes-thumb.webp"
+                alt="Carlos Henrique Menezes"
+                width={128}
+                height={128}
+                className="w-28 h-28 rounded-full object-cover border-4 border-[#16A34A] hover:scale-105 transition-transform duration-200 shadow-md"
+                loading="lazy"
+              />
+            </a>
+          </div>
+
+          <div className="my-6 p-6 bg-[#F0FDF4] border-l-4 border-[#16A34A] rounded-r-xl shadow-sm text-gray-800">
+            <div className="flex items-center gap-2 mb-3">
+              <Sparkles className="text-[#16A34A] shrink-0" size={20} />
+              <h3 className="text-lg font-bold text-[#166534]">
+                Dica Prática do Especialista
+              </h3>
+            </div>
+            <p className="text-base leading-relaxed text-gray-800">
+              Vai deixar a roçadeira a gasolina guardada por mais de 15 dias? Esvazie todo o combustível do tanque e ligue o motor em marcha lenta até ele apagar sozinho. Isso seca as membranas internas do carburador e evita que a gasolina envelhecida forme goma nos giclês.
+            </p>
+          </div>
+        </section>
+
+        {/* ===================================================================
+            11. COMO ESCOLHER A MELHOR ROÇADEIRA ELÉTRICA
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-8">
+            Como Escolher a Melhor Roçadeira Elétrica
+          </h2>
+
+          <div className="w-full flex justify-center mb-10">
+            <img
+              src="/images/blog/como-escolher-melhor-rocadeira-eletrica.webp"
+              alt="Operador aparando gramado residencial próximo ao canteiro com roçadeira elétrica lateral e cabo de extensão"
+              title="Uso prático de roçadeira elétrica em quintais e jardins residenciais"
+              width={800}
+              height={533}
+              className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="space-y-10">
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Uma Roçadeira Elétrica Profissional pode Chegar a Até 1200 W
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Nos equipamentos ligados à tomada, a força do motor é medida em Watts (W).
+                </p>
+                <p>
+                  Enquanto aparadores simples operam abaixo de 1.000 W, as melhores roçadeiras elétricas laterais situam-se na faixa de 1.000 W a 1.200 W (alguns modelos específicos chegam a 2.000 W).
+                </p>
+                <p>
+                  Caso a fabricante informe a potência em cavalos-vapor (cv), basta lembrar da conversão mecânica: 1 cv equivale a aproximadamente 735,5 W.
+                </p>
+                <p>
+                  Motores a partir de 1.200 W sustentam o giro com folga mesmo utilizando lâminas metálicas.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Equipamentos Mais Velozes Atingem 9000 Rotações por Minuto
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  A velocidade de giro do eixo de corte é expressa em RPM (rotações por minuto).
+                </p>
+                <p>
+                  Roçadeiras elétricas laterais costumam trabalhar entre 6.800 RPM e 9.000 RPM, enquanto aparadores exclusivos para fio de nylon chegam a 11.000 RPM.
+                </p>
+                <p>
+                  Um RPM menor não significa falta de força: máquinas que usam lâmina de aço operam em torno de 7.500 a 9.000 RPM justamente para priorizar o torque na engrenagem e evitar vibrações excessivas no cabeçote.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Observe Quantas Pontas Possui a Lâmina para Roçadeira Elétrica
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  A escolha do acessório de corte define o rendimento do motor elétrico:
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-4 my-6">
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                  <h4 className="font-bold text-[#166534] mb-2">Fio de nylon</h4>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Indicado para acabamento de grama macia, contornos de árvores, muros e calçadas sem risco de rebote.
+                  </p>
+                </div>
+
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                  <h4 className="font-bold text-[#166534] mb-2">Lâmina de 2 pontas</h4>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Ideal para limpeza rápida de gramados regulares e capim pouco denso.
+                  </p>
+                </div>
+
+                <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                  <h4 className="font-bold text-[#166534] mb-2">Lâmina de 3 ou 4 pontas</h4>
+                  <p className="text-sm text-gray-700 leading-relaxed">
+                    Projetada para cortar capoeiras, ervas daninhas grossas e raízes mais resistentes.
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Ao comprar lâminas avulsas, confira sempre o diâmetro do furo central do eixo (geralmente 1 polegada / 25,4 mm) para evitar folgas e desbalanceamento.
+                </p>
+              </div>
+
+              <div className="w-full flex justify-center my-8">
+                <img
+                  src="/images/blog/tipos-de-lamina-e-nylon-rocadeira.webp"
+                  alt="Bancada de oficina com carretel de fio de nylon quadrado, lâmina de 2 pontas, lâmina de 3 pontas e chaves de manutenção"
+                  title="Comparativo entre carretel de nylon e lâminas de aço de 2 e 3 pontas"
+                  width={800}
+                  height={533}
+                  className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Máquinas com Faixa de Corte Acima de 30 cm Agilizam o Trabalho
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  O diâmetro da faixa de corte (que varia de 23 cm a 43 cm nos modelos elétricos) determina a largura da vegetação aparada a cada passada.
+                </p>
+                <p>
+                  Normalmente, o carretel de nylon abrange um diâmetro maior (entre 30 cm e 42 cm) do que a lâmina metálica (23 cm a 33 cm).
+                </p>
+                <p>
+                  Para jardins médios e terrenos acima de 100 m², priorize equipamentos com faixa de corte superior a 30 cm, reduzindo o tempo total de serviço.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Roçadeiras Elétricas Leves Pesam Até 6 kg
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Como o trabalho em gramados exige movimentação contínua dos braços, o peso impacta diretamente o cansaço do operador.
+                </p>
+                <p>
+                  As roçadeiras elétricas laterais mais equilibradas do mercado pesam entre 4,8 kg e 6 kg (enquanto aparadores simples pesam de 2,2 kg a 2,7 kg).
+                </p>
+                <p>
+                  Acima de 7 kg, torna-se indispensável o uso de cinto de ombro bem ajustado para não sobrecarregar a lombar.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Verifique se a Compra Acompanha Acessórios Extras
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Antes de finalizar o pedido na loja online, confira na descrição do vendedor quais itens vêm inclusos na caixa.
+                </p>
+                <p>
+                  Os melhores pacotes já acompanham carretel de nylon, lâmina metálica de 3 ou 4 pontas, cinto de sustentação e kit de chaves (chave allen e chave de pino para travar a ponteira na troca do cabeçote), economizando gastos extras antes do primeiro uso.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Roçadeira Elétrica 220 ou 110 V? Certifique-se de Adquirir uma com a Voltagem Correta
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Diferente dos carregadores de modelos a bateria, as roçadeiras elétricas com cabo não são bivolt.
+                </p>
+                <p>
+                  Ligar uma máquina 110V (127V) em uma tomada 220V queima o induzido e o estator do motor instantaneamente, enquanto ligar um modelo 220V no 110V faz a roçadeira girar sem força e superaquecer.
+                </p>
+                <p>
+                  Confira a tensão das tomadas externas da sua residência antes de escolher a versão no carrinho.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================================================================
+            12. RECOMENDAÇÕES PARA ESCOLHA PERSONALIZADA
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
+            Recomendações para Escolha Personalizada
+          </h2>
+
+          <div className="w-full flex justify-center mb-8">
+            <img
+              src="/images/blog/recomendacoes-escolha-personalizada-rocadeira.webp"
+              alt="Oficina organizada exibindo roçadeira a bateria, roçadeira elétrica e roçadeira profissional a gasolina lado a lado"
+              title="Dimensionamento correto entre roçadeira a bateria, elétrica e a gasolina para cada terreno"
+              width={800}
+              height={533}
+              className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-6">
+            <p>
+              Para acertar na compra sem desperdiçar orçamento, cruze o porte do terreno com a motorização:
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-bold text-[#166534] mb-2">
+                Jardins pequenos (até 100 m²) e áreas sensíveis a barulho
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Escolha a <a href="#item-stihl-fsa-45" className="text-[#166534] underline font-semibold">Stihl FSA 45</a> (bateria) ou o aparador <a href="#item-trapp-master-1800" className="text-[#166534] underline font-semibold">Trapp Master AT 1800</a> (elétrico).
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-bold text-[#166534] mb-2">
+                Quintais residenciais com grama densa e tomadas próximas
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Vá de <a href="#item-tekna-bc1250ss" className="text-[#166534] underline font-semibold">Tekna BC1250SS</a> (1.200 W, haste bipartida) ou <a href="#item-garthen-gre-2000" className="text-[#166534] underline font-semibold">Garthen GRE-2000</a> (2.000 W).
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-bold text-[#166534] mb-2">
+                Chácaras, sítios e limpeza esporádica de mato alto
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Aposte no custo-benefício da <a href="#item-toyama-tbc43" className="text-[#166534] underline font-semibold">Toyama TBC43</a> (bipartida) ou na força extra da <a href="#item-toyama-tbc52x" className="text-[#166534] underline font-semibold">Toyama TBC52X</a>.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-lg font-bold text-[#166534] mb-2">
+                Serviço profissional pesado, fazendas e grandes extensões
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Invista na durabilidade extrema da <a href="#item-stihl-fs-221" className="text-[#166534] underline font-semibold">Stihl FS 221</a>, da <a href="#item-husqvarna-143rs" className="text-[#166534] underline font-semibold">Husqvarna 143RS</a> ou na economia 4 tempos da <a href="#item-honda-umk435t" className="text-[#166534] underline font-semibold">Honda UMK435T</a>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Ponto Estratégico 2 do Banner do Meio (Antes do FAQ) */}
+        <BunnerDoMeio />
+
+        {/* ===================================================================
+            13. PERGUNTAS FREQUENTES (FAQ EM ACORDEÃO EXPANSÍVEL)
+            =================================================================== */}
+        <section className="mt-16 bg-white p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-4 text-center">
+            Perguntas Frequentes (FAQ)
+          </h2>
+          <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+            Clique nas dúvidas abaixo para conferir as orientações técnicas de uso, mistura de combustível e manutenção preventiva.
+          </p>
+
+          <div className="space-y-4">
+            {faqData.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden transition-all duration-300"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(index)}
+                  aria-expanded={openFaq === index}
+                  className="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-100/80 transition-colors focus:outline-none"
+                >
+                  <span className="flex items-center gap-3 pr-4">
+                    <span className="w-6 h-6 rounded-full bg-[#16A34A] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                      {index + 1}
+                    </span>
+                    {faq.question}
+                  </span>
+                  {openFaq === index ? (
+                    <ChevronUp className="text-gray-600 shrink-0" />
+                  ) : (
+                    <ChevronDown className="text-gray-600 shrink-0" />
+                  )}
+                </button>
+
+                {openFaq === index && (
+                  <div className="px-5 pb-5 pt-3 text-gray-700 border-t border-gray-200 space-y-3 bg-white">
+                    {faq.answer.map((paragraph, pIndex) => (
+                      <p key={pIndex} className="leading-relaxed text-sm sm:text-base">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ===================================================================
+            14. CONCLUSÃO DE ALTO CONTRASTE (VEREDITO DIRETO)
+            =================================================================== */}
+        <section className="mt-16 bg-[#1a1a1a] text-white p-8 md:p-12 rounded-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#16A34A] opacity-10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#16A34A] opacity-10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"></div>
+
+          <div className="relative z-10 space-y-4">
+            <h2 className="text-3xl font-black mb-6 text-[#16A34A] tracking-tight">
+              Conclusão
+            </h2>
+            <p className="text-gray-200 text-lg leading-relaxed">
+              Definir a melhor roçadeira passa por respeitar o dimensionamento mecânico de cada projeto: motores elétricos como os da Tekna, Garthen e Trapp entregam praticidade imediata para quintais urbanos, enquanto as máquinas a combustão da Stihl, Husqvarna, Honda e Toyama garantem o torque e a autonomia indispensáveis para o mato pesado no campo.
+            </p>
+            <p className="text-gray-200 text-lg leading-relaxed">
+              Escolha o modelo compatível com a sua vegetação, utilize sempre EPIs (viseira, perneira, protetor auricular e botas) e mantenha a manutenção preventiva em dia para ter um equipamento confiável por muitos anos.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
+
+export default MelhorRocadeira;

@@ -5,11 +5,59 @@ export interface Product {
 }
 
 export const products: Record<string, Product> = {
+  // ==========================================
+  // PRODUTOS ATUALIZADOS / REVISADOS
+  // ==========================================
+  "stihl-fs-221": {
+    name: "Stihl FS 221",
+    link: "https://meli.la/2jKcMRb",
+    image: "stihl-fs-221.webp"
+  },
+  "rocadeira-toyama-tbc52x": {
+    name: "Roçadeira Toyama TBC52X",
+    link: "https://meli.la/29KeamK",
+    image: "rocadeira toyama Tbc52x.webp"
+  },
+  "rocadeira-toyama-tbc43": {
+    name: "Roçadeira Toyama Tbc43",
+    link: "https://meli.la/13C5Cgp",
+    image: "Roçadeira Toyama Tbc43.webp"
+  },
+  "rocadeira-honda-umk435t": {
+    name: "Roçadeira Honda UMK435T",
+    link: "https://meli.la/2QNormu",
+    image: "Roçadeira Honda UMK435T.webp"
+  },
+  "rocadeira-stihl-fsa-45": {
+    name: "Roçadeira Stihl FSA 45",
+    link: "https://meli.la/2F65dMe",
+    image: "Roçadeira Stihl FSA 45.webp"
+  },
+  "rocadeira-trapp-master-1800-bipartido": {
+    name: "roçadeira Trapp Master 1800 Bipartido",
+    link: "https://meli.la/2N1S5EM",
+    image: "roçadeira Trapp Master 1800 Bipartido.webp"
+  },
+  "rocadeira-tekna-bc-1250ss": {
+    name: "Tekna BC 1250SS",
+    link: "https://meli.la/29yooPy",
+    image: "Tekna BC 1250SS.webp"
+  },
+  "garthen-gre-2000": {
+    name: "GARTHEN GRE-2000",
+    link: "https://meli.la/1rHLF4A",
+    image: "Roçadeira Garthen Gre-2000.webp"
+  },
   "rocadeira-husqvarna-143rs": {
     name: "Husqvarna 143rs",
     link: "https://meli.la/2DnBDze",
     image: "Husqvarna 143rs.webp"
   },
+
+  // ==========================================
+  // PRODUTOS EM REVISÃO (Aguardando revisão / troca de links)
+  // (Todos os produtos abaixo serão apagados ao final do processo)
+  // ==========================================
   "rocadeira-vulcan-vr520h": {
     name: "Vulcan VR520H",
     link: "https://meli.la/1TeqVYU",
@@ -23,11 +71,6 @@ export const products: Record<string, Product> = {
   "tramontina-ap1500t": {
     name: "Tramontina AP1500T",
     link: "https://meli.la/1MqTgPc"
-  },
-  "rocadeira-tekna-bc-1250ss": {
-    name: "Tekna BC 1250SS",
-    link: "https://meli.la/29yooPy",
-    image: "Tekna BC 1250SS.webp"
   },
   "intech-machine-skim4300": {
     name: "SKIM4300 Intech Machine",
@@ -61,10 +104,6 @@ export const products: Record<string, Product> = {
     name: "Tramontina Master 1000",
     link: "https://meli.la/1wHbKiR"
   },
-  "garthen-gre-2000": {
-    name: "GARTHEN GRE-2000",
-    link: "https://meli.la/1UbEruS"
-  },
   "husqvarna-321r": {
     name: "Husqvarna 321r",
     link: "https://meli.la/26KGDzN"
@@ -76,10 +115,6 @@ export const products: Record<string, Product> = {
   "stihl-rl430acn-tk-com-oleo": {
     name: "Stihl Rl430acn-tk com Óleo",
     link: "https://meli.la/2dLC1fL"
-  },
-  "stihl-fs-221": {
-    name: "Stihl FS 221",
-    link: "https://meli.la/1QFHtYg"
   },
   "rocadeira-a-gasolina-multifuncional-bi-partido-bascco": {
     name: "Roçadeira A Gasolina Multifuncional Bi-partido Bascco",

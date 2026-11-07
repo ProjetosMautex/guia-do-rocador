@@ -5,6 +5,11 @@ import { Footer } from '../components/Footer';
 import { CookieConsent } from '../components/CookieConsent';
 import { ExitIntentPopuprocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopuprocadeira';
 import '../styles/global.css';
+
+const title = "Melhor Roçadeira As 9 Melhores de 2026 (Gasolina e Elétrica) | Guia do Roçador";
+const description = "Qual a melhor roçadeira? Analisamos a mecânica, potência e durabilidade das melhores opções a gasolina, elétricas e a bateria (Stihl, Husqvarna, Toyama e mais)!";
+const canonicalUrl = "https://guiadorocador.com.br/melhor-rocadeira";
+const ogImage = "/images/blog/1/melhor-rocadeira.webp";
 ---
 
 <!doctype html>
@@ -14,24 +19,24 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Melhor Roçadeira As 7 Melhores de 2026 (Gasolina e Elétrica) | Guia do Roçador</title>
-    <meta name="description" content="Na dúvida sobre qual roçadeira comprar em 2026? Descubra o segredo mecânico por trás das 7 melhores e acerte na escolha para o seu lote sem rasgar dinheiro!" />
-    <meta property="og:title" content="Melhor Roçadeira As 7 Melhores de 2026 (Gasolina e Elétrica)" />
-    <meta property="og:description" content="Na dúvida sobre qual roçadeira comprar em 2026? Descubra o segredo mecânico por trás das 7 melhores e acerte na escolha para o seu lote sem rasgar dinheiro!" />
-    <meta property="og:image" content="/images/blog/1/melhor-rocadeira.webp" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content="Melhor Roçadeira As 9 Melhores de 2026 (Gasolina e Elétrica)" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="article" />
-    <link rel="canonical" href="https://guiadorocador.com.br/melhor-rocadeira" />
   </head>
   <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
     <Header client:load />
-    
+
     <main class="flex-grow">
-      <MelhorRocadeira client:load />
+      <MelhorRocadeira client:idle />
     </main>
-    
+
     <Footer />
-    
-    <CookieConsent client:load />
-    <ExitIntentPopup client:load />
+
+    <CookieConsent client:idle />
+    <ExitIntentPopup client:idle />
   </body>
 </html>
