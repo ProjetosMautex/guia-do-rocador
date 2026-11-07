@@ -43,7 +43,7 @@ export const AffiliateCard: React.FC<Props> = ({ id, productId, compact = false 
           href={product.link}
           target="_blank"
           rel="noopener noreferrer sponsored nofollow"
-          className="w-full bg-[#16A34A] text-white text-xs font-bold py-2 px-3 rounded hover:bg-[#15803d] transition-colors text-center flex items-center justify-center gap-2 no-underline uppercase"
+          className="w-full bg-[#15803d] text-white text-xs font-bold py-2 px-3 rounded hover:bg-[#166534] transition-colors text-center flex items-center justify-center gap-2 no-underline uppercase"
         >
           VER PREÇO
         </a>
@@ -62,7 +62,7 @@ export const AffiliateCard: React.FC<Props> = ({ id, productId, compact = false 
         href={product.link}
         target="_blank"
         rel="noopener noreferrer sponsored nofollow"
-        className="flex items-center justify-center gap-3 bg-[#16A34A] text-white px-10 py-5 rounded-xl font-black text-xl hover:scale-105 transition-all w-full sm:w-auto shadow-lg no-underline uppercase tracking-tight"
+        className="flex items-center justify-center gap-3 bg-[#15803d] hover:bg-[#166534] text-white px-10 py-5 rounded-xl font-black text-xl hover:scale-105 transition-all w-full sm:w-auto shadow-lg no-underline uppercase tracking-tight"
       >
         <ShoppingCart size={28} strokeWidth={3} />
         CLIQUE AQUI PARA VER O PREÇO

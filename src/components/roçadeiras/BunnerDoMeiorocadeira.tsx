@@ -76,9 +76,9 @@ export const BunnerDoMeiorocadeira: React.FC = () => {
               🛠️ Cansado de gastar com diárias de roçadores?
             </h3>
             <p className="text-base md:text-lg text-gray-600 font-medium max-w-2xl mx-auto leading-relaxed">
-              Descubra como limpar seu terreno na metade do tempo e economize até <span className="text-[#16A34A] font-bold">R$ 2.000 por ano</span> cuidando você mesmo da sua propriedade.
+              Descubra como limpar seu terreno na metade do tempo e economize até <span className="text-[#166534] font-bold">R$ 2.000 por ano</span> cuidando você mesmo da sua propriedade.
             </p>
-            <div className="pt-2 text-[#16A34A] font-black text-sm tracking-widest uppercase italic">
+            <div className="pt-2 text-[#166534] font-black text-sm tracking-widest uppercase italic">
               Baixe agora o Guia Grátis:
             </div>
           </div>
@@ -97,7 +97,7 @@ export const BunnerDoMeiorocadeira: React.FC = () => {
               <button
                 type="submit"
                 disabled={status === 'submitting' || !isValidEmail}
-                className="w-full bg-[#16A34A] hover:bg-[#15803d] text-white font-black py-4 px-4 rounded-xl text-base transition-all shadow-lg shadow-green-900/20 active:scale-95 disabled:opacity-50"
+                className="w-full bg-[#15803d] hover:bg-[#166534] text-white font-black py-4 px-4 rounded-xl text-base transition-all shadow-lg shadow-green-900/20 active:scale-95 disabled:opacity-50"
               >
                 {status === 'submitting' ? 'Aguarde...' : 'BAIXAR GUIA GRATUITO'}
               </button>

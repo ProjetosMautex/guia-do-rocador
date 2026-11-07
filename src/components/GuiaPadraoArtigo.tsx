@@ -55,7 +55,7 @@
  * ❓ 5. BANNER DE CROSS-SELL E ELEMENTOS EXTRAS:
  *    - O artigo terá a seção de Banner de Cross-Sell (produtos complementares) logo após os produtos principais, ou devemos omitir esse bloco?
  *    - Produtos de cross-sell recomendados no nicho: Fio de Nylon Quadrado, Óleo 2T Sintético/Semissintético, Carretel Automático Bate-Libera, Lâmina de 3 Pontas em Aço, Colete Ergonômico Duplo com Alívio de Peso, Óculos de Proteção e Protetor Auricular.
- *    - O banner suporta 2 a 3 cards (`grid md:grid-cols-2` ou `grid md:grid-cols-3`), exibindo foto com `mix-blend-multiply`, tag de benefício (`#F0FDF4`), título, descrição curta e botão de ação `#16A34A` ("VER PREÇO") com `target="_blank" rel="noopener noreferrer sponsored nofollow"`.
+ *    - O banner suporta 2 a 3 cards (`grid md:grid-cols-2` ou `grid md:grid-cols-3`), exibindo foto com `mix-blend-multiply`, tag de benefício (`#F0FDF4`), título, descrição curta e botão de ação `#15803d` ("VER PREÇO") com `target="_blank" rel="noopener noreferrer sponsored nofollow"`.
  *
  * ----------------------------------------------------------------------------
  * PARTE 1: OS SEGREDOS DOS 100 PONTOS NO PAGESPEED (OBRIGATÓRIO SEGUIR)
@@ -137,13 +137,16 @@
  * 5. HIERARQUIA SEMÂNTICA E PALETA OFICIAL (ACESSIBILIDADE WCAG AAA):
  *    - Apenas UM `<h1>` por página (dentro do Hero).
  *    - Respeite a ordem estrita de níveis: `<h1>` -> `<h2>` -> `<h3>` -> `<h4>`.
- *    - Regras de Contraste e Cores Oficiais do Guia do Roçador:
- *      • Verde Principal de Ação e Destaque: `#16A34A` (Verde Esmeralda).
- *      • Verde Hover nos Botões: `#15803d` (Verde Escuro).
- *      • Verde de Alto Contraste para Textos/Notas em Fundo Claro: `#166534` (Verde Floresta Profundo, contraste superior a 8:1 AAA).
- *      • Fundo de Badges e Selos de Destaque: `bg-[#F0FDF4]` (Verde Menta Suave) com borda `border-[#16A34A]/30` e texto `text-[#166534]`.
- *      • Botões de Ação de Afiliado: `bg-[#16A34A] hover:bg-[#15803d] text-white font-black` (contraste acessível com legibilidade nítida).
- *      • Fundo Escuro Nobre: `#1a1a1a` com realces em `#16A34A` e `#22c55e`.
+ *    - REGRAS OBRIGATÓRIAS DE CONTRASTE E CORES PARA ARTIGOS COMERCIAIS (APROVAÇÃO TOTAL NO AXE / LIGHTHOUSE):
+ *      • Botões de Ação com Texto Branco: SEMPRE `bg-[#15803d] hover:bg-[#166534] text-white` (ou `bg-[#166534] hover:bg-[#14532d]`).
+ *        ⚠️ NUNCA use `bg-[#16A34A]` com `text-white`: o verde #16A34A gera contraste de apenas 3.30:1 e FALHA na regra `color-contrast` do Axe/Lighthouse (que exige 4.5:1 mínimo para textos normais < 18pt/14pt bold).
+ *        O verde `#15803d` atinge 5.02:1 (Aprovado WCAG AA) e o hover `#166534` atinge 7.13:1 (Aprovado WCAG AAA).
+ *      • Textos Verdes em Fundo Claro (#FFFFFF, #F9FAFB, #F0FDF4): SEMPRE use `text-[#166534]` (Verde Floresta, contraste > 7.1:1 AAA). NUNCA use `text-[#16A34A]` ou `text-[#22c55e]` sobre fundo claro.
+ *      • Textos Verdes em Fundo Escuro (#1a1a1a, #111827): use `text-[#4ade80]` (contraste 9.99:1), `text-[#22c55e]` (7.64:1) ou `text-[#16A34A]` (5.28:1).
+ *      • Fundo de Badges e Selos de Destaque: `bg-[#F0FDF4]` (Verde Menta Suave) com borda `border-[#16A34A]/30` e texto em `text-[#166534]`.
+ *      • Badges Numéricos (Passos de Guias ou FAQ): `bg-[#15803d] text-white` (contraste > 5:1).
+ *      • Botões Selecionados / Ativos no Simulador: use `bg-[#15803d] text-white border-[#15803d]`.
+ *      • Banners, Popups e CookieConsent: todos os botões de ação e submissão devem usar `bg-[#15803d] hover:bg-[#166534] text-white`.
  *    - Acessibilidade de Avatares (Evitar Alt Redundante):
  *      • Quando a foto do autor estiver dentro de um link que já possui o nome textual do autor
  *        (ex: `<a href="/author/..."><img ... /> Carlos Henrique</a>`), a tag `<img>`
@@ -178,7 +181,7 @@
  *    - Botões interativos de 1 clique direcionando via âncora (`#item-1...`) ao produto ideal.
  *
  * 4. VITRINE / TABELA RESUMO DE PRODUTOS:
- *    - Tabela comparativa com fotos (`60x60`), nome, perfil de uso, nota (`text-[#166534]` ou badge `#F0FDF4`) e botão `"Ver Preço"` (`#16A34A`).
+ *    - Tabela comparativa com fotos (`60x60`), nome, perfil de uso, nota (`text-[#166534]` ou badge `#F0FDF4`) e botão `"Ver Preço"` (`#15803d`).
  *
  * 5. SEÇÕES DE CONTEÚDO E ANÁLISES DE PRODUTOS (`<h2>` e `<h3>`):
  *    - Seções informativas (`<h2>` e `<h3>`): conceitos técnicos (cilindrada, tipo de motor 2T/4T/bateria, tipo de eixo, guidão bike vs d-loop).
@@ -202,6 +205,8 @@
  * 8. COMPARATIVOS DIRETOS, GUIA DE COMPRA E DICAS PRÁTICAS:
  *    - Comparativos (ex.: Stihl vs Husqvarna, 2 Tempos vs 4 Tempos, Fio Redondo vs Quadrado).
  *    - **Box de Destaque "Dica do Especialista"** (`bg-[#F0FDF4] border-l-4 border-[#16A34A] text-gray-800`).
+ *    - **Seção "Melhores Marcas" (`<h2>` de Autoridade Tópica)**:
+ *      Todo artigo comparativo comercial deve conter uma seção `<h2>Melhores Marcas de [Categoria]</h2>` antes das recomendações finais, analisando os diferenciais de cada montadora avaliada (ex.: Stihl, Husqvarna, Toyama, Honda, Tekna, Trapp, Garthen). Cada marca deve ser apresentada em um card `bg-white p-6 rounded-2xl border border-gray-200 shadow-sm` com `<h3>` em `text-[#166534]` e texto em parágrafos de 1 frase limpos (sem negrito).
  *
  * 9. PERGUNTAS FREQUENTES (FAQ EM ACORDEÃO EXPANSÍVEL):
  *    - Perguntas reais buscadas no Google com respostas diretas e escaneáveis.
@@ -237,6 +242,11 @@
  * - A cada ponto final (`.`), DEVE haver uma quebra de parágrafo (`<p>...</p>`).
  * - Cada parágrafo deve ter no MÍNIMO 1 linha e no MÁXIMO 3 linhas.
  * - Subtítulos dos produtos: nome exato do arquivo de imagem sem extensão.
+ *
+ * 5. Regras Obrigatórias de Cores e Contraste em Botões e Textos Comerciais
+ * - NUNCA use `bg-[#16A34A]` em botões que possuem texto em branco. Use SEMPRE `bg-[#15803d] hover:bg-[#166534] text-white`.
+ * - Em fundos brancos/claros, textos verdes DEVEM ser `text-[#166534]` para garantir contraste WCAG AAA superior a 7:1.
+ * - Botões ativos/selecionados do simulador devem usar `bg-[#15803d] text-white border-[#15803d]`.
  * ============================================================================
  */
 
@@ -478,7 +488,7 @@ export const GuiaPadraoArtigo: React.FC = () => {
               onClick={() => setQuizProfile('perfilA')}
               className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
                 quizProfile === 'perfilA'
-                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
                   : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
               }`}
             >
@@ -491,7 +501,7 @@ export const GuiaPadraoArtigo: React.FC = () => {
               onClick={() => setQuizProfile('perfilB')}
               className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
                 quizProfile === 'perfilB'
-                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
                   : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
               }`}
             >
@@ -587,7 +597,7 @@ export const GuiaPadraoArtigo: React.FC = () => {
                           href={affiliateUrl}
                           target="_blank"
                           rel="noopener noreferrer sponsored nofollow"
-                          className="bg-[#16A34A] hover:bg-[#15803d] text-white font-bold no-underline text-xs py-2 px-3 rounded-lg whitespace-nowrap inline-block transition-all sm:py-2.5 sm:px-5 shadow-sm active:scale-95"
+                          className="bg-[#15803d] hover:bg-[#166534] text-white font-bold no-underline text-xs py-2 px-3 rounded-lg whitespace-nowrap inline-block transition-all sm:py-2.5 sm:px-5 shadow-sm active:scale-95"
                         >
                           Ver Preço
                         </a>
@@ -860,7 +870,7 @@ export const GuiaPadraoArtigo: React.FC = () => {
                 href={crossSellProducts["fio-nylon"]?.link || "#"}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-4 transition-all no-underline shadow-sm"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-4 transition-all no-underline shadow-sm"
               >
                 VER PREÇO
               </a>
@@ -891,7 +901,7 @@ export const GuiaPadraoArtigo: React.FC = () => {
                 href={crossSellProducts["oleo-2t"]?.link || "#"}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-4 transition-all no-underline shadow-sm"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-4 transition-all no-underline shadow-sm"
               >
                 VER PREÇO
               </a>
@@ -922,7 +932,7 @@ export const GuiaPadraoArtigo: React.FC = () => {
                 href={crossSellProducts["kit-epi"]?.link || "#"}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-4 transition-all no-underline shadow-sm"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-4 transition-all no-underline shadow-sm"
               >
                 VER PREÇO
               </a>
@@ -1028,7 +1038,7 @@ export const GuiaPadraoArtigo: React.FC = () => {
                   className="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-100/80 transition-colors focus:outline-none"
                 >
                   <span className="flex items-center gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[#16A34A] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                    <span className="w-6 h-6 rounded-full bg-[#15803d] text-white flex items-center justify-center font-bold text-xs shrink-0">
                       {index + 1}
                     </span>
                     {faq.question}

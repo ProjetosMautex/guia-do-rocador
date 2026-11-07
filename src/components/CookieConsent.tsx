@@ -25,7 +25,7 @@ export const CookieConsent: React.FC = () => {
             Utilizamos cookies para melhorar sua experiência e personalizar conteúdo. Ao continuar navegando, você concorda com nossa{' '}
             <a 
               href="/politica-de-privacidade" 
-              className="text-[#16A34A] hover:underline font-medium transition-colors"
+              className="text-[#4ade80] hover:underline font-medium transition-colors"
             >
               Política de Privacidade
             </a>.
@@ -34,7 +34,7 @@ export const CookieConsent: React.FC = () => {
         <div className="flex gap-4 flex-shrink-0">
           <button
             onClick={handleAccept}
-            className="bg-[#16A34A] text-white px-6 py-2 rounded-lg font-bold text-sm hover:bg-[#15803d] transition-colors shadow-sm whitespace-nowrap"
+            className="bg-[#15803d] text-white px-6 py-2 rounded-lg font-bold text-sm hover:bg-[#166534] transition-colors shadow-sm whitespace-nowrap"
           >
             Aceitar e Fechar
           </button>

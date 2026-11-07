@@ -720,7 +720,7 @@ export const MelhorRocadeira: React.FC = () => {
               onClick={() => setQuizProfile('pesado')}
               className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
                 quizProfile === 'pesado'
-                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
                   : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
               }`}
             >
@@ -733,7 +733,7 @@ export const MelhorRocadeira: React.FC = () => {
               onClick={() => setQuizProfile('chacara')}
               className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
                 quizProfile === 'chacara'
-                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
                   : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
               }`}
             >
@@ -746,7 +746,7 @@ export const MelhorRocadeira: React.FC = () => {
               onClick={() => setQuizProfile('quintal')}
               className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
                 quizProfile === 'quintal'
-                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
                   : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
               }`}
             >
@@ -759,7 +759,7 @@ export const MelhorRocadeira: React.FC = () => {
               onClick={() => setQuizProfile('silencio')}
               className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
                 quizProfile === 'silencio'
-                  ? 'bg-[#16A34A] text-white border-[#16A34A]'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
                   : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
               }`}
             >
@@ -897,7 +897,7 @@ export const MelhorRocadeira: React.FC = () => {
                           href={affiliateUrl}
                           target="_blank"
                           rel="noopener noreferrer sponsored nofollow"
-                          className="bg-[#16A34A] hover:bg-[#15803d] text-white font-bold no-underline text-xs py-2 px-3 rounded-lg whitespace-nowrap inline-block transition-all sm:py-2.5 sm:px-4 shadow-sm active:scale-95"
+                          className="bg-[#15803d] hover:bg-[#166534] text-white font-bold no-underline text-xs py-2 px-3 rounded-lg whitespace-nowrap inline-block transition-all sm:py-2.5 sm:px-4 shadow-sm active:scale-95"
                         >
                           Ver Preço
                         </a>
@@ -1043,7 +1043,7 @@ export const MelhorRocadeira: React.FC = () => {
                 href={crossSellProducts.fioNylon.link}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
               >
                 VER PREÇO
               </a>
@@ -1075,7 +1075,7 @@ export const MelhorRocadeira: React.FC = () => {
                 href={crossSellProducts.oleo2t.link}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
               >
                 VER PREÇO
               </a>
@@ -1107,7 +1107,7 @@ export const MelhorRocadeira: React.FC = () => {
                 href={crossSellProducts.kitEpi.link}
                 target="_blank"
                 rel="noopener noreferrer sponsored nofollow"
-                className="bg-[#16A34A] hover:bg-[#15803d] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
               >
                 VER PREÇO
               </a>
@@ -1481,7 +1481,167 @@ export const MelhorRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            12. RECOMENDAÇÕES PARA ESCOLHA PERSONALIZADA
+            12. MELHORES MARCAS DE ROÇADEIRAS
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
+            Melhores Marcas de Roçadeiras
+          </h2>
+
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-8">
+            <p>
+              Ao escolher uma roçadeira, a reputação da montadora e a infraestrutura de pós-venda são tão decisivas quanto a potência informada no catálogo.
+            </p>
+            <p>
+              Avaliamos a confiabilidade mecânica, facilidade de manutenção e rede de peças das principais marcas analisadas neste guia:
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Stihl
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  A fabricante alemã é a maior referência do mercado florestal e profissional no Brasil.
+                </p>
+                <p>
+                  Seus motores com tecnologia 2-MIX aliam alta durabilidade mecânica a um consumo de combustível significativamente menor.
+                </p>
+                <p>
+                  A marca se destaca tanto na robustez extrema para desbaste pesado quanto na modernização de ferramentas a bateria para uso urbano.
+                </p>
+                <p>
+                  Além disso, conta com a maior rede de concessionárias e facilidade imediata de peças de reposição em todo o território nacional.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Husqvarna
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Marca de origem sueca consagrada pela engenharia voltada ao trabalho agropecuário pesado e serviços contínuos.
+                </p>
+                <p>
+                  Seus equipamentos incorporam filtros de ar de duplo estágio e caixas de transmissão blindadas para suportar poeira e impactos em pastagens.
+                </p>
+                <p>
+                  O cinturão ergonômico Balance 55 é amplamente elogiado por operadores por distribuir o peso entre ombros e quadril, aliviando a coluna em longas jornadas.
+                </p>
+                <p>
+                  É a escolha mais confiável para fazendas e produtores rurais que necessitam de força bruta sem paradas inesperadas.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Toyama
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Líder absoluta em custo-benefício para proprietários de chácaras, sítios e prestadores de serviços autônomos.
+                </p>
+                <p>
+                  A marca entrega motores potentes de 43 cc e 52 cc com valores de compra consideravelmente mais acessíveis que as linhas florestais europeias.
+                </p>
+                <p>
+                  Modelos com eixo bipartido trazem enorme conveniência para quem precisa transportar a roçadeira em veículos de passeio.
+                </p>
+                <p>
+                  A disponibilidade maciça de componentes originais e paralelos a preços baixos garante uma manutenção preventiva muito econômica.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Honda
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Pioneira mundial em tecnologia de motores manuais de quatro tempos com lubrificação integral em 360 graus.
+                </p>
+                <p>
+                  O abastecimento direto com gasolina pura elimina as falhas frequentes causadas pelo erro na proporção de óleo dois tempos no tanque.
+                </p>
+                <p>
+                  Destaca-se pela partida extremamente macia, baixo nível de vibração, ruído atenuado e ausência completa de fumaça na queima.
+                </p>
+                <p>
+                  Apesar do custo inicial elevado e da necessidade de monitorar o nível de óleo no cárter, entrega o menor consumo de combustível da categoria.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Tekna
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Muito popular no cenário brasileiro por disponibilizar equipamentos funcionais para uso doméstico e semiprofissional.
+                </p>
+                <p>
+                  Tem grande destaque no nicho de roçadeiras elétricas laterais, unindo motor superior bem balanceado e eixo de transmissão cardã com suporte a lâminas de aço.
+                </p>
+                <p>
+                  Sua arquitetura bipartida facilita o acondicionamento em garagens e depósitos residenciais sem ocupar espaço.
+                </p>
+                <p>
+                  É uma alternativa recomendada para quem busca força suficiente para limpar capins densos sem a complexidade de misturar combustíveis.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Trapp
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Tradicional fabricante nacional especializada no cuidado de gramados residenciais e acabamento paisagístico.
+                </p>
+                <p>
+                  Seus aparadores elétricos operam em rotação altíssima, garantindo agilidade no arremate de canteiros, bordas de calçadas e ao redor de muros.
+                </p>
+                <p>
+                  A leveza do conjunto estrutural permite que qualquer usuário realize a manutenção do jardim sem sobrecarregar braços e ombros.
+                </p>
+                <p>
+                  Possui ampla presença em lojas de ferramentas e facilidade imediata para reposição de carretéis e fios de nylon.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Garthen
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Focada em máquinas elétricas robustas para quem precisa de produtividade contínua em quintais e chácaras com acesso à rede.
+                </p>
+                <p>
+                  Chama a atenção por fornecer motores elétricos monofásicos com potências expressivas de até 2.000 Watts.
+                </p>
+                <p>
+                  O amplo diâmetro de corte com lâmina de três pontas permite fatiar vegetações resistentes com menor esforço e menos passadas.
+                </p>
+                <p>
+                  Representa uma opção competitiva para quem quer rendimento próximo ao de roçadeiras a combustão sem produzir barulho excessivo ou emissões de escape.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================================================================
+            13. RECOMENDAÇÕES PARA ESCOLHA PERSONALIZADA
             =================================================================== */}
         <section className="mt-20 pt-12 border-t border-gray-200">
           <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
@@ -1572,7 +1732,7 @@ export const MelhorRocadeira: React.FC = () => {
                   className="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-100/80 transition-colors focus:outline-none"
                 >
                   <span className="flex items-center gap-3 pr-4">
-                    <span className="w-6 h-6 rounded-full bg-[#16A34A] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                    <span className="w-6 h-6 rounded-full bg-[#15803d] text-white flex items-center justify-center font-bold text-xs shrink-0">
                       {index + 1}
                     </span>
                     {faq.question}
