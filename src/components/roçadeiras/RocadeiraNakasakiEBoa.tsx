@@ -1,410 +1,1228 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AffiliateCard } from '../AffiliateCard';
-import { BunnerDoMeiorocadeira as BannerDoMeio } from './BunnerDoMeiorocadeira';
 import { products, type ProductId } from '../../data/productsrocadeira';
-import { Check, X, ArrowRight, Info } from 'lucide-react';
+import { BunnerDoMeiorocadeira as BunnerDoMeio } from './BunnerDoMeiorocadeira';
+
+// Ícones SVG Inline Leves (Zero peso extra no bundle JS, PageSpeed 100)
+const Check = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>
+);
+
+const X = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
+  </svg>
+);
+
+const ArrowRight = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
+  </svg>
+);
+
+const ChevronDown = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <polyline points="6 9 12 15 18 9"></polyline>
+  </svg>
+);
+
+const ChevronUp = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+);
+
+const Sparkles = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+    <path d="M20 3v4"></path>
+    <path d="M22 5h-4"></path>
+    <path d="M4 17v2"></path>
+    <path d="M5 18H3"></path>
+  </svg>
+);
+
+const HelpCircle = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+  </svg>
+);
+
+const ShoppingBag = ({ size = 24, className = "" }: { size?: number; className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <path d="M16 10a4 4 0 0 1-8 0"></path>
+  </svg>
+);
+
+interface ShowcaseItem {
+  id: ProductId;
+  anchorId: string;
+  shortName: string;
+  category: string;
+  score: string;
+  thumbSrc: string;
+}
+
+interface NakasakiModelReview {
+  id: ProductId;
+  anchorId: string;
+  badge: string;
+  heading: string;
+  imageSrc: string;
+  imageAlt: string;
+  whiteBgCutout?: boolean;
+  paragraphs: string[];
+  specs: { label: string; value: string; highlight?: boolean }[];
+  pros: string[];
+  cons: string[];
+  criteria: { name: string; score: string; note: string }[];
+}
+
+const showcaseItems: ShowcaseItem[] = [
+  {
+    id: "rocadeira-a-gasolina-costal-2-tempos-65cc-nakasaki",
+    anchorId: "item-nakasaki-costal-65cc",
+    shortName: "Nakasaki Costal 65cc 2T (Melhor Ergonomia)",
+    category: "Terrenos Inclinados / Menos Fadiga",
+    score: "8.8 / 10",
+    thumbSrc: "/images/blog/thumbs/Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki-thumb.webp"
+  },
+  {
+    id: "rocadeira-gasolina-65cc-nakasaki-nk-650at-3hp-2-tempos-eixo-bipartido",
+    anchorId: "item-nakasaki-nk650at",
+    shortName: "Nakasaki NK-650AT 65cc Bipartida (Mais Prática)",
+    category: "Chácaras / Cabe no Porta-Malas",
+    score: "8.9 / 10",
+    thumbSrc: "/images/blog/thumbs/Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido-thumb.webp"
+  },
+  {
+    id: "rocadeira-gasolina-profissional-nakasaki-2t-75cc-com-trimmer",
+    anchorId: "item-nakasaki-75cc",
+    shortName: "Nakasaki 75cc 2T Com Trimmer (Mais Forte)",
+    category: "Mato Alto Denso / Kit Completo",
+    score: "8.7 / 10",
+    thumbSrc: "/images/blog/thumbs/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer-thumb.webp"
+  },
+  {
+    id: "carretel-para-rocadeira-autocut-26-2-stihl-original",
+    anchorId: "item-carretel-autocut",
+    shortName: "Carretel Stihl AutoCut 26-2 (Upgrade Recomendado)",
+    category: "Acessório de Alta Durabilidade",
+    score: "9.8 / 10",
+    thumbSrc: "/images/blog/thumbs/Carretel Para Roçadeira Autocut 26-2 Stihl Original-thumb.webp"
+  }
+];
+
+const nakasakiModels: NakasakiModelReview[] = [
+  {
+    id: "rocadeira-a-gasolina-costal-2-tempos-65cc-nakasaki",
+    anchorId: "item-nakasaki-costal-65cc",
+    badge: "Melhor Conforto em Barrancos e Lotes Irregulares",
+    heading: "Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki",
+    imageSrc: "/images/blog/Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki.webp",
+    imageAlt: "Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki com kit de lâminas e carretel sobre o gramado",
+    whiteBgCutout: false,
+    paragraphs: [
+      "Para quem precisa limpar terrenos acidentados, barrancos ou pomares sem castigar os braços, a versão costal de 65cc da Nakasaki entrega uma vantagem ergonômica imediata.",
+      "Como o motor 2 tempos fica apoiado em uma estrutura acolchoada nas costas e transfere o giro por um cabo flexível até a haste, o operador movimenta apenas o tubo leve de alumínio durante a roçada.",
+      "Na prática, o bloco tem fôlego de sobra para derrubar capim alto e vegetação fechada em chácaras e sítios, vindo acompanhado de um kit variado de lâminas e carretel já na caixa.",
+      "Por utilizar eixo flexível entre a mochila e o tubo, pede lubrificação periódica com graxa e atenção ao preparo correto da mistura de óleo 2 tempos para trabalhar sempre macia."
+    ],
+    specs: [
+      { label: "Motorização Declarada", value: "2 Tempos a Gasolina — Série 65cc (3 HP)" },
+      { label: "Arquitetura de Uso", value: "Costal (Mochila ergonômica com eixo flexível)", highlight: true },
+      { label: "Indicação Principal", value: "Terrenos inclinados, taludes, chácaras e entre árvores" },
+      { label: "Itens de Série", value: "Lâminas metálicas, carretel de nylon, dosador e kit de chaves" }
+    ],
+    pros: [
+      "Retira o peso do motor dos braços e punhos.",
+      "Excelente mobilidade para roçar barrancos e locais estreitos.",
+      "Boa força de corte para limpeza periódica de mato alto.",
+      "Acompanha pacote completo de acessórios de fábrica."
+    ],
+    cons: [
+      "Transmissão flexível exige engraxamento preventivo regular.",
+      "Aquece um pouco mais as costas do operador em dias muito quentes."
+    ],
+    criteria: [
+      { name: "Custo-Benefício", score: "9.1 / 10", note: "Uma das roçadeiras costais mais acessíveis do mercado nacional." },
+      { name: "Conforto em Declives", score: "9.2 / 10", note: "Facilita muito o alcance em barrancos onde modelos laterais cansam." },
+      { name: "Facilidade de Manutenção", score: "8.2 / 10", note: "Requer cuidado extra na lubrificação do cabo flexível." }
+    ]
+  },
+  {
+    id: "rocadeira-gasolina-profissional-nakasaki-2t-75cc-com-trimmer",
+    anchorId: "item-nakasaki-75cc",
+    badge: "Maior Força de Corte + Kit Completo",
+    heading: "Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer",
+    imageSrc: "/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp",
+    imageAlt: "Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer e acessórios de corte no gramado",
+    whiteBgCutout: false,
+    paragraphs: [
+      "A Nakasaki 75cc Com Trimmer é a versão mais procurada por quem enfrenta lotes tomados por braquiária grossa, capim-colonião e ervas daninhas resistentes.",
+      "Embora a nomenclatura comercial 75cc seja otimista em relação ao volume real da câmara de combustão — prática comum nas importadas dessa faixa —, o motor entrega rotação vigorosa e ótimo poder de ataque com lâmina metálica.",
+      "Sua estrutura lateral com tubo rígido e guidão estilo bicicleta favorece o movimento de pêndulo em áreas abertas, rendendo rápido o serviço de fim de semana no sítio.",
+      "Em contrapartida, o foco em alto giro cobra um consumo de gasolina mais elevado e exige pausas para resfriamento em dias de calor intenso, não sendo indicada apenas para aparar grama baixa de jardim."
+    ],
+    specs: [
+      { label: "Categoria Comercial", value: "Motor 2 Tempos — Série 75cc de Alto Giro" },
+      { label: "Transmissão e Pegada", value: "Haste lateral rígida com guidão duplo tipo bicicleta" },
+      { label: "Diferencial do Pacote", value: "Kit ampliado com lâminas, carretel e cabeçote trimmer", highlight: true },
+      { label: "Perfil Recomendado", value: "Limpeza pesada esporádica em sítios e terrenos baldios" }
+    ],
+    pros: [
+      "Alto poder de corte em capim denso e mato fechado.",
+      "Acompanha kit generoso de acessórios logo na compra.",
+      "Guidão duplo garante boa alavanca em terrenos planos.",
+      "Peças mecânicas universais fáceis de achar na internet."
+    ],
+    cons: [
+      "Consumo de combustível superior aos modelos menores.",
+      "Pesada e superdimensionada para pequenos jardins residenciais."
+    ],
+    criteria: [
+      { name: "Desempenho no Mato Alto", score: "9.0 / 10", note: "Corta touceiras grossas com facilidade quando usada com lâmina afiada." },
+      { name: "Pacote de Acessórios", score: "9.2 / 10", note: "Entrega excelente variedade de itens pelo valor cobrado." },
+      { name: "Economia de Combustível", score: "8.0 / 10", note: "Pede tanque cheio com maior frequência sob aceleração alta." }
+    ]
+  },
+  {
+    id: "rocadeira-gasolina-65cc-nakasaki-nk-650at-3hp-2-tempos-eixo-bipartido",
+    anchorId: "item-nakasaki-nk650at",
+    badge: "Mais Equilibrada e Fácil de Transportar",
+    heading: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido",
+    imageSrc: "/images/blog/Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido.webp",
+    imageAlt: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos com Eixo Bipartido",
+    whiteBgCutout: true,
+    paragraphs: [
+      "Para a maioria dos donos de chácaras e terrenos afastados, a Nakasaki NK-650AT de 65cc representa a compra mais equilibrada e racional do catálogo da marca.",
+      "Seu principal trunfo prático é o tubo de transmissão bipartido com trava rápida, que permite desmontar a haste ao meio em segundos para levar a máquina no porta-malas de qualquer carro de passeio.",
+      "Aliado a isso, o motor de 3 HP nominais trabalha em conjunto com um tanque de excelente capacidade (cerca de 1,2 litro), garantindo boa autonomia antes de parar para reabastecer.",
+      "Basta manter a luva de acoplamento central sempre limpa, bem apertada e engraxada para preservar a transferência firme de torque até a ponteira por bastante tempo."
+    ],
+    specs: [
+      { label: "Motorização / Potência", value: "Motor 2 Tempos — Série 65cc / 3 HP nominais" },
+      { label: "Sistema de Haste", value: "Tubo bipartido com acoplamento central para transporte", highlight: true },
+      { label: "Empunhadura", value: "Guidão bipartido ergonômico com gatilho de segurança" },
+      { label: "Uso Ideal", value: "Manutenção quinzenal ou mensal de chácaras, lotes e sítios" }
+    ],
+    pros: [
+      "Cabe facilmente no porta-malas graças ao eixo bipartido.",
+      "Ótimo equilíbrio entre força de corte, preço e consumo.",
+      "Tanque amplo que reduz paradas constantes de abastecimento.",
+      "Guarda compacta em garagens, armários ou depósitos."
+    ],
+    cons: [
+      "Exige aperto firme na junção do tubo antes de iniciar o serviço.",
+      "Cinto simples de série pede bom ajuste para não cansar o ombro."
+    ],
+    criteria: [
+      { name: "Praticidade de Transporte", score: "9.6 / 10", note: "Resolve a vida de quem leva a máquina da cidade para o sítio." },
+      { name: "Custo-Benefício Geral", score: "9.3 / 10", note: "Entrega exatamente o que o usuário doméstico pesado precisa pagando pouco." },
+      { name: "Rigidez da Junção", score: "8.4 / 10", note: "Funciona muito bem desde que a trava central seja mantida limpa e firme." }
+    ]
+  }
+];
+
+const crossSellProducts = {
+  oleo2t: {
+    link: products["kit-misturador-oleo-2t"]?.link || "#",
+    image: "/images/blog/thumbs/kit-oleo-2t-cross.webp"
+  },
+  fioNylon: {
+    link: products["fio-de-nylon-duraline-3mm-quadrado-255m"]?.link || "#",
+    image: "/images/blog/thumbs/fio-duraline-cross.webp"
+  },
+  kitEpi: {
+    link: products["kit-seguranca-completo-epis"]?.link || "#",
+    image: "/images/blog/thumbs/kit-epis-cross.webp"
+  }
+};
 
 export const RocadeiraNakasakiEBoa: React.FC = () => {
-  const featuredIds: ProductId[] = [
-    "rocadeira-a-gasolina-costal-2-tempos-65cc-nakasaki",
-    "rocadeira-gasolina-profissional-nakasaki-2t-75cc-com-trimmer",
-    "rocadeira-gasolina-65cc-nakasaki-nk-650at-3hp-2-tempos-eixo-bipartido"
+  const [quizProfile, setQuizProfile] = useState<'costal' | 'bipartida' | 'pesada' | 'diario' | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const faqData: { question: string; answer: React.ReactNode[] }[] = [
+    {
+      question: "Onde encontrar peças de reposição para a roçadeira Nakasaki?",
+      answer: [
+        "Essa é uma boa notícia na prática: a Nakasaki utiliza a plataforma mecânica padrão das roçadeiras importadas de 52cc e 63cc.",
+        "Por isso, carburadores, velas, bobinas, tampas de partida retrátil, embreagens e ponteiras compatíveis são encontrados com enorme facilidade e preço baixo em oficinas de jardinagem e nos principais marketplaces."
+      ]
+    },
+    {
+      question: "A roçadeira Nakasaki aguenta serviço profissional todos os dias?",
+      answer: [
+        "Ela não foi projetada para operação comercial severa de 8 horas diárias de segunda a sábado, pois o aquecimento contínuo acelera o desgaste de retentores, coxins e caixa de transmissão.",
+        <>
+          Para roçadas periódicas de chácaras, sítios e terrenos próprios, ela atende muito bem; já para empreiteiras e prestadores diários, vale conferir as máquinas industriais no nosso guia da{' '}
+          <a href="/melhor-rocadeira" className="text-[#166534] hover:underline font-semibold">
+            melhor roçadeira profissional de 2026
+          </a>
+          .
+        </>
+      ]
+    },
+    {
+      question: "Qual a mistura correta de gasolina e óleo 2 tempos na Nakasaki?",
+      answer: [
+        "Nos motores 2 tempos importados como os da Nakasaki, a recomendação segura de oficina é utilizar a proporção 25:1, ou seja, 40 ml de óleo 2 tempos de boa qualidade para cada 1 litro de gasolina comum fresca.",
+        "Nos dois primeiros tanques de amaciamento, evite segurar o acelerador no máximo sem carga e nunca guarde combustível misturado no tanque por mais de 15 dias."
+      ]
+    },
+    {
+      question: "Minha Nakasaki nova está difícil de pegar na primeira partida, o que fazer?",
+      answer: [
+        "Na maioria das vezes o motor apenas afogou por excesso de puxadas com o afogador fechado após o primeiro sinal de explosão.",
+        <>
+          Basta retornar a alavanca do afogador para a posição aberta e seguir o nosso passo a passo de{' '}
+          <a href="/como-ligar-rocadeira" className="text-[#166534] hover:underline font-semibold">
+            como ligar roçadeira a gasolina a frio
+          </a>{' '}
+          ou de{' '}
+          <a href="/como-desafogar-rocadeira" className="text-[#166534] hover:underline font-semibold">
+            como desafogar roçadeira em 2 minutos
+          </a>
+          .
+        </>
+      ]
+    }
   ];
 
+  const renderModelSection = (model: NakasakiModelReview, showTopBorder: boolean) => (
+    <section
+      key={model.id}
+      id={model.anchorId}
+      className={`scroll-mt-24 ${showTopBorder ? 'pt-10 border-t border-gray-200' : 'pt-2'}`}
+    >
+      <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+        {model.badge}
+      </span>
+
+      <h3 className="text-2xl font-bold text-[#1a1a1a] mb-6 border-l-4 border-[#16A34A] pl-4 leading-snug">
+        {model.heading}
+      </h3>
+
+      <div className="w-full flex justify-center mb-8 bg-white p-4 sm:p-6 rounded-2xl border border-gray-100 shadow-sm">
+        <img
+          src={model.imageSrc}
+          alt={model.imageAlt}
+          title={products[model.id]?.name || model.heading}
+          width={800}
+          height={533}
+          className={`max-h-80 w-auto object-contain rounded-xl ${model.whiteBgCutout ? 'mix-blend-multiply' : ''}`}
+          loading="lazy"
+        />
+      </div>
+
+      <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+        {model.paragraphs.map((paragraph, idx) => (
+          <p key={idx}>{paragraph}</p>
+        ))}
+      </div>
+
+      {/* Ficha Técnica Rápida */}
+      <div className="overflow-x-auto mt-6">
+        <table className="min-w-full border-collapse bg-white rounded-lg shadow-sm border border-gray-200">
+          <tbody className="divide-y divide-gray-200">
+            {model.specs.map((spec, idx) => (
+              <tr key={idx}>
+                <th className="px-4 py-3 bg-gray-50 text-left text-sm font-semibold text-gray-700 w-2/5">
+                  {spec.label}
+                </th>
+                <td className="px-4 py-3 text-sm text-gray-600">
+                  {spec.highlight && <Check className="text-[#16A34A] inline mr-1.5" size={18} />}
+                  {spec.value}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Card Principal de Afiliado */}
+      <AffiliateCard id={model.id} />
+
+      {/* Prós e Contras */}
+      <div className="grid md:grid-cols-2 gap-6 mt-8">
+        <div className="bg-green-50 p-6 rounded-xl border border-green-200">
+          <h4 className="font-bold text-green-900 mb-4 flex items-center gap-2">
+            <Check size={20} className="text-[#16A34A]" /> Prós
+          </h4>
+          <ul className="space-y-2 text-green-800 text-sm list-disc list-inside">
+            {model.pros.map((pro, idx) => (
+              <li key={idx}>{pro}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="bg-red-50 p-6 rounded-xl border border-red-200">
+          <h4 className="font-bold text-red-900 mb-4 flex items-center gap-2">
+            <X size={20} className="text-red-600" /> Contras
+          </h4>
+          <ul className="space-y-2 text-red-800 text-sm list-disc list-inside">
+            {model.cons.map((con, idx) => (
+              <li key={idx}>{con}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      {/* Tabela de Notas por Critério */}
+      <div className="mt-8 overflow-x-auto rounded-xl border border-gray-200 bg-white">
+        <table className="min-w-full divide-y divide-gray-200">
+          <thead className="bg-gray-50">
+            <tr>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">
+                Critério Avaliado
+              </th>
+              <th className="px-4 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-wider w-[110px]">
+                Nota
+              </th>
+              <th className="px-4 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider hidden sm:table-cell">
+                Avaliação Prática
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200 text-sm text-gray-700">
+            {model.criteria.map((c, idx) => (
+              <tr key={idx}>
+                <td className="px-4 py-3 font-semibold">{c.name}</td>
+                <td className="px-4 py-3 text-center font-bold text-[#166534] whitespace-nowrap">{c.score}</td>
+                <td className="px-4 py-3 text-gray-600 hidden sm:table-cell">{c.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+
   return (
-    <div className="bg-white">
-        {/* Hero Section */}
-        <div className="relative bg-[#1a1a1a] text-white py-20 md:py-32 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img 
-              src="/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp" 
-              alt="Roçadeira Nakasaki é Boa?" 
-              className="w-full h-full object-cover opacity-30 blur-sm"
+    <div className="font-sans bg-gray-50 text-[#1a1a1a]">
+      {/* =====================================================================
+          1. HERO SECTION (LCP Otimizado + Único H1 + Assinatura do Autor)
+          ===================================================================== */}
+      <div className="relative bg-[#1a1a1a] text-white py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            fetchPriority="high"
+            src="/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp"
+            alt="Roçadeira a gasolina Nakasaki 2 tempos com kit completo de acessórios sobre o gramado"
+            title="Roçadeira Nakasaki é Boa? Review de 3 Modelos em 2026"
+            width={800}
+            height={533}
+            className="w-full h-full object-cover opacity-20 blur-sm"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/80 via-[#1a1a1a]/95 to-[#1a1a1a]"></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight text-white tracking-tight">
+            Roçadeira Nakasaki é Boa? <br />
+            <span className="text-[#16A34A]">[Review de 3 Modelos em 2026]</span>
+          </h1>
+
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-gray-300 text-sm md:text-base">
+            <div className="flex items-center gap-2">
+              <span>Por</span>
+              <a
+                href="/author/jose-ailton/"
+                className="flex items-center gap-2 hover:text-[#16A34A] transition-colors font-semibold group"
+              >
+                <img
+                  src="/images/autores/José Ailton da Silva-thumb.webp"
+                  alt=""
+                  aria-hidden="true"
+                  width={32}
+                  height={32}
+                  className="w-8 h-8 rounded-full border-2 border-[#16A34A] group-hover:scale-110 transition-transform object-cover"
+                />
+                José Ailton da Silva
+              </a>
+              <span className="text-gray-500">•</span>
+              <span className="text-gray-400 text-xs sm:text-sm">Especialista Operacional em Roçadeiras</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Container Central de Leitura */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* ===================================================================
+            2. INTRODUÇÃO CURTA (1 ponto final = 1 parágrafo limpo)
+            =================================================================== */}
+        <div className="space-y-4 prose prose-lg max-w-none text-gray-700 mb-10">
+          <p>
+            Quem procura uma roçadeira a gasolina potente e barata na internet quase sempre esbarra nos anúncios campeões de vendas da Nakasaki.
+          </p>
+          <p>
+            Custando muitas vezes um terço das marcas florestais tradicionais e trazendo kits cheios de acessórios, a marca desperta uma dúvida justa sobre até onde vai sua resistência real no campo.
+          </p>
+          <p>
+            Para ajudar você a decidir com segurança e sem exageros, analisamos na prática os 3 modelos mais buscados da Nakasaki em 2026, mostrando onde ela entrega ótimo custo-benefício, quais cuidados exige e quando ela vale o seu dinheiro.
+          </p>
+        </div>
+
+        {/* ===================================================================
+            3. SIMULADOR RÁPIDO DE ENGAJAMENTO / ESCOLHA (1 Clique)
+            =================================================================== */}
+        <div className="my-8 p-6 bg-gradient-to-br from-[#1a1a1a] to-gray-900 text-white rounded-2xl shadow-xl border border-gray-800">
+          <div className="flex items-center gap-3 mb-4">
+            <HelpCircle className="text-[#16A34A] w-6 h-6 animate-pulse shrink-0" />
+            <h2 className="text-xl font-bold">Simulador Rápido: Qual versão atende melhor o seu terreno?</h2>
+          </div>
+          <p className="text-gray-300 text-sm mb-4">
+            Clique na sua realidade de uso para ver a recomendação honesta de campo:
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-3">
+            <button
+              type="button"
+              onClick={() => setQuizProfile('bipartida')}
+              className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
+                quizProfile === 'bipartida'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
+                  : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
+              }`}
+            >
+              <span>Chácara ou Sítio + Levar no Carro</span>
+              <ArrowRight size={18} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setQuizProfile('costal')}
+              className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
+                quizProfile === 'costal'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
+                  : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
+              }`}
+            >
+              <span>Terreno Inclinado / Menos Peso nos Braços</span>
+              <ArrowRight size={18} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setQuizProfile('pesada')}
+              className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
+                quizProfile === 'pesada'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
+                  : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
+              }`}
+            >
+              <span>Mato Alto Fechado (Limpeza Periódica)</span>
+              <ArrowRight size={18} />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setQuizProfile('diario')}
+              className={`py-3 px-4 rounded-xl font-semibold border-2 transition-all text-left flex justify-between items-center ${
+                quizProfile === 'diario'
+                  ? 'bg-[#15803d] text-white border-[#15803d]'
+                  : 'bg-gray-800 border-gray-700 hover:border-[#16A34A]'
+              }`}
+            >
+              <span>Prestação de Serviço Diário (8h/dia)</span>
+              <ArrowRight size={18} />
+            </button>
+          </div>
+
+          {quizProfile && (
+            <div className="mt-6 p-4 bg-gray-800/80 border border-gray-700 rounded-xl">
+              {quizProfile === 'bipartida' && (
+                <p className="text-sm leading-relaxed text-gray-200">
+                  Recomendação Prática: Vá direto na{' '}
+                  <a href="#item-nakasaki-nk650at" className="text-[#4ade80] underline font-bold">
+                    Nakasaki NK-650AT 65cc Bipartida
+                  </a>
+                  , que desmonta ao meio para caber no porta-malas e tem ótimo equilíbrio para roçadas quinzenais.
+                </p>
+              )}
+              {quizProfile === 'costal' && (
+                <p className="text-sm leading-relaxed text-gray-200">
+                  Recomendação Prática: Escolha a{' '}
+                  <a href="#item-nakasaki-costal-65cc" className="text-[#4ade80] underline font-bold">
+                    Nakasaki Costal 65cc
+                  </a>
+                  , que apoia o peso do motor nas costas e facilita muito o corte em barrancos e entre árvores.
+                </p>
+              )}
+              {quizProfile === 'pesada' && (
+                <p className="text-sm leading-relaxed text-gray-200">
+                  Recomendação Prática: Aposte na força da{' '}
+                  <a href="#item-nakasaki-75cc" className="text-[#4ade80] underline font-bold">
+                    Nakasaki 75cc Com Trimmer
+                  </a>{' '}
+                  combinada com o upgrade do{' '}
+                  <a href="#item-carretel-autocut" className="text-[#4ade80] underline font-bold">
+                    Carretel Stihl AutoCut 26-2
+                  </a>{' '}
+                  para máxima resistência.
+                </p>
+              )}
+              {quizProfile === 'diario' && (
+                <p className="text-sm leading-relaxed text-gray-200">
+                  Orientação Sincera: Para trabalho comercial pesado de sol a sol todos os dias, a Nakasaki não é a mais indicada; confira os modelos industriais (Stihl e Husqvarna) no nosso ranking da{' '}
+                  <a href="/melhor-rocadeira" className="text-[#4ade80] underline font-bold">
+                    Melhor Roçadeira
+                  </a>
+                  .
+                </p>
+              )}
+            </div>
+          )}
+        </div>
+
+        {/* ===================================================================
+            4. VITRINE RESUMO DOS PRODUTOS (Miniaturas Otimizadas 60x60)
+            =================================================================== */}
+        <div className="mb-16 max-w-[850px] mx-auto bg-white p-3 rounded-2xl sm:p-6 border border-gray-200 shadow-sm">
+          <h2 className="text-2xl font-extrabold text-[#1a1a1a] mb-6 text-center">
+            Vitrine Rápida: Modelos Nakasaki e Upgrade Recomendado
+          </h2>
+
+          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+            <table className="w-full border-collapse">
+              <thead className="bg-gray-50 text-gray-700 text-xs uppercase font-bold border-b border-gray-200">
+                <tr>
+                  <th className="p-3 text-center w-[70px] sm:w-[90px]">Foto</th>
+                  <th className="p-3 text-left">Modelo / Destaque</th>
+                  <th className="p-3 text-left hidden md:table-cell">Indicação</th>
+                  <th className="p-3 text-center hidden sm:table-cell">Nota</th>
+                  <th className="p-3 text-center w-[105px] sm:w-[140px]">Oferta</th>
+                </tr>
+              </thead>
+              <tbody>
+                {showcaseItems.map((item) => {
+                  const registeredProduct = products[item.id];
+                  const displayName = registeredProduct?.name || item.shortName;
+                  const affiliateUrl = registeredProduct?.link || '#';
+
+                  return (
+                    <tr key={item.id} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50/80 transition-colors">
+                      <td className="p-2 align-middle text-center">
+                        <div className="w-[48px] h-[48px] sm:w-[60px] sm:h-[60px] border border-gray-200 rounded flex items-center justify-center p-0.5 bg-white mx-auto">
+                          <img
+                            src={item.thumbSrc}
+                            alt={displayName}
+                            title={displayName}
+                            width={60}
+                            height={60}
+                            className="max-w-full max-h-full block object-contain"
+                            loading="lazy"
+                          />
+                        </div>
+                      </td>
+                      <td className="p-2 align-middle">
+                        <a
+                          href={`#${item.anchorId}`}
+                          className="text-sm sm:text-base font-bold text-[#1a1a1a] hover:text-[#166534] hover:underline leading-tight block"
+                        >
+                          {item.shortName}
+                        </a>
+                        <div className="text-[11px] text-gray-600 mt-1 md:hidden">
+                          {item.category}
+                        </div>
+                        <div className="text-[11px] font-bold text-[#166534] mt-0.5 sm:hidden">
+                          Nota: {item.score}
+                        </div>
+                      </td>
+                      <td className="p-2 align-middle text-gray-600 text-xs sm:text-sm hidden md:table-cell">
+                        {item.category}
+                      </td>
+                      <td className="p-2 align-middle text-center hidden sm:table-cell">
+                        <span className="bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+                          {item.score}
+                        </span>
+                      </td>
+                      <td className="p-2 align-middle text-center">
+                        <a
+                          href={affiliateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer sponsored nofollow"
+                          className="bg-[#15803d] hover:bg-[#166534] text-white font-bold no-underline text-xs py-2 px-3 rounded-lg whitespace-nowrap inline-block transition-all sm:py-2.5 sm:px-4 shadow-sm active:scale-95"
+                        >
+                          Ver Preço
+                        </a>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* ===================================================================
+            5. O MOTIVO DO SUCESSO E A DIFERENÇA DE PREÇO
+            =================================================================== */}
+        <section className="mb-16">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-5">
+            Por que a Roçadeira Nakasaki Custa Tão Menos que as Marcas Tradicionais?
+          </h2>
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+            <p>
+              A grande diferença de preço é o principal fator que coloca a Nakasaki entre as roçadeiras mais vendidas dos marketplaces brasileiros.
+            </p>
+            <p>
+              Essa economia acontece porque os equipamentos utilizam uma plataforma mecânica 2 tempos universal de fabricação asiática, comercializada diretamente por importadores online sem os custos de manter redes próprias de concessionárias físicas.
+            </p>
+            <p>
+              Para o proprietário de chácara, sítio ou lote urbano que roça o terreno a cada 15 ou 30 dias, essa proposta faz muito sentido financeiro, já que a máquina frequentemente se paga logo nas duas ou três primeiras diárias de limpeza economizadas.
+            </p>
+            <p>
+              O segredo para não se frustrar é compreender que ela entrega força honesta pelo que custa, mas pede cuidados simples de montagem, lubrificação e uso compatível com a categoria doméstica e semiprofissional.
+            </p>
+          </div>
+
+          <div className="w-full flex justify-center my-8">
+            <img
+              src="/images/blog/nakasaki-custo-beneficio-chacara.webp"
+              alt="Operador com EPIs completos roçando mato alto em chácara ensolarada com roçadeira a gasolina 2 tempos"
+              title="Uso prático de roçadeira 2 tempos de entrada na manutenção periódica de chácaras e sítios"
+              width={800}
+              height={533}
+              className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+              loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/80 to-[#1a1a1a]"></div>
           </div>
-          
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-black mb-6 leading-tight uppercase tracking-tighter">
-              Roçadeira Nakasaki é Boa? <br/>
-              <span className="text-[#16A34A]">[Review de 3 Modelos em 2026]</span>
-            </h1>
-            
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-gray-300">
-              <div className="flex items-center gap-3">
-                <span>Por</span>
-                <a href="/author/jose-ailton" className="flex items-center gap-3 hover:text-[#16A34A] transition-colors font-bold group bg-white/5 pr-4 rounded-full border border-white/10">
-                  <img 
-                    src="/images/autores/José Ailton da Silva.webp" 
-                    alt="José Ailton" 
-                    className="w-10 h-10 rounded-full border-2 border-[#16A34A] group-hover:scale-110 transition-transform"
-                    onError={(e) => { e.currentTarget.src = "https://ui-avatars.com/api/?name=Jose+Ailton&background=16A34A&color=fff"; }}
-                  />
-                  José Ailton
-                </a>
+        </section>
+
+        {/* ===================================================================
+            6. ANÁLISE DETALHADA DOS 3 MODELOS NAKASAKI
+            =================================================================== */}
+        <div className="space-y-14">
+          <h2 className="text-3xl font-extrabold text-[#1a1a1a] border-b-4 border-[#16A34A] pb-3">
+            Análise dos 3 Principais Modelos de Roçadeira Nakasaki
+          </h2>
+
+          {nakasakiModels.map((model, index) => (
+            <React.Fragment key={model.id}>
+              {renderModelSection(model, index > 0)}
+              {index === 1 && <BunnerDoMeio />}
+            </React.Fragment>
+          ))}
+        </div>
+
+        {/* ===================================================================
+            7. AVALIAÇÃO DOS ACESSÓRIOS ORIGINAIS E UPGRADE DE CARRETEL
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
+            Avaliação dos Acessórios de Fábrica e o Upgrade que Faz a Diferença
+          </h2>
+
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-10">
+            <p>
+              Um dos maiores atrativos das caixas da Nakasaki é a quantidade de itens enviados junto com o motor, permitindo começar o trabalho logo após a montagem.
+            </p>
+            <p>
+              Na vivência de campo, vale conhecer o comportamento real de cada acessório para tirar o máximo proveito sem dores de cabeça:
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Lâminas de Corte Inclusas
+              </h3>
+              <div className="space-y-3 prose text-gray-700 max-w-none">
+                <p>
+                  As facas metálicas que acompanham o kit entregam ótimo poder de corte inicial em capim alto, braquiária e arbustos macios.
+                </p>
+                <p>
+                  Por possuírem chapa de aço mais fina que lâminas florestais temperadas avulsas, recomenda-se inspecionar o terreno antes para evitar impactos diretos contra pedras e tocos escondidos.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Cinto de Sustentação Lateral
+              </h3>
+              <div className="space-y-3 prose text-gray-700 max-w-none">
+                <p>
+                  Nas versões laterais (65cc bipartida e 75cc), a alça de ombro enviada de fábrica cumpre o papel básico em serviços curtos de até 40 minutos.
+                </p>
+                <p>
+                  Caso você pretenda roçar áreas extensas por várias horas seguidas, investir futuramente em um colete duplo almofadado alivia bastante o peso sobre os ombros e a coluna.
+                </p>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Introduction */}
-          <div className="space-y-6 prose prose-lg max-w-none text-gray-700 mb-12">
-            <p className="lead text-xl md:text-2xl font-medium text-gray-800 border-l-4 border-[#16A34A] pl-6 py-2">
-              Não é raro encontrar quem busca um equipamento de jardinagem potente e acessível, mas se frustra com a falta de informações claras e honestas sobre suas reais qualidades e limitações. A escolha de uma roçadeira pode se tornar um desafio quando a promessa de um bom custo-benefício esconde fragilidades que só aparecem com o uso.
-            </p>
-            <p>
-              Se você está considerando a compra de uma roçadeira Nakasaki, provavelmente se deparou com essa dúvida. Para auxiliar nessa decisão, analisaremos alguns modelos disponíveis no mercado, seus pontos fortes e fracos, o que esperar em termos de durabilidade e para quais tipos de uso são mais indicados.
-            </p>
+          {/* Seção do Produto 4: Upgrade Carretel AutoCut 26-2 Stihl */}
+          <div id="item-carretel-autocut" className="scroll-mt-24 pt-6 border-t border-gray-200">
+            <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+              Upgrade Favorito dos Operadores
+            </span>
+
+            <h3 className="text-2xl font-bold text-[#1a1a1a] mb-6 border-l-4 border-[#16A34A] pl-4 leading-snug">
+              Carretel Para Roçadeira Autocut 26-2 Stihl Original
+            </h3>
+
+            <div className="w-full flex justify-center mb-8 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+              <img
+                src="/images/blog/Carretel Para Roçadeira Autocut 26-2 Stihl Original.webp"
+                alt="Carretel Para Roçadeira Autocut 26-2 Stihl Original automático bate e libera"
+                title="Carretel Para Roçadeira Autocut 26-2 Stihl Original"
+                width={800}
+                height={533}
+                className="max-h-72 w-auto object-contain mix-blend-multiply"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+              <p>
+                O carretel plástico original que vem de brinde na Nakasaki atende acabamentos leves em grama macia, mas suas travas plásticas costumam desgastar mais rápido quando batidas contra calçadas ou pedregulhos.
+              </p>
+              <p>
+                Por isso, uma dica clássica entre roçadores experientes é substituir o cabeçote básico quando ele gastar por um modelo profissional de polímero reforçado, como o AutoCut 26-2 Original da Stihl (conferindo a bucha ou porca adaptadora para rosca esquerda M10x1,25 da ponteira).
+              </p>
+              <p>
+                Esse simples upgrade libera o fio de nylon com um toque suave no solo sem enroscar internamente e eleva muito a praticidade da máquina no acabamento de muros e canteiros.
+              </p>
+            </div>
+
+            <AffiliateCard id="carretel-para-rocadeira-autocut-26-2-stihl-original" />
+
+            <div className="grid md:grid-cols-2 gap-6 mt-8">
+              <div className="bg-green-50 p-6 rounded-xl border border-green-200">
+                <h4 className="font-bold text-green-900 mb-4 flex items-center gap-2">
+                  <Check size={20} className="text-[#16A34A]" /> Prós do Upgrade
+                </h4>
+                <ul className="space-y-2 text-green-800 text-sm list-disc list-inside">
+                  <li>Polímero de altíssima resistência contra impactos no solo.</li>
+                  <li>Sistema bate-libera macio que não trava nem embola o fio.</li>
+                  <li>Recarga rápida e intuitiva sem sofrimento no campo.</li>
+                </ul>
+              </div>
+
+              <div className="bg-red-50 p-6 rounded-xl border border-red-200">
+                <h4 className="font-bold text-red-900 mb-4 flex items-center gap-2">
+                  <X size={20} className="text-red-600" /> Pontos de Atenção
+                </h4>
+                <ul className="space-y-2 text-red-800 text-sm list-disc list-inside">
+                  <li>Representa um pequeno investimento adicional além da máquina.</li>
+                  <li>Exige conferir o passo de rosca da ponteira (uso de porca/adaptador M10 se necessário).</li>
+                </ul>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">O Motivo da Compra e a Diferença Absurda de Preço</h2>
-          <div className="prose prose-lg text-gray-700 max-w-none mb-10">
-            <p>
-              A diferença de preço é, sem dúvida, o primeiro fator que atrai muitos consumidores à Nakasaki. Em um mercado com valores elevados, a marca surge como uma opção consideravelmente mais acessível.
-            </p>
-            <p>
-              Entretanto, essa diferença levanta algumas questões. Para entender o que essa economia implica em termos de durabilidade e desempenho, acompanhe a análise dos modelos a seguir e descubra se essa escolha vale a pena para sua realidade de uso.
-            </p>
-          </div>
-
-          <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Análise dos principais modelos de roçadeiras Nakasaki</h2>
-          <div className="prose prose-lg text-gray-700 max-w-none mb-10">
-            <p>
-              A variedade de modelos Nakasaki pode gerar dúvidas sobre qual escolher. Para simplificar sua decisão, vamos apresentar os equipamentos mais procurados, com foco em diferentes tipos de uso e necessidades do operador.
-            </p>
-          </div>
-
-          {/* Vitrine / Showcase Table */}
-          <div className="my-16 bg-gray-50 p-4 md:p-8 rounded-2xl border border-gray-100 shadow-sm">
-            <h2 className="text-2xl md:text-3xl font-black text-[#1a1a1a] mb-8 text-center uppercase tracking-tight">
-              Vitrine: Modelos Nakasaki em Destaque
+        {/* ===================================================================
+            8. BANNER DE CROSS-SELL (ITENS COMPLEMENTARES ESSENCIAIS)
+            =================================================================== */}
+        <div className="my-16 p-6 sm:p-8 bg-white border border-gray-200 rounded-2xl shadow-sm">
+          <div className="flex items-center gap-3 mb-4">
+            <ShoppingBag className="text-[#16A34A] w-7 h-7 shrink-0" />
+            <h2 className="text-2xl font-bold text-[#1a1a1a]">
+              Itens Essenciais para Proteger e Usar Sua Nakasaki
             </h2>
-            
-            <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
-              <table className="w-full border-collapse">
-                <tbody>
-                  {featuredIds.map((id) => {
-                    const product = products[id];
-                    const imageName = product.name;
+          </div>
+          <p className="text-gray-600 mb-6 text-base">
+            Evite erros de mistura de combustível no motor 2 tempos e trabalhe sempre protegido com estes complementos básicos:
+          </p>
 
-                    return (
-                      <tr key={id} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
-                        <td className="w-20 p-4 align-middle text-center sm:w-24">
-                          <div className="w-16 h-16 bg-white border border-gray-100 rounded-lg flex items-center justify-center p-1 mx-auto">
-                            <img 
-                              src={`/images/blog/${imageName}.webp`}
-                              alt={product.name} 
-                              className="max-w-full max-h-full object-contain"
-                              loading="lazy"
-                            />
-                          </div>
-                        </td>
-                        <td className="p-4 align-middle">
-                          <div className="text-sm md:text-base font-bold text-gray-800 line-clamp-2">
-                            {product.name}
-                          </div>
-                        </td>
-                        <td className="w-32 p-4 align-middle text-right sm:w-40">
-                          <a 
-                            href={product.link}
-                            target="_blank"
-                            rel="noopener noreferrer sponsored"
-                            className="inline-block bg-[#16A34A] text-white font-black text-xs md:text-sm py-2 px-4 rounded-lg hover:bg-[#15803d] transition-all transform hover:scale-105 active:scale-95 whitespace-nowrap"
-                          >
-                            Ver Preço
-                          </a>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+                  Proteção 2 Tempos
+                </span>
+                <div className="h-40 w-full flex items-center justify-center p-3 mb-4 bg-white rounded-lg border border-gray-100 overflow-hidden">
+                  <img
+                    src={crossSellProducts.oleo2t.image}
+                    alt="Kit Misturador Dosador e Óleo 2 Tempos para Roçadeira"
+                    width={320}
+                    height={213}
+                    className="max-h-full max-w-full object-contain mix-blend-multiply"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-lg font-bold text-[#1a1a1a] mb-2">
+                  Kit Misturador + Óleo 2T
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  Indispensável para acertar a medida exata de 25:1 na gasolina e proteger o cilindro e o pistão contra superaquecimento.
+                </p>
+              </div>
+              <a
+                href={crossSellProducts.oleo2t.link}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+              >
+                VER PREÇO
+              </a>
+            </div>
+
+            <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+                  Alto Rendimento
+                </span>
+                <div className="h-40 w-full flex items-center justify-center p-3 mb-4 bg-white rounded-lg border border-gray-100 overflow-hidden">
+                  <img
+                    src={crossSellProducts.fioNylon.image}
+                    alt="Fio de Nylon Duraline 3mm Quadrado para Roçadeira"
+                    width={320}
+                    height={213}
+                    className="max-h-full max-w-full object-contain mix-blend-multiply"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-lg font-bold text-[#1a1a1a] mb-2">
+                  Fio de Nylon Quadrado 3mm
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  Perfil quadrado que fatia grama grossa com muito menos esforço do motor e dura mais que os fios redondos simples.
+                </p>
+              </div>
+              <a
+                href={crossSellProducts.fioNylon.link}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+              >
+                VER PREÇO
+              </a>
+            </div>
+
+            <div className="bg-gray-50 p-5 rounded-xl border border-gray-200 flex flex-col justify-between hover:shadow-md transition-shadow">
+              <div>
+                <span className="text-xs font-bold bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 py-1 px-3 rounded-full uppercase tracking-wider mb-3 inline-block">
+                  Segurança no Campo
+                </span>
+                <div className="h-40 w-full flex items-center justify-center p-3 mb-4 bg-white rounded-lg border border-gray-100 overflow-hidden">
+                  <img
+                    src={crossSellProducts.kitEpi.image}
+                    alt="Kit de Segurança Completo com Viseira, Protetor Auricular e Perneira"
+                    width={320}
+                    height={213}
+                    className="max-h-full max-w-full object-contain mix-blend-multiply"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-lg font-bold text-[#1a1a1a] mb-2">
+                  Kit Completo de EPIs
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">
+                  Protege olhos, rosto, ouvidos e canelas contra pedras e galhos lançados pelo giro alto das roçadeiras 65cc e 75cc.
+                </p>
+              </div>
+              <a
+                href={crossSellProducts.kitEpi.link}
+                target="_blank"
+                rel="noopener noreferrer sponsored nofollow"
+                className="bg-[#15803d] hover:bg-[#166534] text-white text-center font-bold text-sm py-2.5 px-4 rounded-lg block mt-2 transition-all no-underline shadow-sm"
+              >
+                VER PREÇO
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ===================================================================
+            9. CONSERVAÇÃO, PARAFUSOS, BORRACHAS E CUIDADOS INICIAIS
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
+            Como Cuidar da Sua Nakasaki para Durar Muitos Anos
+          </h2>
+
+          <div className="w-full flex justify-center mb-8">
+            <img
+              src="/images/blog/manutencao-preventiva-rocadeira-nakasaki.webp"
+              alt="Mecânico reapertando braçadeira do guidão com chave Allen e inspecionando borracha antivibração e parafusos de inox na bancada"
+              title="Revisão preventiva de parafusos, amortecedores de borracha e lubrificação da roçadeira"
+              width={800}
+              height={533}
+              className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Montagem Inicial e Conferência na Entrega
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Como as roçadeiras Nakasaki viajam desmontadas nas transportadoras, vale conferir todas as carenagens plásticas, cabos e itens do pacote assim que a caixa chegar em casa.
+                </p>
+                <p>
+                  Caso tenha qualquer dúvida na hora de encaixar a proteção da lâmina, o cabo do acelerador ou o guidão, preparamos um tutorial ilustrado completo de{' '}
+                  <a href="/como-montar-rocadeira-nakasaki" className="text-[#166534] hover:underline font-semibold">
+                    como montar roçadeira Nakasaki passo a passo
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Gancho, Borrachas de Amortecimento e Parafusos
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Motores 2 tempos de maior cilindrada geram vibração natural durante o corte, o que pode afrouxar porcas e parafusos nas primeiras horas de trabalho.
+                </p>
+                <p>
+                  Criar o hábito de conferir o aperto dos parafusos da mesa do guidão, da ponteira e do gancho do cinto após os dois primeiros tanques evita folgas prematuras e preserva as luvas de borracha antivibração.
+                </p>
+                <p>
+                  Outra medida simples que prolonga a vida útil do equipamento é guardar a máquina em local seco e, se algum parafuso externo apresentar oxidação com o tempo, substituí-lo facilmente por equivalentes em aço inox.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4 border-l-4 border-[#16A34A] pl-4">
+                Lubrificação da Ponteira e Partida sem Afogar
+              </h3>
+              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Antes de colocar a máquina no mato alto pela primeira vez, verifique se a caixa de engrenagens angular (ponteira) está bem preenchida com graxa específica para roçadeiras e repita esse cuidado a cada 20 horas de uso.
+                </p>
+                <p>
+                  Na primeira partida do dia, puxe o cordão suavemente apenas até sentir a primeira resistência antes de dar o arranque firme, preservando as travas do retrátil, e abra o afogador assim que ouvir o primeiro sinal de ignição.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* Detailed Reviews */}
-          <div className="space-y-24">
-            
-            {/* 1. Roçadeira Gasolina Costal 2 Tempos 65cc 3hp Nakasaki */}
-            <section id="rocadeira-costal-nakasaki">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">1</span>
-                Roçadeira A Gasolina Costal 65cc Nakasaki
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki.webp" alt="Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>Se o seu objetivo é aliar potência com conforto para longas jornadas, a Nakasaki 65cc de 3HP surge como uma opção estratégica. O grande diferencial deste modelo é o design costal, projetado para retirar o peso da máquina dos braços e distribuí-lo de forma otimizada pelas costas. Isso permite a limpeza de terrenos e áreas mais densas por períodos prolongados, reduzindo drasticamente o desgaste físico comum em modelos laterais convencionais.</p>
-                <p>Com um motor de alto torque que atinge 15.000 RPM, essa roçadeira não se intimida facilmente com mato alto, pequenos galhos ou vegetação muito fechada. Ela se posiciona como um equipamento que transita do uso doméstico pesado até aplicações semiprofissionais em chácaras, fazendas e condomínios. Além disso, a presença da ignição eletrônica e do eixo rígido reforçado adicionam confiabilidade para quem busca produtividade constante.</p>
-                <p>Avalie as suas reais demandas: se você atua em terrenos acidentados ou precisa trabalhar sem pausas frequentes por fadiga, a versão costal Nakasaki 65cc deve oferecer o equilíbrio exato entre força bruta e conforto operacional, justificando assim o investimento pelo expressivo ganho de praticidade no dia a dia.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-a-gasolina-costal-2-tempos-65cc-nakasaki" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Potência alta de 65cc.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Design ergonômico (tipo costal).</li>
-                    <li className="flex items-start gap-2"><span>•</span> Acessórios inclusos de fábrica.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Ótimo alcance em terrenos irregulares.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Exige mistura de óleo em modelo 2T.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Garantia relativamente curta.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* 2. Roçadeira Nakasaki 75cc */}
-            <section id="rocadeira-nakasaki-75cc" className="pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">2</span>
-                A roçadeira Nakasaki 75cc é boa?
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp" alt="A roçadeira Nakasaki 75cc é boa?" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>Se você busca o máximo absoluto em potência para lidar com vegetações especialmente densas e terrenos totalmente desafiadores, a Nakasaki 75cc pode parecer a resposta mais óbvia. E, de fato, o equipamento entrega um desempenho bastante notável nesses cenários extremos, sendo capaz de fatiar mato alto, ervas daninhas e capins resistentes com uma facilidade admirável.</p>
-                <p>No entanto, é crucial ponderar: essa potência exorbitante é realmente indispensável para o seu perfil de uso? Frequentemente, em tarefas regulares ou demandas de manutenção média, os motores de 65cc da empresa costumam apresentar um custo-benefício e um patamar de autonomia mais bem ajustado e razoável. O acréscimo expressivo no volume da cilindrada nem sempre sugere um nível incrivelmente maior na durabilidade estrutural do maquinário; ele apenas amplifica o poder momentâneo de cisão, elevando simultaneamente o gasto energético da peça.</p>
-                <p>Então avalie de forma realista a sua área verde. O investimento na robusta Nakasaki 75cc compensa se a brutalidade do torque for um requerimento sem atalhos para os locais difíceis da sua rotina de manutenção. Do contrário, talvez uma Nakasaki mais otimizada traga resultados igualmente vantajosos, sobrando dinheiro no seu bolso.</p>
-                
-                <div className="bg-slate-50 border-l-4 border-[#16A34A] p-6 rounded-r-xl my-8">
-                    <p className="font-bold text-[#1a1a1a] mb-6 flex items-center gap-2">
-                        <Info size={24} className="text-[#16A34A]" />
-                        Quer ver funcionando na prática?
-                    </p>
-                    
-                    <div className="aspect-video w-full rounded-xl overflow-hidden shadow-lg mb-6">
-                      <iframe 
-                        width="100%" 
-                        height="100%" 
-                        src="https://www.youtube.com/embed/f7u1TQ-L4is" 
-                        title="Review Roçadeira Nakasaki" 
-                        frameBorder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-
-                    <p className="m-0 text-gray-700 text-sm italic">
-                       Assista ao vídeo acima para visualizar todo o desempenho em ação desta máquina específica lidando com ambientes hostis.
-                    </p>
-                </div>
-              </div>
-
-              <AffiliateCard productId="rocadeira-gasolina-profissional-nakasaki-2t-75cc-com-trimmer" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Potência extrema com 75cc.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Imbatível em vegetação densa.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Acelerada agilidade de corte em terrenos abertos.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Pode ser um exagero pesado de maquinário só para uso leve.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Consumo de combustível visivelmente mais expressivo e rápido.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <BannerDoMeio />
-
-            <section className="pt-16 border-t border-gray-100">
-              <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Estado Geral e Marcas de Uso</h2>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <p>Com o tempo, o uso constante nas mais diversas intempéries e cenários de jardinagem deixa suas marcas em qualquer ferramenta. Desgastes podem surgir gradativamente também em roçadeiras Nakasaki; observar meticulosamente em quais partes esses indícios despontam confere ao operador importantes dados a respeito da real expectativa de vida do produto.</p>
-                <p>Essas pequenas alterações e folgas de montagem sinalizam não somente se o instrumento está fadigado, mas se a manutenção adotada pelo proprietário está alinhada às premissas básicas para o maquinário.</p>
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4">Gancho e Borrachas</h3>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <p>Apesar do tamanho aparentemente menor, o prendedor (gancho) e as proteções compostas do revestimento de borracha desempenham as principais missões do amortecimento. Como encarregados de segurarem toda a tração vinda do bloco de propulsão com as faixas de proteção, componentes frouxos emitem graves falhas de equilíbrio ergonômico no longo prazo e começam a enferrujar.</p>
-                <p>Revetimentos emborrachados estragados espessam o desconforto devido ao aumento não suavizado das vibrações na operação do corte na grama. Estar precavido com manutenções preventivas dessas espumas contorna fadigas inesperadas num turno produtivo de jardinagem e eleva drasticamente o retorno com a máquina.</p>
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4">Parafusos</h3>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <p>Da mesma maneira que as conexões emborrachadas, a qualidade dos parafusos espelha inteiramente o patamar cauteloso devotado na instalação do utensílio de corte. Lojas atentas indicam: parafusos gastos ou precocemente expostos à ferrugem demonstram indícios notórios de falta de preservação e instabilidade mecânica. Ter um estoque ou substitui-los velozmente por versões compostas por inox traduzir-se-á, logicamente, na longa vida do hardware em sua integralidade.</p>
-              </div>
-            </section>
-
-            <section className="pt-16 border-t border-gray-100">
-              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-6 uppercase tracking-tighter">Avaliação das Peças e Acessórios</h3>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <p>A experiência satisfatória entregue por uma roçadeira não se apoia somente no seu núcleo, mas também fortemente no arsenal complementar disponibilizado pelo fabricante aos compradores com menor margem orçamentária.</p>
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-4">A Lâmina: Excelente Corte, mas Muito Frágil</h3>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <p>O primeiro contato com a lâmina que tradicionalmente acompanhava a caixa das variantes da Nakasaki resulta incrivelmente em opiniões elogiosas; as plantas macias de jardim e arbustos baixos encontram ali a agilidade veloz. Em contrapartida da premissa limpa desse disco aguçado em fatiar com êxito gramados longos, reside sua extrema maleabilidade; fabricado via forjamentos um tanto quanto delgados sob barateamento, pedras esporádicas e torrões com raízes firmam entortamentos quase que absolutos e imediatos pela frincha.</p>
-                <p>E a ressalva aqui se concentra não para denegrir esse benefício gratuito dos unboxings da fornecedora, mas para alertar em um manuseio puramente redobrado! Priorizar o aproveitamento cauteloso dessas lâminas para áreas fáceis confere resultados plenos.</p>
-                <p>Em resumo caso necessitar desbravar selvas de obstáculos rochosos acidentados por longa duração é essencial abandonar esse acessório com brevidade e se apropriar de lâminas sólidas e enrigecidas via tratamento por tempero siderúrgico com aço.</p>
-              </div>
-
-              <h3 className="text-2xl font-bold text-[#1a1a1a] mb-8">O Carretel: O Original Não Vale Nada (E a Solução)</h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Carretel Para Roçadeira Autocut 26-2 Stihl Original.webp" alt="Carretel Para Roçadeira Autocut 26-2 Stihl Original" className="max-h-80 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <p>Da mesma perspectiva dos discos de corte do conjunto das Nakasakis, também a bobinadora ou carretel porta os mesmos problemas. Desenvolvida majoritariamente sob moldes plásticos enfraquecidos se fragmentam na menor barreira rochosa sem o devido preparo com agilidade, fazendo o consumidor refém de recargas manuais penosas de fios de polímero nylon rotineiramente.</p>
-                <p>Isto dito a resolução se concentra em algo bastante disseminado pelos especialistas e com ótimo retorno para os iniciantes em gramados robustos; os cabeçotes de inserção autocut comercializados oficialmente pela parceira Stihl são incrivelmente equiparáveis além de estarem associados com qualidades indiscutíveis, com adaptações diretas para a sua estrutura, permitindo economizar aborrecimentos indesejáveis na hora do abastecimento contínuo de corte sem abrir todo cabeçalho e enrolá-los em nós.</p>
-              </div>
-
-              <AffiliateCard productId="carretel-para-rocadeira-autocut-26-2-stihl-original" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Fácil e instintiva adaptação de roscas.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Material estrutural de vasta durabilidade anti-choques.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Exige custos orçamentários sobressalentes ao preço cobrado inicial no site de compra.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            {/* 3. Roçadeira Gasolina 65cc Nakasaki NK-650AT */}
-            <section id="rocadeira-nakasaki-bipartida" className="pt-16 border-t border-gray-100">
-              <h3 className="text-3xl font-black text-[#1a1a1a] mb-8 flex items-center gap-4">
-                <span className="bg-[#16A34A] text-white w-10 h-10 rounded-full flex items-center justify-center text-xl shrink-0">3</span>
-                Roçadeira Gasolina 65cc Nakasaki NK-650AT Bipartida
-              </h3>
-              <div className="w-full flex justify-center mb-10 group">
-                 <img src="/images/blog/Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido.webp" alt="Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido" className="max-h-96 object-contain transform group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-              </div>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none">
-                <p>Se você busca um desempenho superior para lidar com extensões sem lidar com exaustivas interrupções de rotina de mecânica ao meio da limpeza arbórea no fundo de casas distantes ou chácaras isoladas; o design moderno em equilíbrio de potência energética que é oferecido em união neste modelo da companhia – a conhecida NK-650AT se propõe fortemente às missões prolongadas com um surpreendedor tanque acoplado de quase 1,5 litro de preenchimento líquido no modelo, um forte adendo frente a modelos padrão rivais do agronegócio de pequeno percurso.</p>
-                <p>Em contraste, ainda nos traz uma transmissão bi-particionada articulada para transporte no portamala de pequeno rendimento, além é claro do robusto pacote 65 cylinder e seus expressos 3 Hp potentes para agilidade contra ramificações espessas dos pátios, sendo tudo embalado nos guidões reestruturados nas regulagens do ângulo e travas da fáceis engrenagens de partidas sob demanda! Perfeita escolha para focar na destreza produtiva em meio rural rústico diário sem abrir mão de mobilizar ferramentas e manejos a lugares complexos.</p>
-              </div>
-
-              <AffiliateCard productId="rocadeira-gasolina-65cc-nakasaki-nk-650at-3hp-2-tempos-eixo-bipartido" />
-
-              <div className="grid md:grid-cols-2 gap-6 mt-10">
-                <div className="bg-green-50 p-6 rounded-2xl border border-green-100">
-                  <h4 className="font-bold text-green-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><Check size={20} /> Prós</h4>
-                  <ul className="space-y-3 text-green-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Tanque vasto na durabilidade localiza tarefas.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Excepcional e versátil sistema de guarda fácil portabilidade do bipartimento.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Manuseio intuitivo acionado para novos iniciantes no nicho do corte motorizado local.</li>
-                  </ul>
-                </div>
-                <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                  <h4 className="font-bold text-red-800 mb-4 flex items-center gap-2 uppercase text-sm tracking-widest"><X size={20} /> Contras</h4>
-                  <ul className="space-y-3 text-red-800 font-medium">
-                    <li className="flex items-start gap-2"><span>•</span> Ocupação de pesos desmedidas num primeiro toque a quem migra de elétrica para combustão.</li>
-                    <li className="flex items-start gap-2"><span>•</span> Cargas complexas para fixar firmemente sua vareta partida primariamente.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
-            <section className="pt-16 border-t border-gray-100">
-              <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Ponto Negativo: O Cinto de Sustentação</h2>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <p>Como na maioria dos maquinários asiáticos na faixa de preço das Nakasakis da Shopee ou das redes da B2W e Amazon, seus laços para se estabilizarem no ombro providenciam utilidades básicas temporárias, renegando o amparo primordial a comodidade perante tempos esparsos em serviços. Ao ter ausência marcante dos cinturões reforçados transversais por todo corpo as áreas dos ombros adquirem desconfortos contundentes doloridos dos reflexos estendidos de manivelar e carregar peso lateral em poucas jornadas seguidas.</p>
-                <p>Dica recomendável com total segurança do autor para o equipamento virar seu trator rotativo seguro contra mazelas aos omoplatas ou dor medular óssea das costas na jornada seria a troca direta dos talabartes de série e investimento veloz a acolchoamentos de duplos de suspensões com molas amortecedoras transversais ergonômicos da atualidade.</p>
-              </div>
-
-              <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Montagem e Problemas Iniciais</h2>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <p>O processo minucioso da Nakasaki na instalação do equipamento frequentemente sugere altas pitadas de calma prévias para os neófitos; eventuais obstáculos de fato são aguardados.</p>
-                <h3>1. Peças Quebradas no Transporte</h3>
-                <p>Raros – embora existentes e frustrantes os indícios dos despachos estarem mal feitos nos galpões e que causaram rachaduras evidentes nos contatos na Nakasaki não são algo irreal; caso contate defeito notável estrutural fotografar evidências documentais ressalta todo mérito num pleito junto as fábricas e plataformas e substitui problemas no lote inicial para uma plena garantia isenta de estressar no suporte logístico do comprador final de casa.</p>
-                <h3>2. Dificuldade na Primeira Partida</h3>
-                <p>Esforços rotineiros iniciais das expectativas nos primeiros trabalhos nos levam muito a aborrecedoras partidas em falsas combustões e solapos! Antes que seja condenada a peça verifique prioritariamente a secura de humidade excessiva afogada para as velas metálicas ali do pistão. Limpezas cruciais com os injetores abertos e alocação devida na dosimetria para as bombas são salváveis para os novatos as vias e evitaram sobreaquecimento aos motores!</p>
-              </div>
-            </section>
-
-            <section className="pt-16 border-t border-gray-100">
-              <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Vantagens: Por que a Nakasaki atrai tantos compradores?</h2>
-              <div className="space-y-6 prose prose-lg text-gray-700 max-w-none mb-10">
-                <h3>Custo-benefício imbatível</h3>
-                <p>Lógico que as frentes populares que catapultam Nakasaki nas escolhas residem em suas taxas orçamentárias acessíveis que ofertam resoluções adequadas do gramado perante montantes inflados por grandes nomes industriais tradicionais do meio ambiente verde.</p>
-                <p>Mister se ressaltar esse preço atraente com visões amplificadas para furos e gastos invisíveis precoces. Para fins rústicos de curtas estadas ocasionais domiciliais com limites finos é opção favorável. Para fins de lucro no serviço profissional precariza rápido, as manutenções logo consomem um caixa mais amplo por fragilidades ao ritmo insano de trabalho imposto aos rolamentos amadores de linha e cilindros menos fortificados.</p>
-
-                <h3>Potência declarada</h3>
-                <p>Gigantescas demonstrações propagandísticas revelando estatores nas proporções esmagadoras, a partir dos conhecidos de 63 até grandiosos cavalos nos 75s induz nos atrativos que contornam a linha popular a expectativas nem sempre realistas por vias técnicas, podendo possuir limitações mecânicas em atritos de longo termo contra arbustos agressivos do mato local dos pastos!</p>
-              </div>
-
-              <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tighter">Desvantagens: Os pontos críticos que você precisa saber</h2>
-              <div className="grid md:grid-cols-2 gap-8 my-10">
-                <div className="bg-red-50 p-8 rounded-2xl border border-red-100">
-                  <h3 className="font-bold text-red-800 text-xl mb-4">A grande dor de cabeça: suporte e peças</h3>
-                  <p className="text-red-900 leading-relaxed font-medium">As faltas na estabilidade comercial a base fixa da representante oriental pela via brasileira retém o alcance da garantia para meros preenchimento das marketplaces do importador que findam rápido meses iniciais, lançando aos donos dos modelos reparos exclusivos de mercado paralelo de adaptação por revendedoras secundários. Um transtorno para peças cruciais.</p>
-                </div>
-                <div className="bg-red-50 p-8 rounded-2xl border border-red-100">
-                  <h3 className="font-bold text-red-800 text-xl mb-4">Durabilidade para uso profissional</h3>
-                  <p className="text-red-900 leading-relaxed font-medium">No contexto agudo de rentabilidade das atividades as máquinas demonstraram cansaço constante de suas caixas rotatórias devido os varões em ritmo sem intermitências não suportando fortes paradas em rochas locais peridendo o eixo, fazendo desse modelos não recomendável ao serviço comercial contínuo duro.</p>
-                </div>
-              </div>
-            </section>
-
-            {/* Veredito */}
-            <section className="pt-16 mt-16 border-t-4 border-[#16A34A]">
-              <div className="bg-[#1a1a1a] p-10 rounded-3xl text-center relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 via-[#16A34A] to-green-600"></div>
-                <h2 className="text-4xl font-black text-white mb-6 uppercase tracking-tight">Veredito final: Nakasaki é boa ou é uma furada?</h2>
-                <div className="prose prose-lg text-gray-300 max-w-none mx-auto font-medium">
-                  <p>A roçadeira Nakasaki se posiciona como uma escolha de nicho. Para quem tem um orçamento limitado e pretende utilizá-la em serviços domésticos leves ou manutenções ocasionais em sítios, ela entrega uma excelente relação custo-benefício. O valor baixo permite resolver o problema do mato alto sem comprometer o caixa.</p>
-                  <p>No entanto, para o uso profissional intensivo ou grandes extensões rurais, os contratempos mecânicos e o desgaste acelerado das peças podem gerar prejuízos com paradas frequentes para conserto. Em resumo: ela ganha pela pechincha em tarefas temporais e controladas, mas não deve ser encarada como uma ferramenta de alta performance para o trabalho diário pesado.</p>
-                </div>
-              </div>
-            </section>
-
-            {/* FAQ */}
-            <section className="mt-24 pt-16 border-t border-gray-200 bg-slate-50 -mx-4 px-4 py-16 sm:-mx-8 sm:px-8">
-              <h2 className="text-3xl font-black text-[#1a1a1a] mb-12 uppercase tracking-tighter text-center">Perguntas Frequentes sobre a Nakasaki</h2>
-              
-              <div className="max-w-3xl mx-auto space-y-6">
-                {[
-                  { 
-                    q: "Onde posso comprar peças de reposição para a roçadeira Nakasaki?", 
-                    a: "Devido à ausência de assistência técnica oficial no Brasil, o caminho mais comum é buscar por vendedores no Mercado Livre ou Shopee. Muitos oferecem peças compatíveis ou genéricas (como carburadores e kits de pistão) que atendem perfeitamente aos modelos da marca." 
-                  },
-                  { 
-                    q: "A roçadeira Nakasaki 65cc é boa para serviço pesado e contínuo?", 
-                    a: "Não recomendamos para uso profissional contínuo. Sob altas temperaturas e jornadas extensas, os rolamentos e a caixa de engrenagens podem apresentar folgas prematuras. Para prestação de serviços ou trabalho rural intenso, o ideal é investir em marcas com maior robustez estrutural." 
-                  },
-                  { 
-                    q: "Minha roçadeira Nakasaki não liga, o que pode ser?", 
-                    a: "Geralmente o problema está no combustível velho ou na mistura incorreta de óleo 2T. Verifique também a vela de ignição: se estiver úmida ou com borra, limpe-a com um papel seco. Outra causa comum é o filtro de ar obstruído por poeira, impedindo a entrada de oxigênio no motor." 
-                  },
-                  { 
-                    q: "Qual a diferença entre os motores 2 tempos e 4 tempos da Nakasaki?", 
-                    a: "Os modelos 2 tempos são mais leves, têm manutenção simples e entregam rotação agressiva (mais força para mato denso), mas exigem a mistura de óleo na gasolina. Já os raros modelos 4 tempos são mais silenciosos e econômicos, porém pesados e com aceleração menos vigorosa." 
-                  }
-                ].map((faq, i) => (
-                  <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:border-[#16A34A]/30 transition-colors">
-                    <h3 className="text-lg font-black text-gray-900 mb-3">{faq.q}</h3>
-                    <p className="text-gray-600 leading-relaxed">{faq.a}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
+          {/* Reforço de Autoridade E-E-A-T + Dica Prática do Especialista */}
+          <div className="w-full flex justify-center mt-10 mb-6">
+            <a href="/author/jose-ailton/" aria-label="Ver perfil de campo de José Ailton da Silva">
+              <img
+                src="/images/autores/José Ailton da Silva-thumb.webp"
+                alt="José Ailton da Silva"
+                width={128}
+                height={128}
+                className="w-28 h-28 rounded-full object-cover border-4 border-[#16A34A] hover:scale-105 transition-transform duration-200 shadow-md"
+                loading="lazy"
+              />
+            </a>
           </div>
-        </div>
+
+          <div className="my-6 p-6 bg-[#F0FDF4] border-l-4 border-[#16A34A] rounded-r-xl shadow-sm text-gray-800">
+            <div className="flex items-center gap-2 mb-3">
+              <Sparkles className="text-[#16A34A] shrink-0" size={20} />
+              <h3 className="text-lg font-bold text-[#166534]">
+                Dica Prática do Especialista
+              </h3>
+            </div>
+            <div className="space-y-3 text-base leading-relaxed text-gray-800">
+              <p>
+                Nos dois primeiros tanques da sua Nakasaki nova, faça o amaciamento correto do motor: trabalhe alternando a aceleração em rotações médias, sem travar o gatilho no fundo o tempo inteiro, e faça uma pausa rápida de 10 minutos a cada tanque consumido.
+              </p>
+              <p>
+                Esse cuidado simples assenta os anéis do pistão sem superaquecer o cilindro e multiplica a durabilidade do motor.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================================================================
+            10. RESUMO EQUILIBRADO: VANTAGENS REAIS VS PONTOS DE ATENÇÃO
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-8">
+            Balanço Sincero: Pontos Fortes e Limitações da Nakasaki
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-green-50 p-6 sm:p-8 rounded-2xl border border-green-200">
+              <h3 className="text-xl font-bold text-green-900 mb-4 flex items-center gap-2">
+                <Check size={22} className="text-[#16A34A] shrink-0" /> Onde a Marca Vale Muito a Pena
+              </h3>
+              <div className="space-y-3 text-green-900 text-base leading-relaxed">
+                <p>
+                  Preço de compra imbatível, permitindo adquirir uma máquina a gasolina potente investindo muito pouco.
+                </p>
+                <p>
+                  Mecânica 2 tempos universal, com peças compatíveis baratas e amplamente disponíveis em oficinas e lojas online.
+                </p>
+                <p>
+                  Força suficiente para cortar capim alto, braquiária e limpar terrenos de chácaras e sítios sem esforço braçal com enxada.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 p-6 sm:p-8 rounded-2xl border border-amber-200">
+              <h3 className="text-xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+                <X size={22} className="text-amber-700 shrink-0" /> Limitações que Você Deve Saber
+              </h3>
+              <div className="space-y-3 text-amber-900 text-base leading-relaxed">
+                <p>
+                  A garantia depende diretamente do importador ou lojista do marketplace, pois a marca não possui rede própria de autorizadas físicas.
+                </p>
+                <p>
+                  Os números comerciais de cilindrada (65cc e 75cc) são nominais de fábrica, entregando na prática força equivalente à faixa real de 52cc a 62cc.
+                </p>
+                <p>
+                  Não foi dimensionada para roçadas comerciais intensivas de sol a sol todos os dias, onde o desgaste de embreagem e coxins aparece mais cedo.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================================================================
+            11. MELHORES MARCAS DE ROÇADEIRAS (COMPARATIVO DE POSICIONAMENTO)
+            =================================================================== */}
+        <section className="mt-20 pt-12 border-t border-gray-200">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
+            Como a Nakasaki se Posiciona Frente às Melhores Marcas de Roçadeiras
+          </h2>
+
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-8">
+            <p>
+              Entender o posicionamento de cada fabricante ajuda a comprar com expectativa realista e sem gastar além do necessário para o tamanho do seu terreno:
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Nakasaki (Campeã de Preço Baixo para Uso Periódico)
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Focada no comprador que precisa resolver o mato alto do lote, chácara ou sítio gastando o mínimo possível na aquisição.
+                </p>
+                <p>
+                  Entrega kits recheados de acessórios e manutenção barata via peças universais, desde que operada com mistura correta de óleo e revisões básicas de aperto e graxa.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Toyama e Vulcan (Degrau Intermediário com Assistência Nacional)
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Posicionam-se um degrau acima em controle de qualidade de fábrica e contam com rede oficial de assistência técnica e garantia estruturada no Brasil.
+                </p>
+                <p>
+                  São ótimas alternativas para quem aceita investir um pouco mais para ter suporte técnico credenciado em uso semiprofissional frequente.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
+              <h3 className="text-xl font-bold text-[#166534] mb-3">
+                Stihl, Husqvarna e Honda (Padrão Profissional Intensivo)
+              </h3>
+              <div className="space-y-3 prose prose-lg text-gray-700 max-w-none">
+                <p>
+                  Construídas para fazendas, prefeituras e prestadores de serviço que ligam o motor de manhã e só desligam no fim da tarde.
+                </p>
+                <p>
+                  Custam consideravelmente mais caro, mas compensam pelo baixo consumo, sistema antivibração superior e altíssima durabilidade estrutural ao longo de anos de trabalho pesado.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Ponto Estratégico 2 do Banner do Meio (Antes do FAQ) */}
+        <BunnerDoMeio />
+
+        {/* ===================================================================
+            12. PERGUNTAS FREQUENTES (FAQ EM ACORDEÃO EXPANSÍVEL)
+            =================================================================== */}
+        <section className="mt-16 bg-white p-6 md:p-8 rounded-2xl border border-gray-200 shadow-sm">
+          <h2 className="text-3xl font-bold text-[#1a1a1a] mb-4 text-center">
+            Perguntas Frequentes sobre a Roçadeira Nakasaki
+          </h2>
+          <p className="text-gray-600 text-center mb-8 max-w-2xl mx-auto">
+            Tire suas principais dúvidas sobre peças, mistura de combustível, partida e indicação de uso dos modelos da marca.
+          </p>
+
+          <div className="space-y-4">
+            {faqData.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden transition-all duration-300"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(index)}
+                  aria-expanded={openFaq === index}
+                  className="w-full text-left px-5 py-4 flex items-center justify-between font-bold text-gray-900 hover:bg-gray-100/80 transition-colors focus:outline-none"
+                >
+                  <span className="flex items-center gap-3 pr-4">
+                    <span className="w-6 h-6 rounded-full bg-[#15803d] text-white flex items-center justify-center font-bold text-xs shrink-0">
+                      {index + 1}
+                    </span>
+                    {faq.question}
+                  </span>
+                  {openFaq === index ? (
+                    <ChevronUp className="text-gray-600 shrink-0" />
+                  ) : (
+                    <ChevronDown className="text-gray-600 shrink-0" />
+                  )}
+                </button>
+
+                {openFaq === index && (
+                  <div className="px-5 pb-5 pt-3 text-gray-700 border-t border-gray-200 space-y-3 bg-white">
+                    {faq.answer.map((paragraph, pIndex) => (
+                      <p key={pIndex} className="leading-relaxed text-sm sm:text-base">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ===================================================================
+            13. CONCLUSÃO DE ALTO CONTRASTE (VEREDITO EQUILIBRADO E SINCERO)
+            =================================================================== */}
+        <section className="mt-16 bg-[#1a1a1a] text-white p-8 md:p-12 rounded-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#16A34A] opacity-10 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#16A34A] opacity-10 rounded-full blur-3xl -ml-32 -mb-32 pointer-events-none"></div>
+
+          <div className="relative z-10 space-y-4">
+            <h2 className="text-3xl font-black mb-6 text-[#16A34A] tracking-tight">
+              Veredito Final: Afinal, a Roçadeira Nakasaki é Boa?
+            </h2>
+            <p className="text-gray-200 text-lg leading-relaxed">
+              Sim, a roçadeira Nakasaki é uma boa compra quando escolhida para o propósito certo: proprietários de chácaras, sítios e terrenos que precisam cortar mato alto periodicamente gastando pouco encontram nela excelente força de corte, kit completo e peças universais baratas.
+            </p>
+            <p className="text-gray-200 text-lg leading-relaxed">
+              Caprichando na mistura correta de óleo 2 tempos, engraxando a ponteira e conferindo o aperto dos parafusos, modelos como a NK-650AT Bipartida e a Costal 65cc entregam ótimo retorno pelo investimento, deixando as máquinas industriais mais caras apenas para quem realmente vive da roçada pesada todos os dias.
+            </p>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
+
+export default RocadeiraNakasakiEBoa;

@@ -5,6 +5,11 @@ import { Footer } from '../components/Footer';
 import { CookieConsent } from '../components/CookieConsent';
 import { ExitIntentPopuprocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopuprocadeira';
 import '../styles/global.css';
+
+const title = "Melhor Roçadeira Elétrica em 2026: Top 10 Modelos | Guia do Roçador";
+const description = "Qual a melhor roçadeira elétrica? Analisamos motor, torque e durabilidade da Trapp, Tramontina, Tekna, Stihl e mais para você acertar na compra!";
+const canonicalUrl = "https://guiadorocador.com.br/melhor-rocadeira-eletrica";
+const ogImage = "/images/blog/Serviços de jardinagens em geral.webp";
 ---
 
 <!doctype html>
@@ -14,24 +19,24 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>7 Melhores Roçadeiras Elétricas (2026) Trapp, Vulcan e Mais</title>
-    <meta name="description" content="Cansado de mato alto? Descubra a roçadeira elétrica perfeita para seu jardim e diga adeus ao trabalho duro! Clique e transforme seu espaço!" />
-    <meta property="og:title" content="7 Melhores Roçadeiras Elétricas (2026) Trapp, Vulcan e Mais" />
-    <meta property="og:description" content="Descubra a roçadeira elétrica perfeita para seu jardim com nosso guia completo." />
-    <meta property="og:image" content="/images/blog/Serviços de jardinagens em geral.webp" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="article" />
-    <link rel="canonical" href="https://guiadorocador.com.br/melhor-rocadeira-eletrica" />
   </head>
   <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
     <Header client:load />
-    
+
     <main class="flex-grow">
-      <MelhorRocadeiraEletrica client:load />
+      <MelhorRocadeiraEletrica client:idle />
     </main>
-    
+
     <Footer />
-    
-    <CookieConsent client:load />
-    <ExitIntentPopup client:load />
+
+    <CookieConsent client:idle />
+    <ExitIntentPopup client:idle />
   </body>
 </html>

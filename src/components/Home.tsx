@@ -109,7 +109,7 @@ export default function Home() {
               </div>
               <div className="relative h-full min-h-[300px] bg-gray-900 rounded-2xl overflow-hidden flex items-center justify-center border border-gray-800">
                 {/* Imagem de fundo simulada ou padrão, com opacidade */}
-                <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/home/imparcial-background.png')" }}></div>
+                <div className="absolute inset-0 opacity-20 bg-cover bg-center" style={{ backgroundImage: "url('/images/home/imparcial-background.webp')" }}></div>
                 <div className="relative z-10 text-center p-8">
                   <ShieldCheck className="w-24 h-24 text-[#16A34A] mx-auto mb-4" strokeWidth={2} />
                   <h3 className="text-2xl font-bold text-white">100% Imparcial</h3>

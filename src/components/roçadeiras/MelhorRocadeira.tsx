@@ -155,7 +155,7 @@ const showcaseItems: ShowcaseItem[] = [
     shortName: "Tekna BC1250SS (Elétrica Bipartida)",
     category: "Quintal Denso / Aceita Lâmina",
     score: "9.4 / 10",
-    thumbSrc: "/images/blog/thumbs/Tekna BC 1250SS-thumb.webp"
+    thumbSrc: "/images/blog/thumbs/Roçadeira Elétrica Tekna Bc1250ss-thumb.webp"
   },
   {
     id: "garthen-gre-2000",
@@ -390,7 +390,7 @@ const alternativeProducts: ProductReviewData[] = [
     id: "rocadeira-tekna-bc-1250ss",
     anchorId: "item-tekna-bc1250ss",
     heading: "Tekna ｜ Roçadeira Elétrica ｜ BC1250SS",
-    imageSrc: "/images/blog/Tekna BC 1250SS.webp",
+    imageSrc: "/images/blog/Roçadeira Elétrica Tekna Bc1250ss.webp",
     imageAlt: "Roçadeira elétrica lateral Tekna BC1250SS de 1200W com haste bipartida",
     paragraphs: [
       "A Tekna BC1250SS possui arquitetura de roçadeira lateral de verdade: seu motor traseiro de 1.200 W equilibra os 4,8 kg da máquina e aciona um eixo cardã a 7.500 RPM, permitindo usar tanto o carretel de nylon (35 cm de corte) quanto a lâmina metálica de 4 pontas inclusa (23 cm) para cortar capins densos e raízes resistentes.",

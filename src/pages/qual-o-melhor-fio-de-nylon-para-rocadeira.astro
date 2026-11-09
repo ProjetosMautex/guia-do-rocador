@@ -3,11 +3,13 @@ import { Header } from '../components/Header';
 import { MelhorFioNylon } from '../components/roçadeiras/MelhorFioNylon';
 import { Footer } from '../components/Footer';
 import { CookieConsent } from '../components/CookieConsent';
-import { ExitIntentPopuprocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopuprocadeira';
+import { ExitIntentPopupfiodenylonpararocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopupfiodenylonpararocadeira';
 import '../styles/global.css';
 
-// Meta description from the user provided text
-const description = "Cansado de fios que quebram? Descubra o guia definitivo para escolher o fio de nylon ideal e turbine sua roçadeira! Clique e diga adeus ao mato!";
+const title = "Qual o Melhor Fio de Nylon para Roçadeiras? Top 6 em 2026 | Guia do Roçador";
+const description = "Cansado de fios que arrebentam toda hora? Descubra qual o melhor fio de nylon para roçadeira em 2026 com dicas práticas de operador para render mais no corte!";
+const canonicalUrl = "https://guiadorocador.com.br/qual-o-melhor-fio-de-nylon-para-rocadeira";
+const ogImage = "/images/blog/qual o melhor fio de nylon para rocadeira.webp";
 ---
 
 <!doctype html>
@@ -17,23 +19,23 @@ const description = "Cansado de fios que quebram? Descubra o guia definitivo par
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>6 Melhores Fios de Nylon para Roçadeira de 2026 Guia de Compra | Guia do Roçador</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content="6 Melhores Fios de Nylon para Roçadeira de 2026 Guia de Compra" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/blog/qual o melhor fio de nylon para rocadeira.webp" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="article" />
-    <link rel="canonical" href="https://guiadorocador.com.br/qual-o-melhor-fio-de-nylon-para-rocadeira" />
   </head>
   <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
     <Header client:load />
-    
+
     <main class="flex-grow">
-      <MelhorFioNylon client:load />
+      <MelhorFioNylon client:idle />
     </main>
-    
+
     <Footer />
-    
+
     <CookieConsent client:load />
     <ExitIntentPopup client:load />
   </body>

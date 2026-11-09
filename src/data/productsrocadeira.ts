@@ -39,9 +39,9 @@ export const products: Record<string, Product> = {
     image: "roçadeira Trapp Master 1800 Bipartido.webp"
   },
   "rocadeira-tekna-bc-1250ss": {
-    name: "Tekna BC 1250SS",
-    link: "https://meli.la/29yooPy",
-    image: "Tekna BC 1250SS.webp"
+    name: "Roçadeira Elétrica Tekna Bc1250ss",
+    link: "https://meli.la/1uHxYGB",
+    image: "Roçadeira Elétrica Tekna Bc1250ss.webp"
   },
   "garthen-gre-2000": {
     name: "GARTHEN GRE-2000",
@@ -53,6 +53,131 @@ export const products: Record<string, Product> = {
     link: "https://meli.la/2DnBDze",
     image: "Husqvarna 143rs.webp"
   },
+  "rocadeira-a-gasolina-costal-2-tempos-65cc-nakasaki": {
+    name: "Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki",
+    link: "https://meli.la/1AyS4VJ",
+    image: "Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki.webp"
+  },
+  "rocadeira-gasolina-profissional-nakasaki-2t-75cc-com-trimmer": {
+    name: "Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer",
+    link: "https://meli.la/1xaC54d",
+    image: "Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp"
+  },
+  "rocadeira-gasolina-65cc-nakasaki-nk-650at-3hp-2-tempos-eixo-bipartido": {
+    name: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido",
+    link: "https://meli.la/27tiFiv",
+    image: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido.webp"
+  },
+  "carretel-para-rocadeira-autocut-26-2-stihl-original": {
+    name: "Carretel Para Roçadeira Autocut 26-2 Stihl Original",
+    link: "https://meli.la/2FeZ5D5",
+    image: "Carretel Para Roçadeira Autocut 26-2 Stihl Original.webp"
+  },
+  "tramontina-ap1500t": {
+    name: "Aparador De Grama Tramontina Apb1500t",
+    link: "https://meli.la/2xtFHA1",
+    image: "Aparador De Grama Tramontina Apb1500t.webp"
+  },
+  "rocadeira-trapp-master-1000": {
+    name: "Roçadeira Elétrica Trapp Master 1000",
+    link: "https://meli.la/1xPb4Qy",
+    image: "Roçadeira Elétrica Trapp Master 1000.webp"
+  },
+  "rocadeira-eletrica-br-1300c": {
+    name: "Roçadeira Branco Br 1300c",
+    link: "https://meli.la/2C8iqWE",
+    image: "Roçadeira Branco Br 1300c.webp"
+  },
+  "aparador-de-grama-eletrico-apb1000t-tramontina": {
+    name: "Aparador De Grama Elétrico Apb1000t Tramontina",
+    link: "https://meli.la/24MdYdY",
+    image: "Aparador De Grama Elétrico Apb1000t Tramontina.webp"
+  },
+  "tramontina-apb1000t": {
+    name: "Aparador De Grama Elétrico Apb1000t Tramontina",
+    link: "https://meli.la/24MdYdY",
+    image: "Aparador De Grama Elétrico Apb1000t Tramontina.webp"
+  },
+  "matsuyama-rocadeira-eletrica-967637": {
+    name: "MATSUYAMA Roçadeira Elétrica 967637",
+    link: "https://meli.la/1s9jVQb",
+    image: "MATSUYAMA Roçadeira Elétrica 967637.webp"
+  },
+  "matsuyama-967637": {
+    name: "MATSUYAMA Roçadeira Elétrica 967637",
+    link: "https://meli.la/1s9jVQb",
+    image: "MATSUYAMA Roçadeira Elétrica 967637.webp"
+  },
+  "makita-aparador-de-grama-a-bateria-ur100dzx": {
+    name: "MAKITA Aparador de Grama a Bateria UR100DZX",
+    link: "https://meli.la/1qkxEuZ",
+    image: "MAKITA Aparador de Grama a Bateria UR100DZX.webp"
+  },
+  "makita-ur100dzx": {
+    name: "MAKITA Aparador de Grama a Bateria UR100DZX",
+    link: "https://meli.la/1qkxEuZ",
+    image: "MAKITA Aparador de Grama a Bateria UR100DZX.webp"
+  },
+  "rocadeira-stihl-bateria-fsa-57": {
+    name: "Roçadeira STIHL Bateria FSA 57",
+    link: "https://meli.la/2PDqyAF",
+    image: "Roçadeira STIHL Bateria FSA 57.webp"
+  },
+  "stihl-fsa-57": {
+    name: "Roçadeira STIHL Bateria FSA 57",
+    link: "https://meli.la/2PDqyAF",
+    image: "Roçadeira STIHL Bateria FSA 57.webp"
+  },
+  "trapp-master-at-1500": {
+    name: "Aparador de Grama Master AT-1500 – Trapp",
+    link: "https://meli.la/2hujYqL",
+    image: "Aparador de Grama Master AT-1500 – Trapp.webp"
+  },
+  "fio-de-nylon-27mm-20m-quadrado-rocadeira-cortador-de-grama": {
+    name: "Fio De Nylon 2,7mm 20m Quadrado Roçadeira Cortador De Grama",
+    link: "https://meli.la/2jpbbxe",
+    image: "Fio De Nylon 2,7mm 20m Quadrado Roçadeira Cortador De Grama.webp"
+  },
+  "fio-de-nylon-2-7mm-20m-quadrado": {
+    name: "Fio De Nylon 2,7mm 20m Quadrado Roçadeira Cortador De Grama",
+    link: "https://meli.la/2jpbbxe",
+    image: "Fio De Nylon 2,7mm 20m Quadrado Roçadeira Cortador De Grama.webp"
+  },
+  "fio-de-nylon-24mm-x-50m-redondo-vonder-3373240050": {
+    name: "Fio de Nylon 2,4 mm x 50 m com Perfil Redondo VONDER-3373240050",
+    link: "https://meli.la/29Bbtzg",
+    image: "Fio de Nylon 2,4 mm x 50 m com Perfil Redondo VONDER-3373240050.webp"
+  },
+  "fio-de-nylon-24mm-x-50m-vonder": {
+    name: "Fio de Nylon 2,4 mm x 50 m com Perfil Redondo VONDER-3373240050",
+    link: "https://meli.la/29Bbtzg",
+    image: "Fio de Nylon 2,4 mm x 50 m com Perfil Redondo VONDER-3373240050.webp"
+  },
+  "fio-de-nylon-quadrado-2-70mm-15-m-vulcan": {
+    name: "Fio de Nylon Quadrado 2,70mm 15 M VULCAN",
+    link: "https://meli.la/1uYmmFV",
+    image: "Fio de Nylon Quadrado 2,70mm 15 M VULCAN.webp"
+  },
+  "carretel-com-fio-nylon-rocadeiras-trapp-master-1000": {
+    name: "Carretel Com Fio Nylon Roçadeiras Trapp Master 1000",
+    link: "https://meli.la/1ktMxVq",
+    image: "Carretel Com Fio Nylon Roçadeiras Trapp Master 1000.webp"
+  },
+  "trapp-master-1000-fio": {
+    name: "Carretel Com Fio Nylon Roçadeiras Trapp Master 1000",
+    link: "https://meli.la/1ktMxVq",
+    image: "Carretel Com Fio Nylon Roçadeiras Trapp Master 1000.webp"
+  },
+  "fio-nylon-2kg-bitola-2-4mm-rocast": {
+    name: "Fio Nylon 2.4 Mm Roçadeira Redondo Rocast 1kg Cortar Grama",
+    link: "https://meli.la/1bTYhgA",
+    image: "Fio Nylon 2.4 Mm Roçadeira Redondo Rocast 1kg Cortar Grama.webp"
+  },
+  "fio-de-nylon-24-mm-e-12-m-tramontina": {
+    name: "Fio Nylon 2,4mm 12 Metros para Aparador De Grama - Tramontina",
+    link: "https://meli.la/2wm8Quk",
+    image: "Fio Nylon 2,4mm 12 Metros para Aparador De Grama - Tramontina.webp"
+  },
 
   // ==========================================
   // PRODUTOS EM REVISÃO (Aguardando revisão / troca de links)
@@ -62,15 +187,6 @@ export const products: Record<string, Product> = {
     name: "Vulcan VR520H",
     link: "https://meli.la/1TeqVYU",
     image: "Vulcan VR520H.webp"
-  },
-  "rocadeira-trapp-master-1000": {
-    name: "Trapp Master 1000",
-    link: "https://meli.la/1LgxyHu",
-    image: "Trapp Master 1000.webp"
-  },
-  "tramontina-ap1500t": {
-    name: "Tramontina AP1500T",
-    link: "https://meli.la/1MqTgPc"
   },
   "intech-machine-skim4300": {
     name: "SKIM4300 Intech Machine",
@@ -87,14 +203,6 @@ export const products: Record<string, Product> = {
   "carbon-fak-52cc-2.5hp": {
     name: "Roçadeira 52cc 2,5hp Carbon Fak",
     link: "https://meli.la/2E3nRQj"
-  },
-  "rocadeira-eletrica-br-1300c": {
-    name: "Roçadeira Elétrica BR 1300C",
-    link: "https://meli.la/2tqH2VP"
-  },
-  "trapp-master-at-1500": {
-    name: "Trapp Master AT-1500",
-    link: "https://meli.la/1Moamyo"
   },
   "tekna-bc1250e1ss": {
     name: "Tekna BC1250E1SS",
@@ -136,18 +244,6 @@ export const products: Record<string, Product> = {
     name: "Fio De Nylon Quadrado 3,0mm Laranja Itecê",
     link: "https://meli.la/2wmCUHQ"
   },
-  "fio-de-nylon-24-mm-e-12-m-tramontina": {
-    name: "Fio De Nylon 2,4 Mm e 12 M Tramontina",
-    link: "https://meli.la/2hTvvXf"
-  },
-  "fio-nylon-2kg-bitola-2-4mm-rocast": {
-    name: "Fio Nylon 2kg Bitola 2.4mm Rocast",
-    link: "https://meli.la/154yS2a"
-  },
-  "fio-de-nylon-quadrado-2-70mm-15-m-vulcan": {
-    name: "Fio de Nylon Quadrado 2,70mm 15 M VULCAN",
-    link: "https://meli.la/2UEReeT"
-  },
   "fio-nylon-3mm-quadrado-2kg-200m-nakasaki": {
     name: "Fio Nylon 3mm Quadrado 2kg 200m NAKASAKI",
     link: "https://meli.la/1GdsKX7"
@@ -155,22 +251,6 @@ export const products: Record<string, Product> = {
   "rocadeira-husqvarna-331r": {
     name: "Roçadeira Husqvarna 331R",
     link: "https://meli.la/2FeTyDL"
-  },
-  "rocadeira-a-gasolina-costal-2-tempos-65cc-nakasaki": {
-    name: "Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki",
-    link: "https://meli.la/17Wz3qW"
-  },
-  "rocadeira-gasolina-profissional-nakasaki-2t-75cc-com-trimmer": {
-    name: "Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer",
-    link: "https://meli.la/1npHEar"
-  },
-  "carretel-para-rocadeira-autocut-26-2-stihl-original": {
-    name: "Carretel Para Roçadeira Autocut 26-2 Stihl Original",
-    link: "https://meli.la/2KbAHoR"
-  },
-  "rocadeira-gasolina-65cc-nakasaki-nk-650at-3hp-2-tempos-eixo-bipartido": {
-    name: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido",
-    link: "https://meli.la/2Ljzyao"
   },
   "rocadeira-toyama-tbc43h": {
     name: "Toyama TBC43H",

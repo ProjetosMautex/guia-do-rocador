@@ -13,22 +13,16 @@ export const articles: Article[] = [
     excerpt: "Qual a melhor roçadeira? Analisamos a mecânica, potência e durabilidade das melhores opções a gasolina, elétricas e a bateria (Stihl, Husqvarna, Toyama e mais)!"
   },
   {
-    title: "Stihl ou Husqvarna Qual a Melhor Roçadeira a Gasolina em 2026?",
-    url: "/qual-a-melhor-rocadeira-a-gasolina-stihl-ou-husqvarna",
-    image: "/images/blog/qual a melhor roçadeira a gasolina stihl ou husqvarna.webp",
-    excerpt: "Stihl ou Husqvarna em 2026: Qual a melhor roçadeira a gasolina para você? Descubra a campeã para o seu jardim e economize!"
-  },
-  {
-    title: "7 Melhores Roçadeiras Elétricas (2026) Trapp, Vulcan e Mais",
+    title: "Melhor Roçadeira Elétrica em 2026: Top 10 Modelos",
     url: "/melhor-rocadeira-eletrica",
     image: "/images/blog/Serviços de jardinagens em geral.webp",
-    excerpt: "Cansado de mato alto? Descubra a roçadeira elétrica perfeita para seu jardim e diga adeus ao trabalho duro! Clique e transforme seu espaço!"
+    excerpt: "Qual a melhor roçadeira elétrica? Analisamos motor, torque e durabilidade da Trapp, Tramontina, Tekna, Stihl e mais para você acertar na compra!"
   },
   {
-    title: "6 Melhores Fios de Nylon para Roçadeira de 2026 Guia de Compra",
+    title: "Qual o Melhor Fio de Nylon para Roçadeiras? Top 6 em 2026",
     url: "/qual-o-melhor-fio-de-nylon-para-rocadeira",
     image: "/images/blog/qual o melhor fio de nylon para rocadeira.webp",
-    excerpt: "A escolha do fio de nylon ideal para sua roçadeira influencia diretamente na eficiência e durabilidade do trabalho. Descubra os 6 melhores..."
+    excerpt: "Cansado de fios que arrebentam toda hora? Descubra qual o melhor fio de nylon para roçadeira em 2026 com dicas práticas de operador para render mais no corte!"
   },
   {
     title: "Roçadeira Husqvarna 131R é Boa? Vale o Investimento em 2026?",
@@ -40,7 +34,7 @@ export const articles: Article[] = [
     title: "Roçadeira Nakasaki é Boa? [Review de 3 Modelos em 2026]",
     url: "/rocadeira-nakasaki-e-boa",
     image: "/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp",
-    excerpt: "Se você está considerando a compra de uma roçadeira Nakasaki, provavelmente se deparou com essa dúvida. Para auxiliar nessa decisão, vamos analisar alguns modelos disponíveis no mercado."
+    excerpt: "Roçadeira Nakasaki é boa mesmo? Analisamos potência real, durabilidade e custo-benefício dos modelos 65cc, 75cc e Costal para chácaras e sítios em 2026!"
   },
   {
     title: "Como Ligar Roçadeira a Gasolina (Motor Frio): Passo a Passo",
