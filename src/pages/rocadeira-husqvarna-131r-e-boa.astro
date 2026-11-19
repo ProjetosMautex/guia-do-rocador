@@ -5,6 +5,11 @@ import { Footer } from '../components/Footer';
 import { CookieConsent } from '../components/CookieConsent';
 import { ExitIntentPopuprocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopuprocadeira';
 import '../styles/global.css';
+
+const title = "Roçadeira Husqvarna 131R é boa em 2026 — Análise Completa | Guia do Roçador";
+const description = "A Roçadeira Husqvarna 131R é boa em 2026? Veja a análise mecânica completa de motor, consumo, ficha técnica, prós e contras antes de comprar!";
+const canonicalUrl = "https://guiadorocador.com.br/rocadeira-husqvarna-131r-e-boa";
+const ogImage = "/images/blog/roçadeira husqvarna 131r é boa.webp";
 ---
 
 <!doctype html>
@@ -14,19 +19,19 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Roçadeira Husqvarna 131R é Boa? Vale o Investimento em 2026? | Guia do Roçador</title>
-    <meta name="description" content="Roçadeira 131R ainda vale a pena? Descubra se a versatilidade e robustez compensam a idade. Análise completa para não errar na escolha!" />
-    <meta property="og:title" content="Roçadeira Husqvarna 131R é Boa? Vale o Investimento em 2026?" />
-    <meta property="og:description" content="Roçadeira 131R ainda vale a pena? Descubra se a versatilidade e robustez compensam a idade. Análise completa para não errar na escolha!" />
-    <meta property="og:image" content="/images/blog/roçadeira husqvarna 131r é boa.webp" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="article" />
-    <link rel="canonical" href="https://guiadorocador.com.br/rocadeira-husqvarna-131r-e-boa" />
+    <link rel="canonical" href={canonicalUrl} />
   </head>
   <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
     <Header client:load />
     
     <main class="flex-grow">
-      <RocadeiraHusqvarna131rEBoa client:load />
+      <RocadeiraHusqvarna131rEBoa client:idle />
     </main>
     
     <Footer />

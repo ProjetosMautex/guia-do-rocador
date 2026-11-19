@@ -6,8 +6,252 @@ export interface Product {
 
 export const products: Record<string, Product> = {
   // ==========================================
+  // PRODUTOS DE CROSS-SELL (ARTIGOS COMERCIAIS)
+  // ==========================================
+  "fio-de-nylon-duraline-3mm-quadrado-255m": {
+    name: "Fio de Nylon Quadrado 3mm",
+    link: "https://meli.la/2PExUfX",
+    image: "Fio de nylon duraline 3mm e 255m quadrado.webp"
+  },
+  "Fio de Nylon Quadrado 3mm": {
+    name: "Fio de Nylon Quadrado 3mm",
+    link: "https://meli.la/2PExUfX",
+    image: "Fio de nylon duraline 3mm e 255m quadrado.webp"
+  },
+  "kit-misturador-oleo-2t": {
+    name: "Kit Misturador + Óleo 2T",
+    link: "https://meli.la/1GP142t",
+    image: "VER KIT MISTURADOR + ÓLEO 2T EM OFERTA.webp"
+  },
+  "Kit Misturador + Óleo 2T": {
+    name: "Kit Misturador + Óleo 2T",
+    link: "https://meli.la/1GP142t",
+    image: "VER KIT MISTURADOR + ÓLEO 2T EM OFERTA.webp"
+  },
+  "kit-seguranca-completo-epis": {
+    name: "Kit Completo de EPIs",
+    link: "https://meli.la/1hqH1JJ",
+    image: "KIT SEGURANÇA COMPLETO (EPIs).webp"
+  },
+  "Kit Completo de EPIs": {
+    name: "Kit Completo de EPIs",
+    link: "https://meli.la/1hqH1JJ",
+    image: "KIT SEGURANÇA COMPLETO (EPIs).webp"
+  },
+  "fio-de-nylon-de-alta-resistencia": {
+    name: "Fio de Nylon de Alta Resistência",
+    link: "https://meli.la/2wm8Quk",
+    image: "Fio Nylon 2,4mm 12 Metros para Aparador De Grama - Tramontina.webp"
+  },
+  "Fio de Nylon de Alta Resistência": {
+    name: "Fio de Nylon de Alta Resistência",
+    link: "https://meli.la/2wm8Quk",
+    image: "Fio Nylon 2,4mm 12 Metros para Aparador De Grama - Tramontina.webp"
+  },
+  "fio-de-nylon-24-mm-e-12-m-tramontina": {
+    name: "Fio de Nylon de Alta Resistência",
+    link: "https://meli.la/2wm8Quk",
+    image: "Fio Nylon 2,4mm 12 Metros para Aparador De Grama - Tramontina.webp"
+  },
+  "carretel-autocut-26-2-original": {
+    name: "Carretel AutoCut 26-2 Original",
+    link: "https://meli.la/2FeZ5D5",
+    image: "Carretel Para Roçadeira Autocut 26-2 Stihl Original.webp"
+  },
+  "Carretel AutoCut 26-2 Original": {
+    name: "Carretel AutoCut 26-2 Original",
+    link: "https://meli.la/2FeZ5D5",
+    image: "Carretel Para Roçadeira Autocut 26-2 Stihl Original.webp"
+  },
+  "carretel-para-rocadeira-autocut-26-2-stihl-original": {
+    name: "Carretel AutoCut 26-2 Original",
+    link: "https://meli.la/2FeZ5D5",
+    image: "Carretel Para Roçadeira Autocut 26-2 Stihl Original.webp"
+  },
+  "faca-3-pontas-spin": {
+    name: "Faca 3 Pontas Furo 25mm Tamanho 300mm Espessura 2,9mm - Spin",
+    link: "https://meli.la/2A7s1GS",
+    image: "Faca 3 Pontas Furo 25mm Tamanho 300mm Espessura 2,9mm - Spin.webp"
+  },
+  "lamina-3-pontas-spin": {
+    name: "Faca 3 Pontas Furo 25mm Tamanho 300mm Espessura 2,9mm - Spin",
+    link: "https://meli.la/2A7s1GS",
+    image: "Faca 3 Pontas Furo 25mm Tamanho 300mm Espessura 2,9mm - Spin.webp"
+  },
+  "Faca 3 Pontas Furo 25mm Tamanho 300mm Espessura 2,9mm - Spin": {
+    name: "Faca 3 Pontas Furo 25mm Tamanho 300mm Espessura 2,9mm - Spin",
+    link: "https://meli.la/2A7s1GS",
+    image: "Faca 3 Pontas Furo 25mm Tamanho 300mm Espessura 2,9mm - Spin.webp"
+  },
+
+  // ==========================================
   // PRODUTOS ATUALIZADOS / REVISADOS
   // ==========================================
+  "lamina-para-rocadeiras-2-pontas-305mm-x-25-4mm-vonder": {
+    name: "Lâmina Para Roçadeiras 2 Pontas 305mm X 25,4mm Vonder",
+    link: "https://meli.la/2AbLkDi",
+    image: "Lâmina Para Roçadeiras 2 Pontas 305mm X 25,4mm Vonder.webp"
+  },
+  "Lâmina Para Roçadeiras 2 Pontas 305mm X 25,4mm Vonder": {
+    name: "Lâmina Para Roçadeiras 2 Pontas 305mm X 25,4mm Vonder",
+    link: "https://meli.la/2AbLkDi",
+    image: "Lâmina Para Roçadeiras 2 Pontas 305mm X 25,4mm Vonder.webp"
+  },
+  "lamina-2-pontas-vonder": {
+    name: "Lâmina Para Roçadeiras 2 Pontas 305mm X 25,4mm Vonder",
+    link: "https://meli.la/2AbLkDi",
+    image: "Lâmina Para Roçadeiras 2 Pontas 305mm X 25,4mm Vonder.webp"
+  },
+  "lamina-rocadeira-3-pontas-stihl-fs160-161-220-221-290-300": {
+    name: "Lâmina Roçadeira 3 Pontas Stihl Fs160 161 220 221 290 300",
+    link: "https://meli.la/1FsLBZW",
+    image: "Lâmina Roçadeira 3 Pontas Stihl Fs160 161 220 221 290 300.webp"
+  },
+  "Lâmina Roçadeira 3 Pontas Stihl Fs160 161 220 221 290 300": {
+    name: "Lâmina Roçadeira 3 Pontas Stihl Fs160 161 220 221 290 300",
+    link: "https://meli.la/1FsLBZW",
+    image: "Lâmina Roçadeira 3 Pontas Stihl Fs160 161 220 221 290 300.webp"
+  },
+  "lamina-3-pontas-stihl": {
+    name: "Lâmina Roçadeira 3 Pontas Stihl Fs160 161 220 221 290 300",
+    link: "https://meli.la/1FsLBZW",
+    image: "Lâmina Roçadeira 3 Pontas Stihl Fs160 161 220 221 290 300.webp"
+  },
+  "disco-40-dentes-videa-255mm-para-rocadeira-toyama-tbc52h": {
+    name: "Disco 40 Dentes Vídea 255mm Para Roçadeira Toyama Tbc52h",
+    link: "https://meli.la/16ZY8sz",
+    image: "Disco 40 Dentes Vídea 255mm Para Roçadeira Toyama Tbc52h.webp"
+  },
+  "Disco 40 Dentes Vídea 255mm Para Roçadeira Toyama Tbc52h": {
+    name: "Disco 40 Dentes Vídea 255mm Para Roçadeira Toyama Tbc52h",
+    link: "https://meli.la/16ZY8sz",
+    image: "Disco 40 Dentes Vídea 255mm Para Roçadeira Toyama Tbc52h.webp"
+  },
+  "disco-40-dentes-videa-toyama": {
+    name: "Disco 40 Dentes Vídea 255mm Para Roçadeira Toyama Tbc52h",
+    link: "https://meli.la/16ZY8sz",
+    image: "Disco 40 Dentes Vídea 255mm Para Roçadeira Toyama Tbc52h.webp"
+  },
+  "lamina-disco-serra-80-dentes-para-rocadeira-stihl-universal": {
+    name: "Lâmina Disco Serra 80 Dentes Para Roçadeira Stihl Universal",
+    link: "https://meli.la/2KJPNj6",
+    image: "Lâmina Disco Serra 80 Dentes Para Roçadeira Stihl Universal.webp"
+  },
+  "Lâmina Disco Serra 80 Dentes Para Roçadeira Stihl Universal": {
+    name: "Lâmina Disco Serra 80 Dentes Para Roçadeira Stihl Universal",
+    link: "https://meli.la/2KJPNj6",
+    image: "Lâmina Disco Serra 80 Dentes Para Roçadeira Stihl Universal.webp"
+  },
+  "disco-80-dentes-stihl": {
+    name: "Lâmina Disco Serra 80 Dentes Para Roçadeira Stihl Universal",
+    link: "https://meli.la/2KJPNj6",
+    image: "Lâmina Disco Serra 80 Dentes Para Roçadeira Stihl Universal.webp"
+  },
+  "kit-2-disco-para-rocadeira-com-dentes-de-corrente-motosserra": {
+    name: "Kit 2 Disco Para Roçadeira Com Dentes De Corrente Motosserra",
+    link: "https://meli.la/1Gm6L16",
+    image: "Kit 2 Disco Para Roçadeira Com Dentes De Corrente Motosserra.webp"
+  },
+  "Kit 2 Disco Para Roçadeira Com Dentes De Corrente Motosserra": {
+    name: "Kit 2 Disco Para Roçadeira Com Dentes De Corrente Motosserra",
+    link: "https://meli.la/1Gm6L16",
+    image: "Kit 2 Disco Para Roçadeira Com Dentes De Corrente Motosserra.webp"
+  },
+  "disco-corrente-motosserra": {
+    name: "Kit 2 Disco Para Roçadeira Com Dentes De Corrente Motosserra",
+    link: "https://meli.la/1Gm6L16",
+    image: "Kit 2 Disco Para Roçadeira Com Dentes De Corrente Motosserra.webp"
+  },
+  "oleo-lubrificante-stihl-2-tempos-8017": {
+    name: "Oleo Lubrificante Stihl 2 Tempos 8017",
+    link: "https://meli.la/2TVWK2f",
+    image: "Oleo Lubrificante Stihl 2 Tempos 8017.webp"
+  },
+  "Oleo Lubrificante Stihl 2 Tempos 8017": {
+    name: "Oleo Lubrificante Stihl 2 Tempos 8017",
+    link: "https://meli.la/2TVWK2f",
+    image: "Oleo Lubrificante Stihl 2 Tempos 8017.webp"
+  },
+  "oleo-stihl-8017": {
+    name: "Oleo Lubrificante Stihl 2 Tempos 8017",
+    link: "https://meli.la/2TVWK2f",
+    image: "Oleo Lubrificante Stihl 2 Tempos 8017.webp"
+  },
+  "oleo-2-tempos-husqvarna-pro-1lt": {
+    name: "Óleo 2 Tempos Husqvarna Pro 1lt",
+    link: "https://meli.la/1BsGXF2",
+    image: "Óleo 2 Tempos Husqvarna Pro 1lt.webp"
+  },
+  "Óleo 2 Tempos Husqvarna Pro 1lt": {
+    name: "Óleo 2 Tempos Husqvarna Pro 1lt",
+    link: "https://meli.la/1BsGXF2",
+    image: "Óleo 2 Tempos Husqvarna Pro 1lt.webp"
+  },
+  "oleo-husqvarna-pro": {
+    name: "Óleo 2 Tempos Husqvarna Pro 1lt",
+    link: "https://meli.la/1BsGXF2",
+    image: "Óleo 2 Tempos Husqvarna Pro 1lt.webp"
+  },
+  "2-oleo-lubrax-essencial-mineral-moto-rocadeiras-motosserras": {
+    name: "2 Oleo Lubrax Essencial Mineral Moto Rocadeiras Motosserras",
+    link: "https://meli.la/1SgEYG8",
+    image: "2 Oleo Lubrax Essencial Mineral Moto Rocadeiras Motosserras.webp"
+  },
+  "2 Oleo Lubrax Essencial Mineral Moto Rocadeiras Motosserras": {
+    name: "2 Oleo Lubrax Essencial Mineral Moto Rocadeiras Motosserras",
+    link: "https://meli.la/1SgEYG8",
+    image: "2 Oleo Lubrax Essencial Mineral Moto Rocadeiras Motosserras.webp"
+  },
+  "oleo-lubrax-essencial": {
+    name: "2 Oleo Lubrax Essencial Mineral Moto Rocadeiras Motosserras",
+    link: "https://meli.la/1SgEYG8",
+    image: "2 Oleo Lubrax Essencial Mineral Moto Rocadeiras Motosserras.webp"
+  },
+  "kit-2-oleo-2-tempos-chainsaw-rocadeira-castrol": {
+    name: "Kit 2 Oleo 2 Tempos Chainsaw Rocadeira Castrol",
+    link: "https://meli.la/11ZNCgC",
+    image: "Kit 2 Oleo 2 Tempos Chainsaw Rocadeira Castrol.webp"
+  },
+  "Kit 2 Oleo 2 Tempos Chainsaw Rocadeira Castrol": {
+    name: "Kit 2 Oleo 2 Tempos Chainsaw Rocadeira Castrol",
+    link: "https://meli.la/11ZNCgC",
+    image: "Kit 2 Oleo 2 Tempos Chainsaw Rocadeira Castrol.webp"
+  },
+  "oleo-castrol-2t": {
+    name: "Kit 2 Oleo 2 Tempos Chainsaw Rocadeira Castrol",
+    link: "https://meli.la/11ZNCgC",
+    image: "Kit 2 Oleo 2 Tempos Chainsaw Rocadeira Castrol.webp"
+  },
+  "rocadeira-husqvarna-131r": {
+    name: "Roçadeira Husqvarna 131R",
+    link: "https://meli.la/2dFdqoN",
+    image: "Roçadeira Husqvarna.webp"
+  },
+  "Roçadeira Husqvarna 131R": {
+    name: "Roçadeira Husqvarna 131R",
+    link: "https://meli.la/2dFdqoN",
+    image: "Roçadeira Husqvarna.webp"
+  },
+  "rocadeira-stihl-fs-160": {
+    name: "Roçadeira Stihl Fs 160",
+    link: "https://meli.la/2Qbxq36",
+    image: "Roçadeira Stihl Fs 160.webp"
+  },
+  "stihl-fs-160": {
+    name: "Roçadeira Stihl Fs 160",
+    link: "https://meli.la/2Qbxq36",
+    image: "Roçadeira Stihl Fs 160.webp"
+  },
+  "Roçadeira Stihl Fs 160": {
+    name: "Roçadeira Stihl Fs 160",
+    link: "https://meli.la/2Qbxq36",
+    image: "Roçadeira Stihl Fs 160.webp"
+  },
+  "rocadeira-husqvarna-143rs": {
+    name: "Husqvarna 143rs",
+    link: "https://meli.la/2DnBDze",
+    image: "Husqvarna 143rs.webp"
+  },
   "stihl-fs-221": {
     name: "Stihl FS 221",
     link: "https://meli.la/2jKcMRb",
@@ -48,11 +292,6 @@ export const products: Record<string, Product> = {
     link: "https://meli.la/1rHLF4A",
     image: "Roçadeira Garthen Gre-2000.webp"
   },
-  "rocadeira-husqvarna-143rs": {
-    name: "Husqvarna 143rs",
-    link: "https://meli.la/2DnBDze",
-    image: "Husqvarna 143rs.webp"
-  },
   "rocadeira-a-gasolina-costal-2-tempos-65cc-nakasaki": {
     name: "Roçadeira A Gasolina Costal 2 Tempos 65cc Nakasaki",
     link: "https://meli.la/1AyS4VJ",
@@ -67,11 +306,6 @@ export const products: Record<string, Product> = {
     name: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido",
     link: "https://meli.la/27tiFiv",
     image: "Roçadeira Gasolina 65cc Nakasaki NK-650AT 3hp 2 Tempos Eixo Bipartido.webp"
-  },
-  "carretel-para-rocadeira-autocut-26-2-stihl-original": {
-    name: "Carretel Para Roçadeira Autocut 26-2 Stihl Original",
-    link: "https://meli.la/2FeZ5D5",
-    image: "Carretel Para Roçadeira Autocut 26-2 Stihl Original.webp"
   },
   "tramontina-ap1500t": {
     name: "Aparador De Grama Tramontina Apb1500t",
@@ -173,11 +407,6 @@ export const products: Record<string, Product> = {
     link: "https://meli.la/1bTYhgA",
     image: "Fio Nylon 2.4 Mm Roçadeira Redondo Rocast 1kg Cortar Grama.webp"
   },
-  "fio-de-nylon-24-mm-e-12-m-tramontina": {
-    name: "Fio Nylon 2,4mm 12 Metros para Aparador De Grama - Tramontina",
-    link: "https://meli.la/2wm8Quk",
-    image: "Fio Nylon 2,4mm 12 Metros para Aparador De Grama - Tramontina.webp"
-  },
 
   // ==========================================
   // PRODUTOS EM REVISÃO (Aguardando revisão / troca de links)
@@ -227,18 +456,6 @@ export const products: Record<string, Product> = {
   "rocadeira-a-gasolina-multifuncional-bi-partido-bascco": {
     name: "Roçadeira A Gasolina Multifuncional Bi-partido Bascco",
     link: "https://meli.la/1PS1et8"
-  },
-  "fio-de-nylon-duraline-3mm-quadrado-255m": {
-    name: "Fio de Nylon Duraline 3mm Quadrado 255m",
-    link: "https://meli.la/2PExUfX"
-  },
-  "kit-misturador-oleo-2t": {
-    name: "KIT MISTURADOR + ÓLEO 2T",
-    link: "https://meli.la/1GP142t"
-  },
-  "kit-seguranca-completo-epis": {
-    name: "KIT SEGURANÇA COMPLETO (EPIs)",
-    link: "https://meli.la/1hqH1JJ"
   },
   "fio-de-nylon-quadrado-30mm-laranja-itece": {
     name: "Fio De Nylon Quadrado 3,0mm Laranja Itecê",

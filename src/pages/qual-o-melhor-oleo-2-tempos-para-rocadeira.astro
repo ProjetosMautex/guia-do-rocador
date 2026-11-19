@@ -1,0 +1,42 @@
+---
+import { Header } from '../components/Header';
+import { MelhorOleo2Tempos } from '../components/roçadeiras/MelhorOleo2Tempos';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopupoleo2tempos as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopupoleo2tempos';
+import '../styles/global.css';
+
+const title = "Qual o Melhor Óleo 2 Tempos para Roçadeira? Top 4 e Medida (2026) | Guia do Roçador";
+const description = "Qual o melhor óleo 2 tempos para roçadeira em 2026? Veja o Top 4 (Stihl, Husqvarna, Castrol e Lubrax) e a tabela exata de mistura por litro para não fundir o motor!";
+const canonicalUrl = "https://guiadorocador.com.br/qual-o-melhor-oleo-2-tempos-para-rocadeira";
+const ogImage = "/images/blog/qual-o-melhor-oleo-2-tempos-para-rocadeira.webp";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="article" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+
+    <main class="flex-grow">
+      <MelhorOleo2Tempos client:idle />
+    </main>
+
+    <Footer />
+
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

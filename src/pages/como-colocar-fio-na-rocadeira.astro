@@ -5,6 +5,11 @@ import { Footer } from '../components/Footer';
 import { CookieConsent } from '../components/CookieConsent';
 import { ExitIntentPopuprocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopuprocadeira';
 import '../styles/global.css';
+
+const title = "Como Colocar Fio de Nylon na Roçadeira (Gasolina e Elétrica) sem Embolar | Guia do Roçador";
+const description = "Aprenda como colocar fio de nylon na roçadeira (carretel manual, automático bate-libera e roçadeira elétrica) passo a passo sem embolar ou travar a linha.";
+const canonicalUrl = "https://guiadorocador.com.br/como-colocar-fio-na-rocadeira";
+const ogImage = "/images/blog/1/como colocar fio na roçadeira\u200b.webp";
 ---
 
 <!doctype html>
@@ -14,19 +19,19 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>Como Colocar Fio de Nylon na Roçadeira sem Embolar: Guia Prático | Guia do Roçador</title>
-    <meta name="description" content="Cansado de fios de roçadeira que travam? Aprenda o método definitivo de como colocar fio de nylon na roçadeira sem embolar e recarregue seu carretel sem erros." />
-    <meta property="og:title" content="Como Colocar Fio de Nylon na Roçadeira sem Embolar: Guia Prático" />
-    <meta property="og:description" content="Cansado de fios de roçadeira que travam? Aprenda o método definitivo de como colocar fio de nylon na roçadeira sem embolar e recarregue seu carretel sem erros." />
-    <meta property="og:image" content="/images/blog/1/como colocar fio na roçadeira.webp" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="article" />
-    <link rel="canonical" href="https://guiadorocador.com.br/como-colocar-fio-na-rocadeira" />
   </head>
   <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
     <Header client:load />
     
     <main class="flex-grow">
-      <ComoColocarFioRocadeira client:load />
+      <ComoColocarFioRocadeira client:idle />
     </main>
     
     <Footer />

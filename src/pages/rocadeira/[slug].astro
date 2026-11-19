@@ -1,0 +1,13 @@
+---
+import { articles } from '../../data/articlesrocadeiras';
+
+const { slug } = Astro.params;
+const targetPath = `/${slug ?? ''}`;
+const known = articles.some((a) => a.url === targetPath);
+
+if (known) {
+  return Astro.redirect(targetPath, 301);
+}
+
+return Astro.redirect('/', 302);
+---

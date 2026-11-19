@@ -29,11 +29,15 @@
  *    - Qual componente de Banner do Meio deve ser importado?
  *      • Opção 1: `src/components/roçadeiras/BunnerDoMeiorocadeira.tsx` (Focado em Roçadeiras a Gasolina/Elétricas)
  *      • Opção 2: `src/components/roçadeiras/BunnerDoMeiofiodenylonpararocadeira.tsx` (Focado em Fios de Nylon e Acessórios)
+ *      • Opção 3: `src/components/roçadeiras/BunnerDoMeiooleo2tempos.tsx` (Focado em Óleo 2 Tempos e Lubrificantes)
+ *      • Opção 4: `src/components/roçadeiras/BunnerDoMeiolaminadeorocadeira.tsx` (Focado em Lâminas e Discos de Roçadeira)
  *      *(À medida que novos banners forem criados no projeto, adicione-os nesta lista como opções)*
  *
  *    - Qual componente de Exit Intent Popup deve ser importado?
  *      • Opção 1: `src/components/roçadeiras/ExitIntentPopuprocadeira.tsx` (Focado em Roçadeiras a Gasolina/Elétricas)
  *      • Opção 2: `src/components/roçadeiras/ExitIntentPopupfiodenylonpararocadeira.tsx` (Focado em Fios de Nylon e Acessórios)
+ *      • Opção 3: `src/components/roçadeiras/ExitIntentPopupoleo2tempos.tsx` (Focado em Óleo 2 Tempos e Lubrificantes)
+ *      • Opção 4: `src/components/roçadeiras/ExitIntentPopuplaminadeorocadeira.tsx` (Focado em Lâminas e Discos de Roçadeira)
  *      *(À medida que novos popups forem criados no projeto, adicione-os nesta lista como opções)*
  *
  * ❓ 2. PALAVRA-CHAVE PRINCIPAL, TÍTULO E URL (SLUG):
@@ -60,6 +64,15 @@
  * ----------------------------------------------------------------------------
  * PARTE 1: OS SEGREDOS DOS 100 PONTOS NO PAGESPEED (OBRIGATÓRIO SEGUIR)
  * ----------------------------------------------------------------------------
+ *
+ * 0. CADASTRO OBRIGATÓRIO DO CARD EM `src/data/articlesrocadeiras.ts`:
+ *    - Todo novo artigo criado DEVE obrigatoriamente ter seu card adicionado no
+ *      array `articles` em `src/data/articlesrocadeiras.ts` (na posição indicada
+ *      pelo usuário ou logo após os artigos comerciais principais).
+ *    - Esse arquivo alimenta automaticamente a vitrine da Home (`/`), a listagem
+ *      paginada do Blog (`/blog`) e a pesquisa interna (`/search`).
+ *    - Estrutura obrigatória do objeto em `src/data/articlesrocadeiras.ts`:
+ *      `{ title: "...", url: "/[slug-do-artigo]", image: "/images/blog/[slug-do-artigo].webp", excerpt: "..." }`
  *
  * 1. ARQUIVO DA PÁGINA ASTRO (`src/pages/[slug-do-artigo].astro`):
  *    - Hidratação Inteligente: Use SEMPRE `client:idle` no componente React
@@ -180,8 +193,12 @@
  *    - Pergunta direta adaptada ao tema (ex.: tamanho do terreno, tipo de capim/vegetação, frequência de uso).
  *    - Botões interativos de 1 clique direcionando via âncora (`#item-1...`) ao produto ideal.
  *
- * 4. VITRINE / TABELA RESUMO DE PRODUTOS:
- *    - Tabela comparativa com fotos (`60x60`), nome, perfil de uso, nota (`text-[#166534]` ou badge `#F0FDF4`) e botão `"Ver Preço"` (`#15803d`).
+ * 4. VITRINE / TABELA RESUMO DE PRODUTOS (OBRIGATÓRIO PADRÃO MOBILE SEM SCROLL LATERAL):
+ *    - Tabela comparativa idêntica ao `MelhorRocadeira.tsx`: no mobile, DEVE exibir
+ *      a Foto (`w-[70px]`, caixa `48x48`), o Texto (Nome + Perfil empilhado com `md:hidden` + Nota empilhada com `sm:hidden`)
+ *      e o botão `"Ver Preço"` (`w-[105px]`, `#15803d`) na MESMA tela, sem precisar rolar para o lado!
+ *    - As colunas separadas de `"Perfil Indicado"` (`hidden md:table-cell`) e `"Nota"` (`hidden sm:table-cell`)
+ *      só aparecem como colunas próprias em telas maiores (`sm`/`md`).
  *
  * 5. SEÇÕES DE CONTEÚDO E ANÁLISES DE PRODUTOS (`<h2>` e `<h3>`):
  *    - Seções informativas (`<h2>` e `<h3>`): conceitos técnicos (cilindrada, tipo de motor 2T/4T/bateria, tipo de eixo, guidão bike vs d-loop).
@@ -219,8 +236,11 @@
  * ============================================================================
  *
  * 1. Arquivos de Configuração
- * - articlesrocadeiras.ts: Crie o card deste novo artigo em `src/data/articlesrocadeiras.ts`
- *   com a URL: `/[slug-do-artigo]`. No componente do artigo, a assinatura do autor
+ * - articlesrocadeiras.ts (OBRIGATÓRIO): Insira o card deste novo artigo
+ *   no array `articles` em `src/data/articlesrocadeiras.ts`
+ *   com a URL `/[slug-do-artigo]`, imagem `/images/blog/[slug-do-artigo].webp` e resumo.
+ *   Isso garante que o artigo apareça na página `/blog`, na Home (`/`)
+ *   e na busca (`/search`). No componente do artigo, a assinatura do autor
  *   logo abaixo do H1 deve linkar para `/author/[slug-do-autor]/` com a foto e
  *   o nome correspondentes.
  * - productsrocadeira.ts: Crie/verifique os IDs no arquivo `src/data/productsrocadeira.ts`
@@ -256,22 +276,27 @@ import { products } from '../data/productsrocadeira';
 import { BunnerDoMeiorocadeira as BunnerDoMeio } from './roçadeiras/BunnerDoMeiorocadeira';
 import { ExitIntentPopuprocadeira as ExitIntentPopup } from './roçadeiras/ExitIntentPopuprocadeira';
 
-// Itens complementares de Cross-Sell mapeados diretamente do banco de dados do projeto:
+// Itens complementares de Cross-Sell mapeados diretamente do banco de dados do projeto
+// Imagens de Cross-Sell existentes em public/images/blog/thumbs/:
+// - /images/blog/thumbs/fio-duraline-cross.webp
+// - /images/blog/thumbs/kit-oleo-2t-cross.webp
+// - /images/blog/thumbs/kit-epis-cross.webp
+// - /images/blog/thumbs/faca-3-pontas-spin-cross.webp
 const crossSellProducts = {
-  "fio-nylon": products["fio-de-nylon-duraline-3mm-quadrado-255m"] || {
-    name: "Fio de Nylon Duraline 3mm Quadrado",
-    link: "https://meli.la/2DnBDze",
-    image: "/images/blog/Fio de nylon duraline 3mm e 255m quadrado.webp"
+  "fio-nylon": {
+    name: "Fio de Nylon Quadrado 3mm",
+    link: products["fio-de-nylon-duraline-3mm-quadrado-255m"]?.link || "https://meli.la/2PExUfX",
+    image: "/images/blog/thumbs/fio-duraline-cross.webp"
   },
-  "oleo-2t": products["kit-misturador-oleo-2t"] || {
-    name: "Óleo 2T Lubrificante com Dosador",
-    link: "https://meli.la/2DnBDze",
-    image: "/images/blog/Entendendo o Motor Dois Tempos nas Roçadeiras.webp"
+  "oleo-2t": {
+    name: "Kit Misturador + Óleo 2T",
+    link: products["kit-misturador-oleo-2t"]?.link || "https://meli.la/1GP142t",
+    image: "/images/blog/thumbs/kit-oleo-2t-cross.webp"
   },
   "kit-epi": {
-    name: "Kit de Segurança (Óculos + Protetor Auricular)",
-    link: "https://meli.la/2DnBDze",
-    image: "/images/blog/KIT SEGURANÇA COMPLETO (EPIs).webp"
+    name: "Kit Completo de EPIs",
+    link: products["kit-seguranca-completo-epis"]?.link || "https://meli.la/1hqH1JJ",
+    image: "/images/blog/thumbs/kit-epis-cross.webp"
   }
 };
 

@@ -25,16 +25,22 @@ export const articles: Article[] = [
     excerpt: "Cansado de fios que arrebentam toda hora? Descubra qual o melhor fio de nylon para roçadeira em 2026 com dicas práticas de operador para render mais no corte!"
   },
   {
-    title: "Roçadeira Husqvarna 131R é Boa? Vale o Investimento em 2026?",
+    title: "Roçadeira Husqvarna 131R é boa — Análise Completa",
     url: "/rocadeira-husqvarna-131r-e-boa",
     image: "/images/blog/roçadeira husqvarna 131r é boa.webp",
-    excerpt: "Roçadeira 131R ainda vale a pena? Descubra se a versatilidade e robustez compensam a idade. Análise completa para não errar na escolha!"
+    excerpt: "A Roçadeira Husqvarna 131R é boa? Veja a análise mecânica completa de motor, consumo, ficha técnica, prós e contras antes de comprar!"
   },
   {
     title: "Roçadeira Nakasaki é Boa? [Review de 3 Modelos em 2026]",
     url: "/rocadeira-nakasaki-e-boa",
     image: "/images/blog/Roçadeira Gasolina Profissional Nakasaki 2t 75cc Com Trimmer.webp",
     excerpt: "Roçadeira Nakasaki é boa mesmo? Analisamos potência real, durabilidade e custo-benefício dos modelos 65cc, 75cc e Costal para chácaras e sítios em 2026!"
+  },
+  {
+    title: "Qual o Melhor Óleo 2 Tempos para Roçadeira? Top 4 e Medida (2026)",
+    url: "/qual-o-melhor-oleo-2-tempos-para-rocadeira",
+    image: "/images/blog/qual-o-melhor-oleo-2-tempos-para-rocadeira.webp",
+    excerpt: "Qual o melhor óleo 2 tempos para roçadeira? Veja as melhores opções (Stihl, Husqvarna, Castrol e Lubrax) e a tabela exata de mistura por litro para não fundir o motor!"
   },
   {
     title: "Como Ligar Roçadeira a Gasolina (Motor Frio): Passo a Passo",
@@ -65,6 +71,18 @@ export const articles: Article[] = [
     url: "/como-colocar-fio-na-rocadeira",
     image: "/images/blog/1/como colocar fio na roçadeira​.webp",
     excerpt: "Cansado de fios de roçadeira que travam? Aprenda o método definitivo para recarregar seu carretel sem erros e mantenha seu jardim impecável com agilidade."
+  },
+  {
+    title: "Tamanho do Fio de Nylon para Roçadeira: Espessura e Como Escolher",
+    url: "/qual-o-tamanho-do-fio-de-nylon-para-rocadeira",
+    image: "/images/blog/qual-o-tamanho-do-fio-de-nylon-para-rocadeira.webp",
+    excerpt: "Qual o tamanho do fio de nylon para roçadeira ideal? Veja a tabela de espessura por máquina, quantos metros cortar no carretel e como enrolar sem travar!"
+  },
+  {
+    title: "Melhor Lâmina e Disco para Roçadeira: Qual Escolher para Cada Tipo de Mato?",
+    url: "/lamina-para-rocadeira",
+    image: "/images/blog/lamina-para-rocadeira.webp",
+    excerpt: "Qual o melhor disco ou lâmina para roçadeira? Veja o guia prático de operador com os melhores modelos, diferença entre facas e serras e como escolher!"
   }
 ];
 

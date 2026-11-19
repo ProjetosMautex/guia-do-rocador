@@ -65,6 +65,13 @@
  * PARTE 1: OS SEGREDOS DOS 100 PONTOS NO PAGESPEED (OBRIGATÓRIO SEGUIR)
  * ----------------------------------------------------------------------------
  *
+ * 0. CADASTRO OBRIGATÓRIO DO CARD EM `src/data/articlesrocadeiras.ts` (NO FINAL):
+ *    - Sempre que criar um novo artigo informativo/tutorial, adicione obrigatoriamente
+ *      o seu card no FINAL (última posição do array `articles`) do arquivo
+ *      `src/data/articlesrocadeiras.ts`.
+ *    - Esse arquivo alimenta automaticamente a listagem paginada do Blog (`/blog`)
+ *      e a pesquisa interna (`/search`), mantendo os artigos comerciais no topo.
+ *
  * 1. ARQUIVO DA PÁGINA ASTRO (`src/pages/[slug-do-artigo].astro`):
  *    - Hidratação Inteligente: Use SEMPRE `client:idle` no componente React
  *      (`<NomeDoComponente client:idle />`) em vez de `client:load`.
@@ -165,7 +172,7 @@
  * 4. MATERIAIS E FERRAMENTAS NECESSÁRIAS:
  *    - `<h2>` detalhando o que separar antes de iniciar o trabalho (chave de vela, pano, alicate, graxa, etc.).
  *    - Checklist escaneável com ícones de `Check`.
- *    - Menção ou link sutil para acessórios/ferramentas recomendadas em `src/data/productsrocadeira.ts`.
+ *    - ⚠️ REGRA ABSOLUTA: NUNCA use links de afiliado externos em artigos informacionais/tutoriais (apenas links internos para outros guias do site).
  *
  * 5. BANNER DO MEIO:
  *    - Componente `<BannerDoMeio />` centralizado no momento exato de transição para a prática.
@@ -203,7 +210,7 @@
  * ```markdown
  * Por favor, crie um novo artigo informativo/tutorial para o Guia do Roçador seguindo rigorosamente o GuiaPadraoArtigoInformativo.tsx:
  * 1. Dados e Componentes:
- *    - Catálogo: `src/data/articlesrocadeiras.ts`
+ *    - Catálogo: `src/data/articlesrocadeiras.ts` (SEMPRE adicionar o novo card no FINAL do arquivo)
  *    - Banco de Produtos: `src/data/productsrocadeira.ts`
  *    - Banner do Meio: `src/components/roçadeiras/BunnerDoMeiorocadeira.tsx`
  *    - Exit Intent Popup: `src/components/roçadeiras/ExitIntentPopuprocadeira.tsx`
@@ -225,7 +232,6 @@
  */
 
 import React, { useState } from 'react';
-import { products } from '../data/productsrocadeira';
 import { BunnerDoMeiorocadeira as BannerDoMeio } from './roçadeiras/BunnerDoMeiorocadeira';
 import { ExitIntentPopuprocadeira as ExitIntentPopup } from './roçadeiras/ExitIntentPopuprocadeira';
 
@@ -330,9 +336,6 @@ export const GuiaPadraoArtigoInformativo: React.FC = () => {
     }
   ];
 
-  // Ferramenta sugerida vinculada ao banco de dados do projeto (productsrocadeira.ts)
-  const kitOleo = products["kit-misturador-oleo-2t"];
-
   return (
     <div className="font-sans bg-white text-[#1a1a1a]">
       {/* =====================================================================
@@ -353,12 +356,6 @@ export const GuiaPadraoArtigoInformativo: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Badge Informativo de Tempo Estimado */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-green-300 text-xs font-semibold uppercase tracking-wider mb-6 border border-white/10">
-            <Clock size={14} />
-            <span>Tempo Estimado: 2 a 5 Minutos</span>
-          </div>
-
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight uppercase tracking-tighter">
             Como Desafogar Roçadeira em 2 Minutos <br />
             <span className="text-[#16A34A]">[Passo a Passo Prático]</span>
@@ -505,26 +502,6 @@ export const GuiaPadraoArtigoInformativo: React.FC = () => {
               </div>
             </div>
           </div>
-
-          {/* Dica de Produto Vinculado do Banco de Dados */}
-          {kitOleo && (
-            <div className="mt-6 pt-6 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4 bg-white p-4 rounded-xl">
-              <div className="text-xs text-gray-600">
-                <span className="font-bold text-gray-900 block text-sm mb-1">
-                  Combustível com óleo 2T na medida correta evita o excesso de fumaça e falhas de partida:
-                </span>
-                Recomendamos sempre o uso de um dosador graduado para evitar misturas ricas demais.
-              </div>
-              <a
-                href={kitOleo.link}
-                target="_blank"
-                rel="noopener noreferrer sponsored nofollow"
-                className="shrink-0 bg-[#16A34A] hover:bg-[#15803d] text-white text-xs font-black py-2.5 px-4 rounded-lg uppercase tracking-wider transition-colors no-underline"
-              >
-                Ver Dosador na Loja
-              </a>
-            </div>
-          )}
         </section>
 
         {/* ===================================================================

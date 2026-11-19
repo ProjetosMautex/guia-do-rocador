@@ -93,8 +93,8 @@ export const Blog: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {currentArticles.map((item, index) => (
-            <article key={index} className="bg-[#F9F9F9] rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full group hover:border-[#16A34A]/50">
+          {currentArticles.map((item) => (
+            <article key={item.url} className="bg-[#F9F9F9] rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col h-full group hover:border-[#16A34A]/50">
               <div className="relative h-56 overflow-hidden bg-gray-200 cursor-pointer" onClick={() => window.location.href = item.url}>
                 <img 
                   src={item.image} 
