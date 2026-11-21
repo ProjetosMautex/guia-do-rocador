@@ -83,6 +83,12 @@ export const articles: Article[] = [
     url: "/lamina-para-rocadeira",
     image: "/images/blog/lamina-para-rocadeira.webp",
     excerpt: "Qual o melhor disco ou lâmina para roçadeira? Veja o guia prático de operador com os melhores modelos, diferença entre facas e serras e como escolher!"
+  },
+  {
+    title: "Como Tirar e Colocar o Carretel da Roçadeira: Passo a Passo",
+    url: "/como-tirar-e-colocar-o-carretel-da-rocadeira",
+    image: "/images/blog/como-tirar-e-colocar-o-carretel-da-rocadeira.webp",
+    excerpt: "Aprenda como tirar e colocar o carretel da roçadeira sem estragar a rosca esquerda, como destravar cabeçote emperrado e como enrolar o fio de nylon sem embolar!"
   }
 ];
 
