@@ -37,6 +37,12 @@ export const articles: Article[] = [
     excerpt: "Roçadeira Nakasaki é boa mesmo? Analisamos potência real, durabilidade e custo-benefício dos modelos 65cc, 75cc e Costal para chácaras e sítios em 2026!"
   },
   {
+    title: "Melhor Carretel para Roçadeira: Guia e Top 6 Automáticos (2026)",
+    url: "/melhor-carretel-para-rocadeira",
+    image: "/images/blog/melhor-carretel-para-rocadeira.webp",
+    excerpt: "Qual o melhor carretel para roçadeira em 2026? Compare os 6 melhores automáticos (Stihl, Toyama, Vonder e Kawashima), entenda roscas M10 e M12 e escolha o ideal!"
+  },
+  {
     title: "Qual o Melhor Óleo 2 Tempos para Roçadeira? Top 4 e Medida (2026)",
     url: "/qual-o-melhor-oleo-2-tempos-para-rocadeira",
     image: "/images/blog/qual-o-melhor-oleo-2-tempos-para-rocadeira.webp",
@@ -89,6 +95,18 @@ export const articles: Article[] = [
     url: "/como-tirar-e-colocar-o-carretel-da-rocadeira",
     image: "/images/blog/como-tirar-e-colocar-o-carretel-da-rocadeira.webp",
     excerpt: "Aprenda como tirar e colocar o carretel da roçadeira sem estragar a rosca esquerda, como destravar cabeçote emperrado e como enrolar o fio de nylon sem embolar!"
+  },
+  {
+    title: "Qual o Melhor Óleo para Roçadeira Toyama? Top 4 Opções (2T e 4T)",
+    url: "/qual-o-melhor-oleo-para-rocadeira-toyama",
+    image: "/images/blog/qual-o-melhor-oleo-para-rocadeira-toyama.webp",
+    excerpt: "Qual o melhor óleo para roçadeira Toyama (2T e 4T)? Compare as 4 melhores opções, proporção exata da mistura (50:1 e 25:1) e evite fundir o motor no trecho!"
+  },
+  {
+    title: "Como Trocar a Lâmina ou Disco na Roçadeira (Passo a Passo)",
+    url: "/como-trocar-a-lamina-da-rocadeira",
+    image: "/images/blog/como-trocar-a-lamina-da-rocadeira.webp",
+    excerpt: "Aprenda como trocar a lâmina, disco de serra ou carretel de nylon na roçadeira com segurança. Veja a ordem das arruelas, o sentido da rosca esquerda e dicas de campo!"
   }
 ];
 

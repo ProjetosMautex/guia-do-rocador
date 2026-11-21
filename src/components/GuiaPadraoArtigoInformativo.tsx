@@ -46,10 +46,10 @@
  *
  * ❓ 3. AUTOR DO ARTIGO:
  *    - Quem é o autor responsável pelo artigo?
- *      • `carlos-henrique` (Carlos Henrique Menezes — Técnico em Mecânica de Equipamentos, especialista em motores 2T/4T, carburação e regulagem)
- *      • `jose-ailton` (José Ailton da Silva — Especialista Operacional em Roçadeiras, com mais de 10 anos lidando com operação diária, fios e lâminas)
- *      • `murilo` (Murilo — Fundador e Revisor Editorial)
- *    *(Isso define a assinatura "Por [Foto 32x32] [Nome]" com link para `/author/[slug]/` logo abaixo do H1)*
+ *      • `carlos-henrique` (Carlos Henrique Menezes — foto oficial: `/images/autores/Carlos Henrique Menezes-thumb.webp`)
+ *      • `jose-ailton` (José Ailton da Silva — foto oficial: `/images/autores/José Ailton da Silva-thumb.webp`)
+ *      • `murilo` (Murilo — foto oficial: `/images/autores/murilo.webp`)
+ *    *(Isso define a assinatura com link para `/author/[slug]/` e avatar 32x32 logo abaixo do H1)*
  *
  * ❓ 4. DIAGNÓSTICO DO PROBLEMA E MATERIAIS / FERRAMENTAS:
  *    - Qual é o problema ou dúvida central que o leitor quer resolver? (ex.: máquina afogada, fio de nylon quebrando ou embolando, motor engasgando na aceleração)
@@ -147,11 +147,14 @@
  *    - Box de Alerta de Segurança: `bg-amber-50 border-l-4 border-amber-500 text-amber-900`
  *    - Box de Dica do Especialista: `bg-green-50 border-l-4 border-[#16A34A] text-green-950`
  *
- * 6. REGRA ABSOLUTA DE FORMATAÇÃO DE TEXTO:
+ * 6. REGRA ABSOLUTA DE FORMATAÇÃO DE TEXTO E ESPAÇAMENTO:
  *    - NUNCA coloque palavras, termos técnicos ou frases em negrito (<b> ou <strong>)
  *      no meio dos parágrafos de texto corrido. O texto deve ser limpo e agradável.
  *    - A cada ponto final (`.`), DEVE haver uma quebra de parágrafo (`<p>...</p>`).
  *    - Cada parágrafo deve ter entre 1 e 3 linhas no máximo.
+ *    - ESPAÇAMENTO ENTRE PARÁGRAFOS: Garanta sempre margem inferior visível e espaçosa
+ *      (use classes como `mb-5 leading-relaxed text-base sm:text-lg` ou `mb-4 leading-relaxed`).
+ *      NUNCA use `m-0` em parágrafos de texto corrido para não grudar as frases.
  *
  * ----------------------------------------------------------------------------
  * PARTE 2: ANATOMIA COMPLETA DO ARTIGO TUTORIAL / INFORMATIVO

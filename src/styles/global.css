@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Garante espaçamento confortável e legibilidade entre parágrafos de artigos */
+.prose p {
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}

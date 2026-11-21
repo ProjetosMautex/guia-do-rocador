@@ -87,6 +87,97 @@ export const products: Record<string, Product> = {
   // ==========================================
   // PRODUTOS ATUALIZADOS / REVISADOS
   // ==========================================
+  // --- Novos Cabeçotes e Carretéis para Roçadeira ---
+  "cabecote-de-corte-autocut-p-rocadeiras-46-2-sthil": {
+    name: "Cabeçote De Corte Autocut P Roçadeiras 46-2 Sthil",
+    link: "https://meli.la/2QWaaN7",
+    image: "Cabeçote De Corte Autocut P Roçadeiras 46-2 Sthil.webp"
+  },
+  "Cabeçote De Corte Autocut P Roçadeiras 46-2 Sthil": {
+    name: "Cabeçote De Corte Autocut P Roçadeiras 46-2 Sthil",
+    link: "https://meli.la/2QWaaN7",
+    image: "Cabeçote De Corte Autocut P Roçadeiras 46-2 Sthil.webp"
+  },
+  "autocut-46-2": {
+    name: "Cabeçote De Corte Autocut P Roçadeiras 46-2 Sthil",
+    link: "https://meli.la/2QWaaN7",
+    image: "Cabeçote De Corte Autocut P Roçadeiras 46-2 Sthil.webp"
+  },
+  "cabecote-carretel-autocut-26-2-rocadeira-stihl": {
+    name: "Cabeçote Carretel Autocut 26-2 Roçadeira Stihl",
+    link: "https://meli.la/1N5KDte",
+    image: "Cabeçote Carretel Autocut 26-2 Roçadeira Stihl.webp"
+  },
+  "Cabeçote Carretel Autocut 26-2 Roçadeira Stihl": {
+    name: "Cabeçote Carretel Autocut 26-2 Roçadeira Stihl",
+    link: "https://meli.la/1N5KDte",
+    image: "Cabeçote Carretel Autocut 26-2 Roçadeira Stihl.webp"
+  },
+  "autocut-c-26-2": {
+    name: "Cabeçote Carretel Autocut 26-2 Roçadeira Stihl",
+    link: "https://meli.la/1N5KDte",
+    image: "Cabeçote Carretel Autocut 26-2 Roçadeira Stihl.webp"
+  },
+  "carretel-toyama-easy-load-automatico-para-rocadeira": {
+    name: "Carretel Toyama Easy Load Automático para Roçadeira",
+    link: "https://meli.la/2FiNTvX",
+    image: "Carretel Toyama Easy Load Automático para Roçadeira.webp"
+  },
+  "Carretel Toyama Easy Load Automático para Roçadeira": {
+    name: "Carretel Toyama Easy Load Automático para Roçadeira",
+    link: "https://meli.la/2FiNTvX",
+    image: "Carretel Toyama Easy Load Automático para Roçadeira.webp"
+  },
+  "toyama-easy-load-130mm": {
+    name: "Carretel Toyama Easy Load Automático para Roçadeira",
+    link: "https://meli.la/2FiNTvX",
+    image: "Carretel Toyama Easy Load Automático para Roçadeira.webp"
+  },
+  "carretel-automatico-easy-load-10mm-original-toyama": {
+    name: "Carretel Automatico Easy Load 10mm Original Toyama",
+    link: "https://meli.la/15gWWvv",
+    image: "Carretel Automatico Easy Load 10mm Original Toyama.webp"
+  },
+  "Carretel Automatico Easy Load 10mm Original Toyama": {
+    name: "Carretel Automatico Easy Load 10mm Original Toyama",
+    link: "https://meli.la/15gWWvv",
+    image: "Carretel Automatico Easy Load 10mm Original Toyama.webp"
+  },
+  "toyama-m10-125": {
+    name: "Carretel Automatico Easy Load 10mm Original Toyama",
+    link: "https://meli.la/15gWWvv",
+    image: "Carretel Automatico Easy Load 10mm Original Toyama.webp"
+  },
+  "carretel-completo-automatico-completo-para-rocadeiras-vonder": {
+    name: "Carretel Completo Automático Completo Para Roçadeiras Vonder",
+    link: "https://meli.la/16r9HWk",
+    image: "Carretel Completo Automático Completo Para Roçadeiras Vonder.webp"
+  },
+  "Carretel Completo Automático Completo Para Roçadeiras Vonder": {
+    name: "Carretel Completo Automático Completo Para Roçadeiras Vonder",
+    link: "https://meli.la/16r9HWk",
+    image: "Carretel Completo Automático Completo Para Roçadeiras Vonder.webp"
+  },
+  "carretel-vonder-m10": {
+    name: "Carretel Completo Automático Completo Para Roçadeiras Vonder",
+    link: "https://meli.la/16r9HWk",
+    image: "Carretel Completo Automático Completo Para Roçadeiras Vonder.webp"
+  },
+  "carretel-automatico-nylon-kawashima-para-rocadeira-stihl-rosca-m12-1-5": {
+    name: "Carretel Automático Nylon Kawashima Para Roçadeira Stihl Rosca M12 1,5",
+    link: "https://meli.la/1U7Kyd5",
+    image: "Carretel Automático Nylon Kawashima Para Roçadeira Stihl Rosca M12 1,5.webp"
+  },
+  "Carretel Automático Nylon Kawashima Para Roçadeira Stihl Rosca M12 1,5": {
+    name: "Carretel Automático Nylon Kawashima Para Roçadeira Stihl Rosca M12 1,5",
+    link: "https://meli.la/1U7Kyd5",
+    image: "Carretel Automático Nylon Kawashima Para Roçadeira Stihl Rosca M12 1,5.webp"
+  },
+  "carretel-kawashima-m12": {
+    name: "Carretel Automático Nylon Kawashima Para Roçadeira Stihl Rosca M12 1,5",
+    link: "https://meli.la/1U7Kyd5",
+    image: "Carretel Automático Nylon Kawashima Para Roçadeira Stihl Rosca M12 1,5.webp"
+  },
   "lamina-para-rocadeiras-2-pontas-305mm-x-25-4mm-vonder": {
     name: "Lâmina Para Roçadeiras 2 Pontas 305mm X 25,4mm Vonder",
     link: "https://meli.la/2AbLkDi",
@@ -483,6 +574,66 @@ export const products: Record<string, Product> = {
     name: "Intech Machine Skim5100",
     link: "https://meli.la/2FsSgnU",
     image: "Intech Machine Skim5100.webp"
+  },
+  "oleo-para-motores-2t-jaso-toyama-500ml": {
+    name: "Óleo Para Motores 2t Jaso Toyama 500ml",
+    link: "https://meli.la/1ufrroe",
+    image: "Óleo Para Motores 2t Jaso Toyama 500ml.webp"
+  },
+  "Óleo Para Motores 2t Jaso Toyama 500ml": {
+    name: "Óleo Para Motores 2t Jaso Toyama 500ml",
+    link: "https://meli.la/1ufrroe",
+    image: "Óleo Para Motores 2t Jaso Toyama 500ml.webp"
+  },
+  "oleo-toyama-2t-jaso-500ml": {
+    name: "Óleo Para Motores 2t Jaso Toyama 500ml",
+    link: "https://meli.la/1ufrroe",
+    image: "Óleo Para Motores 2t Jaso Toyama 500ml.webp"
+  },
+  "oleo-lubrificante-gg10-4t-a-gasolina-1lt-10w-30sl-toyama": {
+    name: "Óleo Lubrificante Gg10 4t A Gasolina 1lt 10w-30sl toyama",
+    link: "https://meli.la/2aVNwcb",
+    image: "Óleo Lubrificante Gg10 4t A Gasolina 1lt 10w-30sl toyama.webp"
+  },
+  "Óleo Lubrificante Gg10 4t A Gasolina 1lt 10w-30sl toyama": {
+    name: "Óleo Lubrificante Gg10 4t A Gasolina 1lt 10w-30sl toyama",
+    link: "https://meli.la/2aVNwcb",
+    image: "Óleo Lubrificante Gg10 4t A Gasolina 1lt 10w-30sl toyama.webp"
+  },
+  "oleo-toyama-gg10-4t-10w30": {
+    name: "Óleo Lubrificante Gg10 4t A Gasolina 1lt 10w-30sl toyama",
+    link: "https://meli.la/2aVNwcb",
+    image: "Óleo Lubrificante Gg10 4t A Gasolina 1lt 10w-30sl toyama.webp"
+  },
+  "oleo-moto-2t-lubrax-2-tempos-essencial-jaso-fc-2t-api-fc": {
+    name: "Óleo Moto 2t Lubrax 2 Tempos Essencial Jaso Fc 2t Api Fc",
+    link: "https://meli.la/1afayja",
+    image: "Óleo Moto 2t Lubrax 2 Tempos Essencial Jaso Fc 2t Api Fc.webp"
+  },
+  "Óleo Moto 2t Lubrax 2 Tempos Essencial Jaso Fc 2t Api Fc": {
+    name: "Óleo Moto 2t Lubrax 2 Tempos Essencial Jaso Fc 2t Api Fc",
+    link: "https://meli.la/1afayja",
+    image: "Óleo Moto 2t Lubrax 2 Tempos Essencial Jaso Fc 2t Api Fc.webp"
+  },
+  "oleo-lubrax-2t-essencial-jaso-fc": {
+    name: "Óleo Moto 2t Lubrax 2 Tempos Essencial Jaso Fc 2t Api Fc",
+    link: "https://meli.la/1afayja",
+    image: "Óleo Moto 2t Lubrax 2 Tempos Essencial Jaso Fc 2t Api Fc.webp"
+  },
+  "oleo-stihl-8017-h-oleo-lubrificante-2-tempos-castrol-500ml": {
+    name: "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml",
+    link: "https://meli.la/1SZxDLW",
+    image: "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml.webp"
+  },
+  "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml": {
+    name: "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml",
+    link: "https://meli.la/1SZxDLW",
+    image: "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml.webp"
+  },
+  "oleo-stihl-8017-h-castrol-500ml": {
+    name: "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml",
+    link: "https://meli.la/1SZxDLW",
+    image: "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml.webp"
   }
 };
 

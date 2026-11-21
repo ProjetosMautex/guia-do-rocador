@@ -1,0 +1,42 @@
+---
+import { Header } from '../components/Header';
+import { ComoTrocarLaminaRocadeira } from '../components/roçadeiras/ComoTrocarLaminaRocadeira';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopupfiodenylonpararocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopupfiodenylonpararocadeira';
+import '../styles/global.css';
+
+const title = "Como Trocar a Lâmina da Roçadeira: Passo a Passo Seguro | Guia do Roçador";
+const description = "Aprenda como trocar a lâmina da roçadeira e como colocar o disco com segurança. Veja o sentido da rosca esquerda, ordem correta das arruelas e dicas práticas!";
+const canonicalUrl = "https://guiadorocador.com.br/como-trocar-a-lamina-da-rocadeira";
+const ogImage = "/images/blog/como-trocar-a-lamina-da-rocadeira.webp";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="article" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+
+    <main class="flex-grow">
+      <ComoTrocarLaminaRocadeira client:idle />
+    </main>
+
+    <Footer />
+
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

@@ -47,10 +47,10 @@
  *
  * ❓ 3. AUTOR DO ARTIGO:
  *    - Quem é o autor responsável pelo artigo?
- *      • `carlos-henrique` (Carlos Henrique Menezes — Técnico em Mecânica de Equipamentos, especialista em motores 2T/4T, carburação e durabilidade mecânica)
- *      • `jose-ailton` (José Ailton da Silva — Especialista Operacional em Roçadeiras, com mais de 10 anos lidando com corte de capim, mato pesado e ergonomia)
- *      • `murilo` (Murilo — Fundador e Revisor Editorial)
- *    *(Isso define a assinatura "Por [Foto 32x32] [Nome]" com link para `/author/[slug]/` logo abaixo do H1)*
+ *      • `carlos-henrique` (Carlos Henrique Menezes — foto oficial: `/images/autores/Carlos Henrique Menezes-thumb.webp`)
+ *      • `jose-ailton` (José Ailton da Silva — foto oficial: `/images/autores/José Ailton da Silva-thumb.webp`)
+ *      • `murilo` (Murilo — foto oficial: `/images/autores/murilo.webp`)
+ *    *(Isso define a assinatura com link para `/author/[slug]/` e avatar 32x32 logo abaixo do H1)*
  *
  * ❓ 4. PRODUTOS, IMAGENS E LINKS DE AFILIADO:
  *    - Quais modelos/produtos serão analisados e recomendados no artigo? (ex.: Stihl FS 55, Husqvarna 143R-II, Vulcan VR520H, Nakasaki 63cc, etc.)
@@ -167,12 +167,95 @@
  *        o nome do autor duas vezes consecutivas (regra `image-redundant-alt` do Lighthouse).
  *    - Links de afiliado sempre com `target="_blank" rel="noopener noreferrer sponsored nofollow"`.
  *
- * 6. TEXTO CORRIDO LIMPO (SEM NEGRITO NO MEIO DOS PARÁGRAFOS):
+ * 6. TEXTO CORRIDO LIMPO E ESPAÇAMENTO OBRIGATÓRIO ENTRE PARÁGRAFOS:
  *    - NÃO use frases, termos técnicos, nomes de produtos ou palavras em negrito
  *      (<strong> ou <b>) no meio do texto corrido dos parágrafos.
  *    - O texto corrido deve ser 100% limpo, leve e natural de ler, evitando poluição visual.
  *    - O negrito fica reservado exclusivamente aos elementos estruturais:
  *      títulos (h1, h2, h3, h4), cabeçalhos de tabelas (th), botões, badges e rótulos de Prós/Contras.
+ *    - ESPAÇAMENTO ENTRE PARÁGRAFOS (REGRA CRUCIAL):
+ *      • A cada ponto final (.), DEVE haver uma quebra de parágrafo (<p>...</p>).
+ *      • Todo parágrafo DEVE ter margem inferior visível e espaçamento confortável:
+ *        use sempre classes como `mb-5 leading-relaxed text-base sm:text-lg` (ou no mínimo `mb-4 leading-relaxed`).
+ *      • ⚠️ NUNCA use `m-0` em parágrafos de texto corrido ou análises de produtos,
+ *        pois a classe `m-0` anula o margin-bottom e deixa os parágrafos colados uns nos outros!
+ *
+ * 7. BOTÕES DE PREÇO E CARDS DE OFERTA DURANTE O ARTIGO (`AffiliateCard.tsx`):
+ *    - Durante o artigo, em CADA bloco de análise individual de produto, é OBRIGATÓRIO
+ *      utilizar o componente oficial `<AffiliateCard id="[id-do-produto]" />`
+ *      (importado de `src/components/AffiliateCard.tsx`).
+ *    - O `<AffiliateCard />` já renderiza o card padronizado com borda `#16A34A`,
+ *      sombra suave, ícone de carrinho de compras e o botão de alta conversão
+ *      `"CLIQUE AQUI PARA VER O PREÇO"` com link seguro de afiliado.
+ *    - Os botões compactos com texto simples `"Ver Preço"` ficam restritos
+ *      exclusivamente à Vitrine/Tabela Resumo do início e aos cards do Banner de Cross-Sell.
+ *
+ * 8. VITRINE / TABELA RESUMO DO INÍCIO (REGRA CRÍTICA MOBILE — PROIBIDO SCROLL LATERAL):
+ *    - A vitrine no topo do artigo NUNCA deve forçar o usuário de celular a rolar
+ *      para o lado para enxergar o botão `"Ver Preço"`.
+ *    - Para isso, no mobile (`< 640px`), APENAS 3 COLUNAS podem ficar visíveis:
+ *      1. Coluna `Foto` (`w-[70px] sm:w-[90px]`, miniatura `45x45` no mobile e `60x60` no desktop).
+ *      2. Coluna `Modelo / Opção` (`text-left`), contendo o link do modelo + o perfil/resumo
+ *         empilhado embaixo com `md:hidden` + a nota empilhada embaixo com `sm:hidden`.
+ *      3. Coluna `Ação` (`w-[100px] sm:w-[150px]`), contendo o botão `"Ver Preço"` visível na mesma tela.
+ *    - As colunas extras de `"Perfil Indicado"` (`hidden md:table-cell`) e `"Nota"` (`hidden sm:table-cell`)
+ *      DEVEM obrigatoriamente ter `hidden` no mobile! JAMAIS crie colunas extras sem `hidden md:table-cell`.
+ *    - Estrutura JSX exata obrigatória para a Vitrine de TODOS os artigos comerciais:
+ *      ```tsx
+ *      <div className="mb-16 max-w-[850px] mx-auto bg-white p-3 rounded-2xl sm:p-6 border border-gray-200 shadow-sm">
+ *        <h2 className="text-2xl font-extrabold text-[#1a1a1a] mb-6 text-center">
+ *          Resumo Rápido: Melhores Opções Analisadas
+ *        </h2>
+ *        <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+ *          <table className="w-full border-collapse">
+ *            <thead className="bg-gray-50 text-gray-700 text-xs uppercase font-bold border-b border-gray-200">
+ *              <tr>
+ *                <th className="p-3 text-center w-[70px] sm:w-[90px]">Foto</th>
+ *                <th className="p-3 text-left">Modelo / Opção</th>
+ *                <th className="p-3 text-left hidden md:table-cell">Perfil Indicado</th>
+ *                <th className="p-3 text-center hidden sm:table-cell">Nota</th>
+ *                <th className="p-3 text-center w-[100px] sm:w-[150px]">Ação</th>
+ *              </tr>
+ *            </thead>
+ *            <tbody>
+ *              {items.map((item) => {
+ *                const prod = products[item.productId];
+ *                const displayName = prod?.name || item.shortName;
+ *                const affiliateUrl = prod?.link || '#';
+ *                return (
+ *                  <tr key={item.id} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50/80 transition-colors">
+ *                    <td className="p-2 align-middle text-center">
+ *                      <div className="w-[45px] h-[45px] sm:w-[60px] sm:h-[60px] border border-gray-200 rounded flex items-center justify-center p-0.5 bg-white mx-auto">
+ *                        <img src={item.thumbImage} alt={displayName} title={displayName} width={60} height={60} className="max-w-full max-h-full block object-contain mix-blend-multiply" loading="lazy" />
+ *                      </div>
+ *                    </td>
+ *                    <td className="p-2 align-middle">
+ *                      <a href={`#${item.id}`} className="text-sm sm:text-base font-bold text-[#1a1a1a] hover:text-[#166534] hover:underline leading-tight block">
+ *                        {item.shortName}
+ *                      </a>
+ *                      <div className="text-[11px] text-gray-600 mt-1 md:hidden">{item.category}</div>
+ *                      <div className="text-[11px] font-bold text-[#166534] mt-0.5 sm:hidden">Nota: {item.score} / 10</div>
+ *                    </td>
+ *                    <td className="p-2 align-middle text-gray-600 text-xs sm:text-sm hidden md:table-cell">{item.category}</td>
+ *                    <td className="p-2 align-middle text-center hidden sm:table-cell">
+ *                      <span className="bg-[#F0FDF4] text-[#166534] border border-[#16A34A]/30 text-xs font-bold px-2.5 py-0.5 rounded-full whitespace-nowrap">
+ *                        {item.score} / 10
+ *                      </span>
+ *                    </td>
+ *                    <td className="p-2 align-middle text-center">
+ *                      <a href={affiliateUrl} target="_blank" rel="noopener noreferrer sponsored nofollow" className="bg-[#15803d] hover:bg-[#166534] text-white font-bold no-underline text-xs py-2 px-3 rounded-lg whitespace-nowrap inline-block transition-all sm:py-2.5 sm:px-5 shadow-sm active:scale-95">
+ *                        Ver Preço
+ *                      </a>
+ *                    </td>
+ *                  </tr>
+ *                );
+ *              })}
+ *            </tbody>
+ *          </table>
+ *        </div>
+ *      </div>
+ *      ```
+ *
  *
  * ----------------------------------------------------------------------------
  * PARTE 2: ANATOMIA COMPLETA DO ARTIGO (DO TOPO AO FIM — JARDINAGEM E TERRENO)

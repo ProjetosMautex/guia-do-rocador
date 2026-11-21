@@ -1,0 +1,42 @@
+---
+import { Header } from '../components/Header';
+import { MelhorCarretelRocadeira } from '../components/roçadeiras/MelhorCarretelRocadeira';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopupfiodenylonpararocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopupfiodenylonpararocadeira';
+import '../styles/global.css';
+
+const title = "Melhor Carretel para Roçadeira: Guia e Top 6 Automáticos (2026) | Guia do Roçador";
+const description = "Qual o melhor carretel para roçadeira em 2026? Compare os 6 melhores automáticos (Stihl, Toyama, Vonder e Kawashima), entenda roscas M10 e M12 e escolha o ideal!";
+const canonicalUrl = "https://guiadorocador.com.br/melhor-carretel-para-rocadeira";
+const ogImage = "/images/blog/melhor-carretel-para-rocadeira.webp";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="article" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+
+    <main class="flex-grow">
+      <MelhorCarretelRocadeira client:idle />
+    </main>
+
+    <Footer />
+
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>
