@@ -634,6 +634,141 @@ export const products: Record<string, Product> = {
     name: "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml",
     link: "https://meli.la/1SZxDLW",
     image: "Oleo Stihl 8017 H Óleo Lubrificante 2 Tempos Castrol 500ml.webp"
+  },
+  "rocadeira-profissional-brushless-sb-gfr-18v23-bosch": {
+    name: "Roçadeira Profissional Brushless SB GFR 18v23 Bosch",
+    link: "https://meli.la/2QFJnEJ",
+    image: "Roçadeira Profissional Brushless SB GFR 18v23 Bosch.webp"
+  },
+  "Roçadeira Profissional Brushless SB GFR 18v23 Bosch": {
+    name: "Roçadeira Profissional Brushless SB GFR 18v23 Bosch",
+    link: "https://meli.la/2QFJnEJ",
+    image: "Roçadeira Profissional Brushless SB GFR 18v23 Bosch.webp"
+  },
+  "bosch-gfr-18v-23": {
+    name: "Roçadeira Profissional Brushless SB GFR 18v23 Bosch",
+    link: "https://meli.la/2QFJnEJ",
+    image: "Roçadeira Profissional Brushless SB GFR 18v23 Bosch.webp"
+  },
+  "rocadeira-lateral-motor-brushless-com-carregador-duplo-e-2-baterias-4a-tbt18-18bc300-k-toyama": {
+    name: "Roçadeira Lateral Motor Brushless Com Carregador Duplo e 2 Baterias 4A TBT18 18BC300-K Toyama",
+    link: "https://meli.la/2WnTGJG",
+    image: "Roçadeira Lateral Motor Brushless Com Carregador Duplo e 2 Baterias 4A TBT18 18BC300-K Toyama.webp"
+  },
+  "Roçadeira Lateral Motor Brushless Com Carregador Duplo e 2 Baterias 4A TBT18 18BC300-K Toyama": {
+    name: "Roçadeira Lateral Motor Brushless Com Carregador Duplo e 2 Baterias 4A TBT18 18BC300-K Toyama",
+    link: "https://meli.la/2WnTGJG",
+    image: "Roçadeira Lateral Motor Brushless Com Carregador Duplo e 2 Baterias 4A TBT18 18BC300-K Toyama.webp"
+  },
+  "toyama-tbt18-18bc300-k": {
+    name: "Roçadeira Lateral Motor Brushless Com Carregador Duplo e 2 Baterias 4A TBT18 18BC300-K Toyama",
+    link: "https://meli.la/2WnTGJG",
+    image: "Roçadeira Lateral Motor Brushless Com Carregador Duplo e 2 Baterias 4A TBT18 18BC300-K Toyama.webp"
+  },
+  "rocadeira-carrinho-bateria-cpl-tbt18bc250sk-toyama": {
+    name: "Rocadeira Carrinho Bateria Cpl Tbt18bc250sk Toyama",
+    link: "https://meli.la/1BaGqtw",
+    image: "Rocadeira Carrinho Bateria Cpl Tbt18bc250sk Toyama.webp"
+  },
+  "Rocadeira Carrinho Bateria Cpl Tbt18bc250sk Toyama": {
+    name: "Rocadeira Carrinho Bateria Cpl Tbt18bc250sk Toyama",
+    link: "https://meli.la/1BaGqtw",
+    image: "Rocadeira Carrinho Bateria Cpl Tbt18bc250sk Toyama.webp"
+  },
+  "toyama-tbt18bc250sk": {
+    name: "Rocadeira Carrinho Bateria Cpl Tbt18bc250sk Toyama",
+    link: "https://meli.la/1BaGqtw",
+    image: "Rocadeira Carrinho Bateria Cpl Tbt18bc250sk Toyama.webp"
+  },
+  "aparador-de-grama-bateria-intercambiavel-de-18-v-dwt": {
+    name: "Aparador De Grama Bateria Intercambiável De 18 V Dwt",
+    link: "https://meli.la/1CrzFdF",
+    image: "Aparador De Grama Bateria Intercambiável De 18 V Dwt.webp"
+  },
+  "Aparador De Grama Bateria Intercambiável De 18 V Dwt": {
+    name: "Aparador De Grama Bateria Intercambiável De 18 V Dwt",
+    link: "https://meli.la/1CrzFdF",
+    image: "Aparador De Grama Bateria Intercambiável De 18 V Dwt.webp"
+  },
+  "dwt-iagd-1801": {
+    name: "Aparador De Grama Bateria Intercambiável De 18 V Dwt",
+    link: "https://meli.la/1CrzFdF",
+    image: "Aparador De Grama Bateria Intercambiável De 18 V Dwt.webp"
+  },
+  "rocadeira-aparador-grama-a-bateria-tcg12b-the-black-tools": {
+    name: "Roçadeira Aparador Grama A Bateria Tcg12b The Black Tools",
+    link: "https://meli.la/2jEZEwT",
+    image: "Roçadeira Aparador Grama A Bateria Tcg12b The Black Tools.webp"
+  },
+  "Roçadeira Aparador Grama A Bateria Tcg12b The Black Tools": {
+    name: "Roçadeira Aparador Grama A Bateria Tcg12b The Black Tools",
+    link: "https://meli.la/2jEZEwT",
+    image: "Roçadeira Aparador Grama A Bateria Tcg12b The Black Tools.webp"
+  },
+  "the-black-tools-tcg12b": {
+    name: "Roçadeira Aparador Grama A Bateria Tcg12b The Black Tools",
+    link: "https://meli.la/2jEZEwT",
+    image: "Roçadeira Aparador Grama A Bateria Tcg12b The Black Tools.webp"
+  },
+  "rocadeira-eletrica-makita-ur006gz02-40v-xgt": {
+    name: "Roçadeira Eletrica Makita Ur006gz02 40v Xgt",
+    link: "https://meli.la/2QiaDGk",
+    image: "Roçadeira Eletrica Makita Ur006gz02 40v Xgt.webp"
+  },
+  "Roçadeira Eletrica Makita Ur006gz02 40v Xgt": {
+    name: "Roçadeira Eletrica Makita Ur006gz02 40v Xgt",
+    link: "https://meli.la/2QiaDGk",
+    image: "Roçadeira Eletrica Makita Ur006gz02 40v Xgt.webp"
+  },
+  "makita-ur006gz02": {
+    name: "Roçadeira Eletrica Makita Ur006gz02 40v Xgt",
+    link: "https://meli.la/2QiaDGk",
+    image: "Roçadeira Eletrica Makita Ur006gz02 40v Xgt.webp"
+  },
+  "aparador-de-grama-tekna-a-bateria-24v-litio-bivolt-ag24b-2fc": {
+    name: "Aparador De Grama Tekna A Bateria 24v Litio Bivolt Ag24b-2fc",
+    link: "https://meli.la/1vzyVUk",
+    image: "Aparador De Grama Tekna A Bateria 24v Litio Bivolt Ag24b-2fc.webp"
+  },
+  "Aparador De Grama Tekna A Bateria 24v Litio Bivolt Ag24b-2fc": {
+    name: "Aparador De Grama Tekna A Bateria 24v Litio Bivolt Ag24b-2fc",
+    link: "https://meli.la/1vzyVUk",
+    image: "Aparador De Grama Tekna A Bateria 24v Litio Bivolt Ag24b-2fc.webp"
+  },
+  "tekna-ag24b-2fc": {
+    name: "Aparador De Grama Tekna A Bateria 24v Litio Bivolt Ag24b-2fc",
+    link: "https://meli.la/1vzyVUk",
+    image: "Aparador De Grama Tekna A Bateria 24v Litio Bivolt Ag24b-2fc.webp"
+  },
+  "rocadeira-lateral-a-bateria-toyama-tbt58bcx-k-3": {
+    name: "Roçadeira Lateral a Bateria Toyama TBT58BCX-K 3",
+    link: "https://meli.la/1y5DGCo",
+    image: "Roçadeira Lateral a Bateria Toyama TBT58BCX-K 3.webp"
+  },
+  "Roçadeira Lateral a Bateria Toyama TBT58BCX-K 3": {
+    name: "Roçadeira Lateral a Bateria Toyama TBT58BCX-K 3",
+    link: "https://meli.la/1y5DGCo",
+    image: "Roçadeira Lateral a Bateria Toyama TBT58BCX-K 3.webp"
+  },
+  "toyama-tbt58bcx-k": {
+    name: "Roçadeira Lateral a Bateria Toyama TBT58BCX-K 3",
+    link: "https://meli.la/1y5DGCo",
+    image: "Roçadeira Lateral a Bateria Toyama TBT58BCX-K 3.webp"
+  },
+  "rocadeira-lateral-a-bateria-21v-com-2-baterias-bom9109-bomvink": {
+    name: "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink",
+    link: "https://meli.la/1ciKERJ",
+    image: "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink.webp"
+  },
+  "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink": {
+    name: "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink",
+    link: "https://meli.la/1ciKERJ",
+    image: "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink.webp"
+  },
+  "bomvink-bom-9109": {
+    name: "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink",
+    link: "https://meli.la/1ciKERJ",
+    image: "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink.webp"
   }
 };
 

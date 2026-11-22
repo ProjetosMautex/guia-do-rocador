@@ -1,0 +1,42 @@
+---
+import { Header } from '../components/Header';
+import { QualOFuroLaminaStihl220 } from '../components/roçadeiras/QualOFuroLaminaStihl220';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopupfiodenylonpararocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopupfiodenylonpararocadeira';
+import '../styles/global.css';
+
+const title = "Qual o Furo da Lâmina da Roçadeira Stihl FS 220? (E Como Trocar na Linha Stihl) | Guia do Roçador";
+const description = "Qual o furo da lâmina da roçadeira Stihl FS 220? Veja a medida exata (20 mm), tabela de modelos compatíveis e como trocar a lâmina na linha Stihl com segurança!";
+const canonicalUrl = "https://guiadorocador.com.br/qual-o-furo-da-lamina-da-rocadeira-stihl-220";
+const ogImage = "/images/blog/qual-o-furo-da-lamina-da-rocadeira-stihl-220.webp";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="article" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+
+    <main class="flex-grow">
+      <QualOFuroLaminaStihl220 client:idle />
+    </main>
+
+    <Footer />
+
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

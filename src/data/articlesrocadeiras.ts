@@ -37,6 +37,12 @@ export const articles: Article[] = [
     excerpt: "Roçadeira Nakasaki é boa mesmo? Analisamos potência real, durabilidade e custo-benefício dos modelos 65cc, 75cc e Costal para chácaras e sítios em 2026!"
   },
   {
+    title: "Melhor Roçadeira a Bateria em 2026: Top 11 Modelos",
+    url: "/melhor-rocadeira-a-bateria",
+    image: "/images/blog/melhor-rocadeira-a-bateria.webp",
+    excerpt: "Qual a melhor roçadeira a bateria em 2026? Análise técnica de 11 modelos (Bosch, Makita, STIHL, Toyama e mais) com foco em torque, autonomia e durabilidade!"
+  },
+  {
     title: "Melhor Carretel para Roçadeira: Guia e Top 6 Automáticos (2026)",
     url: "/melhor-carretel-para-rocadeira",
     image: "/images/blog/melhor-carretel-para-rocadeira.webp",
@@ -107,6 +113,18 @@ export const articles: Article[] = [
     url: "/como-trocar-a-lamina-da-rocadeira",
     image: "/images/blog/como-trocar-a-lamina-da-rocadeira.webp",
     excerpt: "Aprenda como trocar a lâmina, disco de serra ou carretel de nylon na roçadeira com segurança. Veja a ordem das arruelas, o sentido da rosca esquerda e dicas de campo!"
+  },
+  {
+    title: "Como Amolar Disco de Roçadeira: Passo a Passo Seguro (Aço e Vídea)",
+    url: "/como-amolar-disco-de-rocadeira",
+    image: "/images/blog/como-amolar-disco-de-rocadeira.webp",
+    excerpt: "Aprenda como amolar disco de roçadeira (aço e vídea) passo a passo com segurança. Veja qual lima usar, como evitar vibração no balanceamento e dicas práticas de campo!"
+  },
+  {
+    title: "Qual o Furo da Lâmina da Roçadeira Stihl FS 220? (E Como Trocar na Linha Stihl)",
+    url: "/qual-o-furo-da-lamina-da-rocadeira-stihl-220",
+    image: "/images/blog/qual-o-furo-da-lamina-da-rocadeira-stihl-220.webp",
+    excerpt: "Qual o furo da lâmina da roçadeira Stihl FS 220? Veja a medida exata (20 mm), tabela de modelos compatíveis e como trocar a lâmina na linha Stihl com segurança!"
   }
 ];
 
