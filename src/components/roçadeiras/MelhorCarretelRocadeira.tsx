@@ -994,7 +994,11 @@ export const MelhorCarretelRocadeira: React.FC = () => {
                 Como Abastecer Carretéis Automáticos de Carga Fácil (Easy Load)
               </h3>
               <p className="mb-5 text-gray-700 leading-relaxed text-sm sm:text-base">
-                Nos cabeçotes modernos de recarga rápida — como o Stihl AutoCut C 26-2, o Toyama Easy Load e o Vonder Completo —, você repõe a linha por fora sem precisar desmontar as travas nem correr o risco de perder a mola no capim:
+                Nos cabeçotes modernos de recarga rápida — como o Stihl AutoCut C 26-2, o Toyama Easy Load e o Vonder Completo —, você repõe a linha por fora sem precisar desmontar as travas (e para cabeçotes tradicionais com tampa, confira o guia de{' '}
+                <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  como colocar fio na roçadeira sem embolar
+                </a>
+                ):
               </p>
               <div className="grid sm:grid-cols-3 gap-4">
                 <div className="bg-white p-4 rounded-xl border border-[#16A34A]/20">
@@ -1145,7 +1149,11 @@ export const MelhorCarretelRocadeira: React.FC = () => {
                     M10x1,25 mm esquerda é o padrão universal da Toyama, Vulcan, Tekna e Nakasaki.
                   </p>
                   <p className="mb-3 leading-relaxed">
-                    M12x1,5 mm esquerda é o padrão das Stihl pesadas como FS 160, 220 e 290.
+                    M12x1,5 mm esquerda é o padrão das Stihl pesadas como FS 160, 220 e 290 (que também usam{' '}
+                    <a href="/qual-o-furo-da-lamina-da-rocadeira-stihl-220" className="text-[#16A34A] font-semibold hover:underline">
+                      furo central de 20 mm na lâmina
+                    </a>
+                    ).
                   </p>
                   <p className="mb-0 leading-relaxed">
                     Para aprender como fazer a desmontagem correta sem estragar o eixo, veja o nosso tutorial de <a href="/como-tirar-e-colocar-o-carretel-da-rocadeira" className="text-[#16A34A] font-semibold hover:underline">como tirar e colocar o carretel da roçadeira</a>.
@@ -1201,7 +1209,15 @@ export const MelhorCarretelRocadeira: React.FC = () => {
                 O melhor cabeçote do mundo não rende se você colocar o filamento errado lá dentro.
               </p>
               <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-                Confira a espessura máxima gravada na carcaça e consulte o nosso guia sobre <a href="/qual-o-tamanho-do-fio-de-nylon-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">tamanho do fio de nylon para roçadeira</a> para acertar na metragem:
+                Confira a espessura máxima gravada na carcaça no nosso guia de{' '}
+                <a href="/qual-o-tamanho-do-fio-de-nylon-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                  tamanho do fio de nylon para roçadeira
+                </a>{' '}
+                e compare as marcas mais duráveis no ranking do{' '}
+                <a href="/qual-o-melhor-fio-de-nylon-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                  melhor fio de nylon para roçadeira
+                </a>
+                :
               </p>
             </div>
 

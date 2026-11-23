@@ -256,6 +256,42 @@
  *      </div>
  *      ```
  *
+ * 9. REDAÇÃO HUMANA, ANTI-ROBOTIZAÇÃO, ANTI-STUFFING E ZERO VÍDEOS (INDEXAÇÃO NO GOOGLE):
+ *    - INTRODUÇÃO DIRETA DE OFICINA / CAMPO (PROIBIDO CLICHÊS DE IA):
+ *      • JAMAIS comece artigos com frases genéricas e robóticas como "gerar frustração e atrasos no campo",
+ *        "manter o jardim impecável", "quem nunca passou pela frustração...", "no mundo atual" ou "este guia definitivo".
+ *      • Vá direto ao ponto na primeira frase como um mecânico/operador experiente falando na bancada
+ *        (citando o problema real, o critério técnico decisivo ou a medida/causa prática).
+ *    - ZERO KEYWORD STUFFING (EMPILHAMENTO ARTIFICIAL DE PALAVRAS-CHAVE):
+ *      • NUNCA empilhe variações exatas da mesma palavra-chave entre parênteses na introdução
+ *        nem crie caixas de "Navegação Rápida" repetindo a palavra-chave 5 ou 6 vezes nos links de âncora.
+ *      • Use linguagem natural, sinônimos técnicos e títulos de seções variados.
+ *    - ZERO REPETIÇÃO DE BLOCOS INTERNOS E ENTRE ARTIGOS:
+ *      • NÃO repita o mesmo passo a passo várias vezes dentro do artigo só mudando o nome da marca/modelo;
+ *        em vez disso, crie UMA tabela comparativa de particularidades por marca/modelo.
+ *      • NÃO reescreva explicações longas que já possuem artigo dedicado no site (ex.: mistura de óleo 2T,
+ *        rosca esquerda, regulagem de carburador, troca de lâmina). Faça um resumo de 1 linha e envie link interno!
+ *    - ELEMENTOS ORIGINAIS SEM VÍDEOS (PAGESPEED 100):
+ *      • Priorize elementos práticos de alto valor que textos genéricos não têm: tabelas de diagnóstico por sintoma,
+ *        tabelas de especificações/medidas por marca, comparativos de oficina e dicas técnicas reais.
+ *      • ⚠️ NUNCA incorpore `<video>` nem iframes do YouTube diretamente nas páginas do site para não
+ *        derrubar a nota 100 do Google PageSpeed / LCP / TBT.
+ *
+ * 10. PROTOCOLO OBRIGATÓRIO DE LINKAGEM INTERNA CONTEXTUAL (SEMPRE EXECUTAR AO CRIAR ARTIGO):
+ *    - ANTES e DURANTE a redação de qualquer artigo novo, o assistente/IA DEVE ler `src/data/articlesrocadeiras.ts`
+ *      para mapear todos os artigos já publicados no site.
+ *    - PASSO A — LINKS SAINDO DO ARTIGO NOVO (OBRIGATÓRIO 2 A 5 LINKS):
+ *      • Identifique palavras, expressões ou dúvidas que JÁ aparecem naturalmente no texto enviado para criação
+ *        (ex.: "óleo 2 tempos", "fio de nylon", "carretel", "lâmina", "carburador", "roçadeira a bateria", "desafogar")
+ *        e transforme essas palavras exatas em links internos `<a href="/slug-existente">` com classe
+ *        `text-[#166534] font-semibold hover:underline` (ou `text-[#16A34A] font-semibold hover:underline`).
+ *      • Os links devem ser 100% naturais no contexto da frase — nunca empilhe listas artificiais de links soltos.
+ *    - PASSO B — LINKS APONTANDO PARA O ARTIGO NOVO (ZERO PÁGINAS ÓRFÃS):
+ *      • Sempre que criar um artigo novo, procure 1 a 2 artigos já existentes (especialmente páginas pilares
+ *        como `/melhor-rocadeira`, `/melhor-rocadeira-a-bateria`, `/qual-o-melhor-fio-de-nylon-para-rocadeira` ou
+ *        outros guias do mesmo cluster) que já mencionam aquele tema no texto e adicione um link interno contextual
+ *        apontando para a URL do artigo recém-criado. Nenhum artigo pode ficar órfão (0 links internos recebidos).
+ *
  *
  * ----------------------------------------------------------------------------
  * PARTE 2: ANATOMIA COMPLETA DO ARTIGO (DO TOPO AO FIM — JARDINAGEM E TERRENO)

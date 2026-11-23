@@ -478,7 +478,15 @@ export const ComoTrocarLaminaRocadeira: React.FC = () => {
               Mantenha apenas a flange interna encaixada na ponteira e rosqueie o cabeçote de nylon diretamente no eixo girando no sentido anti-horário até encostar com firmeza.
             </p>
             <p className="mb-0 text-sm sm:text-base text-gray-700 leading-relaxed">
-              Caso precise de instruções detalhadas sobre enrolar o fio no cabeçote sem embolar, veja também o nosso guia prático de <a href="/como-tirar-e-colocar-o-carretel-da-rocadeira" className="text-[#16A34A] font-semibold hover:underline">como tirar e colocar o carretel da roçadeira</a>.
+              Para ver o destravamento de rosca emperrada veja{' '}
+              <a href="/como-tirar-e-colocar-o-carretel-da-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                como tirar e colocar o carretel da roçadeira
+              </a>
+              , e se precisar rebobinar a linha sem travar a mola siga nosso guia de{' '}
+              <a href="/como-colocar-fio-na-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                como colocar fio na roçadeira sem embolar
+              </a>
+              .
             </p>
           </div>
         </section>
@@ -508,7 +516,15 @@ export const ComoTrocarLaminaRocadeira: React.FC = () => {
                 Acelerar sentindo vibração forte no guidão
               </h3>
               <p className="mb-0 text-xs sm:text-sm text-red-800 leading-relaxed">
-                Se a máquina começou a trepidar além do normal logo após a troca, pare imediatamente. Quase sempre indica que a lâmina sentou fora do degrau de centralização ou que falta o anel redutor.
+                Se a máquina começou a trepidar além do normal logo após a troca, pare imediatamente: quase sempre indica que a lâmina sentou fora do degrau de centralização, perdeu o balanceamento (veja{' '}
+                <a href="/como-amolar-disco-de-rocadeira" className="text-red-900 font-semibold underline">
+                  como amolar e balancear o disco
+                </a>
+                ) ou usa medida diferente da flange — confira a tabela de{' '}
+                <a href="/qual-o-furo-da-lamina-da-rocadeira-stihl-220" className="text-red-900 font-semibold underline">
+                  furo 20 mm vs. 25,4 mm na linha Stihl
+                </a>
+                .
               </p>
             </div>
 
@@ -563,7 +579,15 @@ export const ComoTrocarLaminaRocadeira: React.FC = () => {
                 Se a roçadeira for ficar mais de 15 dias sem uso após o trabalho, esvazie o tanque de combustível por completo.
               </p>
               <p className="mb-0 text-xs sm:text-sm leading-relaxed text-gray-700">
-                Ligue o motor em marcha lenta e deixe-o funcionar até morrer sozinho por falta de combustível, secando os diafragmas do carburador e evitando gomas de óleo 2 tempos decantado.
+                Ligue o motor em marcha lenta e deixe-o funcionar até morrer sozinho por falta de combustível, secando os diafragmas do carburador e evitando gomas de{' '}
+                <a href="/qual-o-melhor-oleo-2-tempos-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  óleo 2 tempos
+                </a>{' '}
+                decantado que depois exigem limpeza ou{' '}
+                <a href="/como-regular-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  regulagem do carburador
+                </a>
+                .
               </p>
             </div>
           </div>

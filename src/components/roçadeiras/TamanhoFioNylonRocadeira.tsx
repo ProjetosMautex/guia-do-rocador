@@ -193,7 +193,7 @@ export const TamanhoFioNylonRocadeira: React.FC = () => {
               </li>
               <li>
                 <a href="#como-enrolar-sem-embolar" className="hover:underline flex items-center gap-2">
-                  <span>→</span> Como Enrolar no Carretel sem Embolar
+                  <span>→</span> Cuidados de Recarga para Não Perder Metragem
                 </a>
               </li>
               <li>
@@ -252,7 +252,11 @@ export const TamanhoFioNylonRocadeira: React.FC = () => {
               <tbody className="divide-y divide-gray-200 text-sm sm:text-base">
                 <tr className="hover:bg-gray-50">
                   <th className="p-4 text-left font-bold text-[#1a1a1a]">
-                    Aparadores elétricos, a bateria e roçadeiras até 27 cc
+                    Aparadores elétricos,{' '}
+                    <a href="/melhor-rocadeira-a-bateria" className="text-[#166534] hover:underline">
+                      roçadeiras a bateria
+                    </a>{' '}
+                    e modelos até 27 cc
                   </th>
                   <td className="p-4 font-black text-[#166534] whitespace-nowrap">
                     1,6 mm a 2,0 mm
@@ -492,75 +496,45 @@ export const TamanhoFioNylonRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            8. COMO ENROLAR O FIO NO CARRETEL SEM EMBOLAR (PASSO A PASSO)
+            8. CUIDADOS DE RECARGA PARA NÃO PERDER METRAGEM (LINK AO TUTORIAL DEDICADO)
             =================================================================== */}
         <section id="como-enrolar-sem-embolar" className="mb-14 scroll-mt-24">
-          <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
-            Como Enrolar o Fio no Carretel sem Embolar
+          <h2 className="text-3xl font-black text-[#1a1a1a] mb-6 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
+            Cuidados de Recarga para Não Perder Metragem no Carretel
           </h2>
 
-          <div className="space-y-10">
-            {/* MODO 1 */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-[#1a1a1a] flex items-center gap-3">
-                <span className="bg-[#16A34A] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">
-                  1
-                </span>
-                No Carretel Tradicional (AutoCut que Abre)
-              </h3>
-              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-                <p>
-                  Desligue o motor por completo e isole a ignição soltando o cabo da vela ou removendo a bateria antes de tocar no cabeçote.
-                </p>
-                <p>
-                  Aperte as travas plásticas laterais para abrir a tampa, retire a bobina interna e limpe toda a terra seca acumulada na mola central.
-                </p>
-                <p>
-                  Prenda as pontas nos furos internos (ou na fenda central) e enrole com firmeza no sentido exato da seta gravada na bobina, mantendo as voltas paralelas sem cruzar.
-                </p>
-                <p>
-                  Trave temporariamente as pontas nas fendas da borda, passe os filamentos pelos olhais metálicos laterais e feche a tampa até ouvir o clique firme de travamento.
-                </p>
-              </div>
-            </div>
-
-            {/* MODO 2 */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-[#1a1a1a] flex items-center gap-3">
-                <span className="bg-[#16A34A] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">
-                  2
-                </span>
-                No Carretel de Recarga Rápida (AutoCut C sem Abrir)
-              </h3>
-              <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-                <p>
-                  Os cabeçotes de carga rápida eliminam a necessidade de desmontar a carcaça no meio do terreno.
-                </p>
-                <p>
-                  Alinhe as setas gravadas na tampa com os ilhoses laterais de saída do fio.
-                </p>
-                <p>
-                  Atravesse o segmento de nylon de um lado ao outro do cabeçote até igualar perfeitamente o comprimento das duas pontas no centro.
-                </p>
-                <p>
-                  Em seguida, gire o manípulo central no sentido indicado pelas setas até recolher a linha e restar apenas um palmo (15 a 20 cm) de cada lado.
-                </p>
-                <p>
-                  Se quiser ver fotos detalhadas de cada modelo de bobina, acesse também o nosso tutorial completo sobre{' '}
-                  <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] hover:underline font-semibold">
-                    como colocar fio na roçadeira sem embolar
-                  </a>
-                  .
-                </p>
-              </div>
-            </div>
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-8">
+            <p>
+              Acertar a espessura e cortar a metragem certa só rende se o fio ficar tensionado por igual na bobina, respeitando sempre o sentido das setas moldadas no plástico.
+            </p>
+            <p>
+              Em cabeçotes convencionais que abrem a tampa, evite cruzar as espiras entre si para impedir o aquecimento por atrito que solda o nylon lá dentro.
+            </p>
+            <p>
+              Já em modelos de recarga rápida Easy Load — que economizam muito tempo no trecho, como mostramos no ranking do{' '}
+              <a href="/melhor-carretel-para-rocadeira" className="text-[#166534] hover:underline font-semibold">
+                melhor carretel para roçadeira
+              </a>{' '}
+              —, alinhe as setas com os ilhoses, atravesse o segmento inteiro e iguale as duas metades antes de girar a catraca.
+            </p>
+            <p>
+              Para seguir o roteiro fotográfico completo de rebobinagem sem travar a mola, acesse o guia de{' '}
+              <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] hover:underline font-semibold">
+                como colocar fio na roçadeira sem embolar
+              </a>
+              ; se precisar substituir o cabeçote inteiro no eixo, veja também{' '}
+              <a href="/como-tirar-e-colocar-o-carretel-da-rocadeira" className="text-[#166534] hover:underline font-semibold">
+                como tirar e colocar o carretel da roçadeira
+              </a>
+              .
+            </p>
           </div>
 
           <div className="w-full flex justify-center my-8">
             <img
               src="/images/blog/1/Tipos de Carretéis e Como Trocar o Nylon.webp"
               alt="Comparação entre carretel tradicional que abre e carretel de recarga rápida sem desmontar"
-              title="Como enrolar o fio de nylon no carretel tradicional e no modelo de carga rápida"
+              title="Diferença de abastecimento entre carretel tradicional e modelo de carga rápida"
               width={800}
               height={533}
               className="rounded-2xl shadow-md border border-gray-100 max-w-full h-auto object-cover"

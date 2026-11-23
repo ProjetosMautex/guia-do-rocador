@@ -165,7 +165,11 @@ export const ComoAmolarDiscoRocadeira: React.FC = () => {
             Quando o corte perde o fio, a roçadeira passa a empurrar o mato em vez de fatiar o talo.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-            Na prática, isso faz você acelerar no talo o tempo todo, queima mais gasolina, força a embreagem e aumenta muito o risco de contragolpe (rebote).
+            Na prática, isso faz você acelerar no talo o tempo todo, queima mais gasolina, força a embreagem e aumenta muito o risco de contragolpe — e muita gente acaba achando que precisa{' '}
+            <a href="/como-regular-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+              regular o carburador da roçadeira
+            </a>{' '}
+            quando o problema real está na lâmina sem fio.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
             Aprender como amolar disco de roçadeira corretamente na bancada economiza um bom dinheiro com peças novas e devolve a leveza ao corte.
@@ -539,7 +543,11 @@ export const ComoAmolarDiscoRocadeira: React.FC = () => {
               Se o disco ficar nivelado, está perfeitamente balanceado e pronto para o corte.
             </p>
             <p className="mb-0 text-gray-700 leading-relaxed text-base sm:text-lg">
-              Se um dos lados pender para baixo, esse lado está mais pesado: volte para a morsa, dê mais duas ou três limadas suaves na ponta mais pesada e repita o teste até equilibrar.
+              Se um dos lados pender para baixo, esse lado está mais pesado: volte para a morsa, dê mais duas ou três limadas suaves na ponta mais pesada e repita o teste até equilibrar — na hora de reinstalar, confira se o furo assenta sem folga na flange (veja a tabela de{' '}
+              <a href="/qual-o-furo-da-lamina-da-rocadeira-stihl-220" className="text-[#16A34A] font-semibold hover:underline">
+                furo 20 mm na linha Stihl
+              </a>
+              ).
             </p>
           </div>
         </section>

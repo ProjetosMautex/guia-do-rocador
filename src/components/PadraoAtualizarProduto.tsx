@@ -32,7 +32,7 @@
  *      e foi enviada uma nova para substituí-la, o arquivo antigo DEVE ser apagado
  *      do disco com `Remove-Item` para não acumular lixo no repositório.
  *    - Atualização de Referências no Código: se componentes existentes (como
- *      `MelhorRocadeira.tsx` ou `MelhorRocadeiraEletrica.tsx`) chamavam a imagem antiga
+ *      `MelhorRocadeira.tsx` ou `MelhorRocadeiraABateria.tsx`) chamavam a imagem antiga
  *      por caminho estático (ex.: `case "id": return "/images/blog/Antiga.webp"`),
  *      essas referências DEVEM ser atualizadas antes ou junto com a exclusão.
  *

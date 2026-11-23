@@ -650,7 +650,7 @@ export const MelhorRocadeiraABateria: React.FC = () => {
             Na bancada da oficina, o que define se uma máquina a bateria vai durar anos ou virar sucata no primeiro semestre é a engenharia interna: tipo de motorização (com ou sem escovas), entrega real de torque sob carga, dissipação de calor e disponibilidade de peças de reposição no Brasil.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-            Se você ainda está em dúvida se prefere um modelo com cabo ou a combustão, vale conferir também nosso guia completo da <a href="/melhor-rocadeira-eletrica" className="text-[#16A34A] font-semibold hover:underline">melhor roçadeira elétrica</a> e o ranking geral da <a href="/melhor-rocadeira" className="text-[#16A34A] font-semibold hover:underline">melhor roçadeira</a> do ano.
+            Se você ainda está em dúvida se prefere um modelo elétrico com cabo ou a combustão, vale conferir também nosso ranking geral da <a href="/melhor-rocadeira" className="text-[#16A34A] font-semibold hover:underline">melhor roçadeira (gasolina e elétrica)</a> do ano.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
             Para evitar que você invista em um equipamento subdimensionado para o seu mato, analisei tecnicamente os 11 modelos de destaque em 2026, separando cada máquina pelo que sua mecânica realmente suporta em campo.
@@ -1072,10 +1072,22 @@ export const MelhorRocadeiraABateria: React.FC = () => {
                 Sim, a roçadeira a bateria é boa e vale muito a pena, desde que você escolha a plataforma de tensão compatível com a espessura do mato do seu terreno.
               </p>
               <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-                Na oficina mecânica, cerca de 80% das roçadeiras a gasolina de uso doméstico chegam paradas pelo mesmo motivo: combustível velho esquecido no tanque que apodrece, resseca as membranas e entope os giclês do carburador.
+                Na oficina mecânica, cerca de 80% das roçadeiras a gasolina de uso doméstico chegam paradas pelo mesmo motivo: combustível velho esquecido no tanque que apodrece, resseca as membranas e entope os giclês, obrigando a{' '}
+                <a href="/como-regular-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                  regular o carburador da roçadeira
+                </a>
+                .
               </p>
               <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-                Com um modelo a bateria de íon-lítio, você elimina de vez o gasto com gasolina, a compra de óleo 2 tempos, a fumaça no rosto e o esforço físico de puxar o cordão de partida a frio.
+                Com um modelo a bateria de íon-lítio, você elimina de vez o gasto com gasolina, a compra de{' '}
+                <a href="/qual-o-melhor-oleo-2-tempos-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                  óleo 2 tempos
+                </a>
+                , a fumaça no rosto e o esforço físico de puxar o cordão na{' '}
+                <a href="/como-ligar-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                  partida a frio
+                </a>
+                .
               </p>
               <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
                 Além da partida instantânea no gatilho, a evolução dos motores Brushless de 18V, 36V, 40V e 58V trouxe torque real para girar lâminas de aço sem depender de tomadas ou extensões espalhadas pelo quintal.
@@ -1269,13 +1281,21 @@ export const MelhorRocadeiraABateria: React.FC = () => {
                   O acessório de corte deve respeitar a resistência do eixo e da vegetação.
                 </p>
                 <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-                  Para gramados residenciais, bordas de canteiros e acabamento perto de muros ou pedras, fio de nylon ou lâminas de polímero plástico são as escolhas mais seguras, pois absorvem o impacto contra obstáculos sem transmitir trancos violentos aos rolamentos do motor.
+                  Para gramados residenciais, bordas de canteiros e acabamento perto de muros ou pedras,{' '}
+                  <a href="/qual-o-tamanho-do-fio-de-nylon-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                    fio de nylon na bitola certa (1,6 mm a 2,0 mm)
+                  </a>{' '}
+                  ou lâminas de polímero plástico são as escolhas mais seguras, pois absorvem o impacto contra obstáculos sem transmitir trancos violentos aos rolamentos do motor.
                 </p>
                 <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
                   Se quiser entender como alternar esses acessórios com segurança na ponteira, veja nosso tutorial de <a href="/como-trocar-a-lamina-da-rocadeira" className="text-[#16A34A] font-semibold hover:underline">como trocar a lâmina da roçadeira</a> passo a passo.
                 </p>
                 <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-                  Reserve lâminas metálicas de 2 ou 3 pontas ou discos com wídea exclusivamente para máquinas projetadas para esse esforço, normalmente de 18V Brushless reforçadas, 36V, 40V ou 58V, ao lidar com capim alto e vegetação lenhosa.
+                  Reserve{' '}
+                  <a href="/lamina-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                    lâminas metálicas de 2 ou 3 pontas ou discos com wídea
+                  </a>{' '}
+                  exclusivamente para máquinas projetadas para esse esforço, normalmente de 18V Brushless reforçadas, 36V, 40V ou 58V, ao lidar com capim alto e vegetação lenhosa.
                 </p>
                 <p className="mb-0 text-gray-700 leading-relaxed text-base sm:text-lg">
                   Instalar lâmina de aço em aparador leve destrói o eixo e representa risco de acidente.

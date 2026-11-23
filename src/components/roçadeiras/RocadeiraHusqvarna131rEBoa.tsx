@@ -659,7 +659,15 @@ export const RocadeiraHusqvarna131rEBoa: React.FC = () => {
                 Para facilitar a rotina no campo, a tampa do filtro de ar da 131R possui trava de abertura rápida manual, dispensando chaves de fenda ou torx.
               </p>
               <p>
-                Você abre a tampa em segundos no próprio lote, bate a poeira ou lava o elemento filtrante e mantém a relação ar-combustível sempre limpa.
+                Você abre a tampa em segundos no próprio lote, bate a poeira ou lava o elemento filtrante e mantém a relação ar-combustível sempre limpa — facilitando tanto a{' '}
+                <a href="/como-ligar-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  partida a frio da roçadeira
+                </a>{' '}
+                quanto a estabilidade ao{' '}
+                <a href="/como-regular-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  regular o carburador
+                </a>
+                .
               </p>
             </div>
           </div>
@@ -756,7 +764,15 @@ export const RocadeiraHusqvarna131rEBoa: React.FC = () => {
                   Na configuração padrão de fábrica, a 131R sai da caixa equipada com a lâmina de aço de 2 pontas (Multi 330-2), sem o carretel de nylon.
                 </p>
                 <p>
-                  Se o seu foco inclui acabamento de gramados rente a muros, calçadas e árvores, confirme se o anúncio do vendedor inclui o cabeçote como brinde ou reserve orçamento para adquirir um carretel compatível (rosca M10 x 1,25 esquerda), como o próprio T25 ou T35 da Husqvarna.
+                  Se o seu foco inclui acabamento de gramados rente a muros, calçadas e árvores, confirme se o anúncio do vendedor inclui o cabeçote como brinde ou reserve orçamento para adquirir um{' '}
+                  <a href="/melhor-carretel-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    carretel compatível
+                  </a>{' '}
+                  (rosca M10 x 1,25 esquerda), como o próprio T25 ou T35 da Husqvarna, e aprenda{' '}
+                  <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    como colocar fio de nylon na roçadeira
+                  </a>{' '}
+                  sem embolar.
                 </p>
               </div>
             </div>

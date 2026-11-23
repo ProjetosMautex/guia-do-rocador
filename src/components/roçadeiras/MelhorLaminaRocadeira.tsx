@@ -1156,70 +1156,40 @@ export const MelhorLaminaRocadeira: React.FC = () => {
               Um disco de aço trincado girando a 10.000 RPM pode partir de repente e voar como um projétil perigoso.
             </p>
             <p>
-              Na hora de afiar facas de pontas com lima chata, dê exatamente o mesmo número de passadas em cada aresta para manter o peso balanceado e evitar trepidação nas mãos.
+              Na hora de{' '}
+              <a href="/como-amolar-disco-de-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                amolar o disco de roçadeira
+              </a>{' '}
+              com lima chata, dê exatamente o mesmo número de passadas em cada aresta para manter o peso balanceado e evitar trepidação nas mãos.
             </p>
           </div>
 
           <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
-            Como instalar corretamente a lâmina ou disco na roçadeira?
+            O que conferir antes de instalar a lâmina ou disco novo
           </h2>
 
-          <div className="grid sm:grid-cols-2 gap-6 mb-8">
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="w-8 h-8 rounded-full bg-[#15803d] text-white font-black text-sm flex items-center justify-center shrink-0">
-                  1
-                </span>
-                <h3 className="text-lg font-bold text-[#1a1a1a] m-0">
-                  Isole o motor
-                </h3>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed m-0">
-                Desconecte o cachimbo da vela de ignição (ou retire a bateria) antes de colocar a mão perto do eixo da ponteira.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="w-8 h-8 rounded-full bg-[#15803d] text-white font-black text-sm flex items-center justify-center shrink-0">
-                  2
-                </span>
-                <h3 className="text-lg font-bold text-[#1a1a1a] m-0">
-                  Assente no ressalto
-                </h3>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed m-0">
-                Encaixe o furo da lâmina perfeitamente centralizado no guia da flange superior e nunca aperte a porca com o disco mordido fora de centro.
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="w-8 h-8 rounded-full bg-[#15803d] text-white font-black text-sm flex items-center justify-center shrink-0">
-                  3
-                </span>
-                <h3 className="text-lg font-bold text-[#1a1a1a] m-0">
-                  Monte o conjunto de fixação
-                </h3>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed m-0">
-                Coloque a arruela de pressão, o copo protetor (prato giratório que evita o desgaste da porca no chão) e rosqueie a porca travante no sentido anti-horário (rosca inversa).
-              </p>
-            </div>
-
-            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="w-8 h-8 rounded-full bg-[#15803d] text-white font-black text-sm flex items-center justify-center shrink-0">
-                  4
-                </span>
-                <h3 className="text-lg font-bold text-[#1a1a1a] m-0">
-                  Confira o aperto
-                </h3>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed m-0">
-                Trave o eixo com o pino guia, dê o aperto firme com a chave de vela e gire o disco com a mão para ter certeza de que ele roda alinhado e livre.
-              </p>
-            </div>
+          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-8">
+            <p>
+              Antes de colocar o disco recém-comprado na ponteira, isole a ignição (cachimbo da vela ou bateria) e confirme se o furo central assenta sem folga no ressalto da flange — confira nossa tabela de{' '}
+              <a href="/qual-o-furo-da-lamina-da-rocadeira-stihl-220" className="text-[#166534] font-semibold hover:underline">
+                qual o furo da lâmina da Stihl FS 220
+              </a>{' '}
+              para não misturar 20 mm com 25,4 mm.
+            </p>
+            <p>
+              Na montagem do conjunto metálico, nunca abra mão da flange externa estriada, do prato giratório protetor e da porca autotravante apertada no sentido anti-horário (rosca esquerda).
+            </p>
+            <p>
+              Para acompanhar a ordem ilustrada de todas as arruelas sem errar nenhum detalhe, siga o tutorial dedicado de{' '}
+              <a href="/como-trocar-a-lamina-da-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                como trocar a lâmina ou disco na roçadeira
+              </a>
+              ; quando precisar voltar ao nylon para acabamentos perto de muros, veja também{' '}
+              <a href="/como-tirar-e-colocar-o-carretel-da-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                como tirar e colocar o carretel da roçadeira
+              </a>
+              .
+            </p>
           </div>
 
           <div className="w-full flex justify-center my-8">

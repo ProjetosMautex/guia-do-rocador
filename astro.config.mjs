@@ -14,6 +14,13 @@ export default defineConfig({
   output: 'server',
   integrations: [react(), sitemap()],
 
+  redirects: {
+    '/melhor-rocadeira-eletrica': {
+      status: 301,
+      destination: '/melhor-rocadeira'
+    }
+  },
+
   vite: {
     plugins: [tailwindcss()]
   },

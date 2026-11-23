@@ -953,10 +953,18 @@ export const MelhorRocadeira: React.FC = () => {
               As roçadeiras a gasolina são as mais potentes e autônomas, sendo insubstituíveis para vegetação densa, mato fechado e grandes extensões sem tomadas por perto.
             </p>
             <p>
-              Na outra ponta, os modelos a bateria priorizam o silêncio e a leveza para acabamentos rápidos em gramados tenros.
+              Na outra ponta, os{' '}
+              <a href="/melhor-rocadeira-a-bateria" className="text-[#166534] font-semibold hover:underline">
+                modelos a bateria
+              </a>{' '}
+              priorizam o silêncio e a leveza para acabamentos rápidos em gramados tenros.
             </p>
             <p>
-              A roçadeira elétrica posiciona-se exatamente no meio-termo: entrega mais potência contínua que a maioria dos modelos a bateria de entrada e dispensa o preparo de combustível ou regulagem de carburador dos motores a gasolina, bastando conectá-la à rede elétrica para manter quintais e jardins médios em dia.
+              A roçadeira elétrica posiciona-se exatamente no meio-termo: entrega mais potência contínua que a maioria dos modelos a bateria de entrada e dispensa o preparo de combustível ou a{' '}
+              <a href="/como-regular-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                regulagem de carburador
+              </a>{' '}
+              dos motores a gasolina, bastando conectá-la à rede elétrica para manter quintais e jardins médios em dia.
             </p>
           </div>
 
@@ -1174,7 +1182,15 @@ export const MelhorRocadeira: React.FC = () => {
                 Versatilidade de Corte
               </h3>
               <p className="text-gray-700 text-base leading-relaxed">
-                Suportam diferentes lâminas de aço (2, 3 ou mais pontas, serras circulares) e carretéis pesados em qualquer topografia.
+                Suportam diferentes lâminas de aço (que você mesmo aprende a manter no guia de{' '}
+                <a href="/como-amolar-disco-de-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  como amolar disco de roçadeira
+                </a>
+                ) e{' '}
+                <a href="/melhor-carretel-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  carretéis automáticos reforçados
+                </a>{' '}
+                em qualquer topografia.
               </p>
             </div>
           </div>
@@ -1195,7 +1211,11 @@ export const MelhorRocadeira: React.FC = () => {
               </h3>
               <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
                 <p>
-                  Na oficina, dividimos a capacidade do motor a combustão por faixas de trabalho: motores de 25 cc a 30 cc atendem o uso doméstico e gramados pequenos; de 31 cc a 43 cc (1,5 a 2,3 hp) são ideais para terrenos médios, chácaras e serviço profissional contínuo com ótimo equilíbrio de peso; já os de 44 cc a 63 cc entregam força bruta para desbaste pesado e pastagens.
+                  Na oficina, dividimos a capacidade do motor a combustão por faixas de trabalho: motores de 25 cc a 30 cc atendem o uso doméstico e gramados pequenos; de 31 cc a 43 cc (1,5 a 2,3 hp) são ideais para terrenos médios, chácaras e serviço profissional contínuo com ótimo equilíbrio de peso; já os de 44 cc a 63 cc (incluindo importadas fortes analisadas no review se a{' '}
+                  <a href="/rocadeira-nakasaki-e-boa" className="text-[#166534] font-semibold hover:underline">
+                    roçadeira Nakasaki é boa
+                  </a>
+                  ) entregam força bruta para desbaste pesado e pastagens.
                 </p>
                 <p>
                   Avalie sempre a relação entre cilindrada e qualidade da transmissão, pois um motor grande com embreagem fraca perde rendimento rapidamente sob carga.
@@ -1298,7 +1318,19 @@ export const MelhorRocadeira: React.FC = () => {
               </h3>
             </div>
             <p className="text-base leading-relaxed text-gray-800">
-              Vai deixar a roçadeira a gasolina guardada por mais de 15 dias? Esvazie todo o combustível do tanque e ligue o motor em marcha lenta até ele apagar sozinho. Isso seca as membranas internas do carburador e evita que a gasolina envelhecida forme goma nos giclês.
+              Vai deixar a roçadeira a gasolina guardada por mais de 15 dias? Esvazie todo o combustível do tanque e ligue o motor em marcha lenta até ele apagar sozinho. Isso seca as membranas internas do carburador e evita que a gasolina envelhecida forme goma nos giclês — e quando voltar ao campo, use sempre o{' '}
+              <a href="/qual-o-melhor-oleo-2-tempos-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                óleo 2 tempos na proporção correta
+              </a>{' '}
+              e siga o passo a passo de{' '}
+              <a href="/como-ligar-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                como ligar roçadeira com motor frio
+              </a>{' '}
+              (para quem avalia modelos intermediários de marca líder, vale conferir também nossa análise da{' '}
+              <a href="/rocadeira-husqvarna-131r-e-boa" className="text-[#166534] font-semibold hover:underline">
+                Husqvarna 131R
+              </a>
+              ).
             </p>
           </div>
         </section>
@@ -1422,7 +1454,15 @@ export const MelhorRocadeira: React.FC = () => {
                   O diâmetro da faixa de corte (que varia de 23 cm a 43 cm nos modelos elétricos) determina a largura da vegetação aparada a cada passada.
                 </p>
                 <p>
-                  Normalmente, o carretel de nylon abrange um diâmetro maior (entre 30 cm e 42 cm) do que a lâmina metálica (23 cm a 33 cm).
+                  Normalmente, o{' '}
+                  <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    carretel de fio de nylon
+                  </a>{' '}
+                  abrange um diâmetro maior (entre 30 cm e 42 cm) do que a{' '}
+                  <a href="/lamina-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    lâmina metálica
+                  </a>{' '}
+                  (23 cm a 33 cm).
                 </p>
                 <p>
                   Para jardins médios e terrenos acima de 100 m², priorize equipamentos com faixa de corte superior a 30 cm, reduzindo o tempo total de serviço.
@@ -1456,7 +1496,15 @@ export const MelhorRocadeira: React.FC = () => {
                   Antes de finalizar o pedido na loja online, confira na descrição do vendedor quais itens vêm inclusos na caixa.
                 </p>
                 <p>
-                  Os melhores pacotes já acompanham carretel de nylon, lâmina metálica de 3 ou 4 pontas, cinto de sustentação e kit de chaves (chave allen e chave de pino para travar a ponteira na troca do cabeçote), economizando gastos extras antes do primeiro uso.
+                  Os melhores pacotes já acompanham carretel abastecido (veja qual o{' '}
+                  <a href="/qual-o-melhor-fio-de-nylon-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    melhor fio de nylon para roçadeira
+                  </a>{' '}
+                  na hora de repor), lâmina metálica de 3 ou 4 pontas, cinto de sustentação e kit de chaves para{' '}
+                  <a href="/como-trocar-a-lamina-da-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    trocar a lâmina ou o cabeçote
+                  </a>{' '}
+                  com segurança antes do primeiro uso.
                 </p>
               </div>
             </div>
@@ -1513,7 +1561,11 @@ export const MelhorRocadeira: React.FC = () => {
                   A marca se destaca tanto na robustez extrema para desbaste pesado quanto na modernização de ferramentas a bateria para uso urbano.
                 </p>
                 <p>
-                  Além disso, conta com a maior rede de concessionárias e facilidade imediata de peças de reposição em todo o território nacional.
+                  Além disso, conta com a maior rede de concessionárias e facilidade imediata de peças de reposição em todo o território nacional — lembrando apenas que os modelos pesados como a FS 220 usam padrão próprio de encaixe (confira{' '}
+                  <a href="/qual-o-furo-da-lamina-da-rocadeira-stihl-220" className="text-[#166534] font-semibold hover:underline">
+                    qual o furo da lâmina da Stihl FS 220
+                  </a>
+                  ).
                 </p>
               </div>
             </div>
@@ -1553,7 +1605,11 @@ export const MelhorRocadeira: React.FC = () => {
                   Modelos com eixo bipartido trazem enorme conveniência para quem precisa transportar a roçadeira em veículos de passeio.
                 </p>
                 <p>
-                  A disponibilidade maciça de componentes originais e paralelos a preços baixos garante uma manutenção preventiva muito econômica.
+                  A disponibilidade maciça de componentes originais e paralelos a preços baixos garante uma manutenção preventiva muito econômica, especialmente seguindo a dosagem certa do{' '}
+                  <a href="/qual-o-melhor-oleo-para-rocadeira-toyama" className="text-[#166534] font-semibold hover:underline">
+                    melhor óleo para roçadeira Toyama
+                  </a>{' '}
+                  (2T e 4T).
                 </p>
               </div>
             </div>

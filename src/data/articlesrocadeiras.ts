@@ -13,12 +13,6 @@ export const articles: Article[] = [
     excerpt: "Qual a melhor roçadeira? Analisamos a mecânica, potência e durabilidade das melhores opções a gasolina, elétricas e a bateria (Stihl, Husqvarna, Toyama e mais)!"
   },
   {
-    title: "Melhor Roçadeira Elétrica em 2026: Top 10 Modelos",
-    url: "/melhor-rocadeira-eletrica",
-    image: "/images/blog/Serviços de jardinagens em geral.webp",
-    excerpt: "Qual a melhor roçadeira elétrica? Analisamos motor, torque e durabilidade da Trapp, Tramontina, Tekna, Stihl e mais para você acertar na compra!"
-  },
-  {
     title: "Qual o Melhor Fio de Nylon para Roçadeiras? Top 6 em 2026",
     url: "/qual-o-melhor-fio-de-nylon-para-rocadeira",
     image: "/images/blog/qual o melhor fio de nylon para rocadeira.webp",
@@ -58,37 +52,37 @@ export const articles: Article[] = [
     title: "Como Ligar Roçadeira a Gasolina (Motor Frio): Passo a Passo",
     url: "/como-ligar-rocadeira",
     image: "/images/blog/como-ligar-rocadeira-principal.webp",
-    excerpt: "Evite falhas e desgaste na partida da roçadeira: descubra como garantir eficiência, proteger o motor e trabalhar sem esforços desnecessários."
+    excerpt: "Sequência prática para ligar roçadeira com motor frio sem afogar: bombeamento no primer, hora exata de abrir o afogador e tabela de partida a frio vs. quente."
   },
   {
     title: "Como Desafogar Roçadeira em 2 Minutos [Passo a Passo]",
     url: "/como-desafogar-rocadeira",
     image: "/images/blog/como desafogar roçadeira.webp",
-    excerpt: "Roçadeira engasgada? 😩 Pare de perder tempo! ⏳ Desvende o segredo para destravar sua máquina em minutos e turbine seu jardim! ✨"
+    excerpt: "Motor encharcou de gasolina e não pega? Veja o atalho sem chaves e a drenagem completa pela vela para desafogar Stihl, Toyama, Makita e importadas."
   },
   {
     title: "Como Montar Roçadeira Nakasaki [Passo a Passo Completo]",
     url: "/como-montar-rocadeira-nakasaki",
     image: "/images/blog/como-montar-rocadeira-nakasaki.webp",
-    excerpt: "Montar um equipamento novo pode ser desafiador. Para quem busca praticidade, preparamos um guia completo para você realizar a montagem da roçadeira sem dificuldades."
+    excerpt: "Ordem real de bancada para montar Nakasaki 63cc, 65cc, 75cc e NK-750PRO: lado certo da haste bipartida, aperto em X na embreagem, guidão e graxa na ponteira."
   },
   {
     title: "Roçadeira Falhando? Veja Como Regular o Carburador",
     url: "/como-regular-rocadeira",
     image: "/images/blog/1/como regular roçadeira.webp",
-    excerpt: "Roçadeira falhando? Aprenda o método definitivo para regular o carburador com segurança, restaurar a potência do motor e evitar gastos com manutenção."
+    excerpt: "Roçadeira morrendo na lenta ou engasgando? Aprenda a ajustar as agulhas L, H e LA com tabela de voltas por marca e diagnóstico rápido de sintomas."
   },
   {
-    title: "Como Colocar Fio na Roçadeira sem Embolar Guia Prático",
+    title: "Como Colocar Fio na Roçadeira sem Embolar: Guia Prático",
     url: "/como-colocar-fio-na-rocadeira",
     image: "/images/blog/1/como colocar fio na roçadeira​.webp",
-    excerpt: "Cansado de fios de roçadeira que travam? Aprenda o método definitivo para recarregar seu carretel sem erros e mantenha seu jardim impecável com agilidade."
+    excerpt: "Recarregue carretel manual, automático Easy Load ou roçadeira elétrica sem travar o nylon, com truque da água 24h e tabela de medidas por cabeçote."
   },
   {
     title: "Tamanho do Fio de Nylon para Roçadeira: Espessura e Como Escolher",
     url: "/qual-o-tamanho-do-fio-de-nylon-para-rocadeira",
     image: "/images/blog/qual-o-tamanho-do-fio-de-nylon-para-rocadeira.webp",
-    excerpt: "Qual o tamanho do fio de nylon para roçadeira ideal? Veja a tabela de espessura por máquina, quantos metros cortar no carretel e como enrolar sem travar!"
+    excerpt: "Tabela de espessura por cilindrada (1,6 mm a 3,3 mm), ponta ideal de 15 a 20 cm na saia limitadora, metragem exata por carretel e truque de hidratação 24h."
   },
   {
     title: "Melhor Lâmina e Disco para Roçadeira: Qual Escolher para Cada Tipo de Mato?",
@@ -100,7 +94,7 @@ export const articles: Article[] = [
     title: "Como Tirar e Colocar o Carretel da Roçadeira: Passo a Passo",
     url: "/como-tirar-e-colocar-o-carretel-da-rocadeira",
     image: "/images/blog/como-tirar-e-colocar-o-carretel-da-rocadeira.webp",
-    excerpt: "Aprenda como tirar e colocar o carretel da roçadeira sem estragar a rosca esquerda, como destravar cabeçote emperrado e como enrolar o fio de nylon sem embolar!"
+    excerpt: "Passo a passo de bancada para tirar e colocar o carretel sem espanar a rosca esquerda, destravar cabeçote emperrado por seiva e assentar a arruela de encosto."
   },
   {
     title: "Qual o Melhor Óleo para Roçadeira Toyama? Top 4 Opções (2T e 4T)",

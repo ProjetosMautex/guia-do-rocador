@@ -447,7 +447,11 @@ export const ComoTirarEColocarCarretelRocadeira: React.FC = () => {
                 Remova qualquer resíduo de fibras de capim enroladas e terra acumulada no retentor da transmissão.
               </p>
               <p>
-                Se a máquina estava trabalhando com lâmina ou faca de aço antes dessa desmontagem, certifique-se de retirar a porca travante superior e o prato de deslizamento protetor.
+                Se a máquina estava trabalhando com lâmina ou faca de aço antes dessa desmontagem, certifique-se de retirar a porca travante superior e o prato de deslizamento protetor (confira o passo a passo inverso em{' '}
+                <a href="/como-trocar-a-lamina-da-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                  como trocar a lâmina da roçadeira
+                </a>
+                ).
               </p>
               <p>
                 Mantenha assentada no eixo apenas a arruela de encosto inferior (flange espaçadora), peça fundamental para calçar o carretel de nylon.
@@ -467,7 +471,11 @@ export const ComoTirarEColocarCarretelRocadeira: React.FC = () => {
                 Antes de montar uma nova peça, verifique na embalagem o passo de rosca correto.
               </p>
               <p className="text-gray-600 text-sm">
-                A maioria das roçadeiras importadas e nacionais de 43cc a 52cc adota a bitola universal M10 x 1,25 rosca esquerda, enquanto linhas profissionais da Stihl exigem encaixes específicos.
+                A maioria das roçadeiras importadas e nacionais de 43cc a 52cc adota a bitola universal M10 x 1,25 rosca esquerda, enquanto linhas profissionais da Stihl exigem encaixes específicos — confira a compatibilidade completa no nosso ranking do{' '}
+                <a href="/melhor-carretel-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                  melhor carretel para roçadeira
+                </a>
+                .
               </p>
             </div>
 
@@ -580,55 +588,51 @@ export const ComoTirarEColocarCarretelRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            9. COMO ABASTECER O FIO DE NYLON NO CARRETEL
+            9. ABASTECIMENTO PÓS-INSTALAÇÃO (RESUMO + LINK AO TUTORIAL DE NYLON)
             =================================================================== */}
         <section className="mt-14 space-y-6">
           <h2 className="text-3xl font-black text-[#1a1a1a] uppercase tracking-tight border-b-2 border-gray-100 pb-3">
-            Como Abastecer o Fio de Nylon no Carretel
+            Conferência Pós-Instalação: Abastecendo o Carretel Novo
           </h2>
           <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
             <p>
-              Com o cabeçote fixado na ponteira, o procedimento para recarregar a linha varia de acordo com o modelo do acessório:
+              Com o cabeçote assentado no eixo e o pino de trava removido, resta apenas garantir que o fio de nylon esteja na medida certa antes de ligar o motor.
+            </p>
+            <p>
+              Confira a espessura máxima gravada na tampa usando nossa tabela de{' '}
+              <a href="/qual-o-tamanho-do-fio-de-nylon-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                tamanho do fio de nylon para roçadeira
+              </a>{' '}
+              e escolha o procedimento correspondente ao seu cabeçote:
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-gray-50 border border-gray-200 p-6 rounded-2xl shadow-sm space-y-3">
               <h4 className="text-lg font-bold text-[#1a1a1a] flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A]"></span> Carretel Convencional (Manual)
+                <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A]"></span> Cabeçote Tradicional com Tampa
               </h4>
               <p className="text-sm text-gray-700">
-                Pressione as duas travas laterais da carcaça com os polegares para sacar a tampa e liberar a bobina interna.
+                Aperte as travas laterais para sacar a bobina, limpe a mola interna e enrole as voltas paralelas no sentido exato das setas sem cruzar as espiras.
               </p>
               <p className="text-sm text-gray-700">
-                Corte de 3 a 4 metros de fio de nylon ou duas metades de 3,5 metros conforme o limite do carretel.
-              </p>
-              <p className="text-sm text-gray-700">
-                Encaixe as pontas nos orifícios da bobina e enrole no sentido indicado pelas setas moldadas no plástico.
-              </p>
-              <p className="text-sm text-gray-700">
-                Mantenha as espiras alinhadas lado a lado sem cruzar para que os fios não se soldem no atrito.
-              </p>
-              <p className="text-sm text-gray-700">
-                Passe cada ponta pelos ilhoses metálicos da carcaça, posicione a mola central e feche a tampa até ouvir o estalo.
+                Passe as duas pontas pelos ilhoses metálicos e feche a carcaça até ouvir o travamento firme.
               </p>
             </div>
 
             <div className="bg-[#F0FDF4] border border-[#16A34A]/30 p-6 rounded-2xl shadow-sm space-y-3">
               <h4 className="text-lg font-bold text-[#166534] flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A]"></span> Carretel de Carga Rápida (Easy Load)
+                <span className="w-2.5 h-2.5 rounded-full bg-[#16A34A]"></span> Cabeçote Carga Rápida (Easy Load)
               </h4>
               <p className="text-sm text-[#166534]">
-                Não é necessário abrir a carcaça plástica nem desmontar a mola interna.
+                Alinhe as setas do botão central com os ilhoses sem precisar abrir a tampa, atravesse o segmento inteiro igualando as duas pontas e gire a catraca até sobrar cerca de 15 a 20 cm de cada lado.
               </p>
               <p className="text-sm text-[#166534]">
-                Gire o botão central até que as setas da tampa fiquem perfeitamente alinhadas com os ilhoses de saída.
-              </p>
-              <p className="text-sm text-[#166534]">
-                Passe o pedaço de fio inteiro de um lado a outro atravessando o carretel e puxe até igualar o comprimento nas duas pontas.
-              </p>
-              <p className="text-sm text-[#166534]">
-                Gire o manípulo central no sentido indicado pelas setas para recolher o nylon até restar cerca de 15 a 20 cm expostos em cada lado.
+                Para o passo a passo ilustrado completo e o truque de hidratar o nylon na água por 24h, siga nosso guia de{' '}
+                <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] font-bold underline">
+                  como colocar fio na roçadeira sem embolar
+                </a>
+                .
               </p>
             </div>
           </div>

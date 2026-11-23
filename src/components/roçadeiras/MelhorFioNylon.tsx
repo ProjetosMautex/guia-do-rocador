@@ -877,7 +877,11 @@ export const MelhorFioNylon: React.FC = () => {
               No dia a dia de campo, o fio de nylon serve para aparar gramados, relva e fazer o acabamento rente a obstáculos onde a lâmina de aço não pode encostar — como muros, cercas de arame, árvores, postes e terrenos com pedras.
             </p>
             <p>
-              Enquanto o disco metálico oferece risco grave de contragolpe (rebote), quebra e faíscas ao bater no concreto, o nylon gira em alta rotação pela força centrífuga e corta o mato com segurança total, sem ferir a casca das plantas.
+              Enquanto o disco metálico oferece risco grave de contragolpe (rebote), quebra e faíscas ao bater no concreto, o nylon gira em alta rotação pela força centrífuga e corta o mato com segurança total, sem ferir a casca das plantas — desde que você saiba{' '}
+              <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                como colocar fio de nylon na roçadeira sem embolar
+              </a>
+              .
             </p>
           </div>
 
@@ -922,7 +926,11 @@ export const MelhorFioNylon: React.FC = () => {
               </h3>
               <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-6">
                 <p>
-                  A bitola do fio varia de 1,5 mm a 3,3 mm (algumas marcas usam cores como verde para 2,0 mm, vermelho/laranja para 2,4 a 2,7 mm e amarelo para 3,0 mm).
+                  A{' '}
+                  <a href="/qual-o-tamanho-do-fio-de-nylon-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    bitola ideal do fio de nylon
+                  </a>{' '}
+                  varia de 1,5 mm a 3,3 mm (algumas marcas usam cores como verde para 2,0 mm, vermelho/laranja para 2,4 a 2,7 mm e amarelo para 3,0 mm).
                 </p>
                 <p>
                   Antes de comprar, consulte o manual do seu equipamento e siga a regra de potência:
@@ -935,7 +943,11 @@ export const MelhorFioNylon: React.FC = () => {
                     1,5 mm a 2,0 mm
                   </h4>
                   <p className="text-sm text-gray-700 leading-relaxed">
-                    Para aparadores elétricos leves, máquinas a bateria e grama macia residencial.
+                    Para aparadores elétricos leves,{' '}
+                    <a href="/melhor-rocadeira-a-bateria" className="text-[#166534] font-semibold hover:underline">
+                      roçadeiras a bateria
+                    </a>{' '}
+                    e grama macia residencial.
                   </p>
                 </div>
 

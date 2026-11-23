@@ -492,7 +492,15 @@ export const QualOFuroLaminaStihl220: React.FC = () => {
                 2. Use o protetor (saia) compatível com o acessório
               </h3>
               <p className="mb-0 text-sm sm:text-base text-amber-950 leading-relaxed">
-                Na linha Stihl, o defletor usado para o cabeçote AutoCut de nylon tem a faca aparadora na borda e não deve ser misturado com a montagem de discos de serra circular, que pedem protetor metálico próprio.
+                Na linha Stihl, o defletor usado para o{' '}
+                <a href="/melhor-carretel-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  cabeçote AutoCut de nylon
+                </a>{' '}
+                tem a faca aparadora na borda e não deve ser misturado com a montagem de discos de serra circular, que pedem protetor metálico próprio (e se o motor da sua FS 220 perder giro sob carga, confira também como{' '}
+                <a href="/como-regular-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  regular o carburador da roçadeira
+                </a>
+                ).
               </p>
             </div>
 

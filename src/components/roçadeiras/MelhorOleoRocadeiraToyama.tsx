@@ -845,7 +845,11 @@ export const MelhorOleoRocadeiraToyama: React.FC = () => {
                 Regra de ouro de quem não quer perder a máquina: nunca use óleo de carro, óleo de moto 4 tempos ou óleo 2T náutico para motor de popa na sua roçadeira.
               </p>
               <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-                Motores de roçadeira trabalham muito mais quentes e em rotações altíssimas; usar o óleo errado engripa o cilindro em poucos minutos de serviço.
+                Motores de roçadeira trabalham muito mais quentes e em rotações altíssimas; usar o óleo errado engripa o cilindro em poucos minutos de serviço — se quiser ver a tabela universal de marcas além da Toyama, confira também nosso guia de{' '}
+                <a href="/qual-o-melhor-oleo-2-tempos-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                  qual o melhor óleo 2 tempos para roçadeira
+                </a>
+                .
               </p>
             </div>
           </div>
@@ -901,7 +905,15 @@ export const MelhorOleoRocadeiraToyama: React.FC = () => {
                   Se você colocar apenas 20 ml de óleo mineral achando que rende igual ao semissintético, faltará película lubrificante e o motor vai fundir.
                 </p>
                 <p className="mb-0 leading-relaxed">
-                  A desvantagem do mineral é que ele solta mais fumaça e cria carvão na ponta da vela e no escapamento.
+                  A desvantagem do mineral é que ele solta mais fumaça e cria carvão na ponta da vela e no escapamento, o que pode dificultar a partida (confira{' '}
+                  <a href="/como-ligar-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                    como ligar roçadeira a frio
+                  </a>{' '}
+                  e{' '}
+                  <a href="/como-desafogar-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+                    como desafogar roçadeira
+                  </a>{' '}
+                  se a vela encharcar).
                 </p>
               </div>
             </div>
@@ -1061,7 +1073,11 @@ export const MelhorOleoRocadeiraToyama: React.FC = () => {
                 Prepare apenas a quantidade de mistura que você realmente vai queimar na semana de trabalho.
               </p>
               <p className="mb-4 leading-relaxed">
-                Deixar gasolina com óleo parada no tanque da roçadeira por mais de 15 dias faz a mistura decantar e apodrecer, gerando aquela goma amarela que entope a agulha e o diafragma do carburador.
+                Deixar gasolina com óleo parada no tanque da roçadeira por mais de 15 dias faz a mistura decantar e apodrecer, gerando aquela goma amarela que entope a agulha e o diafragma e depois obriga você a{' '}
+                <a href="/como-regular-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  regular o carburador da roçadeira
+                </a>
+                .
               </p>
               <p className="mb-0 leading-relaxed">
                 Se for guardar a roçadeira por mais de um mês, esvazie o tanque e ligue o motor até ele morrer sozinho por falta de combustível para secar todo o circuito interno.

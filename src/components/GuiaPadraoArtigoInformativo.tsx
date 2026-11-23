@@ -156,6 +156,43 @@
  *      (use classes como `mb-5 leading-relaxed text-base sm:text-lg` ou `mb-4 leading-relaxed`).
  *      NUNCA use `m-0` em parágrafos de texto corrido para não grudar as frases.
  *
+ * 7. REDAÇÃO HUMANA, ANTI-ROBOTIZAÇÃO, ANTI-STUFFING E ZERO VÍDEOS (INDEXAÇÃO NO GOOGLE):
+ *    - INTRODUÇÃO DIRETA DE OFICINA / CAMPO (PROIBIDO CLICHÊS DE IA):
+ *      • JAMAIS inicie tutoriais com aberturas robóticas ou genéricas como "pode gerar frustração no campo",
+ *        "quem nunca passou pela frustração...", "montar um equipamento novo pode ser desafiador",
+ *        "evite falhas e desgaste" ou "preparamos este guia completo".
+ *      • Vá direto ao sintoma real, à causa mecânica ou à resposta prática logo na primeira frase,
+ *        como um mecânico ou operador explicando o conserto na bancada.
+ *    - ZERO KEYWORD STUFFING E ZERO SUMÁRIOS REPETITIVOS:
+ *      • NÃO empilhe variações exatas da palavra-chave na introdução (ex.: repetir "como regular roçadeira..."
+ *        4 vezes seguidas entre parênteses) nem crie blocos de "Navegação Rápida" repetindo a mesma palavra-chave
+ *        em cada item da lista.
+ *    - ZERO DUPLICAÇÃO DE PASSOS (INTERNA OU ENTRE ARTIGOS):
+ *      • NÃO repita o mesmo passo a passo várias vezes mudando apenas o nome da marca (ex.: bloco geral + bloco
+ *        Stihl + bloco Toyama repetindo os mesmos 6 passos). Faça UM passo a passo claro e UMA tabela enxuta
+ *        mostrando apenas as diferenças reais de ferramenta ou medida por marca!
+ *      • NÃO reescreva tutoriais completos de temas que já têm página própria no site (como rosca esquerda/troca
+ *        de lâmina, proporção de óleo 2T, partida a frio ou regulagem de carburador): dê o lembrete em 1 linha
+ *        e envie link interno para o tutorial dedicado.
+ *    - CONTEÚDO ORIGINAL DE BANCADA SEM VÍDEOS (PAGESPEED 100):
+ *      • Diferencie cada tutorial com elementos úteis exclusivos (tabela "Sintoma ➔ Parafuso/Ação", tabela de
+ *        medidas/voltas por marca, diagnóstico "Vela Molhada vs. Vela Seca", teste de balanceamento, etc.).
+ *      • ⚠️ NUNCA incorpore `<video>` nem iframes do YouTube diretamente nas páginas do site, pois isso
+ *        derruba a performance e o PageSpeed 100.
+ *
+ * 8. PROTOCOLO OBRIGATÓRIO DE LINKAGEM INTERNA CONTEXTUAL (SEMPRE EXECUTAR AO CRIAR ARTIGO):
+ *    - ANTES e DURANTE a criação de qualquer artigo novo, leia `src/data/articlesrocadeiras.ts` para listar
+ *      os artigos já existentes no site.
+ *    - LINKS SAINDO DO ARTIGO NOVO (2 A 5 LINKS NATURAIS):
+ *      • Procure palavras ou assuntos que JÁ aparecem no texto enviado para criação (ex.: "carburador",
+ *        "afogador", "desafogar", "óleo 2 tempos", "fio de nylon", "carretel", "lâmina", "Stihl 220",
+ *        "Nakasaki", "roçadeira elétrica", "roçadeira a bateria") e insira links internos `<a href="/slug">`
+ *        usando exatamente as palavras do próprio texto com classe `text-[#166534] font-semibold hover:underline`.
+ *    - LINKS APONTANDO PARA O ARTIGO NOVO (EVITAR "DETECTADA, MAS NÃO RASTREADA"):
+ *      • Ao concluir o artigo novo, encontre 1 a 2 artigos já publicados (priorizando artigos pilares/comerciais
+ *        já indexados ou a seção de guias da Home quando aplicável) que mencionem esse tema e adicione links
+ *        internos contextuais apontando para a nova URL. Jamais deixe um artigo recém-publicado órfão.
+ *
  * ----------------------------------------------------------------------------
  * PARTE 2: ANATOMIA COMPLETA DO ARTIGO TUTORIAL / INFORMATIVO
  * ----------------------------------------------------------------------------

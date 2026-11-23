@@ -905,7 +905,15 @@ export const MelhorOleo2Tempos: React.FC = () => {
                 É o melhor equilíbrio entre custo e proteção para a grande maioria dos operadores no campo.
               </p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Mistura base mineral com aditivos sintéticos de limpeza, diminuindo a fumaça, facilitando a partida e mantendo o motor limpo por dentro.
+                Mistura base mineral com aditivos sintéticos de limpeza, diminuindo a fumaça,{' '}
+                <a href="/como-ligar-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  facilitando a partida
+                </a>{' '}
+                e evitando a vela encharcada que obriga você a{' '}
+                <a href="/como-desafogar-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  desafogar a roçadeira
+                </a>{' '}
+                no meio do serviço.
               </p>
             </div>
 
@@ -953,6 +961,18 @@ export const MelhorOleo2Tempos: React.FC = () => {
               </tbody>
             </table>
           </div>
+
+          <p className="text-sm text-gray-600 mt-4 leading-relaxed">
+            Usa uma máquina da linha TBC ou 4T da Toyama? Veja a tabela dedicada no guia de{' '}
+            <a href="/qual-o-melhor-oleo-para-rocadeira-toyama" className="text-[#166534] font-semibold hover:underline">
+              qual o melhor óleo para roçadeira Toyama
+            </a>{' '}
+            (e para proprietários da linha sueca, confira também nosso review se a{' '}
+            <a href="/rocadeira-husqvarna-131r-e-boa" className="text-[#166534] font-semibold hover:underline">
+              roçadeira Husqvarna 131R é boa
+            </a>
+            ).
+          </p>
         </section>
 
         {/* ===================================================================
@@ -1160,22 +1180,30 @@ export const MelhorOleo2Tempos: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            11B. COMO UTILIZAR A ROÇADEIRA E TIPOS DE ROÇADEIRA 2 TEMPOS
+            11B. REGIME DE TRABALHO E ESCOLHA DO ÓLEO POR TIPO DE ROÇADEIRA 2T
             =================================================================== */}
         <section className="mt-16 pt-12 border-t border-gray-200">
           <h2 className="text-3xl font-bold text-[#1a1a1a] mb-6">
-            Como utilizar a roçadeira?
+            Como o regime de trabalho da roçadeira 2 tempos define o óleo certo
           </h2>
 
           <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
             <p>
-              Ajuste o cinto de sustentação dupla até que a roçadeira fique equilibrada na altura da cintura e mantenha o conjunto de corte paralelo ao solo.
+              A temperatura interna do cilindro varia bastante conforme o jeito que você acelera e o porte da máquina em campo.
             </p>
             <p>
-              Execute o movimento de varredura sempre da direita para a esquerda no sentido anti-horário, acompanhando o giro natural do cabeçote para lançar a palha cortada para a área já limpa.
+              Manter aceleração firme durante a varredura da direita para a esquerda e aliviar o gatilho no retorno reduz o calor na embreagem e garante a queima limpa do lubrificante (veja o protocolo completo de partida e aquecimento em{' '}
+              <a href="/como-ligar-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                como ligar roçadeira a gasolina
+              </a>
+              ).
             </p>
             <p>
-              Mantenha a aceleração firme durante a passada de corte e alivie o gatilho no movimento de retorno para economizar combustível e evitar sobrecarga na embreagem.
+              Se você ainda está comparando cilindradas e estruturas antes de investir em um equipamento novo, confira nosso comparativo da{' '}
+              <a href="/melhor-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                melhor roçadeira
+              </a>
+              ; abaixo, veja qual classe de óleo 2T protege melhor cada categoria de máquina:
             </p>
           </div>
 
@@ -1183,7 +1211,7 @@ export const MelhorOleo2Tempos: React.FC = () => {
             <img
               src="/images/blog/como-utilizar-rocadeira-corte-correto.webp"
               alt="Operador equipado com EPIs completos manuseando roçadeira lateral 2 tempos paralelamente ao solo em movimento de corte correto"
-              title="Posição correta e uso de EPIs ao operar a roçadeira a gasolina"
+              title="Operação em regime constante de roçadeira 2 tempos e exigência térmica do lubrificante"
               width={800}
               height={533}
               className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto"
@@ -1191,44 +1219,40 @@ export const MelhorOleo2Tempos: React.FC = () => {
             />
           </div>
 
-          <h2 className="text-3xl font-bold text-[#1a1a1a] mt-14 mb-6">
-            Tipos de roçadeira 2 tempos à gasolina
-          </h2>
-
           <div className="grid sm:grid-cols-3 gap-6">
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
               <h3 className="text-lg font-bold text-[#166534] mb-3 border-l-4 border-[#16A34A] pl-3">
-                Roçadeira profissional
+                Roçadeiras pesadas (43 cc+)
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                Projetada com motor acima de 40 cilindradas e cardã rígido reforçado para encarar mato alto e limpeza pesada de pastagens.
+                Trabalham horas seguidas em alta carga derrubando capim fechado e pastagem suja.
               </p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Exige óleo semissintético ou sintético de alta estabilidade térmica para aguentar turnos longos sob calor intenso.
+                Exigem óleo semissintético ou sintético JASO FD (50:1) de alta estabilidade térmica para não riscar o pistão no calor intenso.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
               <h3 className="text-lg font-bold text-[#166534] mb-3 border-l-4 border-[#16A34A] pl-3">
-                Roçadeira lateral profissional
+                Roçadeiras intermediárias (26 a 35 cc)
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                Equipada com guidão ergonômico em formato de U e cinto duplo que distribui o peso nos dois ombros.
+                Operam em chácaras e manutenção quinzenal alternando entre nylon e lâmina leve.
               </p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Oferece precisão máxima no acabamento de sítios, chácaras e terrenos amplos com excelente controle de aceleração.
+                Aceitam tanto mineral API TC (25:1) quanto semissintético (50:1), sendo o semissintético superior por evitar borra no escapamento.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
               <h3 className="text-lg font-bold text-[#166534] mb-3 border-l-4 border-[#16A34A] pl-3">
-                Roçadeira multifuncional
+                Roçadeiras multifuncionais
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                Sistema bipartido que permite acoplar ponteira de corte com nylon, lâmina metálica, podador de galhos altos ou aparador de cerca viva no mesmo motor.
+                Oscilam muito entre marcha lenta e rotação máxima ao usar podador de galhos ou aparador de cerca viva.
               </p>
               <p className="text-sm text-gray-700 leading-relaxed">
-                Por variar muito entre marcha lenta e rotação máxima, beneficia-se de lubrificantes com aditivos detergentes que mantêm a vela sempre limpa.
+                Beneficiam-se de óleos semissintéticos com aditivos detergentes que impedem a carbonização rápida da vela.
               </p>
             </div>
           </div>

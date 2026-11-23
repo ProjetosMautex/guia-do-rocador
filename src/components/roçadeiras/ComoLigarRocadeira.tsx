@@ -50,13 +50,6 @@ const Lightbulb = ({ size = 28, className = "" }: { size?: number; className?: s
   </svg>
 );
 
-const Clock = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
-    <circle cx="12" cy="12" r="10"></circle>
-    <polyline points="12 6 12 12 16 14"></polyline>
-  </svg>
-);
-
 export const ComoLigarRocadeira: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -66,44 +59,50 @@ export const ComoLigarRocadeira: React.FC = () => {
 
   const faqData: { question: string; answer: React.ReactNode[] }[] = [
     {
-      question: "Quantas puxadas na cordinha são necessárias até o motor frio dar sinal?",
+      question: "Quantas puxadas na corda levam para o motor frio dar o primeiro sinal?",
       answer: [
-        "Após pressionar o bulbo primer de 7 a 10 vezes e fechar o afogador, normalmente bastam de 3 a 5 puxadas firmes para o motor emitir o primeiro som curto de explosão.",
-        "Assim que ouvir esse sinal característico, mova imediatamente o afogador para a posição aberta antes de puxar novamente para não afogar a câmara."
+        "Com o bulbo primer preenchido e o afogador fechado, uma máquina regulada dá o primeiro sinal curto de explosão entre a 3ª e a 5ª puxada.",
+        "Assim que ouvir esse ronco rápido, abaixe o afogador na hora antes de puxar novamente."
       ]
     },
     {
-      question: "Preciso usar o afogador quando o motor da roçadeira já está quente?",
+      question: "Preciso puxar o afogador quando parei apenas para abastecer?",
       answer: [
         "Não.",
-        "Se você desligou a máquina apenas para reabastecer ou descansar por alguns minutos, o cilindro continua aquecido: basta ligar o botão Stop e puxar a corda com o afogador aberto."
+        "Com o cilindro já quente, fechar o afogador encharca a vela na primeira puxada: deixe o afogador aberto, confira a chave Stop ligada e puxe normalmente."
       ]
     },
     {
-      question: "O que fazer se eu puxei muitas vezes com o afogador fechado e ela não pega mais?",
+      question: "Puxei a corda mais de dez vezes com o afogador fechado e agora ela não pega. E agora?",
       answer: [
-        "Provavelmente o excesso de gasolina líquida encharcou o eletrodo da vela de ignição, impedindo a faísca.",
+        "Provavelmente o excesso de mistura molhou o eletrodo da vela.",
         <>
-          Nesse caso, abra totalmente o afogador e siga o nosso guia prático de{' '}
+          Abra o afogador e siga nosso procedimento rápido de{' '}
           <a href="/como-desafogar-rocadeira" className="text-[#166534] hover:underline font-semibold">
             como desafogar roçadeira em 2 minutos
-          </a>{' '}
-          para secar o cilindro com segurança.
+          </a>
+          .
         </>
       ]
     },
     {
-      question: "Por que a lâmina ou o carretel gira sozinho logo que a roçadeira liga?",
+      question: "Por que a lâmina roda rápido logo que o motor pega?",
       answer: [
-        "Isso acontece quando a trava de meia-aceleração está acionada para a partida a frio.",
-        "Basta dar um leve toque rápido no gatilho do acelerador para destravar o mecanismo e fazer o motor cair imediatamente para a marcha lenta segura."
+        "Se você usou a trava de meia-aceleração no punho para ajudar na partida a frio, o motor nasce acima da lenta até você dar um toque curto no gatilho para desarmar a trava.",
+        <>
+          Se ela continuar rodando depois de destravar, ajuste o parafuso da lenta conforme o guia de{' '}
+          <a href="/como-regular-rocadeira" className="text-[#166534] hover:underline font-semibold">
+            como regular o carburador da roçadeira
+          </a>
+          .
+        </>
       ]
     },
     {
-      question: "Posso guardar a roçadeira com combustível no tanque após terminar o serviço?",
+      question: "Quanto tempo a gasolina misturada dura no tanque sem prejudicar a partida?",
       answer: [
-        "Não é recomendado se a máquina for ficar parada por mais de 15 dias.",
-        "A gasolina brasileira oxida rapidamente e cria resíduos que ressecam as membranas do carburador, dificultando a partida no próximo uso."
+        "O limite seguro é de 15 dias.",
+        "Passado esse prazo, o etanol absorve umidade e cria goma dentro do carburador, impedindo o motor de puxar combustível na próxima partida."
       ]
     }
   ];
@@ -113,11 +112,11 @@ export const ComoLigarRocadeira: React.FC = () => {
       {/* =====================================================================
           1. HERO SECTION (LCP Otimizado + Título H1 + Assinatura do Autor)
           ===================================================================== */}
-      <div className="relative bg-[#1a1a1a] text-white py-20 md:py-32 overflow-hidden">
+      <div className="relative bg-[#1a1a1a] text-white py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="/images/blog/como-ligar-rocadeira-principal.webp"
-            alt="Como Ligar Roçadeira a Gasolina com Motor Frio Passo a Passo"
+            alt="Operador dando partida a frio em roçadeira a gasolina apoiada em terreno plano"
             title="Como Ligar Roçadeira a Gasolina (Motor Frio): Passo a Passo"
             width={800}
             height={533}
@@ -128,17 +127,21 @@ export const ComoLigarRocadeira: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight uppercase tracking-tighter">
+          <span className="inline-block bg-[#15803d] text-white text-xs sm:text-sm font-black uppercase px-4 py-1.5 rounded-full mb-4 shadow-md tracking-wider">
+            Ritual de Partida • Gasolina, Elétrica e Bateria
+          </span>
+
+          <h1 className="text-3xl sm:text-5xl font-black mb-6 leading-tight uppercase tracking-tight">
             Como Ligar Roçadeira a Gasolina (Motor Frio): <br />
-            <span className="text-[#16A34A]">Passo a Passo</span>
+            <span className="text-[#4ade80]">Passo a Passo</span>
           </h1>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-gray-300 text-sm">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-gray-300 text-sm border-t border-gray-800 pt-6">
             <div className="flex items-center gap-2">
               <span>Por</span>
               <a
                 href="/author/jose-ailton/"
-                className="flex items-center gap-3 hover:text-[#16A34A] transition-colors font-bold group bg-white/5 pr-4 rounded-full border border-white/10"
+                className="flex items-center gap-3 hover:text-[#4ade80] transition-colors font-bold group bg-white/5 pr-4 rounded-full border border-white/10"
               >
                 <img
                   src="/images/autores/José Ailton da Silva-thumb.webp"
@@ -160,27 +163,24 @@ export const ComoLigarRocadeira: React.FC = () => {
       {/* Conteúdo Centralizado */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* ===================================================================
-            2. INTRODUÇÃO DIDÁTICA (LEAD + FOTO DE ABERTURA)
+            2. INTRODUÇÃO DIRETA DE CAMPO
             =================================================================== */}
-        <section className="space-y-5 prose prose-lg max-w-none text-gray-700 mb-12">
-          <p className="lead text-xl md:text-2xl font-medium text-gray-800 border-l-4 border-[#16A34A] pl-6 py-2">
-            Dar a partida em uma roçadeira a gasolina com o motor frio é uma tarefa que gera dúvidas e pode frustrar quem ainda não domina a sequência correta dos comandos.
+        <section className="prose prose-lg max-w-none text-gray-700 mb-12">
+          <p className="lead text-xl text-gray-800 border-l-4 border-[#16A34A] pl-5 py-1 mb-5">
+            Puxar a cordinha da roçadeira vinte vezes no começo da manhã quase nunca é culpa de falta de força no braço, mas de errar o segundo exato de abrir o afogador.
           </p>
-          <p>
-            Muitos operadores enfrentam dificuldades logo cedo que resultam em puxadas repetidas na corda e desgaste desnecessário do retrátil.
+          <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
+            Quando você acerta a sequência do botão Stop, do bulbo primer e da alavanca do afogador, uma roçadeira a gasolina saudável pega em quatro ou cinco puxadas leves sem estourar a mola do retrátil.
           </p>
-          <p>
-            Entender como preparar o combustível, o bulbo injetor e o afogador na ordem certa é fundamental para garantir eficiência e prolongar a vida útil do equipamento.
-          </p>
-          <p>
-            A seguir, detalhamos o funcionamento mecânico da ignição e as etapas práticas essenciais para ligar sua roçadeira a gasolina, elétrica ou a bateria sem complicações.
+          <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
+            Neste guia direto, mostro a tabela comparativa entre partida a frio e partida a quente, o passo a passo exato para motores a combustão e os cuidados de acionamento nas máquinas elétricas e a bateria.
           </p>
 
           <div className="w-full flex justify-center my-8">
             <img
               src="/images/blog/como-ligar-rocadeira-principal.webp"
-              alt="Operador preparando roçadeira a gasolina para partida a frio no campo"
-              title="Procedimento correto para ligar roçadeira a gasolina com motor frio"
+              alt="Posicionamento seguro no solo para puxar o retrátil da roçadeira a gasolina"
+              title="Como dar partida a frio na roçadeira com segurança"
               width={800}
               height={533}
               className="rounded-2xl shadow-md border border-gray-100 max-w-full h-auto object-cover"
@@ -190,48 +190,213 @@ export const ComoLigarRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            3. DIAGNÓSTICO DO PROBLEMA ("POR QUE ALGUMAS MÁQUINAS SÃO DIFÍCEIS DE LIGAR")
+            3. TABELA RESUMO: PARTIDA A FRIO VS PARTIDA A QUENTE (UTILIDADE ÚNICA)
             =================================================================== */}
         <section className="mb-12">
-          <h2 className="text-3xl font-black text-[#1a1a1a] mb-6 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
-            O Processo de Partida e o Papel do "Sinal" do Motor
+          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] mb-4 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
+            Resumo Rápido: Partida a Frio vs. Partida a Quente
           </h2>
-          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none mb-8">
-            <p>
-              Ligar uma roçadeira a gasolina de motor frio exige criar primeiro as condições ideais de combustão dentro do cilindro.
+          <p className="text-gray-600 text-sm mb-6">
+            Antes de encostar na cordinha, confira qual das duas situações se aplica ao seu motor agora:
+          </p>
+
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+            <table className="w-full text-left border-collapse bg-white text-sm">
+              <thead>
+                <tr className="bg-[#1a1a1a] text-white text-xs uppercase">
+                  <th className="p-4 font-bold">Comando da Máquina</th>
+                  <th className="p-4 font-bold">Motor Frio (1ª Partida do Dia)</th>
+                  <th className="p-4 font-bold">Motor Quente (Após Reabastecer)</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 text-gray-700">
+                <tr className="hover:bg-gray-50">
+                  <td className="p-4 font-bold text-gray-900">Chave Stop / Ignição</td>
+                  <td className="p-4 text-[#166534] font-semibold">Posição Ligada (I / ON)</td>
+                  <td className="p-4 text-[#166534] font-semibold">Posição Ligada (I / ON)</td>
+                </tr>
+                <tr className="hover:bg-gray-50 bg-gray-50/40">
+                  <td className="p-4 font-bold text-gray-900">Bulbo Primer (Injetor)</td>
+                  <td className="p-4">Apertar 7 a 10 vezes até encher de gasolina</td>
+                  <td className="p-4">Não precisa apertar (só se o tanque secou inteiro)</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="p-4 font-bold text-gray-900">Alavanca do Afogador</td>
+                  <td className="p-4 font-semibold text-amber-800">Fechado até o 1º sinal ➔ Abrir imediatamente</td>
+                  <td className="p-4 font-semibold text-[#166534]">Sempre Aberto (Posição Trabalho)</td>
+                </tr>
+                <tr className="hover:bg-gray-50 bg-gray-50/40">
+                  <td className="p-4 font-bold text-gray-900">Trava de Meia-Aceleração</td>
+                  <td className="p-4">Acionar se o punho tiver (desarmar após ligar)</td>
+                  <td className="p-4">Desarmada (marcha lenta normal)</td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="p-4 font-bold text-gray-900">Puxadas Esperadas</td>
+                  <td className="p-4">3 a 5 fechadas + 1 a 3 abertas</td>
+                  <td className="p-4">1 a 2 puxadas firmes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* ===================================================================
+            4. PASSO A PASSO DA PARTIDA A FRIO (4 ETAPAS ENXUTAS)
+            =================================================================== */}
+        <div className="my-12 flex justify-center">
+          <BannerDoMeio />
+        </div>
+
+        <section className="space-y-6 mb-14">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] uppercase tracking-tight border-b-2 border-gray-100 pb-3">
+            Passo a Passo para Ligar Roçadeira a Gasolina com Motor Frio
+          </h2>
+
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <h3 className="text-lg sm:text-xl font-bold text-[#1a1a1a] mb-2 flex items-center gap-3">
+              <span className="bg-[#15803d] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">1</span>
+              Abasteça com mistura fresca e afaste do galão
+            </h3>
+            <p className="mb-3 text-sm sm:text-base text-gray-700 leading-relaxed">
+              Use gasolina preparada há menos de 15 dias na proporção correta do{' '}
+              <a href="/qual-o-melhor-oleo-2-tempos-para-rocadeira" className="text-[#166534] hover:underline font-semibold">
+                óleo 2 tempos para roçadeira
+              </a>{' '}
+              (se a sua máquina for da linha TBC ou 4T, confira também o{' '}
+              <a href="/qual-o-melhor-oleo-para-rocadeira-toyama" className="text-[#166534] hover:underline font-semibold">
+                óleo ideal para roçadeira Toyama
+              </a>
+              ).
             </p>
-            <p>
-              Quando o bloco está frio, o combustível vaporiza com mais dificuldade, exigindo o fechamento do afogador para restringir o ar e enriquecer a mistura inicial.
-            </p>
-            <p>
-              Assim que a ação mecânica de puxar o cabo faz o motor emitir aquele som curto característico de engasgo (o famoso primeiro sinal), significa que a gasolina alcançou a câmara e sofreu a primeira queima.
-            </p>
-            <p>
-              Nesse exato instante, é crucial deslizar o afogador para a posição aberta, permitindo a entrada normal de oxigênio na próxima puxada.
-            </p>
-            <p>
-              Quando o motor pegar de vez, basta dar um leve toque no gatilho do acelerador para destravar a meia-aceleração e estabilizar a marcha lenta.
+            <p className="mb-0 text-sm sm:text-base text-gray-700 leading-relaxed">
+              Feche bem a tampa e caminhe pelo menos três metros para longe do ponto de abastecimento antes de apoiar a roçadeira no chão limpo.
             </p>
           </div>
 
-          <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-200 space-y-4">
-            <h3 className="text-2xl font-bold text-[#1a1a1a] mb-2">
-              Por que algumas máquinas são mais difíceis de ligar?
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <h3 className="text-lg sm:text-xl font-bold text-[#1a1a1a] mb-2 flex items-center gap-3">
+              <span className="bg-[#15803d] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">2</span>
+              Ligue a chave Stop e bombeie o primer
             </h3>
-            <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-              <p>
-                Um dos principais fatores é a taxa de compressão: motores de maior cilindrada exigem mais força física para vencer o ponto morto superior do pistão.
+            <p className="mb-3 text-sm sm:text-base text-gray-700 leading-relaxed">
+              Coloque o interruptor do punho na posição ligada (I ou ON): esquecer essa chave no Stop é o jeito mais rápido de encharcar o cilindro sem faísca.
+            </p>
+            <p className="mb-0 text-sm sm:text-base text-gray-700 leading-relaxed">
+              Pressione a bolha transparente do injetor (primer) devagar de 7 a 10 vezes até vê-la preenchida de combustível e ouvir o retorno circulando para o tanque.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <h3 className="text-lg sm:text-xl font-bold text-[#1a1a1a] mb-2 flex items-center gap-3">
+              <span className="bg-[#15803d] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">3</span>
+              Feche o afogador e puxe só até o primeiro sinal
+            </h3>
+            <p className="mb-3 text-sm sm:text-base text-gray-700 leading-relaxed">
+              Mova a alavanca do afogador para a posição fechada (símbolo de borboleta fechada ou seta para cima nas importadas) e apoie a mão esquerda firme sobre a carcaça do motor.
+            </p>
+            <p className="mb-0 text-sm sm:text-base text-gray-700 leading-relaxed">
+              Tire primeiro a folga da cordinha até sentir o engate dos trincos e dê puxadas curtas e rápidas sem esticar o cordão até o fim do curso até ouvir um ronco curto de explosão que apaga em seguida.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
+            <h3 className="text-lg sm:text-xl font-bold text-[#1a1a1a] mb-2 flex items-center gap-3">
+              <span className="bg-[#15803d] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">4</span>
+              Abra o afogador imediatamente e aqueça 30 segundos
+            </h3>
+            <p className="mb-3 text-sm sm:text-base text-gray-700 leading-relaxed">
+              Assim que escutar o primeiro sinal, passe o afogador para a posição totalmente aberta e puxe novamente: em uma ou duas puxadas o motor entra em funcionamento contínuo.
+            </p>
+            <p className="mb-0 text-sm sm:text-base text-gray-700 leading-relaxed">
+              Dê um toque leve no gatilho para desarmar a trava de partida, aguarde cerca de 30 segundos na lenta para o óleo circular no virabrequim e só então acelere para cortar.
+            </p>
+          </div>
+        </section>
+
+        {/* ===================================================================
+            5. POR QUE ALGUMAS MÁQUINAS RESISTEM NA CORDA
+            =================================================================== */}
+        <section className="mb-14 bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-200">
+          <h2 className="text-2xl font-black text-[#1a1a1a] mb-4 uppercase tracking-tight">
+            Quando a Máquina Não Pega Mesmo Seguindo a Ordem
+          </h2>
+          <p className="mb-4 text-sm sm:text-base text-gray-700 leading-relaxed">
+            Se o motor não dá nem sinal após seis puxadas com o afogador fechado, pare e cheque três suspeitos rápidos antes de continuar puxando.
+          </p>
+          <p className="mb-4 text-sm sm:text-base text-gray-700 leading-relaxed">
+            Primeiro, confirme se o filtro de ar não está entupido de poeira e se o{' '}
+            <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] hover:underline font-semibold">
+              fio de nylon no carretel
+            </a>{' '}
+            não está longo demais pesando na embreagem.
+          </p>
+          <p className="mb-0 text-sm sm:text-base text-gray-700 leading-relaxed">
+            Se sentir cheiro forte de combustível cru, passe direto para{' '}
+            <a href="/como-desafogar-rocadeira" className="text-[#166534] hover:underline font-semibold">
+              como desafogar a roçadeira
+            </a>
+            ; se ela pega mas apaga ao soltar o dedo, o ajuste é feito em{' '}
+            <a href="/como-regular-rocadeira" className="text-[#166534] hover:underline font-semibold">
+              como regular o carburador
+            </a>
+            .
+          </p>
+        </section>
+
+        {/* ===================================================================
+            6. ELÉTRICA E A BATERIA (ENXUTO E COM LINKS PARA OS GUIAS PILARES)
+            =================================================================== */}
+        <section className="mb-14 space-y-8">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] uppercase tracking-tight border-b-2 border-gray-100 pb-3">
+            Como Ligar Roçadeira Elétrica e a Bateria
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200">
+              <h3 className="text-xl font-bold text-[#166534] mb-4">
+                Modelos Elétricos com Fio
+              </h3>
+              <img
+                src="/images/blog/Como ligar uma roçadeira elétrica.webp"
+                alt="Operador segurando roçadeira elétrica com o cabo preso no aliviador de tensão"
+                title="Como ligar uma roçadeira elétrica"
+                width={800}
+                height={533}
+                className="rounded-xl shadow-sm border border-gray-200 w-full h-auto object-cover mb-4"
+                loading="lazy"
+              />
+              <p className="mb-3 text-sm text-gray-700 leading-relaxed">
+                Prenda a extensão no gancho passa-fio do punho (evitando puxões na tomada) e confira a bitola correta do cabo para não aquecer o motor.
               </p>
-              <p>
-                Além disso, ajustes incorretos nas agulhas do carburador ou gasolina envelhecida impedem a formação da névoa ideal de ar e combustível.
+              <p className="mb-0 text-sm text-gray-700 leading-relaxed">
+                Com a ponteira suspensa longe do chão, aperte o botão lateral de segurança com o polegar e acione o gatilho; se busca um modelo leve sem carburação, veja nosso ranking da{' '}
+                <a href="/melhor-rocadeira" className="text-[#166534] hover:underline font-semibold">
+                  melhor roçadeira elétrica e a gasolina
+                </a>
+                .
               </p>
-              <p>
-                Quando comparamos marcas tradicionais no campo, a Stihl e a Husqvarna equilibram precisão mecânica de carburação com sistemas como válvula descompressora e mola auxiliar SmartStart, enquanto linhas com partida facilitada (Easy Start) aliviam o tranco na corda para reduzir o esforço do operador.
+            </div>
+
+            <div className="bg-gray-50 p-6 rounded-2xl border border-gray-200">
+              <h3 className="text-xl font-bold text-[#166534] mb-4">
+                Modelos a Bateria (Íon-Lítio)
+              </h3>
+              <img
+                src="/images/blog/Como ligar uma roçadeira a bateria.webp"
+                alt="Encaixe da bateria de lítio e acionamento da trava de segurança na roçadeira"
+                title="Como ligar uma roçadeira a bateria"
+                width={800}
+                height={533}
+                className="rounded-xl shadow-sm border border-gray-200 w-full h-auto object-cover mb-4"
+                loading="lazy"
+              />
+              <p className="mb-3 text-sm text-gray-700 leading-relaxed">
+                Deslize a bateria no trilho até ouvir o clique da trava, ligue a chave geral no painel e pressione a trava superior junto ao gatilho.
               </p>
-              <p>
-                Caso sua máquina esteja perdendo lenta ou engasgando mesmo quente, vale conferir nosso tutorial de{' '}
-                <a href="/como-regular-rocadeira" className="text-[#166534] hover:underline font-semibold">
-                  como regular o carburador da roçadeira com segurança
+              <p className="mb-0 text-sm text-gray-700 leading-relaxed">
+                Retire sempre a bateria antes de limpar a saia ou trocar o acessório — para comparar autonomia e força, confira a{' '}
+                <a href="/melhor-rocadeira-a-bateria" className="text-[#166534] hover:underline font-semibold">
+                  melhor roçadeira a bateria
                 </a>
                 .
               </p>
@@ -240,335 +405,46 @@ export const ComoLigarRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            4. MATERIAIS E VERIFICAÇÕES ANTES DA PARTIDA (CHECKLIST VISUAL)
+            7. ERROS COMUNS NA PARTIDA
             =================================================================== */}
-        <section className="mb-12 bg-gray-50 border border-gray-200 rounded-2xl p-6 sm:p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="bg-[#15803d] text-white p-2.5 rounded-xl">
-              <Wrench size={24} />
-            </div>
-            <div>
-              <h2 className="text-2xl font-black text-[#1a1a1a] uppercase tracking-tight m-0">
-                Materiais e Checklist Antes da Partida
-              </h2>
-              <p className="text-sm text-gray-600 m-0">
-                Conferir estes 4 itens antes de puxar a corda evita 90% das falhas de ignição:
-              </p>
-            </div>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-              <span className="text-[#166534] mt-0.5 shrink-0">
-                <Check size={20} />
-              </span>
-              <div>
-                <span className="font-bold text-gray-900 block text-sm">Gasolina Fresca + Óleo 2 Tempos</span>
-                <span className="text-xs text-gray-600">Mistura preparada há menos de 15 dias na proporção exata do manual.</span>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-              <span className="text-[#166534] mt-0.5 shrink-0">
-                <Check size={20} />
-              </span>
-              <div>
-                <span className="font-bold text-gray-900 block text-sm">Frasco Misturador Graduado</span>
-                <span className="text-xs text-gray-600">Evita excesso de óleo que carboniza e encharca a vela de ignição.</span>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-              <span className="text-[#166534] mt-0.5 shrink-0">
-                <Check size={20} />
-              </span>
-              <div>
-                <span className="font-bold text-gray-900 block text-sm">Chave Combinada e Filtro Limpo</span>
-                <span className="text-xs text-gray-600">Certifique-se de que o cachimbo da vela está firme e o filtro de ar desobstruído.</span>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
-              <span className="text-[#166534] mt-0.5 shrink-0">
-                <Check size={20} />
-              </span>
-              <div>
-                <span className="font-bold text-gray-900 block text-sm">EPIs Obrigatórios de Operação</span>
-                <span className="text-xs text-gray-600">Óculos ou viseira, protetor auricular, luvas, perneiras e calçado fechado.</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ===================================================================
-            5. BANNER DO MEIO (MOMENTO DE TRANSIÇÃO PARA A PRÁTICA)
-            =================================================================== */}
-        <div className="my-12 flex justify-center">
-          <BannerDoMeio />
-        </div>
-
-        {/* ===================================================================
-            6. PASSO A PASSO PRÁTICO NUMERADO (O CORAÇÃO DO TUTORIAL)
-            =================================================================== */}
-        <div className="space-y-12">
-          <h2 className="text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
-            O Passo a Passo Prático para a Partida a Frio
-          </h2>
-
-          {/* ETAPA 1 */}
-          <section className="space-y-4">
-            <h3 className="text-2xl font-bold text-[#1a1a1a] flex items-center gap-3">
-              <span className="bg-[#15803d] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">
-                1
-              </span>
-              Preparação da Mistura de Combustível
-            </h3>
-            <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-              <p>
-                A preparação correta da mistura de combustível é o primeiro passo para garantir uma ignição rápida e preservar o cilindro da roçadeira.
-              </p>
-              <p>
-                Nos motores dois tempos, respeite rigorosamente a proporção entre gasolina comum e óleo 2T indicada pelo fabricante (geralmente 50:1 nas linhas Stihl e Husqvarna ou 25:1 nas importadas).
-              </p>
-              <p>
-                Utilize um recipiente graduado para medir com precisão, agite bem o galão antes de abastecer e nunca utilize gasolina velha ou armazenada há semanas.
-              </p>
-            </div>
-          </section>
-
-          {/* ETAPA 2 */}
-          <section className="space-y-4">
-            <h3 className="text-2xl font-bold text-[#1a1a1a] flex items-center gap-3">
-              <span className="bg-[#15803d] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">
-                2
-              </span>
-              Verificação do Botão de Ignição (Stop)
-            </h3>
-            <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-              <p>
-                Um descuido simples, mas muito comum no campo, é tentar dar a partida com o interruptor de parada na posição desligada.
-              </p>
-              <p>
-                Quando o botão Stop fica na posição de corte, o aterramento bloqueia a centelha elétrica na vela e o motor apenas puxa gasolina sem queimar, afogando rapidamente.
-              </p>
-              <p>
-                Antes de tocar na cordinha, apoie a máquina em solo plano e posicione a chave seletora no comando de ignição ligada (posição I ou Run).
-              </p>
-            </div>
-          </section>
-
-          {/* ETAPA 3 */}
-          <section className="space-y-4">
-            <h3 className="text-2xl font-bold text-[#1a1a1a] flex items-center gap-3">
-              <span className="bg-[#15803d] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">
-                3
-              </span>
-              Bombeamento do Combustível no Bulbo Primer
-            </h3>
-            <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-              <p>
-                Para que a roçadeira pegue logo nas primeiras puxadas, é indispensável remover as bolhas de ar paradas nas mangueiras e alimentar o carburador.
-              </p>
-              <p>
-                Localize o bulbo injetor de combustível (primer), aquela pequena bolha de borracha transparente na lateral do carburador.
-              </p>
-              <p>
-                Pressione o bulbo com o dedo de 7 a 10 vezes de forma pausada até sentir resistência e visualizar a gasolina preenchendo a cúpula translúcida sem ar.
-              </p>
-            </div>
-          </section>
-
-          {/* ETAPA 4 */}
-          <section className="space-y-4">
-            <h3 className="text-2xl font-bold text-[#1a1a1a] flex items-center gap-3">
-              <span className="bg-[#15803d] text-white w-8 h-8 rounded-full flex items-center justify-center text-base font-black shrink-0">
-                4
-              </span>
-              Uso Correto do Afogador e Acionamento da Corda
-            </h3>
-            <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-              <p>
-                Com o motor frio, mova a alavanca do afogador para a posição fechada (partida a frio), enriquecendo a mistura inicial.
-              </p>
-              <p>
-                Segure a carcaça firme no chão, puxe o punho de partida devagar apenas até sentir os trincos engatarem (folga inicial) e, a partir daí, dê puxadas curtas e firmes.
-              </p>
-              <p>
-                Assim que o motor der o primeiro sinal de ignição (um ronco curto ou engasgo), retorne imediatamente o afogador para a posição aberta.
-              </p>
-              <p>
-                Puxe o cordão novamente com firmeza: o motor iniciará o funcionamento contínuo e bastará um toque leve no acelerador para deixá-lo aquecer em marcha lenta por 30 segundos antes de roçar.
-              </p>
-            </div>
-          </section>
-        </div>
-
-        {/* ===================================================================
-            6B. OUTROS TIPOS DE ROÇADEIRAS (ELÉTRICA E A BATERIA)
-            =================================================================== */}
-        <section className="mt-16 pt-12 border-t border-gray-200 space-y-12">
-          <h2 className="text-3xl font-black text-[#1a1a1a] uppercase tracking-tight">
-            Como Ligar Outros Tipos de Roçadeiras
-          </h2>
-
-          <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-200">
-            <h3 className="text-2xl font-bold text-[#166534] mb-6 border-l-4 border-[#16A34A] pl-4">
-              Como ligar uma roçadeira elétrica
-            </h3>
-            <div className="w-full flex justify-center mb-8">
-              <img
-                src="/images/blog/Como ligar uma roçadeira elétrica.webp"
-                alt="Operador demonstrando como ligar uma roçadeira elétrica com segurança"
-                title="Como ligar uma roçadeira elétrica"
-                width={800}
-                height={533}
-                className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-              <p>
-                Para ligar uma roçadeira elétrica com segurança, conecte o plugue a uma extensão compatível com a amperagem da máquina e prenda o cabo no passa-fio do punho para evitar desconexões.
-              </p>
-              <p>
-                Adote uma postura firme com os dois pés apoiados, segurando a empunhadura principal com a mão dominante e a alça auxiliar com a outra mão, mantendo o cabeçote suspenso longe do corpo.
-              </p>
-              <p>
-                Pressione primeiro o botão lateral de destravamento com o polegar e, em seguida, aperte o gatilho interruptor para acionar o motor elétrico suavemente.
-              </p>
-              <p>
-                Ao finalizar o corte, solte o gatilho e aguarde o carretel ou lâmina parar completamente antes de desconectar o cabo da tomada.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-gray-50 p-6 sm:p-8 rounded-2xl border border-gray-200">
-            <h3 className="text-2xl font-bold text-[#166534] mb-6 border-l-4 border-[#16A34A] pl-4">
-              Como ligar uma roçadeira a bateria
-            </h3>
-            <div className="w-full flex justify-center mb-8">
-              <img
-                src="/images/blog/Como ligar uma roçadeira a bateria.webp"
-                alt="Operador encaixando a bateria e acionando a trava de partida de uma roçadeira a bateria"
-                title="Como ligar uma roçadeira a bateria"
-                width={800}
-                height={533}
-                className="rounded-2xl shadow-sm border border-gray-200 max-w-full h-auto object-cover"
-                loading="lazy"
-              />
-            </div>
-            <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-              <p>
-                Nos modelos a bateria, comece deslizando a bateria carregada no compartimento até ouvir o clique da trava de retenção, garantindo contato firme nos terminais.
-              </p>
-              <p>
-                Ative a chave geral ou botão liga/desliga no painel da empunhadura e mantenha a ponteira de corte livre de obstáculos no chão.
-              </p>
-              <p>
-                Acione a alavanca de segurança superior com a palma da mão e pressione o gatilho de aceleração gradualmente conforme a densidade da grama.
-              </p>
-              <p>
-                Sempre que pausar o trabalho para limpar o cabeçote ou guardar o equipamento, solte o gatilho e remova a bateria do alojamento para impedir qualquer acionamento acidental.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ===================================================================
-            7. BOX DE ALERTA DE SEGURANÇA E EPIS
-            =================================================================== */}
-        <section className="mt-14 bg-amber-50 border-l-4 border-amber-500 p-6 sm:p-8 rounded-r-2xl shadow-sm">
-          <div className="flex items-start gap-4">
-            <div className="text-amber-600 shrink-0 mt-1">
-              <ShieldAlert size={32} />
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-amber-900 mb-2 uppercase tracking-wide">
-                Alerta de Segurança Crucial na Partida
-              </h3>
-              <div className="space-y-3 text-sm text-amber-950 font-medium">
-                <p>
-                  Sempre afaste a roçadeira pelo menos 3 metros do local onde você abasteceu o tanque antes de puxar a corda de partida, evitando que faíscas inflamem vapores de gasolina derramada.
-                </p>
-                <p>
-                  Apoie a máquina firmemente no chão plano e certifique-se de que a lâmina metálica ou o carretel não estejam encostando em pedras, galhos ou nos seus pés.
-                </p>
-                <p>
-                  Consulte sempre o manual oficial do seu modelo específico para confirmar a posição exata do afogador e a proporção de óleo 2 tempos recomendada pelo fabricante.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ===================================================================
-            8. ERROS COMUNS E COMO EVITÁ-LOS
-            =================================================================== */}
-        <section className="mt-14">
+        <section className="mb-14">
           <h2 className="text-2xl font-black text-[#1a1a1a] mb-6 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
-            Erros Comuns na Partida e Como Evitá-los
+            Erros que Estragam o Retrátil na Hora de Ligar
           </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
               <h3 className="font-bold text-red-900 mb-3 flex items-center gap-2 text-base">
-                <AlertTriangle size={20} className="text-red-600" /> O que NÃO Fazer
+                <AlertTriangle size={20} className="text-red-600" /> O que Evitar
               </h3>
               <ul className="space-y-2 text-red-800 text-sm list-disc list-inside">
-                <li>Continuar puxando a corda com o afogador fechado depois do primeiro sinal do motor.</li>
-                <li>Puxar o cordão de partida até o limite máximo com violência ou soltar o punho de vez no retorno.</li>
-                <li>Esquecer de pressionar o bulbo primer quando a máquina esteve guardada com o carburador seco.</li>
-                <li>Abastecer com gasolina velha ou misturar óleo 2 tempos "no olho" sem dosador.</li>
+                <li>Puxar o cordão com tranco desde o zero sem sentir os trincos engatarem primeiro.</li>
+                <li>Soltar o punho da corda de golpe (a volta violenta quebra a mola caracol).</li>
+                <li>Manter o afogador fechado depois do primeiro sinal de explosão.</li>
+                <li>Dar partida com a lâmina encostada em pedra, cerca ou concreto.</li>
               </ul>
             </div>
 
             <div className="bg-[#F0FDF4] p-6 rounded-2xl border border-[#16A34A]/30">
               <h3 className="font-bold text-[#166534] mb-3 flex items-center gap-2 text-base">
-                <Check size={20} className="text-[#16A34A]" /> Prática Recomendada
+                <Check size={20} className="text-[#16A34A]" /> Prática que Preserva a Máquina
               </h3>
               <ul className="space-y-2 text-[#166534] text-sm list-disc list-inside">
-                <li>Abrir o afogador imediatamente assim que ouvir o primeiro estalo de explosão.</li>
-                <li>Tirar a folga inicial da cordinha até sentir o engate antes de puxar com firmeza controlada.</li>
-                <li>Bombear o primer de 7 a 10 vezes até visualizar o combustível limpo circulando sem bolhas.</li>
-                <li>Aguardar 30 segundos de aquecimento antes de acelerar fundo no mato pesado.</li>
+                <li>Acompanhar o retorno da corda com a mão até o punho encostar na carcaça.</li>
+                <li>Abrir o afogador no instante exato em que o motor der sinal.</li>
+                <li>Aguardar 30 segundos de aquecimento antes de acelerar fundo no mato.</li>
+                <li>Secar o carburador na marcha lenta antes de guardar por mais de 15 dias.</li>
               </ul>
             </div>
           </div>
         </section>
 
         {/* ===================================================================
-            9. DICAS DE MANUTENÇÃO PREVENTIVA E CUIDADOS COM O FIO
+            8. PERGUNTAS FREQUENTES
             =================================================================== */}
-        <section className="mt-14">
-          <h2 className="text-2xl font-black text-[#1a1a1a] mb-6 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
-            Manutenção e Cuidados para Partidas Sempre Leves
-          </h2>
-          <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
-            <p>
-              Manter a roçadeira pegando de primeira começa no encerramento de cada jornada de trabalho.
-            </p>
-            <p>
-              Sempre que terminar o serviço e não for usar a máquina nos próximos dias, esvazie o tanque e deixe o motor funcionar em marcha lenta até apagar sozinho para secar o carburador.
-            </p>
-            <p>
-              Inspecione regularmente a espuma do filtro de ar e o estado da vela de ignição, pois filtros saturados de poeira alteram a mistura e dificultam a partida.
-            </p>
-            <p>
-              Além do motor, mantenha o carretel abastecido na medida certa seguindo nosso guia de{' '}
-              <a href="/como-colocar-fio-na-rocadeira" className="text-[#166534] hover:underline font-semibold">
-                como colocar fio na roçadeira sem embolar
-              </a>
-              , evitando que pontas de nylon excessivamente longas pesem no arrasto inicial da embreagem.
-            </p>
-          </div>
-        </section>
-
-        {/* ===================================================================
-            10. PERGUNTAS FREQUENTES (FAQ EXPANSÍVEL EM ACORDEÃO)
-            =================================================================== */}
-        <section className="mt-16 pt-8 border-t border-gray-200">
+        <section className="mt-14 pt-8 border-t border-gray-200">
           <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] mb-8 uppercase tracking-tight">
-            Perguntas Frequentes sobre Como Ligar a Roçadeira
+            Perguntas Frequentes sobre Partida de Roçadeira
           </h2>
 
           <div className="space-y-4">
@@ -585,12 +461,7 @@ export const ComoLigarRocadeira: React.FC = () => {
                     aria-expanded={isOpen}
                     className="w-full px-6 py-5 text-left font-bold text-gray-900 flex justify-between items-center gap-4 hover:bg-gray-50 transition-colors"
                   >
-                    <span className="flex items-center gap-3 text-base sm:text-lg">
-                      <span className="w-6 h-6 rounded-full bg-[#15803d] text-white flex items-center justify-center font-bold text-xs shrink-0">
-                        {index + 1}
-                      </span>
-                      {faq.question}
-                    </span>
+                    <span className="text-base sm:text-lg">{faq.question}</span>
                     <span className="text-[#166534] shrink-0">
                       {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                     </span>
@@ -612,49 +483,22 @@ export const ComoLigarRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            11. CONSIDERAÇÕES FINAIS (BOX ESCURO NOBRE)
+            9. DICA DE CAMPO DO JOSÉ AILTON
             =================================================================== */}
-        <section className="mt-16 pt-12 border-t-4 border-[#16A34A]">
-          <div className="bg-[#1a1a1a] p-8 sm:p-12 rounded-3xl text-center relative overflow-hidden shadow-2xl">
-            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 via-[#16A34A] to-green-600"></div>
-
-            <h2 className="text-2xl sm:text-3xl font-black text-white mb-6 uppercase tracking-tight">
-              Dicas Finais para Evitar Problemas na Partida
-            </h2>
-
-            <div className="prose prose-lg text-gray-300 max-w-none mx-auto font-medium space-y-4 text-sm sm:text-base">
-              <p>
-                Dominar a sequência correta para ligar sua roçadeira a gasolina elimina o cansaço físico antes do serviço e evita quebras prematuras no sistema de partida retrátil.
-              </p>
-              <p>
-                O segredo está na tríade simples de combustível fresco bem dosado, bombeamento correto no primer e abertura imediata do afogador logo após o primeiro sinal do motor.
-              </p>
-              <p>
-                Aplicando esse ritual técnico em cada jornada, sua máquina responderá sempre com agilidade e força total do começo ao fim da roçada.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ===================================================================
-            12. BOX "DICA DO ESPECIALISTA" (DESTAQUE FINAL)
-            =================================================================== */}
-        <div className="mt-12 bg-green-50 border-l-4 border-[#16A34A] p-6 sm:p-8 rounded-r-2xl shadow-sm flex flex-col sm:flex-row gap-5 items-start">
-          <div className="bg-green-100 p-3 rounded-full text-[#166534] shrink-0 hidden sm:block">
-            <Lightbulb size={32} />
+        <div className="mt-14 bg-[#F0FDF4] border-2 border-[#16A34A] p-6 sm:p-8 rounded-3xl shadow-sm flex items-start gap-4">
+          <div className="bg-[#16A34A] text-white p-3 rounded-2xl shrink-0">
+            <Lightbulb size={24} />
           </div>
           <div>
-            <h3 className="text-xl font-bold text-[#166534] mb-2">
-              Dica de Ouro da Oficina: Partida a Frio vs. Partida a Quente
+            <h3 className="text-lg sm:text-xl font-black text-[#166534] uppercase tracking-wide mb-2">
+              Dica de Ouro: Puxe Curto e Firme, Nunca Até o Final do Cordão
             </h3>
-            <div className="space-y-3 text-gray-800 text-sm sm:text-base leading-relaxed">
-              <p>
-                Nunca feche o afogador quando parar apenas para reabastecer o tanque com o motor já quente: acionar o afogador em um cilindro aquecido é a causa número um de afogamento no meio do expediente.
-              </p>
-              <p>
-                Com a máquina quente, basta posicionar o botão Stop em ligado, manter o afogador aberto e puxar a corda uma única vez com firmeza.
-              </p>
-            </div>
+            <p className="mb-3 text-sm sm:text-base text-gray-800 leading-relaxed">
+              O motor 2 tempos precisa de velocidade de giro no volante magnético para gerar faísca forte, não de esticar o cordão até bater no nó interno.
+            </p>
+            <p className="mb-0 text-sm sm:text-base text-gray-800 leading-relaxed">
+              Encoste o punho na folga dos trincos e faça um movimento seco de cerca de 40 cm acompanhando o retorno com a mão: a faísca salta forte e a mola do arranque dura anos.
+            </p>
           </div>
         </div>
       </div>

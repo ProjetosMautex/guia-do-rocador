@@ -687,7 +687,19 @@ export const RocadeiraNakasakiEBoa: React.FC = () => {
               Para o proprietário de chácara, sítio ou lote urbano que roça o terreno a cada 15 ou 30 dias, essa proposta faz muito sentido financeiro, já que a máquina frequentemente se paga logo nas duas ou três primeiras diárias de limpeza economizadas.
             </p>
             <p>
-              O segredo para não se frustrar é compreender que ela entrega força honesta pelo que custa, mas pede cuidados simples de montagem, lubrificação e uso compatível com a categoria doméstica e semiprofissional.
+              O segredo para não se frustrar é compreender que ela entrega força honesta pelo que custa, mas pede cuidados simples de{' '}
+              <a href="/como-montar-rocadeira-nakasaki" className="text-[#166534] font-semibold hover:underline">
+                montagem correta da Nakasaki
+              </a>
+              ,{' '}
+              <a href="/qual-o-melhor-oleo-2-tempos-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                lubrificação 2 tempos
+              </a>{' '}
+              e, quando necessário, saber{' '}
+              <a href="/como-regular-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                como regular o carburador
+              </a>{' '}
+              para a lenta ficar estável.
             </p>
           </div>
 
