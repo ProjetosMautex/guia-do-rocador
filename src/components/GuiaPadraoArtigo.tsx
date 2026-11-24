@@ -256,41 +256,63 @@
  *      </div>
  *      ```
  *
- * 9. REDAÇÃO HUMANA, ANTI-ROBOTIZAÇÃO, ANTI-STUFFING E ZERO VÍDEOS (INDEXAÇÃO NO GOOGLE):
+ * 9. REDAÇÃO HUMANA, INFORMATION GAIN, ANTI-STUFFING E ZERO VÍDEOS (INDEXAÇÃO NO GOOGLE):
  *    - INTRODUÇÃO DIRETA DE OFICINA / CAMPO (PROIBIDO CLICHÊS DE IA):
  *      • JAMAIS comece artigos com frases genéricas e robóticas como "gerar frustração e atrasos no campo",
  *        "manter o jardim impecável", "quem nunca passou pela frustração...", "no mundo atual" ou "este guia definitivo".
  *      • Vá direto ao ponto na primeira frase como um mecânico/operador experiente falando na bancada
  *        (citando o problema real, o critério técnico decisivo ou a medida/causa prática).
+ *    - GANHO REAL DE INFORMAÇÃO (INFORMATION GAIN):
+ *      • Todo artigo comercial DEVE entregar utilidade prática original que concorrentes genéricos não entregam:
+ *        tabelas comparativas de especificações reais (cilindrada, furo, rosca, voltagem/Ah, torque),
+ *        quadros "Quando Vale a Pena vs. Quando Evitar", critérios mecânicos de bancada e dicas reais de oficina.
  *    - ZERO KEYWORD STUFFING (EMPILHAMENTO ARTIFICIAL DE PALAVRAS-CHAVE):
  *      • NUNCA empilhe variações exatas da mesma palavra-chave entre parênteses na introdução
- *        nem crie caixas de "Navegação Rápida" repetindo a palavra-chave 5 ou 6 vezes nos links de âncora.
+ *        nem crie caixas de "Navegação Rápida" ou H2s repetindo a mesma palavra-chave 5 ou 6 vezes.
  *      • Use linguagem natural, sinônimos técnicos e títulos de seções variados.
- *    - ZERO REPETIÇÃO DE BLOCOS INTERNOS E ENTRE ARTIGOS:
- *      • NÃO repita o mesmo passo a passo várias vezes dentro do artigo só mudando o nome da marca/modelo;
+ *    - ZERO REPETIÇÃO DE BLOCOS INTERNOS E ANTI-CANIBALIZAÇÃO ENTRE ARTIGOS:
+ *      • NÃO repita o mesmo bloco/passo a passo várias vezes dentro do artigo só mudando o nome da marca/modelo;
  *        em vez disso, crie UMA tabela comparativa de particularidades por marca/modelo.
- *      • NÃO reescreva explicações longas que já possuem artigo dedicado no site (ex.: mistura de óleo 2T,
- *        rosca esquerda, regulagem de carburador, troca de lâmina). Faça um resumo de 1 linha e envie link interno!
- *    - ELEMENTOS ORIGINAIS SEM VÍDEOS (PAGESPEED 100):
- *      • Priorize elementos práticos de alto valor que textos genéricos não têm: tabelas de diagnóstico por sintoma,
- *        tabelas de especificações/medidas por marca, comparativos de oficina e dicas técnicas reais.
+ *      • NÃO reescreva tutoriais longos que já possuem artigo dedicado no site (ex.: mistura de óleo 2T,
+ *        enrolamento de fio de nylon, troca de lâmina, regulagem de carburador). Faça um resumo breve e envie link interno!
+ *      • NÃO crie páginas novas que canibalizem uma página pilar já indexada que cobre o mesmo assunto.
+ *    - ZERO VÍDEOS EMBUTIDOS (PAGESPEED 100):
  *      • ⚠️ NUNCA incorpore `<video>` nem iframes do YouTube diretamente nas páginas do site para não
  *        derrubar a nota 100 do Google PageSpeed / LCP / TBT.
  *
- * 10. PROTOCOLO OBRIGATÓRIO DE LINKAGEM INTERNA CONTEXTUAL (SEMPRE EXECUTAR AO CRIAR ARTIGO):
+ * 10. PROTOCOLO OBRIGATÓRIO DE LINKAGEM INTERNA CONTEXTUAL (SOMENTE ENTRE ARTIGOS — SEM ALTERAR A HOME):
  *    - ANTES e DURANTE a redação de qualquer artigo novo, o assistente/IA DEVE ler `src/data/articlesrocadeiras.ts`
  *      para mapear todos os artigos já publicados no site.
- *    - PASSO A — LINKS SAINDO DO ARTIGO NOVO (OBRIGATÓRIO 2 A 5 LINKS):
- *      • Identifique palavras, expressões ou dúvidas que JÁ aparecem naturalmente no texto enviado para criação
+ *    - PASSO A — LINKS SAINDO DO ARTIGO NOVO (OBRIGATÓRIO 2 A 5 LINKS NATURAIS NO TEXTO):
+ *      • Identifique palavras, expressões ou dúvidas que JÁ aparecem naturalmente dentro das frases do artigo
  *        (ex.: "óleo 2 tempos", "fio de nylon", "carretel", "lâmina", "carburador", "roçadeira a bateria", "desafogar")
  *        e transforme essas palavras exatas em links internos `<a href="/slug-existente">` com classe
  *        `text-[#166534] font-semibold hover:underline` (ou `text-[#16A34A] font-semibold hover:underline`).
- *      • Os links devem ser 100% naturais no contexto da frase — nunca empilhe listas artificiais de links soltos.
- *    - PASSO B — LINKS APONTANDO PARA O ARTIGO NOVO (ZERO PÁGINAS ÓRFÃS):
+ *      • Os links devem ser 100% naturais dentro do parágrafo — nunca empilhe listas artificiais de links soltos.
+ *    - PASSO B — LINKS APONTANDO PARA O ARTIGO NOVO (PÁGINAS FORTES COMO "PUXADORAS"):
  *      • Sempre que criar um artigo novo, procure 1 a 2 artigos já existentes (especialmente páginas pilares
- *        como `/melhor-rocadeira`, `/melhor-rocadeira-a-bateria`, `/qual-o-melhor-fio-de-nylon-para-rocadeira` ou
- *        outros guias do mesmo cluster) que já mencionam aquele tema no texto e adicione um link interno contextual
- *        apontando para a URL do artigo recém-criado. Nenhum artigo pode ficar órfão (0 links internos recebidos).
+ *        já indexadas como `/melhor-rocadeira`, `/melhor-rocadeira-a-bateria`, `/qual-o-melhor-fio-de-nylon-para-rocadeira`
+ *        ou guias do mesmo cluster) que já mencionam aquele tema no texto e adicione um link interno contextual
+ *        dentro da frase apontando para a nova URL. Nenhum artigo pode ficar órfão (0 links internos recebidos).
+ *      • ⚠️ NÃO adicione seções extras de links na `Home.tsx` — a Home mantém apenas os 6 cards de "Nossos Artigos".
+ *
+ * 11. CHECKLIST TÉCNICO ON-PAGE, IMAGENS E INTEGRIDADE DO FECHAMENTO (PRÉ-PUBLICAÇÃO):
+ *    - SLUG, TITLE TAG, META DESCRIPTION E CANONICAL (`src/pages/[slug].astro`):
+ *      • Slug limpo, em minúsculas, sem acentos, direto ao tema e sem duplicar URL existente.
+ *      • `<title>` único com palavra-chave principal + `| Guia do Roçador`, claro e sem empilhamento de termos.
+ *      • `<meta name="description">` única (135 a 160 caracteres) com ganho prático claro, sem repetir palavras.
+ *      • `<link rel="canonical" href="https://guiadorocador.com.br/[slug]" />` e tags Open Graph (`og:title`,
+ *        `og:description`, `og:image`, `og:type="article"`).
+ *    - IMAGENS WEBP COMPRIMIDAS + ALT DESCRITIVO:
+ *      • Todas as imagens devem estar em formato `.webp` comprimido em `public/images/blog/` com `width` e `height`
+ *        explícitos (padrão `800x533` nas fotos editoriais e `120x120` nas thumbs).
+ *      • Todo `<img>` informativo DEVE ter `alt` descritivo e fiel à cena real (sem keyword stuffing);
+ *        somente avatares decorativos repetidos podem usar `alt=""` com `aria-hidden="true"`.
+ *    - FINAL COMPLETO E SEM CORTES (E-E-A-T):
+ *      • Todo artigo DEVE encerrar de forma limpa, sem frases truncadas, contendo obrigatoriamente:
+ *        (1) Bloco de Perguntas Frequentes (FAQ curto e direto com 3 a 6 dúvidas reais em acordeão),
+ *        (2) Conclusão/Veredito de Compra e/ou Dica Prática de Oficina, e
+ *        (3) Assinatura/Avatar do Autor com link para `/author/[slug-do-autor]/`.
  *
  *
  * ----------------------------------------------------------------------------

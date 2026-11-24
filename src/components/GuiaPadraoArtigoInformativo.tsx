@@ -174,24 +174,46 @@
  *      • NÃO reescreva tutoriais completos de temas que já têm página própria no site (como rosca esquerda/troca
  *        de lâmina, proporção de óleo 2T, partida a frio ou regulagem de carburador): dê o lembrete em 1 linha
  *        e envie link interno para o tutorial dedicado.
- *    - CONTEÚDO ORIGINAL DE BANCADA SEM VÍDEOS (PAGESPEED 100):
- *      • Diferencie cada tutorial com elementos úteis exclusivos (tabela "Sintoma ➔ Parafuso/Ação", tabela de
- *        medidas/voltas por marca, diagnóstico "Vela Molhada vs. Vela Seca", teste de balanceamento, etc.).
+ *    - GANHO REAL DE INFORMAÇÃO (INFORMATION GAIN) E ZERO VÍDEOS (PAGESPEED 100):
+ *      • Diferencie cada tutorial com elementos originais de alto valor prático que concorrentes genéricos não têm:
+ *        tabela "Sintoma ➔ Parafuso/Ação", tabela de medidas/voltas de fábrica por marca (Stihl, Husqvarna, Toyama,
+ *        Nakasaki), diagnóstico "Vela Molhada vs. Vela Seca", teste prático de balanceamento, quadro "O que Evitar vs.
+ *        Prática Recomendada", etc.
  *      • ⚠️ NUNCA incorpore `<video>` nem iframes do YouTube diretamente nas páginas do site, pois isso
  *        derruba a performance e o PageSpeed 100.
  *
- * 8. PROTOCOLO OBRIGATÓRIO DE LINKAGEM INTERNA CONTEXTUAL (SEMPRE EXECUTAR AO CRIAR ARTIGO):
+ * 8. PROTOCOLO OBRIGATÓRIO DE LINKAGEM INTERNA CONTEXTUAL (SOMENTE ENTRE ARTIGOS — SEM ALTERAR A HOME):
  *    - ANTES e DURANTE a criação de qualquer artigo novo, leia `src/data/articlesrocadeiras.ts` para listar
  *      os artigos já existentes no site.
- *    - LINKS SAINDO DO ARTIGO NOVO (2 A 5 LINKS NATURAIS):
+ *    - LINKS SAINDO DO ARTIGO NOVO (2 A 5 LINKS NATURAIS DENTRO DAS PALAVRAS DO TEXTO):
  *      • Procure palavras ou assuntos que JÁ aparecem no texto enviado para criação (ex.: "carburador",
  *        "afogador", "desafogar", "óleo 2 tempos", "fio de nylon", "carretel", "lâmina", "Stihl 220",
- *        "Nakasaki", "roçadeira elétrica", "roçadeira a bateria") e insira links internos `<a href="/slug">`
+ *        "Nakasaki", "roçadeira a bateria") e insira links internos `<a href="/slug">`
  *        usando exatamente as palavras do próprio texto com classe `text-[#166534] font-semibold hover:underline`.
- *    - LINKS APONTANDO PARA O ARTIGO NOVO (EVITAR "DETECTADA, MAS NÃO RASTREADA"):
- *      • Ao concluir o artigo novo, encontre 1 a 2 artigos já publicados (priorizando artigos pilares/comerciais
- *        já indexados ou a seção de guias da Home quando aplicável) que mencionem esse tema e adicione links
- *        internos contextuais apontando para a nova URL. Jamais deixe um artigo recém-publicado órfão.
+ *    - LINKS APONTANDO PARA O ARTIGO NOVO (PÁGINAS INDEXADAS COMO "PUXADORAS"):
+ *      • Ao concluir o artigo novo, encontre 1 a 2 artigos já publicados (priorizando páginas pilares/comerciais
+ *        ou tutoriais fortes já indexados do mesmo cluster) que mencionem esse tema no texto e adicione links
+ *        internos contextuais dentro das frases apontando para a nova URL. Isso ajuda o Google a sair do status
+ *        "Detectada, mas não rastreada" e evita páginas órfãs.
+ *      • ⚠️ NÃO adicione blocos extras de links na `Home.tsx` — a Home mantém apenas os 6 cards de "Nossos Artigos".
+ *
+ * 9. CHECKLIST TÉCNICO ON-PAGE, IMAGENS WEBP E INTEGRIDADE DO FECHAMENTO (PRÉ-PUBLICAÇÃO):
+ *    - SLUG, TITLE TAG, META DESCRIPTION E CANONICAL (`src/pages/[slug].astro`):
+ *      • Slug limpo, em minúsculas, sem acentos e sem canibalizar outro tutorial ou página pilar existente.
+ *      • `<title>` único com palavra-chave principal + `| Guia do Roçador` (direto e sem empilhamento de termos).
+ *      • `<meta name="description">` única (135 a 160 caracteres), clara e focada no ganho prático real do tutorial.
+ *      • `<link rel="canonical" href="https://guiadorocador.com.br/[slug]" />` e Open Graph completo (`og:title`,
+ *        `og:description`, `og:image`, `og:type="article"`).
+ *    - IMAGENS WEBP COMPRIMIDAS + ALT DESCRITIVO:
+ *      • Todas as imagens devem estar em formato `.webp` comprimido em `public/images/blog/` com `width={800}` e
+ *        `height={533}` explícitos e `loading="lazy"` abaixo da dobra.
+ *      • Toda `<img>` editorial DEVE possuir atributo `alt` descritivo e natural descrevendo a cena técnica real
+ *        (sem repetição artificial de palavra-chave).
+ *    - FINAL COMPLETO E SEM CORTES (E-E-A-T):
+ *      • Nunca finalize um tutorial abruptamente ou com texto cortado. Todo artigo informativo DEVE encerrar com:
+ *        (1) Bloco de Perguntas Frequentes (FAQ curto com 3 a 5 dúvidas diretas em acordeão),
+ *        (2) Conclusão limpa e/ou Box "Segredo de Oficina / Dica de Ouro", e
+ *        (3) Assinatura/Avatar do Autor com link para `/author/[slug-do-autor]/`.
  *
  * ----------------------------------------------------------------------------
  * PARTE 2: ANATOMIA COMPLETA DO ARTIGO TUTORIAL / INFORMATIVO

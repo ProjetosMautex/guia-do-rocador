@@ -369,9 +369,13 @@ export const ComoLigarRocadeira: React.FC = () => {
                 Prenda a extensão no gancho passa-fio do punho (evitando puxões na tomada) e confira a bitola correta do cabo para não aquecer o motor.
               </p>
               <p className="mb-0 text-sm text-gray-700 leading-relaxed">
-                Com a ponteira suspensa longe do chão, aperte o botão lateral de segurança com o polegar e acione o gatilho; se busca um modelo leve sem carburação, veja nosso ranking da{' '}
+                Com a ponteira suspensa longe do chão, aperte o botão lateral de segurança com o polegar e acione o gatilho; se você ainda está indeciso entre{' '}
+                <a href="/rocadeira-eletrica-ou-a-gasolina" className="text-[#166534] hover:underline font-semibold">
+                  roçadeira elétrica ou a gasolina
+                </a>
+                , veja também nosso ranking da{' '}
                 <a href="/melhor-rocadeira" className="text-[#166534] hover:underline font-semibold">
-                  melhor roçadeira elétrica e a gasolina
+                  melhor roçadeira
                 </a>
                 .
               </p>

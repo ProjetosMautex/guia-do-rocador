@@ -918,7 +918,11 @@ export const MelhorLaminaRocadeira: React.FC = () => {
                 Discos de duas ou três pontas
               </h3>
               <p className="text-sm text-gray-700 leading-relaxed mb-2">
-                São as tradicionais facas para roçadeira, ideais para limpeza de gramados altos, pastos sujos e ervas daninhas verdes.
+                São as tradicionais facas para roçadeira, ideais para a{' '}
+                <a href="/limpeza-de-terreno-com-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  limpeza de terreno com roçadeira
+                </a>{' '}
+                em gramados altos, pastos sujos e ervas daninhas verdes.
               </p>
               <p className="text-sm text-gray-700 leading-relaxed">
                 As de 2 pontas são mais leves e ágeis para o dia a dia, enquanto as de 3 pontas entregam mais estabilidade e força de impacto para atravessar touceiras densas sem perder rotação.

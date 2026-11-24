@@ -960,7 +960,11 @@ export const MelhorRocadeira: React.FC = () => {
               priorizam o silêncio e a leveza para acabamentos rápidos em gramados tenros.
             </p>
             <p>
-              A roçadeira elétrica posiciona-se exatamente no meio-termo: entrega mais potência contínua que a maioria dos modelos a bateria de entrada e dispensa o preparo de combustível ou a{' '}
+              Na comparação direta entre{' '}
+              <a href="/rocadeira-eletrica-ou-a-gasolina" className="text-[#166534] font-semibold hover:underline">
+                roçadeira elétrica ou a gasolina
+              </a>
+              , o modelo elétrico posiciona-se exatamente no meio-termo: entrega mais potência contínua que a maioria dos modelos a bateria de entrada e dispensa o preparo de combustível ou a{' '}
               <a href="/como-regular-rocadeira" className="text-[#166534] font-semibold hover:underline">
                 regulagem de carburador
               </a>{' '}
@@ -1229,7 +1233,11 @@ export const MelhorRocadeira: React.FC = () => {
               </h3>
               <div className="space-y-4 prose prose-lg text-gray-700 max-w-none">
                 <p>
-                  Para vencer mato fechado sem enrolar capim na ponteira, a roçadeira precisa de um tubo de alumínio rígido (preferencialmente de 26 mm ou 28 mm de diâmetro), eixo cardã de aço temperado e uma caixa de transmissão (engrenagem angular) bem vedada.
+                  Para vencer a{' '}
+                  <a href="/limpeza-de-terreno-com-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    limpeza de terreno com roçadeira
+                  </a>{' '}
+                  no mato fechado sem enrolar capim na ponteira, a máquina precisa de um tubo de alumínio rígido (preferencialmente de 26 mm ou 28 mm de diâmetro), eixo cardã de aço temperado e uma caixa de transmissão (engrenagem angular) bem vedada.
                 </p>
                 <p>
                   Modelos bipartidos facilitam o transporte no carro, mas para trabalho rústico diário em capoeira, o eixo inteiriço rígido apresenta menor índice de folga mecânica e transfere 100% do torque do motor para a lâmina.

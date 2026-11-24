@@ -119,6 +119,18 @@ export const articles: Article[] = [
     url: "/qual-o-furo-da-lamina-da-rocadeira-stihl-220",
     image: "/images/blog/qual-o-furo-da-lamina-da-rocadeira-stihl-220.webp",
     excerpt: "Qual o furo da lâmina da roçadeira Stihl FS 220? Veja a medida exata (20 mm), tabela de modelos compatíveis e como trocar a lâmina na linha Stihl com segurança!"
+  },
+  {
+    title: "Limpeza de Terreno com Roçadeira: Passo a Passo Seguro no Mato Alto",
+    url: "/limpeza-de-terreno-com-rocadeira",
+    image: "/images/blog/limpeza-de-terreno-com-rocadeira.webp",
+    excerpt: "Como fazer limpeza de terreno com roçadeira e limpar quintal com muito mato sem enrolar capim na ponteira: tabela de acessórios, técnica em 2 alturas e EPIs."
+  },
+  {
+    title: "Roçadeira Elétrica ou a Gasolina: Qual Escolher para o Seu Terreno?",
+    url: "/rocadeira-eletrica-ou-a-gasolina",
+    image: "/images/blog/rocadeira-eletrica-ou-a-gasolina-bancada.webp",
+    excerpt: "Dúvida entre roçadeira elétrica ou a gasolina? Compare potência (Watts vs. cc), limite de extensão, manutenção anual e veja a tabela por metragem de terreno."
   }
 ];
 
