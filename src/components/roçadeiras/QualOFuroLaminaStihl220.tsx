@@ -224,7 +224,13 @@ export const QualOFuroLaminaStihl220: React.FC = () => {
                 <tr className="hover:bg-gray-50 bg-amber-50/30">
                   <td className="p-3.5 sm:p-4 font-bold text-amber-950">FR 220 (Roçadeira Costal)</td>
                   <td className="p-3.5 sm:p-4 font-bold text-amber-900">Conferir na transmissão</td>
-                  <td className="p-3.5 sm:p-4 text-amber-950">Apesar do número 220 no nome, a costal FR 220 possui projeto diferente e não segue automaticamente os acessórios da FS 220.</td>
+                  <td className="p-3.5 sm:p-4 text-amber-950">
+                    Apesar do número 220 no nome, a costal FR 220 possui projeto diferente e não segue automaticamente os acessórios da FS 220 (veja também nosso comparativo da{' '}
+                    <a href="/melhor-rocadeira-costal" className="text-amber-950 font-semibold underline">
+                      melhor roçadeira costal
+                    </a>
+                    ).
+                  </td>
                 </tr>
               </tbody>
             </table>

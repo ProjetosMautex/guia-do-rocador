@@ -163,10 +163,12 @@
  *        "evite falhas e desgaste" ou "preparamos este guia completo".
  *      • Vá direto ao sintoma real, à causa mecânica ou à resposta prática logo na primeira frase,
  *        como um mecânico ou operador explicando o conserto na bancada.
- *    - ZERO KEYWORD STUFFING E ZERO SUMÁRIOS REPETITIVOS:
+ *    - ZERO KEYWORD STUFFING, ZERO SUMÁRIOS REPETITIVOS E ZERO ANO FIXO NO TEXTO/CARD:
  *      • NÃO empilhe variações exatas da palavra-chave na introdução (ex.: repetir "como regular roçadeira..."
  *        4 vezes seguidas entre parênteses) nem crie blocos de "Navegação Rápida" repetindo a mesma palavra-chave
  *        em cada item da lista.
+ *      • NÃO coloque o ano (ex.: "em 2026") no card de `src/data/articlesrocadeiras.ts` (title/excerpt) nem
+ *        espalhado nos parágrafos e subtítulos do texto para não precisar editar manualmente na virada do ano.
  *    - ZERO DUPLICAÇÃO DE PASSOS (INTERNA OU ENTRE ARTIGOS):
  *      • NÃO repita o mesmo passo a passo várias vezes mudando apenas o nome da marca (ex.: bloco geral + bloco
  *        Stihl + bloco Toyama repetindo os mesmos 6 passos). Faça UM passo a passo claro e UMA tabela enxuta

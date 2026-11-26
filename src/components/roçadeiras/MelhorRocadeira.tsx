@@ -1177,7 +1177,11 @@ export const MelhorRocadeira: React.FC = () => {
                 Liberdade de Movimento
               </h3>
               <p className="text-gray-700 text-base leading-relaxed">
-                A ausência de fios evita acidentes com extensões cortadas e permite trabalhar em barrancos, pastos distantes e terrenos com obstáculos.
+                A ausência de fios evita acidentes com extensões cortadas e permite trabalhar em barrancos, pastos distantes e terrenos com obstáculos — e para encostas muito íngremes ou cafezais, confira também nosso ranking da{' '}
+                <a href="/melhor-rocadeira-costal" className="text-[#166534] font-semibold hover:underline">
+                  melhor roçadeira costal
+                </a>
+                .
               </p>
             </div>
 
@@ -1222,7 +1226,11 @@ export const MelhorRocadeira: React.FC = () => {
                   ) entregam força bruta para desbaste pesado e pastagens.
                 </p>
                 <p>
-                  Avalie sempre a relação entre cilindrada e qualidade da transmissão, pois um motor grande com embreagem fraca perde rendimento rapidamente sob carga.
+                  Avalie sempre a relação entre cilindrada e qualidade da transmissão (veja a tabela de consumo e peso em{' '}
+                  <a href="/qual-a-melhor-cilindrada-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                    qual a melhor cilindrada para roçadeira
+                  </a>
+                  ), pois um motor grande com embreagem fraca perde rendimento rapidamente sob carga.
                 </p>
               </div>
             </div>
@@ -1240,7 +1248,11 @@ export const MelhorRocadeira: React.FC = () => {
                   no mato fechado sem enrolar capim na ponteira, a máquina precisa de um tubo de alumínio rígido (preferencialmente de 26 mm ou 28 mm de diâmetro), eixo cardã de aço temperado e uma caixa de transmissão (engrenagem angular) bem vedada.
                 </p>
                 <p>
-                  Modelos bipartidos facilitam o transporte no carro, mas para trabalho rústico diário em capoeira, o eixo inteiriço rígido apresenta menor índice de folga mecânica e transfere 100% do torque do motor para a lâmina.
+                  Modelos bipartidos facilitam o transporte no carro (exigindo atenção ao encaixe completo das estrias da luva central, como mostramos no passo a passo de{' '}
+                  <a href="/como-montar-rocadeira-nakasaki" className="text-[#166534] font-semibold hover:underline">
+                    como montar roçadeira Nakasaki
+                  </a>
+                  ), mas para trabalho rústico diário em capoeira, o eixo inteiriço rígido apresenta menor índice de folga mecânica e transfere 100% do torque do motor para a lâmina.
                 </p>
               </div>
 

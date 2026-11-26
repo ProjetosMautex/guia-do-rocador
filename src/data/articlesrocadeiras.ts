@@ -58,10 +58,10 @@ export const articles: Article[] = [
     title: "Como Desafogar Roçadeira em 2 Minutos [Passo a Passo]",
     url: "/como-desafogar-rocadeira",
     image: "/images/blog/como desafogar roçadeira.webp",
-    excerpt: "Motor encharcou de gasolina e não pega? Veja o atalho sem chaves e a drenagem completa pela vela para desafogar Stihl, Toyama, Makita e importadas."
+    excerpt: "Roçadeira afogada com cheiro de gasolina e vela molhada? Veja o atalho do acelerador sem chaves, a tabela de diagnóstico e a drenagem do cilindro em 5 passos."
   },
   {
-    title: "Como Montar Roçadeira Nakasaki [Passo a Passo Completo]",
+    title: "Como Montar Roçadeira Nakasaki: Guia Prático da Haste e Motor",
     url: "/como-montar-rocadeira-nakasaki",
     image: "/images/blog/como-montar-rocadeira-nakasaki.webp",
     excerpt: "Ordem real de bancada para montar Nakasaki 63cc, 65cc, 75cc e NK-750PRO: lado certo da haste bipartida, aperto em X na embreagem, guidão e graxa na ponteira."
@@ -131,6 +131,36 @@ export const articles: Article[] = [
     url: "/rocadeira-eletrica-ou-a-gasolina",
     image: "/images/blog/rocadeira-eletrica-ou-a-gasolina-bancada.webp",
     excerpt: "Dúvida entre roçadeira elétrica ou a gasolina? Compare potência (Watts vs. cc), limite de extensão, manutenção anual e veja a tabela por metragem de terreno."
+  },
+  {
+    title: "Melhor Roçadeira Costal: 4 Modelos Para Avaliar",
+    url: "/melhor-rocadeira-costal",
+    image: "/images/blog/melhor-rocadeira-costal.webp",
+    excerpt: "Qual a melhor roçadeira costal? Comparamos os 4 melhores modelos a gasolina (Husqvarna 541RB, Toyama TBC43BX, Vulcan e Garthen) para barrancos e cafezais!"
+  },
+  {
+    title: "Qual a Melhor Roçadeira: Costal ou Lateral? Como Escolher para o Seu Terreno",
+    url: "/qual-a-melhor-rocadeira-costal-ou-lateral",
+    image: "/images/blog/qual-a-melhor-rocadeira-costal-ou-lateral.webp",
+    excerpt: "Dúvida sobre qual a melhor roçadeira costal ou lateral? Compare eixo cardã rígido vs. cabo flexível, ergonomia em barrancos, manutenção e escolha sem erro."
+  },
+  {
+    title: "Qual a Melhor Cilindrada para Roçadeira? Guia Prático de 26cc a 65cc",
+    url: "/qual-a-melhor-cilindrada-para-rocadeira",
+    image: "/images/blog/qual-a-melhor-cilindrada-para-rocadeira.webp",
+    excerpt: "Dúvida sobre qual a melhor cilindrada para roçadeira? Veja a tabela real de peso, consumo por hora e força entre 33cc, 43cc e 52cc para acertar na escolha."
+  },
+  {
+    title: "Melhor Graxa para Roçadeira: Qual Usar na Ponteira e Transmissão",
+    url: "/qual-a-melhor-graxa-para-rocadeira",
+    image: "/images/blog/qual-a-melhor-graxa-para-rocadeira.webp",
+    excerpt: "Descubra qual a melhor graxa para roçadeira, compare as bisnagas originais Stihl e Husqvarna 80g e veja a medida exata em gramas para engraxar a ponteira."
+  },
+  {
+    title: "Roçadeira Toyama é Boa? Vale a Pena? Veja os Melhores Modelos",
+    url: "/rocadeira-toyama-e-boa",
+    image: "/images/blog/rocadeira-toyama-e-boa.webp",
+    excerpt: "Roçadeira Toyama é boa? Entenda a diferença entre as linhas H, X e RT, veja a análise de 8 modelos (43cc a 63cc) + 3 alternativas e escolha sem erro."
   }
 ];
 

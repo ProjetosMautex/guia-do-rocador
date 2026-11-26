@@ -1,0 +1,42 @@
+---
+import { Header } from '../components/Header';
+import { QualAMelhorRocadeiraCostalOuLateral } from '../components/roçadeiras/QualAMelhorRocadeiraCostalOuLateral';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopuprocadeira as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopuprocadeira';
+import '../styles/global.css';
+
+const title = "Qual a Melhor Roçadeira: Costal ou Lateral? Como Escolher | Guia do Roçador";
+const description = "Roçadeira lateral ou costal: qual a melhor para o seu terreno? Compare eixo rígido vs. flexível, ergonomia em barrancos, manutenção e saiba qual comprar.";
+const canonicalUrl = "https://guiadorocador.com.br/qual-a-melhor-rocadeira-costal-ou-lateral";
+const ogImage = "/images/blog/qual-a-melhor-rocadeira-costal-ou-lateral.webp";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="article" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+
+    <main class="flex-grow">
+      <QualAMelhorRocadeiraCostalOuLateral client:idle />
+    </main>
+
+    <Footer />
+
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

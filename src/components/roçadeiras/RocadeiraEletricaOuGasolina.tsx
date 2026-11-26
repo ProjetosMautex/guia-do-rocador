@@ -525,7 +525,11 @@ export const RocadeiraEletricaOuGasolina: React.FC = () => {
                     <a href="/como-ligar-rocadeira" className="text-[#166534] font-semibold hover:underline">
                       como ligar roçadeira a frio
                     </a>{' '}
-                    para não encharcar a vela.
+                    para não encharcar a vela (e veja{' '}
+                    <a href="/como-desafogar-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                      como desafogar a roçadeira
+                    </a>{' '}
+                    caso passe do ponto).
                   </li>
                   <li>Faça a pane seca (esvaziar o tanque e deixar morrer na lenta) sempre que for guardar por mais de 15 dias.</li>
                   <li>Complete a caixa de transmissão (ponteira) com graxa específica a cada 25 horas de serviço.</li>

@@ -415,7 +415,11 @@ export const MelhorOleoRocadeiraToyama: React.FC = () => {
             Escolher o melhor óleo para roçadeira Toyama evita o engripamento do pistão, reduz a fumaça no rosto do operador e impede que o carvão entupa o escapamento no meio da roçada.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-            Como a Toyama fabrica tanto modelos 2 tempos quanto roçadeiras 4 tempos, o primeiro passo é confirmar qual motor está nas suas costas.
+            Como a Toyama fabrica tanto modelos 2 tempos quanto roçadeiras 4 tempos — confira nossa análise completa sobre se a{' '}
+            <a href="/rocadeira-toyama-e-boa" className="text-[#16A34A] font-semibold hover:underline">
+              roçadeira Toyama é boa (comparativo das linhas H, X e RT)
+            </a>
+            —, o primeiro passo é confirmar qual motor está nas suas costas.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
             Para quem precisa renovar as peças de desgaste da ponta de corte, vale a pena ver também nosso comparativo com o <a href="/melhor-carretel-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">melhor carretel para roçadeira</a> do mercado.

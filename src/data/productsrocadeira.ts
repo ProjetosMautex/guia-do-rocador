@@ -498,83 +498,6 @@ export const products: Record<string, Product> = {
     link: "https://meli.la/1bTYhgA",
     image: "Fio Nylon 2.4 Mm Roçadeira Redondo Rocast 1kg Cortar Grama.webp"
   },
-
-  // ==========================================
-  // PRODUTOS EM REVISÃO (Aguardando revisão / troca de links)
-  // (Todos os produtos abaixo serão apagados ao final do processo)
-  // ==========================================
-  "rocadeira-vulcan-vr520h": {
-    name: "Vulcan VR520H",
-    link: "https://meli.la/1TeqVYU",
-    image: "Vulcan VR520H.webp"
-  },
-  "intech-machine-skim4300": {
-    name: "SKIM4300 Intech Machine",
-    link: "https://meli.la/1eL1tRT"
-  },
-  "vulcan-trent-vr430p": {
-    name: "Vr430P Vulcan Trent",
-    link: "https://amzn.to/4vqTIwu"
-  },
-  "branco-52cc-profissional": {
-    name: "Roçadeira 52cc Profissional Branco A Combustão",
-    link: "https://meli.la/1mXcVZD"
-  },
-  "carbon-fak-52cc-2.5hp": {
-    name: "Roçadeira 52cc 2,5hp Carbon Fak",
-    link: "https://meli.la/2E3nRQj"
-  },
-  "tekna-bc1250e1ss": {
-    name: "Tekna BC1250E1SS",
-    link: "https://meli.la/1ge8BXJ"
-  },
-  "tramontina-master-1000": {
-    name: "Tramontina Master 1000",
-    link: "https://meli.la/1wHbKiR"
-  },
-  "husqvarna-321r": {
-    name: "Husqvarna 321r",
-    link: "https://meli.la/26KGDzN"
-  },
-  "husqvarna-236rs": {
-    name: "Husqvarna 236rs",
-    link: "https://meli.la/2jk2x7V"
-  },
-  "stihl-rl430acn-tk-com-oleo": {
-    name: "Stihl Rl430acn-tk com Óleo",
-    link: "https://meli.la/2dLC1fL"
-  },
-  "rocadeira-a-gasolina-multifuncional-bi-partido-bascco": {
-    name: "Roçadeira A Gasolina Multifuncional Bi-partido Bascco",
-    link: "https://meli.la/1PS1et8"
-  },
-  "fio-de-nylon-quadrado-30mm-laranja-itece": {
-    name: "Fio De Nylon Quadrado 3,0mm Laranja Itecê",
-    link: "https://meli.la/2wmCUHQ"
-  },
-  "fio-nylon-3mm-quadrado-2kg-200m-nakasaki": {
-    name: "Fio Nylon 3mm Quadrado 2kg 200m NAKASAKI",
-    link: "https://meli.la/1GdsKX7"
-  },
-  "rocadeira-husqvarna-331r": {
-    name: "Roçadeira Husqvarna 331R",
-    link: "https://meli.la/2FeTyDL"
-  },
-  "rocadeira-toyama-tbc43h": {
-    name: "Toyama TBC43H",
-    link: "https://meli.la/2svLF82",
-    image: "Toyama TBC43H.webp"
-  },
-  "rocadeira-makita-dur187uz": {
-    name: "Makita DUR187UZ",
-    link: "https://meli.la/2zc33xr",
-    image: "Makita DUR187UZ.webp"
-  },
-  "rocadeira-intech-machine-skim5100": {
-    name: "Intech Machine Skim5100",
-    link: "https://meli.la/2FsSgnU",
-    image: "Intech Machine Skim5100.webp"
-  },
   "oleo-para-motores-2t-jaso-toyama-500ml": {
     name: "Óleo Para Motores 2t Jaso Toyama 500ml",
     link: "https://meli.la/1ufrroe",
@@ -769,6 +692,327 @@ export const products: Record<string, Product> = {
     name: "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink",
     link: "https://meli.la/1ciKERJ",
     image: "Roçadeira Lateral A Bateria 21v com 2 Baterias Bom9109 Bomvink.webp"
+  },
+
+  // --- 9 Novas Roçadeiras Cadastradas ---
+  "rocadeira-husqvarna-143rs-2-1hp-profissional-lamina-nylon": {
+    name: "Roçadeira Husqvarna 143rs 2,1hp Profissional Lâmina + Nylon",
+    link: "https://meli.la/1zsQJhz",
+    image: "Roçadeira Husqvarna 143rs 2,1hp Profissional Lâmina + Nylon.webp"
+  },
+  "Roçadeira Husqvarna 143rs 2,1hp Profissional Lâmina + Nylon": {
+    name: "Roçadeira Husqvarna 143rs 2,1hp Profissional Lâmina + Nylon",
+    link: "https://meli.la/1zsQJhz",
+    image: "Roçadeira Husqvarna 143rs 2,1hp Profissional Lâmina + Nylon.webp"
+  },
+  "husqvarna-143rst": {
+    name: "Roçadeira Husqvarna 143rs 2,1hp Profissional Lâmina + Nylon",
+    link: "https://meli.la/1zsQJhz",
+    image: "Roçadeira Husqvarna 143rs 2,1hp Profissional Lâmina + Nylon.webp"
+  },
+  "rocadeira-rd4-gasolina-36cc-motor-4-tempos-menegotti": {
+    name: "Roçadeira Rd4 Gasolina 36cc Motor 4 Tempos Menegotti",
+    link: "https://meli.la/1TdK1LK",
+    image: "Roçadeira Rd4 Gasolina 36cc Motor 4 Tempos Menegotti.webp"
+  },
+  "Roçadeira Rd4 Gasolina 36cc Motor 4 Tempos Menegotti": {
+    name: "Roçadeira Rd4 Gasolina 36cc Motor 4 Tempos Menegotti",
+    link: "https://meli.la/1TdK1LK",
+    image: "Roçadeira Rd4 Gasolina 36cc Motor 4 Tempos Menegotti.webp"
+  },
+  "menegotti-rd-4t-36cc": {
+    name: "Roçadeira Rd4 Gasolina 36cc Motor 4 Tempos Menegotti",
+    link: "https://meli.la/1TdK1LK",
+    image: "Roçadeira Rd4 Gasolina 36cc Motor 4 Tempos Menegotti.webp"
+  },
+  "rocadeira-gasolina-profissional-42-7cc-rl430xs-tekna-kit": {
+    name: "Roçadeira Gasolina Profissional 42,7cc Rl430xs Tekna + Kit",
+    link: "https://meli.la/2nWDdr6",
+    image: "Roçadeira Gasolina Profissional 42,7cc Rl430xs Tekna + Kit.webp"
+  },
+  "Roçadeira Gasolina Profissional 42,7cc Rl430xs Tekna + Kit": {
+    name: "Roçadeira Gasolina Profissional 42,7cc Rl430xs Tekna + Kit",
+    link: "https://meli.la/2nWDdr6",
+    image: "Roçadeira Gasolina Profissional 42,7cc Rl430xs Tekna + Kit.webp"
+  },
+  "tekna-rl430xs": {
+    name: "Roçadeira Gasolina Profissional 42,7cc Rl430xs Tekna + Kit",
+    link: "https://meli.la/2nWDdr6",
+    image: "Roçadeira Gasolina Profissional 42,7cc Rl430xs Tekna + Kit.webp"
+  },
+  "rocadeira-kawashima-kw-52-l-gasolina-51-7cc-2t-2-4hp": {
+    name: "Roçadeira Kawashima KW 52-L Gasolina 51,7cc 2T 2.4HP",
+    link: "https://meli.la/2BoZxJm",
+    image: "Roçadeira Kawashima KW 52-L Gasolina 51,7cc 2T 2.4HP.webp"
+  },
+  "Roçadeira Kawashima KW 52-L Gasolina 51,7cc 2T 2.4HP": {
+    name: "Roçadeira Kawashima KW 52-L Gasolina 51,7cc 2T 2.4HP",
+    link: "https://meli.la/2BoZxJm",
+    image: "Roçadeira Kawashima KW 52-L Gasolina 51,7cc 2T 2.4HP.webp"
+  },
+  "kawashima-kw52l": {
+    name: "Roçadeira Kawashima KW 52-L Gasolina 51,7cc 2T 2.4HP",
+    link: "https://meli.la/2BoZxJm",
+    image: "Roçadeira Kawashima KW 52-L Gasolina 51,7cc 2T 2.4HP.webp"
+  },
+  "rocadeira-toyama-costal-tbc43bx-a-gasolina-1-7hp-42-7cc": {
+    name: "Roçadeira Toyama Costal Tbc43bx A Gasolina 1,7hp 42,7cc",
+    link: "https://meli.la/1ywprKk",
+    image: "Roçadeira Toyama Costal Tbc43bx A Gasolina 1,7hp 42,7cc.webp"
+  },
+  "Roçadeira Toyama Costal Tbc43bx A Gasolina 1,7hp 42,7cc": {
+    name: "Roçadeira Toyama Costal Tbc43bx A Gasolina 1,7hp 42,7cc",
+    link: "https://meli.la/1ywprKk",
+    image: "Roçadeira Toyama Costal Tbc43bx A Gasolina 1,7hp 42,7cc.webp"
+  },
+  "toyama-tbc43bx-costal": {
+    name: "Roçadeira Toyama Costal Tbc43bx A Gasolina 1,7hp 42,7cc",
+    link: "https://meli.la/1ywprKk",
+    image: "Roçadeira Toyama Costal Tbc43bx A Gasolina 1,7hp 42,7cc.webp"
+  },
+  "rocadeira-costal-vulcan-trent-vrc430": {
+    name: "Roçadeira costal Vulcan Trent VRC430",
+    link: "https://meli.la/2SE8AnT",
+    image: "Roçadeira costal Vulcan Trent VRC430.webp"
+  },
+  "Roçadeira costal Vulcan Trent VRC430": {
+    name: "Roçadeira costal Vulcan Trent VRC430",
+    link: "https://meli.la/2SE8AnT",
+    image: "Roçadeira costal Vulcan Trent VRC430.webp"
+  },
+  "vulcan-trent-vrc430": {
+    name: "Roçadeira costal Vulcan Trent VRC430",
+    link: "https://meli.la/2SE8AnT",
+    image: "Roçadeira costal Vulcan Trent VRC430.webp"
+  },
+  "rocadeira-costal-a-gasolina-2t-1-7hp-42-7cc-rc-4500-garthen": {
+    name: "Roçadeira Costal À Gasolina 2t 1.7hp 42,7cc Rc-4500 Garthen",
+    link: "https://meli.la/2aasSYp",
+    image: "Roçadeira Costal À Gasolina 2t 1.7hp 42,7cc Rc-4500 Garthen.webp"
+  },
+  "Roçadeira Costal À Gasolina 2t 1.7hp 42,7cc Rc-4500 Garthen": {
+    name: "Roçadeira Costal À Gasolina 2t 1.7hp 42,7cc Rc-4500 Garthen",
+    link: "https://meli.la/2aasSYp",
+    image: "Roçadeira Costal À Gasolina 2t 1.7hp 42,7cc Rc-4500 Garthen.webp"
+  },
+  "garthen-rc4500": {
+    name: "Roçadeira Costal À Gasolina 2t 1.7hp 42,7cc Rc-4500 Garthen",
+    link: "https://meli.la/2aasSYp",
+    image: "Roçadeira Costal À Gasolina 2t 1.7hp 42,7cc Rc-4500 Garthen.webp"
+  },
+  "rocadeira-costal-a-gasolina-541rb-husqvarna-1-97hp": {
+    name: "Roçadeira Costal A Gasolina 541rb Husqvarna 1,97hp",
+    link: "https://meli.la/1Uhx3aS",
+    image: "Roçadeira Costal A Gasolina 541rb Husqvarna 1,97hp.webp"
+  },
+  "Roçadeira Costal A Gasolina 541rb Husqvarna 1,97hp": {
+    name: "Roçadeira Costal A Gasolina 541rb Husqvarna 1,97hp",
+    link: "https://meli.la/1Uhx3aS",
+    image: "Roçadeira Costal A Gasolina 541rb Husqvarna 1,97hp.webp"
+  },
+  "husqvarna-541rb": {
+    name: "Roçadeira Costal A Gasolina 541rb Husqvarna 1,97hp",
+    link: "https://meli.la/1Uhx3aS",
+    image: "Roçadeira Costal A Gasolina 541rb Husqvarna 1,97hp.webp"
+  },
+  "rocadeira-kawashima-lateral-uso-intenso-plus-kw340-t-33-6cc": {
+    name: "Roçadeira Kawashima Lateral Uso-intenso Plus Kw340-t 33,6cc",
+    link: "https://meli.la/2XjYekN",
+    image: "Roçadeira Kawashima Lateral Uso-intenso Plus Kw340-t 33,6cc.webp"
+  },
+  "Roçadeira Kawashima Lateral Uso-intenso Plus Kw340-t 33,6cc": {
+    name: "Roçadeira Kawashima Lateral Uso-intenso Plus Kw340-t 33,6cc",
+    link: "https://meli.la/2XjYekN",
+    image: "Roçadeira Kawashima Lateral Uso-intenso Plus Kw340-t 33,6cc.webp"
+  },
+  "kawashima-kw340-t": {
+    name: "Roçadeira Kawashima Lateral Uso-intenso Plus Kw340-t 33,6cc",
+    link: "https://meli.la/2XjYekN",
+    image: "Roçadeira Kawashima Lateral Uso-intenso Plus Kw340-t 33,6cc.webp"
+  },
+
+  // --- Graxas para Caixa de Transmissão / Ponteira de Roçadeira ---
+  "graxa-80g-stihl-a-melhor-lubrificacao": {
+    name: "Graxa 80g Stihl A Melhor - Lubrificação",
+    link: "https://meli.la/1fD54Tn",
+    image: "Graxa 80g Stihl A Melhor - Lubrificação.webp"
+  },
+  "Graxa 80g Stihl A Melhor - Lubrificação": {
+    name: "Graxa 80g Stihl A Melhor - Lubrificação",
+    link: "https://meli.la/1fD54Tn",
+    image: "Graxa 80g Stihl A Melhor - Lubrificação.webp"
+  },
+  "graxa-stihl-80g": {
+    name: "Graxa 80g Stihl A Melhor - Lubrificação",
+    link: "https://meli.la/1fD54Tn",
+    image: "Graxa 80g Stihl A Melhor - Lubrificação.webp"
+  },
+  "graxa-litio-husqvarna-80gr": {
+    name: "Graxa Litio Husqvarna 80gr",
+    link: "https://meli.la/2ZRkq4i",
+    image: "Graxa Litio Husqvarna 80gr.webp"
+  },
+  "Graxa Litio Husqvarna 80gr": {
+    name: "Graxa Litio Husqvarna 80gr",
+    link: "https://meli.la/2ZRkq4i",
+    image: "Graxa Litio Husqvarna 80gr.webp"
+  },
+  "graxa-husqvarna-80g": {
+    name: "Graxa Litio Husqvarna 80gr",
+    link: "https://meli.la/2ZRkq4i",
+    image: "Graxa Litio Husqvarna 80gr.webp"
+  },
+
+  // --- Linha Roçadeiras Toyama e Alternativas (Carbon Fak, Intech Machine, Vulcan Trent) ---
+  "rocadeira-tbc63-toyama-profissional-3-5hp-funcao-motopoda": {
+    name: "Roçadeira Tbc63 Toyama Profissional 3.5hp + Função Motopoda",
+    link: "https://meli.la/348DVNj",
+    image: "Roçadeira Tbc63 Toyama Profissional 3.5hp + Função Motopoda.webp"
+  },
+  "Roçadeira Tbc63 Toyama Profissional 3.5hp + Função Motopoda": {
+    name: "Roçadeira Tbc63 Toyama Profissional 3.5hp + Função Motopoda",
+    link: "https://meli.la/348DVNj",
+    image: "Roçadeira Tbc63 Toyama Profissional 3.5hp + Função Motopoda.webp"
+  },
+  "toyama-tbc63": {
+    name: "Roçadeira Tbc63 Toyama Profissional 3.5hp + Função Motopoda",
+    link: "https://meli.la/348DVNj",
+    image: "Roçadeira Tbc63 Toyama Profissional 3.5hp + Função Motopoda.webp"
+  },
+  "rocadeira-gasolina-2-tempos-tbc43x-43cc-gll-toyama-lamina": {
+    name: "Roçadeira Gasolina 2 Tempos Tbc43x 43cc Gll Toyama + Lâmina",
+    link: "https://meli.la/1K6kkqk",
+    image: "Roçadeira Gasolina 2 Tempos Tbc43x 43cc Gll Toyama + Lâmina.webp"
+  },
+  "Roçadeira Gasolina 2 Tempos Tbc43x 43cc Gll Toyama + Lâmina": {
+    name: "Roçadeira Gasolina 2 Tempos Tbc43x 43cc Gll Toyama + Lâmina",
+    link: "https://meli.la/1K6kkqk",
+    image: "Roçadeira Gasolina 2 Tempos Tbc43x 43cc Gll Toyama + Lâmina.webp"
+  },
+  "toyama-tbc43x": {
+    name: "Roçadeira Gasolina 2 Tempos Tbc43x 43cc Gll Toyama + Lâmina",
+    link: "https://meli.la/1K6kkqk",
+    image: "Roçadeira Gasolina 2 Tempos Tbc43x 43cc Gll Toyama + Lâmina.webp"
+  },
+  "rocadeira-jardinagem-lateral-a-gasolina-toyama-tbc43h": {
+    name: "Roçadeira Jardinagem Lateral A Gasolina Toyama TBC43H",
+    link: "https://meli.la/2svLF82",
+    image: "Roçadeira Jardinagem Lateral A Gasolina Toyama TBC43H.webp"
+  },
+  "Roçadeira Jardinagem Lateral A Gasolina Toyama TBC43H": {
+    name: "Roçadeira Jardinagem Lateral A Gasolina Toyama TBC43H",
+    link: "https://meli.la/2svLF82",
+    image: "Roçadeira Jardinagem Lateral A Gasolina Toyama TBC43H.webp"
+  },
+  "toyama-tbc43h": {
+    name: "Roçadeira Jardinagem Lateral A Gasolina Toyama TBC43H",
+    link: "https://meli.la/2svLF82",
+    image: "Roçadeira Jardinagem Lateral A Gasolina Toyama TBC43H.webp"
+  },
+  "rocadeira-toyama-tbc52h-52cc-profissional-oleo-2t-brinde": {
+    name: "Roçadeira Toyama Tbc52h 52cc Profissional + Óleo 2t Brinde",
+    link: "https://meli.la/1PbNbjy",
+    image: "Roçadeira Toyama Tbc52h 52cc Profissional + Óleo 2t Brinde.webp"
+  },
+  "Roçadeira Toyama Tbc52h 52cc Profissional + Óleo 2t Brinde": {
+    name: "Roçadeira Toyama Tbc52h 52cc Profissional + Óleo 2t Brinde",
+    link: "https://meli.la/1PbNbjy",
+    image: "Roçadeira Toyama Tbc52h 52cc Profissional + Óleo 2t Brinde.webp"
+  },
+  "toyama-tbc52h": {
+    name: "Roçadeira Toyama Tbc52h 52cc Profissional + Óleo 2t Brinde",
+    link: "https://meli.la/1PbNbjy",
+    image: "Roçadeira Toyama Tbc52h 52cc Profissional + Óleo 2t Brinde.webp"
+  },
+  "rocadeira-lateral-a-gasolina-2hp-52cc-2t-rt52l-b-toyama": {
+    name: "Roçadeira Lateral A Gasolina 2hp 52cc 2t Rt52l-b Toyama",
+    link: "https://meli.la/1uNyBm5",
+    image: "Roçadeira Lateral A Gasolina 2hp 52cc 2t Rt52l-b Toyama.webp"
+  },
+  "Roçadeira Lateral A Gasolina 2hp 52cc 2t Rt52l-b Toyama": {
+    name: "Roçadeira Lateral A Gasolina 2hp 52cc 2t Rt52l-b Toyama",
+    link: "https://meli.la/1uNyBm5",
+    image: "Roçadeira Lateral A Gasolina 2hp 52cc 2t Rt52l-b Toyama.webp"
+  },
+  "toyama-rt52l": {
+    name: "Roçadeira Lateral A Gasolina 2hp 52cc 2t Rt52l-b Toyama",
+    link: "https://meli.la/1uNyBm5",
+    image: "Roçadeira Lateral A Gasolina 2hp 52cc 2t Rt52l-b Toyama.webp"
+  },
+  "rocadeira-toyama-rt43l": {
+    name: "Roçadeira Toyama Rt43l",
+    link: "https://meli.la/1WoLK5M",
+    image: "Roçadeira Toyama Rt43l.webp"
+  },
+  "Roçadeira Toyama Rt43l": {
+    name: "Roçadeira Toyama Rt43l",
+    link: "https://meli.la/1WoLK5M",
+    image: "Roçadeira Toyama Rt43l.webp"
+  },
+  "toyama-rt43l": {
+    name: "Roçadeira Toyama Rt43l",
+    link: "https://meli.la/1WoLK5M",
+    image: "Roçadeira Toyama Rt43l.webp"
+  },
+  "rocadeira-a-gasolina-toyama-tbc52sx-premium-2t-51-6cc-pro": {
+    name: "Roçadeira A Gasolina Toyama Tbc52sx Premium 2t 51,6cc Pro",
+    link: "https://meli.la/1zijdKN",
+    image: "Roçadeira A Gasolina Toyama Tbc52sx Premium 2t 51,6cc Pro.webp"
+  },
+  "Roçadeira A Gasolina Toyama Tbc52sx Premium 2t 51,6cc Pro": {
+    name: "Roçadeira A Gasolina Toyama Tbc52sx Premium 2t 51,6cc Pro",
+    link: "https://meli.la/1zijdKN",
+    image: "Roçadeira A Gasolina Toyama Tbc52sx Premium 2t 51,6cc Pro.webp"
+  },
+  "toyama-tbc52sx": {
+    name: "Roçadeira A Gasolina Toyama Tbc52sx Premium 2t 51,6cc Pro",
+    link: "https://meli.la/1zijdKN",
+    image: "Roçadeira A Gasolina Toyama Tbc52sx Premium 2t 51,6cc Pro.webp"
+  },
+  "rocadeira-a-gasolina-profissional-2-5hp-fak520rb-carbon-fak": {
+    name: "Roçadeira A Gasolina Profissional 2,5hp Fak520rb Carbon Fak",
+    link: "https://meli.la/1YJTBvg",
+    image: "Roçadeira A Gasolina Profissional 2,5hp Fak520rb Carbon Fak.webp"
+  },
+  "Roçadeira A Gasolina Profissional 2,5hp Fak520rb Carbon Fak": {
+    name: "Roçadeira A Gasolina Profissional 2,5hp Fak520rb Carbon Fak",
+    link: "https://meli.la/1YJTBvg",
+    image: "Roçadeira A Gasolina Profissional 2,5hp Fak520rb Carbon Fak.webp"
+  },
+  "carbon-fak-fak520rb": {
+    name: "Roçadeira A Gasolina Profissional 2,5hp Fak520rb Carbon Fak",
+    link: "https://meli.la/1YJTBvg",
+    image: "Roçadeira A Gasolina Profissional 2,5hp Fak520rb Carbon Fak.webp"
+  },
+  "rocadeira-bipartida-a-gasolina-1-9-hp-2t-52cc-acessorios-skim5100-intech-machine": {
+    name: "Roçadeira bipartida à gasolina 1,9 HP 2T 52CC acessórios SKIM5100 Intech Machine",
+    link: "https://meli.la/2FsSgnU",
+    image: "Roçadeira bipartida à gasolina 1,9 HP 2T 52CC acessórios SKIM5100 Intech Machine.webp"
+  },
+  "Roçadeira bipartida à gasolina 1,9 HP 2T 52CC acessórios SKIM5100 Intech Machine": {
+    name: "Roçadeira bipartida à gasolina 1,9 HP 2T 52CC acessórios SKIM5100 Intech Machine",
+    link: "https://meli.la/2FsSgnU",
+    image: "Roçadeira bipartida à gasolina 1,9 HP 2T 52CC acessórios SKIM5100 Intech Machine.webp"
+  },
+  "intech-machine-skim5100": {
+    name: "Roçadeira bipartida à gasolina 1,9 HP 2T 52CC acessórios SKIM5100 Intech Machine",
+    link: "https://meli.la/2FsSgnU",
+    image: "Roçadeira bipartida à gasolina 1,9 HP 2T 52CC acessórios SKIM5100 Intech Machine.webp"
+  },
+  "rocadeira-lateral-a-gasolina-vulcan-trent-vr520h-52cc-2-5hp-2t": {
+    name: "Roçadeira Lateral A Gasolina Vulcan Trent Vr520h 52cc 2,5hp 2t",
+    link: "https://meli.la/1J4Bmba",
+    image: "Roçadeira Lateral A Gasolina Vulcan Trent Vr520h 52cc 2,5hp 2t.webp"
+  },
+  "Roçadeira Lateral A Gasolina Vulcan Trent Vr520h 52cc 2,5hp 2t": {
+    name: "Roçadeira Lateral A Gasolina Vulcan Trent Vr520h 52cc 2,5hp 2t",
+    link: "https://meli.la/1J4Bmba",
+    image: "Roçadeira Lateral A Gasolina Vulcan Trent Vr520h 52cc 2,5hp 2t.webp"
+  },
+  "vulcan-trent-vr520h": {
+    name: "Roçadeira Lateral A Gasolina Vulcan Trent Vr520h 52cc 2,5hp 2t",
+    link: "https://meli.la/1J4Bmba",
+    image: "Roçadeira Lateral A Gasolina Vulcan Trent Vr520h 52cc 2,5hp 2t.webp"
   }
 };
 

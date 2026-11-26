@@ -51,7 +51,7 @@ const Lightbulb = ({ size = 28, className = "" }: { size?: number; className?: s
 );
 
 export const ComoDesafogarRocadeira: React.FC = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -186,16 +186,73 @@ export const ComoDesafogarRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            3. ATALHO RÁPIDO SEM FERRAMENTAS (MÉTODO 1)
+            3. TABELA DE DIAGNÓSTICO POR SINTOMA + ATALHO RÁPIDO SEM CHAVES
             =================================================================== */}
-        <section className="mb-12">
+        <section className="mb-14">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] mb-4 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
+            Como Saber o Nível do Afogamento Antes de Desmontar
+          </h2>
+          <p className="mb-6 text-gray-700 leading-relaxed text-base sm:text-lg">
+            Nem toda roçadeira afogada exige sacar a vela de ignição na hora: identifique na tabela abaixo em qual estágio o seu motor está para aplicar a manobra exata sem forçar o cordão de partida:
+          </p>
+
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-8">
+            <table className="w-full text-left border-collapse bg-white text-sm">
+              <thead>
+                <tr className="bg-[#1a1a1a] text-white text-xs uppercase">
+                  <th className="p-3.5 sm:p-4 font-bold">Sintoma na Partida</th>
+                  <th className="p-3.5 sm:p-4 font-bold">Diagnóstico na Câmara</th>
+                  <th className="p-3.5 sm:p-4 font-bold text-[#4ade80]">O Que Fazer Agora</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 text-gray-700">
+                <tr className="hover:bg-gray-50">
+                  <td className="p-3.5 sm:p-4 font-bold text-gray-900">
+                    Deu um estalo de partida e morreu nas 2 puxadas seguintes
+                  </td>
+                  <td className="p-3.5 sm:p-4">Afogamento leve (excesso de vapor com afogador fechado)</td>
+                  <td className="p-3.5 sm:p-4 font-semibold text-[#166534]">
+                    Abrir o afogador, travar acelerador no fundo e puxar 5 a 8 vezes
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 bg-green-50/20">
+                  <td className="p-3.5 sm:p-4 font-bold text-gray-900">
+                    Cheiro forte de gasolina e escapamento úmido após 10+ puxadas
+                  </td>
+                  <td className="p-3.5 sm:p-4">Afogamento severo (eletrodo da vela molhado em curto)</td>
+                  <td className="p-3.5 sm:p-4 font-semibold text-[#166534]">
+                    Retirar a vela, secar no pano e drenar o cilindro de cabeça para baixo
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="p-3.5 sm:p-4 font-bold text-red-900">
+                    Cordão de partida ficou duro ou pesado de repente
+                  </td>
+                  <td className="p-3.5 sm:p-4">Início de calço hidráulico (gasolina líquida acumulada no topo do pistão)</td>
+                  <td className="p-3.5 sm:p-4 font-semibold text-red-800">
+                    Pare de puxar imediatamente e tire a vela para não entortar a biela
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 bg-amber-50/20">
+                  <td className="p-3.5 sm:p-4 font-bold text-gray-900">
+                    Sem cheiro de gasolina e vela sai 100% seca
+                  </td>
+                  <td className="p-3.5 sm:p-4">Não está afogada (falta de alimentação ou entupimento)</td>
+                  <td className="p-3.5 sm:p-4 font-semibold text-amber-900">
+                    Conferir bulbo primer, filtro pescador do tanque e limpeza do carburador
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <div className="bg-[#F0FDF4] p-6 sm:p-8 rounded-2xl border-2 border-[#16A34A]/40">
             <span className="inline-block bg-[#15803d] text-white text-xs font-black uppercase px-3 py-1 rounded-full mb-3">
               Teste Antes de Pegar na Chave
             </span>
-            <h2 className="text-2xl font-black text-[#166534] mb-3 uppercase tracking-tight">
+            <h3 className="text-2xl font-black text-[#166534] mb-3 uppercase tracking-tight">
               Atalho Rápido: O Truque do Acelerador no Fundo
-            </h2>
+            </h3>
             <p className="mb-4 text-sm sm:text-base text-gray-800 leading-relaxed">
               Se você acabou de dar duas ou três puxadas a mais com o afogador fechado, tente limpar a câmara apenas com fluxo de ar puro.
             </p>
@@ -510,6 +567,41 @@ export const ComoDesafogarRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
+            8B. RESUMO RÁPIDO: O QUE EVITAR VS PRÁTICA RECOMENDADA
+            =================================================================== */}
+        <section className="mb-14">
+          <h2 className="text-2xl font-black text-[#1a1a1a] mb-6 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
+            Resumo Rápido: O que Evitar vs. Prática Recomendada
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-red-50 p-6 rounded-2xl border border-red-200">
+              <h3 className="font-bold text-red-900 mb-3 flex items-center gap-2 text-base">
+                <AlertTriangle size={20} className="text-red-600 shrink-0" /> O que Evitar no Socorro
+              </h3>
+              <ul className="space-y-2.5 text-red-800 text-sm list-disc list-inside leading-relaxed">
+                <li>Continuar puxando o cordão com o afogador fechado após o primeiro sinal de explosão.</li>
+                <li>Raspar o eletrodo da vela com faca, prego ou lixa grossa de ferro.</li>
+                <li>Puxar o retrátil sem a vela com o botão Stop ligado e o cachimbo perto do furo.</li>
+                <li>Rosquear a vela torta direto na chave de boca, espanando o cabeçote de alumínio.</li>
+              </ul>
+            </div>
+
+            <div className="bg-[#F0FDF4] p-6 rounded-2xl border border-[#16A34A]/30">
+              <h3 className="font-bold text-[#166534] mb-3 flex items-center gap-2 text-base">
+                <Check size={20} className="text-[#16A34A] shrink-0" /> Prática Recomendada de Oficina
+              </h3>
+              <ul className="space-y-2.5 text-[#166534] text-sm list-disc list-inside leading-relaxed">
+                <li>Baixar o afogador imediatamente assim que ouvir o primeiro ronco curto do motor frio.</li>
+                <li>Cortar sempre o botão Stop antes de soltar o cachimbo e drenar o cilindro invertido.</li>
+                <li>Iniciar a rosca da vela manualmente com os dedos e dar apenas o aperto firme final na chave.</li>
+                <li>Manter sempre uma vela reserva nova (ex.: NGK BPMR7A) na bolsa de ferramentas do trecho.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        {/* ===================================================================
             9. PERGUNTAS FREQUENTES
             =================================================================== */}
         <section className="mt-14 pt-8 border-t border-gray-200">
@@ -553,15 +645,54 @@ export const ComoDesafogarRocadeira: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            10. DICA DE OFICINA DO JOSÉ AILTON
+            10. CONSIDERAÇÕES FINAIS (BOX ESCURO NOBRE) + AUTOR + DICA DE OURO
             =================================================================== */}
-        <div className="mt-14 bg-[#F0FDF4] border-2 border-[#16A34A] p-6 sm:p-8 rounded-3xl shadow-sm flex items-start gap-4">
+        <section className="mt-16 pt-12 border-t-4 border-[#16A34A]">
+          <div className="bg-[#1a1a1a] p-8 sm:p-12 rounded-3xl text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 via-[#16A34A] to-green-600"></div>
+
+            <h2 className="text-2xl sm:text-3xl font-black text-white mb-6 uppercase tracking-tight">
+              Câmara Seca, Centelha Limpa e Motor Pronto para o Trecho
+            </h2>
+
+            <div className="prose prose-lg text-gray-300 max-w-none mx-auto font-medium space-y-4 text-sm sm:text-base">
+              <p className="mb-4 leading-relaxed">
+                Saber como desafogar a roçadeira em dois minutos transforma um atraso irritante na manhã de serviço em uma rotina simples de bancada.
+              </p>
+              <p className="mb-4 leading-relaxed">
+                Respeitar o momento exato de abrir o afogador e dosar o óleo 2 tempos no frasco graduado (seja em motores leves de 26 cc ou pesados, como explicamos no guia sobre{' '}
+                <a href="/qual-a-melhor-cilindrada-para-rocadeira" className="text-[#4ade80] font-semibold hover:underline">
+                  qual a melhor cilindrada para roçadeira
+                </a>
+                ) evita 95% dos afogamentos em campo.
+              </p>
+              <p className="mb-0 leading-relaxed">
+                Mantenha a chave de vela e um pano seco sempre à mão, trabalhe com EPIs completos e coloque sua máquina para roncar redondo!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div className="w-full flex justify-center mt-12 mb-4">
+          <a href="/author/jose-ailton/" aria-label="Ver perfil operacional de José Ailton da Silva">
+            <img
+              src="/images/autores/José Ailton da Silva-thumb.webp"
+              alt="José Ailton da Silva"
+              width={112}
+              height={112}
+              className="w-24 h-24 rounded-full object-cover border-4 border-[#16A34A] hover:scale-105 transition-transform duration-200 shadow-md"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+        <div className="mt-6 bg-[#F0FDF4] border-2 border-[#16A34A] p-6 sm:p-8 rounded-3xl shadow-sm flex items-start gap-4">
           <div className="bg-[#16A34A] text-white p-3 rounded-2xl shrink-0">
             <Lightbulb size={24} />
           </div>
           <div>
             <h3 className="text-lg sm:text-xl font-black text-[#166534] uppercase tracking-wide mb-2">
-              Dica de Ouro: Como Não Afogar Nunca Mais
+              Dica de Ouro do José Ailton: Como Não Afogar Nunca Mais
             </h3>
             <p className="mb-3 text-sm sm:text-base text-gray-800 leading-relaxed">
               O maior motivo de afogamento acontece na manhã fria: o motor dá aquele primeiro estalo curto (sinal de explosão) e o operador, na pressa, dá mais duas puxadas sem abaixar o afogador.

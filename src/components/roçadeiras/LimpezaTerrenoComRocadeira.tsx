@@ -176,8 +176,12 @@ export const LimpezaTerrenoComRocadeira: React.FC = () => {
             Se você ainda está escolhendo o equipamento ideal para encarar esse tipo de serviço pesado, vale conferir antes o nosso comparativo da{' '}
             <a href="/melhor-rocadeira" className="text-[#166534] font-semibold hover:underline">
               melhor roçadeira a gasolina e elétrica
-            </a>
-            .
+            </a>{' '}
+            e entender{' '}
+            <a href="/qual-a-melhor-rocadeira-costal-ou-lateral" className="text-[#166534] font-semibold hover:underline">
+              qual a melhor roçadeira costal ou lateral
+            </a>{' '}
+            para a inclinação do seu lote.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
             Abaixo, reuni o roteiro prático que aplico no trecho para limpar desde lotes brutos com arbustos até quintais residenciais fechados de mato com total segurança.

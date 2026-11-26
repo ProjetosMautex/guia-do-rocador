@@ -51,7 +51,7 @@ const Lightbulb = ({ size = 28, className = "" }: { size?: number; className?: s
 );
 
 export const ComoMontarRocadeiraNakasaki: React.FC = () => {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -126,8 +126,8 @@ export const ComoMontarRocadeiraNakasaki: React.FC = () => {
           </span>
 
           <h1 className="text-3xl sm:text-5xl font-black mb-6 leading-tight uppercase tracking-tight">
-            Como Montar Roçadeira Nakasaki <br />
-            <span className="text-[#4ade80]">[Passo a Passo Completo]</span>
+            Como Montar Roçadeira Nakasaki: <br />
+            <span className="text-[#4ade80]">Guia Prático da Haste e Motor</span>
           </h1>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-gray-300 text-sm border-t border-gray-800 pt-6">
@@ -225,7 +225,13 @@ export const ComoMontarRocadeiraNakasaki: React.FC = () => {
                   <td className="p-4 font-bold text-gray-900">Costal 65cc</td>
                   <td className="p-4">Eixo flexível (mangote) + tubo</td>
                   <td className="p-4 text-[#166534] font-semibold">M10 x 1,25 (Esquerda)</td>
-                  <td className="p-4">Lubrificar o cabo flexível interno antes de travar no motor</td>
+                  <td className="p-4">
+                    Lubrificar o cabo flexível interno antes de travar no motor (veja também como ela se compara no ranking da{' '}
+                    <a href="/melhor-rocadeira-costal" className="text-[#166534] font-semibold hover:underline">
+                      melhor roçadeira costal
+                    </a>
+                    )
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -370,7 +376,11 @@ export const ComoMontarRocadeiraNakasaki: React.FC = () => {
               Posicione a saia protetora imediatamente acima da caixa de engrenagens usando a chapinha metálica de apoio, conferindo se a pequena faca corta-fio está voltada para o lado de descarga do capim.
             </p>
             <p className="mb-0 text-sm sm:text-base text-gray-700 leading-relaxed">
-              Solte o parafuso lateral do graxeiro da caixa de transmissão e injete graxa de lítio ou grafitada antes de estrear a roçadeira — reaplique a cada 20 horas de serviço.
+              Solte o parafuso lateral do graxeiro da caixa de transmissão e aplique a{' '}
+              <a href="/qual-a-melhor-graxa-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                melhor graxa para roçadeira (lítio para ponteira)
+              </a>{' '}
+              antes de estrear a máquina — reaplique a cada 20 a 25 horas de serviço.
             </p>
           </div>
 
@@ -444,9 +454,74 @@ export const ComoMontarRocadeiraNakasaki: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            5. ERROS FATAIS NA MONTAGEM DA NAKASAKI
+            5. TABELA DE DIAGNÓSTICO PÓS-MONTAGEM + ERROS FATAIS NA MONTAGEM
             =================================================================== */}
         <section className="mb-14">
+          <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] mb-4 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
+            Montou a Nakasaki e Deu Falha? Diagnóstico Rápido de Bancada
+          </h2>
+          <p className="mb-6 text-gray-700 leading-relaxed text-base sm:text-lg">
+            Se algo parecer estranho logo no primeiro teste após fechar os parafusos, confira na tabela abaixo os quatro sintomas mais comuns de montagem incorreta e como corrigir em dois minutos:
+          </p>
+
+          <div className="overflow-x-auto rounded-2xl border border-gray-200 shadow-sm mb-12">
+            <table className="w-full text-left border-collapse bg-white text-sm">
+              <thead>
+                <tr className="bg-[#1a1a1a] text-white text-xs uppercase">
+                  <th className="p-3.5 sm:p-4 font-bold">Sintoma Após a Montagem</th>
+                  <th className="p-3.5 sm:p-4 font-bold">Causa Mais Provável</th>
+                  <th className="p-3.5 sm:p-4 font-bold text-[#4ade80]">Correção na Bancada</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-200 text-gray-700">
+                <tr className="hover:bg-gray-50">
+                  <td className="p-3.5 sm:p-4 font-bold text-gray-900">
+                    Motor acelera forte, mas a lâmina ou carretel não gira
+                  </td>
+                  <td className="p-3.5 sm:p-4">
+                    A vareta interna (cardã de 9 estrias) não encaixou até o fundo da campana ou da luva central
+                  </td>
+                  <td className="p-3.5 sm:p-4 font-semibold text-[#166534]">
+                    Afrouxar a luva bipartida, girar a ponteira com a mão e empurrar o tubo até o pino-trava clicar
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 bg-green-50/20">
+                  <td className="p-3.5 sm:p-4 font-bold text-gray-900">
+                    Cabeçote já começa girando sozinho na marcha lenta
+                  </td>
+                  <td className="p-3.5 sm:p-4">
+                    Cabo do acelerador preso esticado demais no carburador (sem folga livre)
+                  </td>
+                  <td className="p-3.5 sm:p-4 font-semibold text-[#166534]">
+                    Regule a porca 8/10 mm do cabo deixando 2 mm de folga no gatilho ou baixe 1/4 de volta no parafuso LA
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50">
+                  <td className="p-3.5 sm:p-4 font-bold text-gray-900">
+                    Trepidação forte no guidão logo ao subir o giro
+                  </td>
+                  <td className="p-3.5 sm:p-4">
+                    Lâmina presa fora do degrau guia de 25,4 mm da flange ou embreagem apertada fora de cruz
+                  </td>
+                  <td className="p-3.5 sm:p-4 font-semibold text-[#166534]">
+                    Reassentar o furo central da faca no ressalto da flange interna e reapertar a campana em X
+                  </td>
+                </tr>
+                <tr className="hover:bg-gray-50 bg-amber-50/20">
+                  <td className="p-3.5 sm:p-4 font-bold text-gray-900">
+                    Botão Stop (OFF) do punho não desliga o motor
+                  </td>
+                  <td className="p-3.5 sm:p-4">
+                    Um dos dois conectores elétricos do chicote soltou ou não deu contato firme
+                  </td>
+                  <td className="p-3.5 sm:p-4 font-semibold text-amber-900">
+                    Abafar o motor fechando o afogador e reconectar firme os dois plugues entre o guidão e a bobina
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
           <h2 className="text-2xl font-black text-[#1a1a1a] mb-6 uppercase tracking-tight border-b-2 border-gray-100 pb-3">
             4 Erros que Destroem uma Nakasaki Nova na Primeira Semana
           </h2>
@@ -522,9 +597,52 @@ export const ComoMontarRocadeiraNakasaki: React.FC = () => {
         </section>
 
         {/* ===================================================================
-            7. DICA DE OFICINA DO CARLOS HENRIQUE
+            7. CONSIDERAÇÕES FINAIS (BOX ESCURO NOBRE) + AUTOR + DICA DE OFICINA
             =================================================================== */}
-        <div className="mt-14 bg-[#F0FDF4] border-2 border-[#16A34A] p-6 sm:p-8 rounded-3xl flex items-start gap-4 shadow-sm">
+        <section className="mt-16 pt-12 border-t-4 border-[#16A34A]">
+          <div className="bg-[#1a1a1a] p-8 sm:p-12 rounded-3xl text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-green-400 via-[#16A34A] to-green-600"></div>
+
+            <h2 className="text-2xl sm:text-3xl font-black text-white mb-6 uppercase tracking-tight">
+              Nakasaki Alinhada, Engraxada e Pronta para o Desbaste
+            </h2>
+
+            <div className="prose prose-lg text-gray-300 max-w-none mx-auto font-medium space-y-4 text-sm sm:text-base">
+              <p className="mb-4 leading-relaxed">
+                Montar uma roçadeira Nakasaki com cuidado técnico na bancada é o que separa uma máquina que vibra e quebra suportes na primeira quinzena de um equipamento firme para anos de trabalho.
+              </p>
+              <p className="mb-4 leading-relaxed">
+                Respeitando o aperto em cruz da embreagem, o encaixe completo das estrias do cardã e a lubrificação da ponteira, seu motor de 52 cc reais (anunciado como 63cc a 75cc, conforme detalhamos no guia sobre{' '}
+                <a href="/qual-a-melhor-cilindrada-para-rocadeira" className="text-[#4ade80] font-semibold hover:underline">
+                  qual a melhor cilindrada para roçadeira
+                </a>
+                ) entrega todo o torque na{' '}
+                <a href="/limpeza-de-terreno-com-rocadeira" className="text-[#4ade80] font-semibold hover:underline">
+                  limpeza de terrenos com mato alto
+                </a>
+                .
+              </p>
+              <p className="mb-0 leading-relaxed">
+                Ajuste o cinto duplo na altura do quadril, vista seus EPIs completos e faça uma estreia segura no trecho!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div className="w-full flex justify-center mt-12 mb-4">
+          <a href="/author/carlos-henrique/" aria-label="Ver perfil técnico de Carlos Henrique Menezes">
+            <img
+              src="/images/autores/Carlos Henrique Menezes-thumb.webp"
+              alt="Carlos Henrique Menezes"
+              width={112}
+              height={112}
+              className="w-24 h-24 rounded-full object-cover border-4 border-[#16A34A] hover:scale-105 transition-transform duration-200 shadow-md"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+        <div className="mt-6 bg-[#F0FDF4] border-2 border-[#16A34A] p-6 sm:p-8 rounded-3xl flex items-start gap-4 shadow-sm">
           <div className="bg-[#16A34A] text-white p-3 rounded-2xl shrink-0">
             <Lightbulb size={24} />
           </div>
