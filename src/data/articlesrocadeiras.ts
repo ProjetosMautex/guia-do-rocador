@@ -161,6 +161,30 @@ export const articles: Article[] = [
     url: "/rocadeira-toyama-e-boa",
     image: "/images/blog/rocadeira-toyama-e-boa.webp",
     excerpt: "Roçadeira Toyama é boa? Entenda a diferença entre as linhas H, X e RT, veja a análise de 8 modelos (43cc a 63cc) + 3 alternativas e escolha sem erro."
+  },
+  {
+    title: "Toyama TBC63 é Boa Mesmo? Veja se Vale a Pena em 2026",
+    url: "/rocadeira-toyama-tbc63-e-boa",
+    image: "/images/blog/rocadeira-toyama-tbc63-e-boa.webp",
+    excerpt: "Dúvida se a roçadeira Toyama TBC63 é boa? Analisamos o motor de 63,3cc e 3,5 HP, ficha técnica, prós e contras e o comparativo TBC63 vs TBC52X."
+  },
+  {
+    title: "Como Temperar a Gasolina da Roçadeira: Mistura 2T e Proporções Exatas",
+    url: "/como-temperar-gasolina-para-rocadeira",
+    image: "/images/blog/como-temperar-gasolina-para-rocadeira.webp",
+    excerpt: "Aprenda como temperar gasolina para roçadeira sem errar a medida. Veja a tabela de mistura de óleo 2T (25:1 e 50:1) em ml e evite fundir o motor."
+  },
+  {
+    title: "Roçadeira Toyama RT52L é Boa? Análise e Vale a Pena (2026)",
+    url: "/rocadeira-toyama-rt52l-e-boa",
+    image: "/images/blog/rocadeira-toyama-rt52l-e-boa.webp",
+    excerpt: "Dúvida se a roçadeira Toyama RT52L é boa? Analisamos o motor de 51,7cc e 2 HP, ficha técnica do manual, manutenção e custo-benefício no campo."
+  },
+  {
+    title: "Como Evitar Acidentes com Roçadeira: Guia Completo de Segurança",
+    url: "/como-evitar-acidentes-com-rocadeira",
+    image: "/images/blog/como-evitar-acidentes-com-rocadeira.webp",
+    excerpt: "Aprenda como evitar acidentes com roçadeira: veja o checklist de 6 passos antes da partida, os EPIs obrigatórios, o raio de 15m e como evitar o rebote."
   }
 ];
 

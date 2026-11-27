@@ -397,10 +397,14 @@ export const MelhorOleo2Tempos: React.FC = () => {
             Diferente de máquinas 4 tempos, a vida útil do cilindro e do pistão da sua roçadeira depende diretamente do lubrificante que vai misturado no tanque.
           </p>
           <p>
-            Saber qual o melhor óleo 2 tempos para roçadeira e acertar na medida do dosador evita fumaça excessiva, vela encharcada e o temido motor fundido.
+            Saber qual o melhor óleo 2 tempos para roçadeira e dominar o passo a passo de{' '}
+            <a href="/como-temperar-gasolina-para-rocadeira" className="text-[#166534] font-semibold hover:underline">
+              como temperar gasolina para roçadeira
+            </a>{' '}
+            no dosador evita fumaça excessiva, vela encharcada e o temido motor fundido.
           </p>
           <p>
-            Abaixo, reuni os 4 melhores óleos do mercado em 2026 e a tabela exata de mistura para você proteger sua máquina.
+            Abaixo, reuni os 4 melhores óleos do mercado e a tabela exata de mistura para você proteger sua máquina.
           </p>
         </div>
 

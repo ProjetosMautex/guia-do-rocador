@@ -266,11 +266,13 @@
  *      • Todo artigo comercial DEVE entregar utilidade prática original que concorrentes genéricos não entregam:
  *        tabelas comparativas de especificações reais (cilindrada, furo, rosca, voltagem/Ah, torque),
  *        quadros "Quando Vale a Pena vs. Quando Evitar", critérios mecânicos de bancada e dicas reais de oficina.
- *    - ZERO KEYWORD STUFFING E ZERO ANO FIXO NO TEXTO/CARD (CONTEÚDO EVERGREEN):
+ *    - ZERO KEYWORD STUFFING E REGRA DO ANO (ANO APENAS NO TÍTULO QUANDO NECESSÁRIO):
  *      • NUNCA empilhe variações exatas da mesma palavra-chave entre parênteses na introdução
  *        nem crie caixas de "Navegação Rápida" ou H2s repetindo a mesma palavra-chave 5 ou 6 vezes.
- *      • NÃO coloque o ano (ex.: "em 2026") no card de `src/data/articlesrocadeiras.ts` (title/excerpt) nem
- *        espalhado nos parágrafos e subtítulos do texto para não precisar editar manualmente na virada do ano.
+ *      • O ano atual (ex.: "em 2026") PODE ser colocado no Título Principal (H1 / title), se necessário,
+ *        mas NÃO deve ser espalhado em outras partes do artigo (subtítulos H2/H3, parágrafos do texto ou
+ *        resumo/excerpt do card em `src/data/articlesrocadeiras.ts`) para não precisar caçar e editar
+ *        dezenas de trechos no meio do texto na virada do ano.
  *      • Use linguagem natural, sinônimos técnicos e títulos de seções variados.
  *    - ZERO REPETIÇÃO DE BLOCOS INTERNOS E ANTI-CANIBALIZAÇÃO ENTRE ARTIGOS:
  *      • NÃO repita o mesmo bloco/passo a passo várias vezes dentro do artigo só mudando o nome da marca/modelo;

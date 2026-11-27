@@ -1030,7 +1030,11 @@ export const RocadeiraToyamaEBoa: React.FC = () => {
                 </tr>
                 <tr className="hover:bg-gray-50 bg-green-50/30">
                   <td className="p-3.5 sm:p-4 font-bold text-gray-900">Vegetação de alta densidade + Poda de galhos</td>
-                  <td className="p-3.5 sm:p-4 font-bold text-[#166534]">Toyama TBC63 (3,5 HP)</td>
+                  <td className="p-3.5 sm:p-4 font-bold text-[#166534]">
+                    <a href="/rocadeira-toyama-tbc63-e-boa" className="hover:underline">
+                      Toyama TBC63 (3,5 HP)
+                    </a>
+                  </td>
                   <td className="p-3.5 sm:p-4 text-gray-700">Força máxima de 63,3 cc com disco de 80 dentes e motopoda</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
@@ -1040,8 +1044,13 @@ export const RocadeiraToyamaEBoa: React.FC = () => {
                 </tr>
                 <tr className="hover:bg-gray-50 bg-green-50/30">
                   <td className="p-3.5 sm:p-4 font-bold text-gray-900">Viabilidade financeira e leveza operacional</td>
-                  <td className="p-3.5 sm:p-4 font-bold text-[#166534]">Toyama RT43L e RT52L</td>
-                  <td className="p-3.5 sm:p-4 text-gray-700">Mecânica simplificada e peso reduzido (~8 kg na RT43L)</td>
+                  <td className="p-3.5 sm:p-4 font-bold text-[#166534]">
+                    Toyama RT43L e{' '}
+                    <a href="/rocadeira-toyama-rt52l-e-boa" className="hover:underline">
+                      RT52L
+                    </a>
+                  </td>
+                  <td className="p-3.5 sm:p-4 text-gray-700">Mecânica simplificada e peso reduzido (~8 kg na RT43L e RT52L)</td>
                 </tr>
                 <tr className="hover:bg-gray-50">
                   <td className="p-3.5 sm:p-4 font-bold text-gray-900">Transporte fácil no porta-malas de carro compacto</td>

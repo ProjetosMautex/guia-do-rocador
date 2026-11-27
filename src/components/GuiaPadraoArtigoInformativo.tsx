@@ -167,8 +167,9 @@
  *      • NÃO empilhe variações exatas da palavra-chave na introdução (ex.: repetir "como regular roçadeira..."
  *        4 vezes seguidas entre parênteses) nem crie blocos de "Navegação Rápida" repetindo a mesma palavra-chave
  *        em cada item da lista.
- *      • NÃO coloque o ano (ex.: "em 2026") no card de `src/data/articlesrocadeiras.ts` (title/excerpt) nem
- *        espalhado nos parágrafos e subtítulos do texto para não precisar editar manualmente na virada do ano.
+ *      • O ano atual (ex.: "em 2026") PODE ser colocado apenas no Título Principal (H1 / title) quando necessário,
+ *        mas NÃO deve ser colocado no resumo/excerpt do card de `src/data/articlesrocadeiras.ts` nem
+ *        espalhado nos parágrafos e subtítulos (H2/H3) do texto para não precisar editar manualmente na virada do ano.
  *    - ZERO DUPLICAÇÃO DE PASSOS (INTERNA OU ENTRE ARTIGOS):
  *      • NÃO repita o mesmo passo a passo várias vezes mudando apenas o nome da marca (ex.: bloco geral + bloco
  *        Stihl + bloco Toyama repetindo os mesmos 6 passos). Faça UM passo a passo claro e UMA tabela enxuta

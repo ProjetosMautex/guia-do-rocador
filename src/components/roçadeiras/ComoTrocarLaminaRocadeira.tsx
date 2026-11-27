@@ -175,7 +175,11 @@ export const ComoTrocarLaminaRocadeira: React.FC = () => {
             Se você ainda tem dúvidas sobre qual lâmina é a mais indicada para o seu tipo de vegetação, consulte o nosso guia sobre <a href="/lamina-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">melhor lâmina para roçadeira</a> com o comparativo de modelos.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-            A troca do conjunto de corte é simples e leva menos de cinco minutos, mas exige atenção rigorosa ao sentido da rosca invertida e à ordem exata das arruelas na ponteira.
+            A troca do conjunto de corte é simples e leva menos de cinco minutos, mas exige atenção rigorosa ao sentido da rosca invertida, à ordem exata das arruelas na ponteira e às regras básicas de{' '}
+            <a href="/como-evitar-acidentes-com-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+              como evitar acidentes com roçadeira
+            </a>
+            .
           </p>
         </div>
 

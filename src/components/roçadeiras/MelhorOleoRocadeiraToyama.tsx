@@ -425,7 +425,11 @@ export const MelhorOleoRocadeiraToyama: React.FC = () => {
             Para quem precisa renovar as peças de desgaste da ponta de corte, vale a pena ver também nosso comparativo com o <a href="/melhor-carretel-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">melhor carretel para roçadeira</a> do mercado.
           </p>
           <p className="mb-5 text-gray-700 leading-relaxed text-base sm:text-lg">
-            Abaixo, reuni as 4 melhores opções de lubrificantes para comprar hoje e as regras exatas de mistura para a sua máquina durar anos no batente.
+            Abaixo, reuni as 4 melhores opções de lubrificantes para comprar hoje e as regras exatas de{' '}
+            <a href="/como-temperar-gasolina-para-rocadeira" className="text-[#16A34A] font-semibold hover:underline">
+              como temperar a gasolina da roçadeira
+            </a>{' '}
+            para a sua máquina durar anos no batente.
           </p>
         </div>
 

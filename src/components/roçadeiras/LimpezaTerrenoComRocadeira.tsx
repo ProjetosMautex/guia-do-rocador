@@ -300,7 +300,11 @@ export const LimpezaTerrenoComRocadeira: React.FC = () => {
                 Ferramentas, Insumos e EPIs para Limpar o Lote
               </h2>
               <p className="text-sm text-gray-600 m-0">
-                Conferência obrigatória antes de sair do galpão para não parar o serviço na metade:
+                Conferência obrigatória antes de sair do galpão para não parar o serviço na metade (veja também nosso protocolo completo de{' '}
+                <a href="/como-evitar-acidentes-com-rocadeira" className="text-[#166534] font-semibold hover:underline">
+                  como evitar acidentes com roçadeira
+                </a>
+                ):
               </p>
             </div>
           </div>

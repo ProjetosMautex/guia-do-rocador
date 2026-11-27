@@ -1,0 +1,42 @@
+---
+import { Header } from '../components/Header';
+import { ComoTemperarGasolinaParaRocadeira } from '../components/roçadeiras/ComoTemperarGasolinaParaRocadeira';
+import { Footer } from '../components/Footer';
+import { CookieConsent } from '../components/CookieConsent';
+import { ExitIntentPopupoleo2tempos as ExitIntentPopup } from '../components/roçadeiras/ExitIntentPopupoleo2tempos';
+import '../styles/global.css';
+
+const title = "Como Temperar a Gasolina da Roçadeira: Mistura 2T e Proporções | Guia do Roçador";
+const description = "Aprenda como temperar gasolina para roçadeira com precisão. Veja a tabela de mistura de óleo 2T (25:1 e 50:1) em ml e evite fundir ou carbonizar o motor.";
+const canonicalUrl = "https://guiadorocador.com.br/como-temperar-gasolina-para-rocadeira";
+const ogImage = "/images/blog/como-temperar-gasolina-para-rocadeira.webp";
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="article" />
+  </head>
+  <body class="bg-gray-50 flex flex-col min-h-screen m-0 w-full antialiased text-[#1a1a1a]">
+    <Header client:load />
+
+    <main class="flex-grow">
+      <ComoTemperarGasolinaParaRocadeira client:idle />
+    </main>
+
+    <Footer />
+
+    <CookieConsent client:load />
+    <ExitIntentPopup client:load />
+  </body>
+</html>

@@ -297,7 +297,11 @@ export const QualAMelhorCilindradaParaRocadeira: React.FC = () => {
             </h3>
             <div className="prose prose-lg text-gray-700 max-w-none">
               <p className="mb-4 text-gray-700 leading-relaxed text-base sm:text-lg">
-                No mercado profissional verdadeiro, roçadeiras acima de 55 cc (como a TBC63 de 63,3 cc reais que avaliamos no guia se a{' '}
+                No mercado profissional verdadeiro, roçadeiras acima de 55 cc (como a máquina que testamos no review se a{' '}
+                <a href="/rocadeira-toyama-tbc63-e-boa" className="text-[#166534] font-semibold hover:underline">
+                  roçadeira Toyama TBC63 é boa
+                </a>{' '}
+                e no guia geral se a{' '}
                 <a href="/rocadeira-toyama-e-boa" className="text-[#166534] font-semibold hover:underline">
                   roçadeira Toyama é boa
                 </a>
